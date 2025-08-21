@@ -416,7 +416,7 @@ Last update: 2025 May release 3.0.19.
                                         or (substring(../ram:PaymentReference, 0, 4) = '75#'))
                                       and (string-length(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) = 8)
                                       )
-                              )" flag="fatal">For Danish Suppliers the PaymentReference is mandatory and MUST start with 71#, 73# or 75# (kortartkode) and and PayeePartyCreditorFinancialAccount/IBANID  (Kreditornummer) is mandatory and must be exactly 8 characters long, when Payment means equals 93 (FIK)</assert>
+                              )" flag="fatal">For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.</assert>
       <assert id="DK-R-011" test="not((ram:TypeCode = '93')
                               and ((substring(../ram:PaymentReference, 0, 4) = '71#')
                                     or (substring(../ram:PaymentReference, 0, 4)  = '75#'))
