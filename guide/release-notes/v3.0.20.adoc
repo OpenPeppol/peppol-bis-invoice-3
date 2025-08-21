@@ -1,0 +1,30 @@
+= Version 3.0.20
+[horizontal]
+Release date:: November 2025
+* Date of member review: 2025-09-15
+* Date of publication: 2025-11-24
+* Mandatory to use from: 2025-02-23
+
+== Changes to BIS document
+
+
+== Changes to code lists and validation artefacts
+
+Codelist publication date: 2025-09-05
+Validation artefacts publication date: 2025-10-03
+
+[cols="1,1,1"]
+|===
+|codelist|removed|added
+
+|===
+
+
+==  EN 16931 schematrons updated
+
+
+==  Changes to Country-Specific Rules
+* Rule DK-R-010 
+  fixed the text from: For Danish Suppliers the PaymentID is mandatory and MUST start with 71#, 73# or 75# (kortartkode) and CreditAccount/AccountID (Kreditornummer) is mandatory and MUST be exactly 8 characters long, when Payment means equals 93 (FIK)
+  to: For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.
+
