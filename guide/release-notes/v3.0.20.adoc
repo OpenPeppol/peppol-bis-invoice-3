@@ -27,4 +27,4 @@ Validation artefacts publication date: 2025-10-03
 * Rule DK-R-010 
   fixed the text from: For Danish Suppliers the PaymentID is mandatory and MUST start with 71#, 73# or 75# (kortartkode) and CreditAccount/AccountID (Kreditornummer) is mandatory and MUST be exactly 8 characters long, when Payment means equals 93 (FIK)
   to: For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.
-
+  External change: https://github.com/OpenPEPPOL/peppol-bis-invoice-3/commit/632666fa02af0a64858f9c9d95299ef1d514f70c
