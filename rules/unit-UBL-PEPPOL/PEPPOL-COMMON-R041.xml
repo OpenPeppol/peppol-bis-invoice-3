@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0"
+	configuration="peppolbis-t01-base-3.0">
+	<assert>
+		<description>Verify validation of Norwegian organization number.</description>
+		<scope>PEPPOL-COMMON-R041</scope>
+	</assert>
+	<test>
+		<assert>
+			<success number="3">PEPPOL-COMMON-R041</success>
+		</assert>
+		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Order-2">
+
+			<cac:BuyerCustomerParty>
+				<cac:Party>
+					<cbc:EndpointID schemeID="0192">991825827</cbc:EndpointID>
+					<cac:PartyIdentification>
+						<cbc:ID schemeID="0192">991825827</cbc:ID>
+					</cac:PartyIdentification>
+					<cac:PartyLegalEntity>
+						<cbc:CompanyID schemeID="0192">991825827</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:BuyerCustomerParty>
+
+		</Order>
+	</test>
+	<test>
+		<assert>
+			<success number="3">PEPPOL-COMMON-R041</success>
+		</assert>
+		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Order-2">
+
+			<cac:BuyerCustomerParty>
+				<cac:Party>
+					<cbc:EndpointID schemeID="0192">987654325</cbc:EndpointID>
+					<cac:PartyIdentification>
+						<cbc:ID schemeID="0192">123456785</cbc:ID>
+					</cac:PartyIdentification>
+				</cac:Party>
+			</cac:BuyerCustomerParty>
+
+		</Order>
+	</test>
+	<test>
+		<assert>
+			<error number="3">PEPPOL-COMMON-R041</error>
+		</assert>
+		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Order-2">
+
+			<cac:BuyerCustomerParty>
+				<cac:Party>
+					<cbc:EndpointID schemeID="0192">991825822</cbc:EndpointID>
+					<cac:PartyIdentification>
+						<cbc:ID schemeID="0192">991825822</cbc:ID>
+					</cac:PartyIdentification>
+					<cac:PartyLegalEntity>
+						<cbc:CompanyID schemeID="0192">991825822</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:BuyerCustomerParty>
+
+		</Order>
+	</test>
+	<test>
+		<assert>
+			<error number="3">PEPPOL-COMMON-R041</error>
+		</assert>
+		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Order-2">
+
+			<cac:BuyerCustomerParty>
+				<cac:Party>
+					<cbc:EndpointID schemeID="0192">9918258222</cbc:EndpointID>
+					<cac:PartyIdentification>
+						<cbc:ID schemeID="0192">9918258222</cbc:ID>
+					</cac:PartyIdentification>
+					<cac:PartyLegalEntity>
+						<cbc:CompanyID schemeID="0192">9918258222</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:BuyerCustomerParty>
+
+		</Order>
+	</test>
+</testSet>

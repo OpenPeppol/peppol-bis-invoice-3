@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2025 May release 3.0.19.
+Last update: 2025 November release 3.0.20.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
@@ -58,13 +58,13 @@ Last update: 2025 May release 3.0.19.
       select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
     <variable name="weightedSum"
       select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (1 + ((($i + 1) mod 2) * 2)))" />
-    <value-of select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))" />
+    <sequence select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:slack" as="xs:boolean">
     <param name="exp" as="xs:decimal" />
     <param name="val" as="xs:decimal" />
     <param name="slack" as="xs:decimal" />
-    <value-of select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val" />
+    <sequence select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod11" as="xs:boolean">
     <param name="val" />
@@ -73,7 +73,7 @@ Last update: 2025 May release 3.0.19.
       select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
     <variable name="weightedSum"
       select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (($i mod 6) + 2))" />
-    <value-of
+    <sequence
       select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod97-0208" as="xs:boolean">
@@ -81,7 +81,7 @@ Last update: 2025 May release 3.0.19.
     <variable name="checkdigits" select="substring($val,9,2)" />
     <variable name="calculated_digits"
       select="xs:string(97 - (xs:integer(substring($val,1,8)) mod 97))" />
-    <value-of select="number($checkdigits) = number($calculated_digits)" />
+    <sequence select="number($checkdigits) = number($calculated_digits)" />
   </function>
   <function name="u:checkCodiceIPA" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
     <param name="arg" as="xs:string?" />
@@ -188,7 +188,7 @@ Last update: 2025 May release 3.0.19.
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:abn" as="xs:boolean">
     <param name="val" />
-    <value-of
+    <sequence
       select="(
 ((string-to-codepoints(substring($val,1,1)) - 49) * 10) +
 ((string-to-codepoints(substring($val,2,1)) - 48) * 1) +
@@ -221,7 +221,7 @@ Last update: 2025 May release 3.0.19.
 			(number($digits[3])*64) +
 			(number($digits[2])*128) +
 			(number($digits[1])*256) " />
-    <value-of select="($checksum  mod 11) mod 10 = number($digits[9])" />
+    <sequence select="($checksum  mod 11) mod 10 = number($digits[9])" />
   </function>
 
   <!-- Function for Swedish organisation numbers (0007) -->
@@ -237,14 +237,14 @@ Last update: 2025 May release 3.0.19.
         <variable name="mainPart" select="substring($number, 1, 9)" />
         <variable name="checkDigit" select="substring($number, 10, 1)" />
         <variable name="sum" as="xs:integer">
-          <value-of
-            select="sum(
+          <sequence
+            select="xs:integer(sum(
 						for $pos in 1 to string-length($mainPart) return 
 							if ($pos mod 2 = 1) 
 							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 + 
 								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10 
 							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))
-					)" />
+					))" />
         </variable>
         <variable name="calculatedCheckDigit" select="(10 - $sum mod 10) mod 10" />
         <sequence select="$calculatedCheckDigit = number($checkDigit)" />
@@ -445,10 +445,14 @@ Last update: 2025 May release 3.0.19.
     <rule
       context="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']">
       <assert id="PEPPOL-COMMON-R042"
-        test="(string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
-               or
-              (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)"
+        test="(string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
         flag="fatal">Danish organization number (CVR) MUST be stated in the correct format.</assert>
+    </rule>
+    <rule
+      context="cbc:EndpointID[@schemeID = '0096'] | cac:PartyIdentification/cbc:ID[@schemeID = '0096'] | cbc:CompanyID[@schemeID = '0096']">
+      <assert id="PEPPOL-COMMON-R052"
+        test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
+        flag="fatal">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']">

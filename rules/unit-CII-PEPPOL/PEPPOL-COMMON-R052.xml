@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-cii">
 	<assert>
-		<description>Invalid Danish organization number (CVR) provided.</description>
-		<scope>PEPPOL-COMMON-R042</scope>
+		<description>Invalid Danish chamber of commerce number provided.</description>
+		<scope>PEPPOL-COMMON-R052</scope>
 	</assert>
 	
 	<test>
 		<assert>
-			<success>PEPPOL-COMMON-R042</success>
+			<success>PEPPOL-COMMON-R052</success>
 		</assert>
         <rsm:CrossIndustryInvoice
 			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
@@ -21,7 +21,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedLegalOrganization>
-							<ram:ID schemeID="0184">DK12345678</ram:ID>
+							<ram:ID schemeID="0096">1234567890</ram:ID>
 						</ram:SpecifiedLegalOrganization>
 						<ram:PostalTradeAddress>
 							<ram:CountryID>DK</ram:CountryID>
@@ -29,7 +29,7 @@
 					</ram:SellerTradeParty>
 					<ram:BuyerTradeParty>
 						<ram:SpecifiedLegalOrganization>
-							<ram:ID schemeID="0184">DK12345678</ram:ID>
+							<ram:ID schemeID="0096">1234567890</ram:ID>
 						</ram:SpecifiedLegalOrganization>
 					</ram:BuyerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -39,7 +39,7 @@
     
 	<test>
 		<assert>
-			<error>PEPPOL-COMMON-R042</error>
+			<error>PEPPOL-COMMON-R052</error>
 		</assert>
         <rsm:CrossIndustryInvoice
 			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
@@ -53,7 +53,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedLegalOrganization>
-							<ram:ID schemeID="0184">345678</ram:ID>
+							<ram:ID schemeID="0096">DK12345678</ram:ID>
 						</ram:SpecifiedLegalOrganization>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
