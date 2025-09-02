@@ -581,6 +581,13 @@ Last update: 2025 May release 3.0.19.
 						)"
         flag="fatal">For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentID eg. "71#1234567890123456" when payment Method equals 93 (FIK)</assert>
     </rule>
+    <rule
+      context="//cac:AccountingCustomerParty/cac:Party[./cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'DK']">
+      <assert id="DK-R-017"
+              test="not(((boolean(cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')))"
+              flag="fatal">For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty
+      </assert>
+    </rule>
     <!-- Line level -->
     <rule
       context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine">
