@@ -4,7 +4,7 @@
 		<description>For Danish Suppliers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty</description>
 		<scope>DK-R-017</scope>
 	</assert>
-	
+
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -12,19 +12,19 @@
 		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
 			<cac:AccountingCustomerParty>
 				<cac:Party>
-					<cac:PostalAddress>
-						<cac:Country>
-							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
-						</cac:Country>
-					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Customer A/S</cbc:RegistrationName>
-						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
+						<cbc:CompanyID>DK12345678</cbc:CompanyID>
 					</cac:PartyLegalEntity>
 				</cac:Party>
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -33,7 +33,7 @@
 			</cac:AccountingSupplierParty>
 		</Invoice>
 	</test>
-	
+
 	<test>
 		<assert>
 			<error>DK-R-017</error>
@@ -54,6 +54,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -62,7 +67,7 @@
 			</cac:AccountingSupplierParty>
 		</Invoice>
 	</test>
-	
+
 	<test>
 		<assert>
 			<error>DK-R-017</error>
@@ -83,6 +88,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -91,7 +101,7 @@
 			</cac:AccountingSupplierParty>
 		</Invoice>
 	</test>
-	
+
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -112,6 +122,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="">DK12345678</cbc:CompanyID>
@@ -120,7 +135,7 @@
 			</cac:AccountingSupplierParty>
 		</Invoice>
 	</test>
-	
+
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -141,6 +156,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID>DK12345678</cbc:CompanyID>
@@ -149,7 +169,7 @@
 			</cac:AccountingSupplierParty>
 		</Invoice>
 	</test>
-	
+
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -170,6 +190,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -178,7 +203,7 @@
 			</cac:AccountingSupplierParty>
 		</CreditNote>
 	</test>
-		
+
 	<test>
 		<assert>
 			<error>DK-R-017</error>
@@ -199,6 +224,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -207,7 +237,7 @@
 			</cac:AccountingSupplierParty>
 		</CreditNote>
 	</test>
-	
+
 	<test>
 		<assert>
 			<error>DK-R-017</error>
@@ -228,6 +258,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
@@ -236,7 +271,7 @@
 			</cac:AccountingSupplierParty>
 		</CreditNote>
 	</test>
-	
+
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -257,6 +292,11 @@
 			</cac:AccountingCustomerParty>
 			<cac:AccountingSupplierParty>
 				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
 						<cbc:CompanyID schemeID="">DK12345678</cbc:CompanyID>
@@ -265,7 +305,35 @@
 			</cac:AccountingSupplierParty>
 		</CreditNote>
 	</test>
-	
+
+	<test>
+		<assert>
+			<success>DK-R-017</success>
+		</assert>
+		<CreditNote xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+			<cac:AccountingCustomerParty>
+				<cac:Party>
+					<cac:PartyLegalEntity>
+						<cbc:RegistrationName>Customer A/S</cbc:RegistrationName>
+						<cbc:CompanyID>1234</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:AccountingCustomerParty>
+			<cac:AccountingSupplierParty>
+				<cac:Party>
+					<cac:PostalAddress>
+						<cac:Country>
+							<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:PostalAddress>
+					<cac:PartyLegalEntity>
+						<cbc:RegistrationName>Supplier A A/S</cbc:RegistrationName>
+						<cbc:CompanyID>DK12345678</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:AccountingSupplierParty>
+		</CreditNote>
+	</test>
 	<test>
 		<assert>
 			<success>DK-R-017</success>
@@ -280,7 +348,7 @@
 					</cac:PostalAddress>
 					<cac:PartyLegalEntity>
 						<cbc:RegistrationName>Customer A/S</cbc:RegistrationName>
-						<cbc:CompanyID schemeID="0184">DK12345678</cbc:CompanyID>
+						<cbc:CompanyID>1234</cbc:CompanyID>
 					</cac:PartyLegalEntity>
 				</cac:Party>
 			</cac:AccountingCustomerParty>
