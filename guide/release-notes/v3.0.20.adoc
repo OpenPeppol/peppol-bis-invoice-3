@@ -22,13 +22,12 @@ Validation artefacts publication date: 2025-10-03
 
 ==  EN 16931 schematrons updated
 
-* Common rule R042 updated the test to: (string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
-  ** uses stricter test to only allow with DK prefix
-  ** https://openpeppol.atlassian.net/browse/RFC-491
-
 * NEW common rule R052 added to check for valid Danish chamber of commerce number (P) using test: (string-length(string()) = 8) and (string-length(translate(string(), '1234567890', '')) = 0)
   ** https://openpeppol.atlassian.net/browse/RFC-491
 
+* NEW Common rule R053 added check for valid ERSTORG number (SE): (string-length(string()) = 10) and (substring(string(), 1, 2) = 'SE') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
+  ** https://openpeppol.atlassian.net/browse/RFC-491
+  
 * Common rule R048 CII commented out, simular to the UBL
 
 * Updated companion test files
