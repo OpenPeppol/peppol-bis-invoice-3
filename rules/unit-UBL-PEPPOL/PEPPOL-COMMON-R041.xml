@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0"
-	configuration="peppolbis-t01-base-3.0">
+	configuration="peppolbis-en16931-base-3.0-ubl">
 	<assert>
 		<description>Verify validation of Norwegian organization number.</description>
 		<scope>PEPPOL-COMMON-R041</scope>
 	</assert>
 	<test>
 		<assert>
-			<success number="3">PEPPOL-COMMON-R041</success>
+			<success>PEPPOL-COMMON-R041</success>
 		</assert>
 		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -29,7 +29,7 @@
 	</test>
 	<test>
 		<assert>
-			<success number="3">PEPPOL-COMMON-R041</success>
+			<success>PEPPOL-COMMON-R041</success>
 		</assert>
 		<Order xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
