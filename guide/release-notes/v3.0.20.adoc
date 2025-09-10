@@ -24,10 +24,12 @@ Validation artefacts publication date: 2025-10-03
 
 * NEW common rule R052 added to check for valid Danish chamber of commerce number (P) using test: (string-length(string()) = 8) and (string-length(translate(string(), '1234567890', '')) = 0)
   ** https://openpeppol.atlassian.net/browse/RFC-491
+  ** rule is initially a warning and consecutive release fatal
 
 * NEW Common rule R053 added check for valid ERSTORG number (SE): (string-length(string()) = 10) and (substring(string(), 1, 2) = 'SE') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
   ** https://openpeppol.atlassian.net/browse/RFC-491
-  
+  ** rule is initially a warning and consecutive release fatal
+
 * Common rule R048 CII commented out, simular to the UBL
 
 * Updated companion test files
@@ -41,6 +43,7 @@ Validation artefacts publication date: 2025-10-03
 
 * NEW Fatal Rule DK-R-017
   For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty
+  ** rule is initially a warning and consecutive release fatal
   ** context: supplier and customer country is "DK"
   ** rule: not(((boolean(cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')))
 

@@ -320,12 +320,12 @@ Last update: 2025 November release 3.0.20.
     <rule context="ram:URIID[@schemeID = '0096'] | ram:ID[@schemeID = '0096'] | ram:GlobalID[@schemeID = '0096']">
       <assert id="PEPPOL-COMMON-R052" 
         test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)" 
-        flag="fatal">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
+        flag="warning">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0198'] | ram:ID[@schemeID = '0198'] | ram:GlobalID[@schemeID = '0198']">
       <assert id="PEPPOL-COMMON-R053" 
         test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)" 
-        flag="fatal">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
+        flag="warning">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())" flag="fatal">Belgian enterprise number MUST be stated in the correct format.</assert>

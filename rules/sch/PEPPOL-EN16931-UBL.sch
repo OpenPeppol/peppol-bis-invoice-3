@@ -454,13 +454,13 @@ Last update: 2025 November release 3.0.20.
       context="cbc:EndpointID[@schemeID = '0096'] | cac:PartyIdentification/cbc:ID[@schemeID = '0096'] | cbc:CompanyID[@schemeID = '0096']">
       <assert id="PEPPOL-COMMON-R052"
         test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
-        flag="fatal">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
+        flag="warning">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0198'] | cac:PartyIdentification/cbc:ID[@schemeID = '0198'] | cbc:CompanyID[@schemeID = '0198']">
       <assert id="PEPPOL-COMMON-R053"
         test="(string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
-        flag="fatal">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
+        flag="warning">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']">
@@ -597,7 +597,7 @@ Last update: 2025 November release 3.0.20.
       context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party">
       <assert id="DK-R-017"
               test="not(((boolean(cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')))"
-              flag="fatal">For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty
+              flag="warning">For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty
       </assert>
     </rule>
     <!-- Line level -->

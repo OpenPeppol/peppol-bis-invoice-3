@@ -39,7 +39,7 @@
     
 	<test>
 		<assert>
-			<error>PEPPOL-COMMON-R052</error>
+			<warning>PEPPOL-COMMON-R052</warning>
 		</assert>
         <rsm:CrossIndustryInvoice
 			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
