@@ -7,26 +7,41 @@ Release date:: November 2025
 
 == Changes to BIS document
 
+* Compliance section on binary objects updated with removal of the following text: "The attachment functionality is not intended for of including a copy of the invoice in an image format (such as PDF). Attaching an invoice copy is not in compliance with this specification."
 
 == Changes to code lists and validation artefacts
 
-Codelist publication date: 2025-09-05
-Validation artefacts publication date: 2025-10-03
+* Codelist publication date: 2025-10-23
+* Validation artefacts UBL and CII 1.3.15 publication date: 2025-10-23
 
 [cols="1,1,1"]
 |===
 |codelist|removed|added
-
+|eas |0 [] |1 [0244]
+|icd |0 [] |2 [0241,0242,0243,0244]
+|ISO4217 |0 [] |1 [CNH]
+|VATEX |0 [] |1 [VATEX-EU-135-1]
 |===
 
+For the Country code BS (Bahamas), the country name has been changed from "Bahamas" to "Bahamas (The)" in accordance with the ISO 3166-1 standard.
 
 ==  EN 16931 schematrons updated
 
-* NEW common rule R052 added to check for valid Danish chamber of commerce number (P) using test: (string-length(string()) = 8) and (string-length(translate(string(), '1234567890', '')) = 0)
+* Update codes in code lists
+* Restored missing example files
+* CII Wrong calculation for rules BR-IC-08, BR-G-08, BR-E-08 and BR-AE-08
+* UBL-CR-628 and UBL-CR-631 are identical
+* The IDs of some of the new Business Rules of the upcoming EU EN 16931 are already taken by Validator Rules
+* BT-86 missing validation in CII
+* Adopt new codes into Schematrons
+* Added rules CII-SR-465 and CII-SR-466
+
+
+* Added rule PEPPOL-COMMON-R052, which checks that the Danish Chamber of Commerce number (P) consists of exactly eight characters and contains only digits.
   ** https://openpeppol.atlassian.net/browse/RFC-491
   ** rule is initially a warning and consecutive release fatal
 
-* NEW Common rule R053 added check for valid ERSTORG number (SE): (string-length(string()) = 10) and (substring(string(), 1, 2) = 'SE') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
+* Added rule PEPPOL-COMMON-R053, which checks that the Danish ERSTORG number (SE) is ten characters long, starts with “DK”, and that the remaining characters are digits.
   ** https://openpeppol.atlassian.net/browse/RFC-491
   ** rule is initially a warning and consecutive release fatal
 

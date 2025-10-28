@@ -517,4 +517,8 @@ Exonération de TVA - Article 261 D-3° du Code Général des Impôts</Name>
 		<Id>VATEX-FR-AE</Id>
 		<Name>Exempt based on 2 of article 283 of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
+	<Code>
+		<Id>VATEX-EU-135-1</Id>
+		<Name>Exempt based on article 135, section 1 of Council Directive 2006/112/EC</Name>
+	</Code>
 </CodeList>
