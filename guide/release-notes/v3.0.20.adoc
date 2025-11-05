@@ -25,6 +25,20 @@ Release date:: November 2025
 
 For the Country code BS (Bahamas), the country name has been changed from "Bahamas" to "Bahamas (The)" in accordance with the ISO 3166-1 standard.
 
+* Added rule PEPPOL-COMMON-R052, which checks that the Danish Chamber of Commerce number (P) consists of exactly eight characters and contains only digits.
+  ** https://openpeppol.atlassian.net/browse/RFC-491
+  ** rule is initially a warning and consecutive release fatal
+
+* Added rule PEPPOL-COMMON-R053, which checks that the Danish ERSTORG number (SE) is ten characters long, starts with “DK”, and that the remaining characters are digits.
+  ** https://openpeppol.atlassian.net/browse/RFC-491
+  ** rule is initially a warning and consecutive release fatal
+
+* Rule PEPPOL-COMMON-R084 removed since it is not used anymore
+
+* Updated companion test files
+
+* Resolved the issue “A function that computes atomic values should use xsl:sequence rather than xsl:value-of”, as using xsl:value-of in some contexts can cause warnings or errors in some XSLT parsers.
+
 ==  EN 16931 schematrons updated
 
 * Update codes in code lists
@@ -35,21 +49,6 @@ For the Country code BS (Bahamas), the country name has been changed from "Baham
 * BT-86 missing validation in CII
 * Adopt new codes into Schematrons
 * Added rules CII-SR-465 and CII-SR-466
-
-
-* Added rule PEPPOL-COMMON-R052, which checks that the Danish Chamber of Commerce number (P) consists of exactly eight characters and contains only digits.
-  ** https://openpeppol.atlassian.net/browse/RFC-491
-  ** rule is initially a warning and consecutive release fatal
-
-* Added rule PEPPOL-COMMON-R053, which checks that the Danish ERSTORG number (SE) is ten characters long, starts with “DK”, and that the remaining characters are digits.
-  ** https://openpeppol.atlassian.net/browse/RFC-491
-  ** rule is initially a warning and consecutive release fatal
-
-* Common rule R048 CII commented out, simular to the UBL
-
-* Updated companion test files
-
-* Resolved the issue "A function that computes atomic values should use xsl:sequence rather than xsl:value-of"
 
 ==  Changes to Country-Specific Rules
 * BUG Rule DK-R-010 
