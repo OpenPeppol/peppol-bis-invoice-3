@@ -11,8 +11,13 @@
     <Resource>
         <Type>Doc-1</Type>
         <Path>bis/</Path>
-        <Title>Business Interoperability Specifications (BIS)</Title>
+        <Title>Billing 3.0 Business Interoperability Specifications (BIS)</Title>
     </Resource>
+    <Resource>
+        <Type>Doc-1</Type>
+        <Path>invoice-with-response /</Path>
+        <Title>Billing Wit Response 3.0 Business Interoperability Specifications (BIS)</Title>
+    </Resource>	
     <Resource>
         <Type>Doc-1</Type>
         <Path>compliance/</Path>
