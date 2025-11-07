@@ -1,5 +1,5 @@
-= Compliance to BIS
-openPeppol AISBL <http://www.peppol.eu/>
+= Invoice With Response BIS
+openPeppol AISBL <http://www.peppol.org/>
 :icons: font
 :source-highlighter: coderay
 :toc: left
@@ -9,19 +9,15 @@ openPeppol AISBL <http://www.peppol.eu/>
 :imagesdir: images
 :title-logo-image: peppol.png
 
-This section provides an overview of rules that receivers and/or senders of documents must fulfil to be compliant to a BIS. This is not a complete or normative listing of applicable rules.
-
-A message is considered compliant to this BIS if no fatal errors are detected when validating with the current validation artefacts.
-
-A message is also considered compliant to this BIS if only warnings (and no fatal errors) are detected when validating with the current validation artefacts.
+This is  placeholder for a new BIS for Invoice with Response
 
 
 :leveloffset: +1
 
-include::sender.adoc[]
+include::chapter1.adoc[]
 
-include::receiver.adoc[]
+include::chapter2.adoc[]
 
-include::payload.adoc[]
+include::chapter3.adoc[]
 
 :leveloffset: -1
