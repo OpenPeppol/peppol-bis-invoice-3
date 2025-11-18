@@ -18,8 +18,8 @@ Release date:: November 2025
 |===
 |codelist|removed|added
 |eas |0 [] |1 [0244]
-|icd |0 [] |2 [0241,0242,0243,0244]
-|ISO4217 |0 [] |1 [CNH]
+|icd |0 [] |4 [0241,0242,0243,0244]
+|ISO4217 |1 [STN] |2 [CNH,STD]
 |VATEX |0 [] |1 [VATEX-EU-135-1]
 |===
 
