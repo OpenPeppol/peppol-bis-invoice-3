@@ -30,6 +30,9 @@
 				<!--Reference type="RULE">PEPPOL-COMMON-R048</Reference-->
 				<Reference type="RULE">PEPPOL-COMMON-R049</Reference>
 				<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R052</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+                
                 <Reference type="RULE">PEPPOL-EN16931-CL008</Reference>
                 
                 
@@ -67,7 +70,9 @@
 					<!--Reference type="RULE">PEPPOL-COMMON-R048</Reference-->
 					<Reference type="RULE">PEPPOL-COMMON-R049</Reference>
 					<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
-                    
+                    <Reference type="RULE">PEPPOL-COMMON-R052</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Buyer identifier identification scheme identifier</Name>
@@ -216,7 +221,9 @@
 					<!--Reference type="RULE">PEPPOL-COMMON-R048</Reference-->
 					<Reference type="RULE">PEPPOL-COMMON-R049</Reference>
 					<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
-					
+					<Reference type="RULE">PEPPOL-COMMON-R052</Reference>
+					<Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+
                     <Value type="EXAMPLE">SE8765456787</Value>
                 </Element>
                 

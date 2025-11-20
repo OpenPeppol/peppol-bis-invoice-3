@@ -1192,4 +1192,20 @@ Classes moyennes et Energie</Description>
 		<Id>0240</Id>
 		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
 	</Code>
+	<Code>
+		<Id>0241</Id>
+		<Name>Name unknown</Name>
+	</Code>
+	<Code>
+		<Id>0242</Id>
+		<Name>OpenPeppol Service Provider Identification Scheme (SPIS)</Name>
+	</Code>
+	<Code>
+		<Id>0243</Id>
+		<Name>Name unknown</Name>
+	</Code>
+	<Code>
+		<Id>0244</Id>
+		<Name>Tax Identification (Tax ID), Nigeria</Name>
+	</Code>
 </CodeList>

@@ -716,4 +716,8 @@
 		<Id>XXX</Id>
 		<Name>The codes assigned for transactions where no currency is involved</Name>
 	</Code>
+	<Code>
+		<Id>CNH</Id>
+		<Name>Renminbi (offshore)</Name>
+	</Code>
 </CodeList>
