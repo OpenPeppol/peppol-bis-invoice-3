@@ -1,0 +1,10 @@
+= Version 3.0.20-hotfix
+[horizontal]
+Release date:: 2026-01-21
+* Date of member review: 2025-09-15
+* Date of publication: 2025-11-24
+* Mandatory to use from: 2026-02-23
+
+== Changes to code lists and validation artefacts
+
+* Added code 0245 for Tax identification number (DIČ), Slovakia in codelist EAS and ICD.
