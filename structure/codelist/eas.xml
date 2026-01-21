@@ -377,4 +377,8 @@
 		<Id>0244</Id>
 		<Name>Tax Identification (Tax ID), Nigeria</Name>
 	</Code>
+	<Code>
+		<Id>0245</Id>
+		<Name>Tax identification number (DIČ), Slovakia</Name>
+	</Code>	
 </CodeList>
