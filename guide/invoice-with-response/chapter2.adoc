@@ -1,8 +1,0 @@
-= Chapter 2
-[horizontal]
-
-== ABC
-* XYZ
-
-* ÅÄÖ
-

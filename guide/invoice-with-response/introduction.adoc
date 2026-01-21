@@ -1,0 +1,34 @@
+= Introduction to openPeppol and BIS
+
+
+This {peppol} BIS provides a set of specifications for implementing a {peppol} business process.
+
+This BIS is a result of work within OpenPeppol and is published as part of the Peppol specifications.
+
+This Peppol BIS provides a set of specifications for implementing a Peppol business process. The document is concerned with clarifying requirements for ensuring interoperability and provides guidelines for supporting these requirements and how to implement them. This Peppol BIS is developed by OpenPeppol as a new business process.
+
+== Document Structure
+
+This BIS is using the transactions and rules for Peppol BIS Billing 3 and Invoice Response 3 with the only difference that the Invoice Response is a mandatory transaction in the collaboration. 
+
+This document is structured as follows:
+
+*	*Chapters 1 -6* gives general information on the business processes, requirements and functionalities
+*	*Chapter 7* describes the semantical data types
+
+== Audience
+
+The audience for this document is organisations wishing to be Peppol enabled for exchanging electronic invoices with invoice responses, and/or their ICT-suppliers. These organisations may be:
+
+     * Service providers
+     * Contracting Authorities (CA)
+     * Economic Operators (EO)
+     * Software Developers
+
+More specifically, roles addressed are the following:
+
+    * ICT Architects
+    * ICT Developers
+    * Business Experts
+
+For further information on Peppol/OpenPeppol, please see {common}

@@ -9,10 +9,14 @@ openPeppol AISBL <http://www.peppol.org/>
 :imagesdir: images
 :title-logo-image: peppol.png
 
-This is  placeholder for a new BIS for Invoice with Response
 
+= Link to main site of documentation
+
+link:..[Main documentation site]
 
 :leveloffset: +1
+
+include::introduction.adoc[]
 
 include::chapter1.adoc[]
 
