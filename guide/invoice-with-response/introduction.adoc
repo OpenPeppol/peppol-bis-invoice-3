@@ -9,7 +9,7 @@ This Peppol BIS provides a set of specifications for implementing a Peppol busin
 
 == Document Structure
 
-This BIS is using the transactions and rules for Peppol BIS Billing 3 and Invoice Response 3 with the only difference that the Invoice Response is a mandatory transaction in the collaboration. 
+This BIS describes a collaboration using the transactions and rules for Peppol BIS Billing 3 and Invoice Response 3 where the Invoice Response is a mandatory transaction.
 
 This document is structured as follows:
 

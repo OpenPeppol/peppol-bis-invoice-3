@@ -9,7 +9,7 @@
 | Invoice and credit note
 | urn:cen.eu:en16931:2017# +
 compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0
-| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+| urn:fdc:peppol.eu:2017:poacc:billing:02:1.0
 
 |===
 
@@ -17,5 +17,5 @@ compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0
 .UBL example of profile identifier
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/Snippet-full-profile-02.xml[tags=profile]
+include::{snippet-dir}/Snippet-full.xml[tags=profile]
 ----

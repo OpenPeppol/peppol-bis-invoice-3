@@ -1,0 +1,13 @@
+[[benefits]]
+= Benefits
+
+The billing process with inclusion of a structure response messages is intended to enable the buyer to provide digital feedback on the status of an invoice to the supplier. By sending the Invoice Response through the Peppol network, secure transmission with clear timestamps and acknowledgements is achieved. This can be contrasted with sending an invoice response by email. In addition to security risks, there is also a risk that the email address to which the invoice response is sent is outdated or not monitored. Email messages also risk being caught by spam filters.
+
+Other benefits achieved with this process:
+
+* Rapid feedback
+* Clarity through standardized statuses
+* Possibility for automation of discrepancy handling and feedback
+* Reduced risk of late payments
+* Reduced supplier concern that the invoice has not been received or that there is an issue with it
+

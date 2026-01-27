@@ -1,0 +1,7 @@
+
+[[prof-02]]
+= Profile 02 - Billing With Invoice Response
+
+In the table below you will find the values to be used as the specification identifier (BT-24) and the business process type (BT-23) for this profile
+
+include::../../syntax/profile-02.adoc[]
