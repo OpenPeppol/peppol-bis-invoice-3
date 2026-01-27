@@ -21,6 +21,6 @@ image::../shared/images/process.png[The invoicing process, align="center"]
 
 Response process:
 
-image::../shared/images/process-invoice-with-response.png[The response process, align="center"]
+image::../shared/images/IMR-bpmn.png[The response process, align="center"]
 
 For details on the process, use of status codes etc, see the Invoice Response BIS.

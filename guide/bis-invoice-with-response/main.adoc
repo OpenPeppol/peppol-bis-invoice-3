@@ -23,6 +23,10 @@ v{version}
 
 link:..[Main documentation site]
 
+IMPORTANT: This BIS describes the billing process where a structured electronic invoice response is returned fromt the buyer to the sender. The Billing-part is identical with Peppol BIS Billing 3.0 excelt that the value of the ProfileID indicates that invoice response is part of the collaboration.
+
+IMPORTANT: Details about the invoice response message itself can be found in the Invoice Response BIS.
+
 :leveloffset: +1
 
 include::../profile/introduction-invoice-with-response.adoc[]
@@ -47,7 +51,7 @@ include::../transaction-spec/descriptions/index.adoc[]
 
 include::codes/index.adoc[]
 
-include::../profile/profiles/index.adoc[]
+include::../profile/profiles/index-invoice-with-response.adoc[]
 
 include::../syntax/guideline.adoc[]
 
