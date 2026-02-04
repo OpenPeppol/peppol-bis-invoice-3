@@ -2,7 +2,7 @@
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
-Last update: 2025 November release 3.0.20.
+Last update: 2026 May release 3.0.21.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
   <title>Rules for Peppol BIS 3.0 Billing</title>
@@ -203,7 +203,7 @@ Last update: 2025 November release 3.0.20.
     <rule context="rsm:ExchangedDocumentContext">
       <assert id="PEPPOL-EN16931-R001" test="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID" flag="fatal">Business process MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
-      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0')" flag="fatal">Specification identifier MUST have the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0'.</assert>
+      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))" flag="fatal">Specification identifier MUST have the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and MUST NOT contain version<value-of select="if (contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::')) then concat(' &quot;', substring-after(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'), '&quot;') else ''"/></assert>
     </rule>
     <rule context="ram:ApplicableHeaderTradeAgreement">
       <assert id="PEPPOL-EN16931-R003" test="ram:BuyerReference or ram:BuyerOrderReferencedDocument/ram:IssuerAssignedID" flag="fatal">A buyer reference or purchase order reference MUST be provided.</assert>

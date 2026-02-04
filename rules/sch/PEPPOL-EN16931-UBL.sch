@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2025 November release 3.0.20.
+Last update: 2026 May release 3.0.21.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
@@ -288,8 +288,8 @@ Last update: 2025 November release 3.0.20.
       <assert id="PEPPOL-EN16931-R003" test="cbc:BuyerReference or cac:OrderReference/cbc:ID"
         flag="fatal">A buyer reference or purchase order reference MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R004"
-        test="starts-with(normalize-space(cbc:CustomizationID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0')"
-        flag="fatal">Specification identifier MUST have the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0'.</assert>
+        test="starts-with(normalize-space(cbc:CustomizationID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(cbc:CustomizationID/text()), '::'))"
+        flag="fatal">Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0'<value-of select="if (contains(normalize-space(cbc:CustomizationID/text()), '::')) then concat(' and MUST NOT contain version &quot;', substring-after(normalize-space(cbc:CustomizationID/text()), '::'), '&quot;') else ''"/></assert>
       <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">Only one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054"
         test="count(cac:TaxTotal[not(cac:TaxSubtotal)]) = (if (cbc:TaxCurrencyCode) then 1 else 0)"

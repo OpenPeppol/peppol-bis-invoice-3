@@ -1,7 +1,30 @@
 = Version 3.0.21
 [horizontal]
-Release date:: 2026-XX-XX
-* Mandatory to use from: 2026-XX-XX
+Release date:: May 2026
+* Date of member review: 2026-03-02
+* Date of publication: 2026-05-18
+* Mandatory to use from: 2026-08-24
 
 == Changes to BIS document
+
 * Corected the naming where it occured to Peppol instead of PEPPOL. 
+
+== Changes to code lists and validation artefacts
+
+* Codelist publication date: 2026-03-06
+* Validation artefacts UBL and CII 1.3.15 publication date: 2026-04-10
+
+[cols="1,1,1"]
+|===
+|codelist|removed|added
+|===
+
+
+==  EN 16931 schematrons updated
+
+* Fatal rule PEPPOL-EN16931-R004 in UBL and CII schematron updated to reflect the correct requirement for CustomizationID without version information.
+  ** Added new tests to test file to check if version information is included in CustomizationID and provide appropriate error message.
+
+==  Changes to Country-Specific Rules
+
+
