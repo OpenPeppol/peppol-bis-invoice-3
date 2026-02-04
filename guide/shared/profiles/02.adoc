@@ -1,0 +1,11 @@
+
+[[prof-02]]
+= Profile 02 - Billing with Response
+
+This profile describes the billing process where a structured electronic invoice response is returned from the buyer to the seller. The Billing-part is the same as the basic Peppol BIS Billing 3.0 except that the value of the ProfileID indicates that invoice response is part of the collaboration.
+
+Details about the invoice response message itself can be found in the Invoice Response BIS.
+
+In the table below you will find the values to be used as the specification identifier (BT-24) and the business process type (BT-23) for this profile
+
+include::../../syntax/profile-02.adoc[]

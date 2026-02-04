@@ -7,7 +7,7 @@ Release date:: May 2026
 
 == Changes to BIS document
 
-* 
+* Corected the naming where it occured to Peppol instead of PEPPOL. 
 
 == Changes to code lists and validation artefacts
 

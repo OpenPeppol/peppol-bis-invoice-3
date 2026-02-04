@@ -1,6 +1,6 @@
 # Schematron files
 
-This folder contains the Schematron files for PEPPOL BIS Billing 3.0.
+This folder contains the Schematron files for Peppol BIS Billing 3.0.
 Those prefixed with "PEPPOL" contains rules defined by OpenPEPPOL.
 Those prefixed with "CEN" is provided by CEN TC434.
 

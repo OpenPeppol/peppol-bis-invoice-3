@@ -126,7 +126,7 @@
     <Resource>
         <Type>native:File</Type>
         <Path>rules/sch/PEPPOL-EN16931-UBL.sch</Path>
-        <Title>Schematron for PEPPOL rules (UBL)</Title>
+        <Title>Schematron for Peppol rules (UBL)</Title>
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">PEPPOL-EN16931-UBL.sch</Property>
     </Resource>

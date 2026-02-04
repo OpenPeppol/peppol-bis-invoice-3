@@ -5,7 +5,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 Last update: 2026 May release 3.0.21.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
-  <title>Rules for PEPPOL BIS 3.0 Billing</title>
+  <title>Rules for Peppol BIS 3.0 Billing</title>
   <ns uri="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" prefix="rsm"/>
   <ns uri="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" prefix="udt"/>
   <ns uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" prefix="qdt"/>
