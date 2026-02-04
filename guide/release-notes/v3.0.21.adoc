@@ -1,0 +1,7 @@
+= Version 3.0.21
+[horizontal]
+Release date:: 2026-XX-XX
+* Mandatory to use from: 2026-XX-XX
+
+== Changes to BIS document
+* Corected the naming where it occured to Peppol instead of PEPPOL. 
