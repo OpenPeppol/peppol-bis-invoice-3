@@ -1114,7 +1114,7 @@ Last update: 2026 May release 3.0.21.
     <rule context="cbc:InvoiceTypeCode">
       <assert id="PEPPOL-EN16931-P0100"
         test="
-          $profile != '01' or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 393 395 553 575 623 780 817 870 875 876 877', '\s')
+          not($profile = ('01','02')) or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 393 395 553 575 623 780 817 870 875 876 877', '\s')
             satisfies normalize-space(text()) = $code)"
         flag="fatal">Invoice type code MUST be set according to the profile.</assert>
       <assert id="PEPPOL-EN16931-P0112"
@@ -1125,7 +1125,7 @@ Last update: 2026 May release 3.0.21.
     <rule context="cbc:CreditNoteTypeCode">
       <assert id="PEPPOL-EN16931-P0101"
         test="
-          $profile != '01' or (some $code in tokenize('381 396 81 83 532', '\s')
+          not($profile = ('01','02')) or (some $code in tokenize('381 396 81 83 532', '\s')
             satisfies normalize-space(text()) = $code)"
         flag="fatal">Credit note type code MUST be set according to the profile.</assert>
     </rule>

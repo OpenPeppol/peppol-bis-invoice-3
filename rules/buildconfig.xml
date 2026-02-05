@@ -82,5 +82,26 @@
     <inherit>peppolbis-en16931-base-3.0-ubl</inherit>
     <inherit>peppolbis-en16931-stylesheet-3.0-ubl</inherit>
   </configuration>
+  
+    <configuration>
+    <identifier>peppolbis-en16931-02-3.0-ubl-invoice</identifier>
+    <title>PEPPOL BIS Billing 3.0 (Profile 02)</title>
+    <declaration type="xml.ubl">Invoice::urn:fdc:peppol.eu:2017:poacc:billing:02:1.0#urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</declaration>
+    <inherit>ubl-invoice-2.1</inherit>
+    <inherit>peppolbis-en16931-cen-ubl</inherit>
+    <inherit>peppolbis-en16931-base-3.0-ubl</inherit>
+    <inherit>peppolbis-en16931-stylesheet-3.0-ubl</inherit>
+  </configuration>
+
+  <configuration>
+    <identifier>peppolbis-en16931-02-3.0-ubl-creditnote</identifier>
+    <title>PEPPOL BIS Billing 3.0 (Profile 02)</title>
+    <declaration type="xml.ubl">CreditNote::urn:fdc:peppol.eu:2017:poacc:billing:02:1.0#urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</declaration>
+    <inherit>ubl-creditnote-2.1</inherit>
+    <inherit>peppolbis-en16931-cen-ubl</inherit>
+    <inherit>peppolbis-en16931-base-3.0-ubl</inherit>
+    <inherit>peppolbis-en16931-stylesheet-3.0-ubl</inherit>
+  </configuration>
+
 
 </buildConfigurations>
