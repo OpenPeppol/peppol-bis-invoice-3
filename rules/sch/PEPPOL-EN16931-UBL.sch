@@ -289,7 +289,7 @@ Last update: 2026 May release 3.0.21.
         flag="fatal">A buyer reference or purchase order reference MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R004"
         test="starts-with(normalize-space(cbc:CustomizationID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(cbc:CustomizationID/text()), '::'))"
-        flag="fatal">Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0'<value-of select="if (contains(normalize-space(cbc:CustomizationID/text()), '::')) then concat(' and MUST NOT contain version &quot;', substring-after(normalize-space(cbc:CustomizationID/text()), '::'), '&quot;') else ''"/></assert>
+        flag="fatal">Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
       <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">Only one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054"
         test="count(cac:TaxTotal[not(cac:TaxSubtotal)]) = (if (cbc:TaxCurrencyCode) then 1 else 0)"
