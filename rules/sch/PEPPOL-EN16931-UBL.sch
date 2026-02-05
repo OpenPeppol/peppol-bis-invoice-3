@@ -926,6 +926,7 @@ Last update: 2025 November release 3.0.20.
       value="'(^|\r?\n)#(SKONTO)#TAGE=([0-9]+#PROZENT=[0-9]+\.[0-9]{2})(#BASISBETRAG=-?[0-9]+\.[0-9]{2})?#$'"/>
     <let name="XR-EMAIL-REGEX" value="'^[^@\s]+@([^@.\s]+\.)+[^@.\s]+$'"/>
     <let name="XR-TELEPHONE-REGEX" value="'.*([0-9].*){3,}.*'"/>
+    <let name="XR-URL-REGEX" value="'^([a-zA-Z])([a-zA-Z0-9+.-])+:.*'"/>
     <rule context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)[$supplierCountryIsDE and $customerCountryIsDE]">
       <assert test="cac:PaymentMeans" flag="fatal" id="DE-R-001">If both supplier and customer are German, an invoice shall contain information on "PAYMENT INSTRUCTIONS" (BG-16).</assert>
       <assert test="cbc:BuyerReference[boolean(normalize-space(.))]"
@@ -971,6 +972,8 @@ Last update: 2025 November release 3.0.20.
       
       
     </rule>
+    <rule context="(/ubl-invoice:Invoice/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference | /ubl-creditnote:CreditNote/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference)[$supplierCountryIsDE and $customerCountryIsDE]">
+      <assert test="matches(cbc:URI, $XR-URL-REGEX)" flag="warning" id="DE-R-T02">If both supplier and customer are German, BT-124 "External document location" must contain an absolute URL with valid scheme.</assert>
     </rule>
     <rule context="(/ubl-invoice:Invoice/cac:AccountingSupplierParty | /ubl-creditnote:CreditNote/cac:AccountingSupplierParty)[$supplierCountryIsDE and $customerCountryIsDE]">
       <assert test="cac:Party/cac:Contact" flag="fatal" id="DE-R-002">If both supplier and customer are German, the group "SELLER CONTACT" (BG-6) shall be provided.</assert>
