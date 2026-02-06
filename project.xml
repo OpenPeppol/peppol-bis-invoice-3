@@ -137,6 +137,13 @@
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">CEN-EN16931-UBL.sch</Property>
     </Resource>
+	<Resource>
+        <Type>native:File</Type>
+        <Path>rules/sch/PEPPOLBIS-Billing-Envelope-Rules.sch</Path>
+        <Title>Schematron for Enveloping compliance rules</Title>
+        <Description>Supplementary Schematron rules for testing Enveloping compliance</Description>
+        <Property key="download">PEPPOLBIS-Billing-Envelope-Rules.sch</Property>
+    </Resource>
     
     <Resource>
         <Type>native:File</Type>
