@@ -93,13 +93,13 @@ Last update: 2026 May release 3.0.21.
     <param name="arg" as="xs:string?" />
     <sequence
       select="
-		if ( (string-length($arg) = 16) or (string-length($arg) = 11) ) 		
-		then 
+		if ( (string-length($arg) = 16) or (string-length($arg) = 11) )
+		then
 		(
-			if ((string-length($arg) = 16)) 
+			if ((string-length($arg) = 16))
 			then
 			(
-				if (u:checkCF16($arg)) 
+				if (u:checkCF16($arg))
 				then
 				(
 					true()
@@ -112,7 +112,7 @@ Last update: 2026 May release 3.0.21.
 			else
 			(
 				if(($arg castable as xs:integer)) then true() else false()
-		
+
 			)
 		)
 		else
@@ -126,14 +126,14 @@ Last update: 2026 May release 3.0.21.
     <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
     <sequence
       select="
-				if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and  
-						(substring($arg,7,2) castable as xs:integer) and 
-						(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and 
-						(substring($arg,10,2) castable as xs:integer) and  
-						(substring($arg,12,3) castable as xs:string) and 
-						(substring($arg,15,1) castable as xs:integer) and  
+				if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and
+						(substring($arg,7,2) castable as xs:integer) and
+						(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and
+						(substring($arg,10,2) castable as xs:integer) and
+						(substring($arg,12,3) castable as xs:string) and
+						(substring($arg,15,1) castable as xs:integer) and
 						(string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)
-					) 
+					)
 				then true()
 				else false()
 				" />
@@ -162,14 +162,14 @@ Last update: 2026 May release 3.0.21.
 			(
 				true()
 			)
-		
+
 		" />
   </function>
   <function name="u:checkPIVA" as="xs:integer" xmlns="http://www.w3.org/1999/XSL/Transform">
     <param name="arg" as="xs:string?" />
     <sequence
       select="
-				if (not($arg castable as xs:integer)) 
+				if (not($arg castable as xs:integer))
 					then 1
 					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
   </function>
@@ -178,9 +178,9 @@ Last update: 2026 May release 3.0.21.
     <param name="pari" as="xs:integer" />
     <variable name="tappo" select="if (not($arg castable as xs:integer)) then 0 else 1" />
     <variable name="mapper"
-      select="if ($tappo = 0) then 0 else 
-																		( if ($pari = 1) 
-																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) ) 
+      select="if ($tappo = 0) then 0 else
+																		( if ($pari = 1)
+																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )
 																			else ( xs:integer(substring($arg,1,1) ) )
 																		)" />
     <sequence
@@ -239,10 +239,10 @@ Last update: 2026 May release 3.0.21.
         <variable name="sum" as="xs:integer">
           <sequence
             select="xs:integer(sum(
-						for $pos in 1 to string-length($mainPart) return 
-							if ($pos mod 2 = 1) 
-							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 + 
-								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10 
+						for $pos in 1 to string-length($mainPart) return
+							if ($pos mod 2 = 1)
+							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 +
+								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10
 							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))
 					))" />
         </variable>
@@ -254,7 +254,7 @@ Last update: 2026 May release 3.0.21.
   <!-- Empty elements -->
   <pattern>
     <rule context="//*[not(*) and not(normalize-space())]">
-      <assert id="PEPPOL-EN16931-R008" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
+      <assert id="PEPPOL-EN16931-R008" test="false()" flag="fatal">[PEPPOL-EN16931-R008]-Document MUST not contain empty elements.</assert>
     </rule>
   </pattern>
   <!--
@@ -274,51 +274,51 @@ Last update: 2026 May release 3.0.21.
     <rule context="ubl-creditnote:CreditNote">
       <assert id="PEPPOL-EN16931-R080"
         test="(count(cac:AdditionalDocumentReference[cbc:DocumentTypeCode='50']) &lt;= 1)"
-        flag="fatal">Only one project reference is allowed on document level</assert>
+        flag="fatal">[PEPPOL-EN16931-R080]-Only one project reference is allowed on document level</assert>
     </rule>
   </pattern>
   <pattern>
     <!-- Document level -->
     <rule context="ubl-creditnote:CreditNote | ubl-invoice:Invoice">
-      <assert id="PEPPOL-EN16931-R001" test="cbc:ProfileID" flag="fatal">Business process MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
+      <assert id="PEPPOL-EN16931-R001" test="cbc:ProfileID" flag="fatal">[PEPPOL-EN16931-R001]-Business process MUST be provided.</assert>
+      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
       <assert id="PEPPOL-EN16931-R002"
         test="count(cbc:Note) &lt;= 1 or ($supplierCountryIsDE and $customerCountryIsDE)"
-        flag="fatal">No more than one note is allowed on document level, unless both the buyer and seller are German organizations.</assert>
+        flag="fatal">[PEPPOL-EN16931-R002]-No more than one note is allowed on document level, unless both the buyer and seller are German organizations.</assert>
       <assert id="PEPPOL-EN16931-R003" test="cbc:BuyerReference or cac:OrderReference/cbc:ID"
-        flag="fatal">A buyer reference or purchase order reference MUST be provided.</assert>
+        flag="fatal">[PEPPOL-EN16931-R003]-A buyer reference or purchase order reference MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R004"
         test="starts-with(normalize-space(cbc:CustomizationID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(cbc:CustomizationID/text()), '::'))"
-        flag="fatal">Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
-      <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">Only one tax total with tax subtotals MUST be provided.</assert>
+        flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
+      <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">[PEPPOL-EN16931-R053]-Only one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054"
         test="count(cac:TaxTotal[not(cac:TaxSubtotal)]) = (if (cbc:TaxCurrencyCode) then 1 else 0)"
-        flag="fatal">Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
+        flag="fatal">[PEPPOL-EN16931-R054]-Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
       <assert id="PEPPOL-EN16931-R055"
         test="not(cbc:TaxCurrencyCode) or (cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:TaxCurrencyCode)] &lt;= 0 and cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:DocumentCurrencyCode)] &lt;= 0) or (cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:TaxCurrencyCode)] &gt;= 0 and cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:DocumentCurrencyCode)] &gt;= 0) "
-        flag="fatal">Invoice total VAT amount and Invoice total VAT amount in accounting currency MUST have the same operational sign</assert>
+        flag="fatal">[PEPPOL-EN16931-R055]-Invoice total VAT amount and Invoice total VAT amount in accounting currency MUST have the same operational sign</assert>
     </rule>
     <rule context="cbc:TaxCurrencyCode">
       <assert id="PEPPOL-EN16931-R005"
         test="not(normalize-space(text()) = normalize-space(../cbc:DocumentCurrencyCode/text()))"
-        flag="fatal">VAT accounting currency code MUST be different from invoice currency code when provided.</assert>
+        flag="fatal">[PEPPOL-EN16931-R005]-VAT accounting currency code MUST be different from invoice currency code when provided.</assert>
     </rule>
     <!-- Accounting customer -->
     <rule context="cac:AccountingCustomerParty/cac:Party">
-      <assert id="PEPPOL-EN16931-R010" test="cbc:EndpointID" flag="fatal">Buyer electronic address MUST be provided</assert>
+      <assert id="PEPPOL-EN16931-R010" test="cbc:EndpointID" flag="fatal">[PEPPOL-EN16931-R010]-Buyer electronic address MUST be provided</assert>
     </rule>
     <!-- Accounting supplier -->
     <rule context="cac:AccountingSupplierParty/cac:Party">
-      <assert id="PEPPOL-EN16931-R020" test="cbc:EndpointID" flag="fatal">Seller electronic address MUST be provided</assert>
+      <assert id="PEPPOL-EN16931-R020" test="cbc:EndpointID" flag="fatal">[PEPPOL-EN16931-R020]-Seller electronic address MUST be provided</assert>
     </rule>
     <!-- Allowance/Charge (document level/line level) -->
     <rule
       context="ubl-invoice:Invoice/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)]">
-      <assert id="PEPPOL-EN16931-R041" test="false()" flag="fatal">Allowance/charge base amount MUST be provided when allowance/charge percentage is provided.</assert>
+      <assert id="PEPPOL-EN16931-R041" test="false()" flag="fatal">[PEPPOL-EN16931-R041]-Allowance/charge base amount MUST be provided when allowance/charge percentage is provided.</assert>
     </rule>
     <rule
       context="ubl-invoice:Invoice/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount]">
-      <assert id="PEPPOL-EN16931-R042" test="false()" flag="fatal">Allowance/charge percentage MUST be provided when allowance/charge base amount is provided.</assert>
+      <assert id="PEPPOL-EN16931-R042" test="false()" flag="fatal">[PEPPOL-EN16931-R042]-Allowance/charge percentage MUST be provided when allowance/charge base amount is provided.</assert>
     </rule>
     <rule
       context="ubl-invoice:Invoice/cac:AllowanceCharge | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge">
@@ -328,33 +328,33 @@ Last update: 2026 May release 3.0.21.
             cbc:Amount
           else
             0, (xs:decimal(cbc:BaseAmount) * xs:decimal(cbc:MultiplierFactorNumeric)) div 100, 0.02)"
-        flag="fatal">Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
+        flag="fatal">[PEPPOL-EN16931-R040]-Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
       <assert id="PEPPOL-EN16931-R043"
         test="normalize-space(cbc:ChargeIndicator/text()) = 'true' or normalize-space(cbc:ChargeIndicator/text()) = 'false'"
-        flag="fatal">Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
+        flag="fatal">[PEPPOL-EN16931-R043]-Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
     </rule>
     <!-- Payment -->
     <rule
       context="
         cac:PaymentMeans[some $code in tokenize('49 59', '\s')
           satisfies normalize-space(cbc:PaymentMeansCode) = $code]">
-      <assert id="PEPPOL-EN16931-R061" test="cac:PaymentMandate/cbc:ID" flag="fatal">Mandate reference MUST be provided for direct debit.</assert>
+      <assert id="PEPPOL-EN16931-R061" test="cac:PaymentMandate/cbc:ID" flag="fatal">[PEPPOL-EN16931-R061]-Mandate reference MUST be provided for direct debit.</assert>
     </rule>
     <!-- Currency -->
     <rule
       context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount | cac:TaxSubtotal/cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount">
-      <assert id="PEPPOL-EN16931-R051" test="@currencyID = $documentCurrencyCode" flag="fatal">All currencyID attributes must have the same value as the invoice currency code (BT-5), except for the invoice total VAT amount in accounting currency (BT-111).</assert>
+      <assert id="PEPPOL-EN16931-R051" test="@currencyID = $documentCurrencyCode" flag="fatal">[PEPPOL-EN16931-R051]-All currencyID attributes must have the same value as the invoice currency code (BT-5), except for the invoice total VAT amount in accounting currency (BT-111).</assert>
     </rule>
     <!-- Line level - invoice period -->
     <rule
       context="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:StartDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:StartDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:StartDate">
       <assert id="PEPPOL-EN16931-R110"
-        test="xs:date(text()) &gt;= xs:date(../../../cac:InvoicePeriod/cbc:StartDate)" flag="fatal">Start date of line period MUST be within invoice period.</assert>
+        test="xs:date(text()) &gt;= xs:date(../../../cac:InvoicePeriod/cbc:StartDate)" flag="fatal">[PEPPOL-EN16931-R110]-Start date of line period MUST be within invoice period.</assert>
     </rule>
     <rule
       context="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:EndDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:EndDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:EndDate">
       <assert id="PEPPOL-EN16931-R111"
-        test="xs:date(text()) &lt;= xs:date(../../../cac:InvoicePeriod/cbc:EndDate)" flag="fatal">End date of line period MUST be within invoice period.</assert>
+        test="xs:date(text()) &lt;= xs:date(../../../cac:InvoicePeriod/cbc:EndDate)" flag="fatal">[PEPPOL-EN16931-R111]-End date of line period MUST be within invoice period.</assert>
     </rule>
     <!-- Line level - line extension amount -->
     <rule context="cac:InvoiceLine | cac:CreditNoteLine">
@@ -402,22 +402,22 @@ Last update: 2026 May release 3.0.21.
             0" />
       <assert id="PEPPOL-EN16931-R120"
         test="u:slack($lineExtensionAmount, ($quantity * ($priceAmount div $baseQuantity)) + $chargesTotal - $allowancesTotal, 0.02)"
-        flag="fatal">Invoice line net amount MUST equal (Invoiced quantity * (Item net price/item price base quantity) + Sum of invoice line charge amount - sum of invoice line allowance amount</assert>
+        flag="fatal">[PEPPOL-EN16931-R120]-Invoice line net amount MUST equal (Invoiced quantity * (Item net price/item price base quantity) + Sum of invoice line charge amount - sum of invoice line allowance amount</assert>
       <assert id="PEPPOL-EN16931-R121"
         test="not(cac:Price/cbc:BaseQuantity) or xs:decimal(cac:Price/cbc:BaseQuantity) &gt; 0"
-        flag="fatal">Base quantity MUST be a positive number above zero.</assert>
-      <assert id="PEPPOL-EN16931-R100" test="(count(cac:DocumentReference) &lt;= 1)" flag="fatal">Only one invoiced object is allowed pr line</assert>
+        flag="fatal">[PEPPOL-EN16931-R121]-Base quantity MUST be a positive number above zero.</assert>
+      <assert id="PEPPOL-EN16931-R100" test="(count(cac:DocumentReference) &lt;= 1)" flag="fatal">[PEPPOL-EN16931-R100]-Only one invoiced object is allowed pr line</assert>
       <assert id="PEPPOL-EN16931-R101"
         test="(not(cac:DocumentReference) or (cac:DocumentReference/cbc:DocumentTypeCode='130'))"
-        flag="fatal">Element Document reference can only be used for Invoice line object</assert>
+        flag="fatal">[PEPPOL-EN16931-R101]-Element Document reference can only be used for Invoice line object</assert>
     </rule>
     <!-- Allowance (price level) -->
     <rule context="cac:Price/cac:AllowanceCharge">
       <assert id="PEPPOL-EN16931-R044" test="normalize-space(cbc:ChargeIndicator) = 'false'"
-        flag="fatal">Charge on price level is NOT allowed. Only value 'false' allowed.</assert>
+        flag="fatal">[PEPPOL-EN16931-R044]-Charge on price level is NOT allowed. Only value 'false' allowed.</assert>
       <assert id="PEPPOL-EN16931-R046"
         test="not(cbc:BaseAmount) or xs:decimal(../cbc:PriceAmount) = xs:decimal(cbc:BaseAmount) - xs:decimal(cbc:Amount)"
-        flag="fatal">Item net price MUST equal (Gross price - Allowance amount) when gross price is provided.</assert>
+        flag="fatal">[PEPPOL-EN16931-R046]-Item net price MUST equal (Gross price - Allowance amount) when gross price is provided.</assert>
     </rule>
     <!-- Price -->
     <rule context="cac:Price/cbc:BaseQuantity[@unitCode]">
@@ -429,18 +429,18 @@ Last update: 2026 May release 3.0.21.
           else
             ../../cbc:CreditedQuantity" />
       <assert id="PEPPOL-EN16931-R130" test="not($hasQuantity) or @unitCode = $quantity/@unitCode"
-        flag="fatal">Unit code of price base quantity MUST be same as invoiced quantity.</assert>
+        flag="fatal">[PEPPOL-EN16931-R130]-Unit code of price base quantity MUST be same as invoiced quantity.</assert>
     </rule>
     <!-- Validation of ICD -->
     <rule
       context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']">
       <assert id="PEPPOL-COMMON-R040"
-        test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">GLN must have a valid format according to GS1 rules.</assert>
+        test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN must have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']">
       <assert id="PEPPOL-COMMON-R041"
-        test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">Norwegian organization number MUST be stated in the correct format.</assert>
+        test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">[PEPPOL-COMMON-R041]-Norwegian organization number MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']">
@@ -448,55 +448,55 @@ Last update: 2026 May release 3.0.21.
         test="(string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
                or
               (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)"
-        flag="fatal">Danish organization number (CVR) MUST be stated in the correct format.</assert>
+        flag="fatal">[PEPPOL-COMMON-R042]-Danish organization number (CVR) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0096'] | cac:PartyIdentification/cbc:ID[@schemeID = '0096'] | cbc:CompanyID[@schemeID = '0096']">
       <assert id="PEPPOL-COMMON-R052"
         test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
-        flag="warning">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
+        flag="warning">[PEPPOL-COMMON-R052]-Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0198'] | cac:PartyIdentification/cbc:ID[@schemeID = '0198'] | cbc:CompanyID[@schemeID = '0198']">
       <assert id="PEPPOL-COMMON-R053"
         test="(string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
-        flag="warning">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
+        flag="warning">[PEPPOL-COMMON-R053]-Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043"
         test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())"
-        flag="fatal">Belgian enterprise number MUST be stated in the correct format.</assert>
+        flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']">
-      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0210'] | cac:PartyIdentification/cbc:ID[@schemeID = '0210'] | cbc:CompanyID[@schemeID = '0210']">
-      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R045]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
     </rule>
     <rule context="cbc:EndpointID[@schemeID = '9907']">
-      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R046]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0211'] | cac:PartyIdentification/cbc:ID[@schemeID = '0211'] | cbc:CompanyID[@schemeID = '0211']">
-      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R047]-Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
     </rule>
     <!--    <rule context="cbc:EndpointID[@schemeID = '9906']">
-      <assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian
+      <assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R048]-Italian
     VAT Code (Partita Iva) must be stated in the correct format</assert>
     </rule> -->
     <rule
       context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
       <assert id="PEPPOL-COMMON-R049"
         test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())"
-        flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
+        flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct format.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
       <assert id="PEPPOL-COMMON-R050"
-        test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">Australian Business Number (ABN) MUST be stated in the correct format.</assert>
+        test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
   </pattern>
   <!-- National rules -->
@@ -718,16 +718,16 @@ Last update: 2026 May release 3.0.21.
       <let name="IdSegments" value="tokenize(.,'\|')" />
       <assert id="GR-R-001-1" test="count($IdSegments) = 6" flag="fatal"> When the Supplier is Greek, the Invoice Id should consist of 6 segments</assert>
       <assert id="GR-R-001-2"
-        test="string-length(normalize-space($IdSegments[1])) = 9 
+        test="string-length(normalize-space($IdSegments[1])) = 9
 			                              and u:TinVerification($IdSegments[1])
 			                              and ($IdSegments[1] = /*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9)
 			                              or $IdSegments[1] = /*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) )"
         flag="fatal">When the Supplier is Greek, the Invoice Id first segment must be a valid TIN Number and match either the Supplier's or the Tax Representative's Tin Number</assert>
       <let name="tokenizedIdDate" value="tokenize($IdSegments[2],'/')" />
       <assert id="GR-R-001-3"
-        test="string-length(normalize-space($IdSegments[2]))>0 
+        test="string-length(normalize-space($IdSegments[2]))>0
 			                              and matches($IdSegments[2],$dateRegExp)
-			                              and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3] 
+			                              and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3]
 			                                and $tokenizedIdDate[2] = $tokenizedUblIssueDate[2]
 			                                and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])"
         flag="fatal">When the Supplier is Greek, the Invoice Id second segment must be a valid Date that matches the invoice Issue Date</assert>
@@ -825,12 +825,12 @@ Last update: 2026 May release 3.0.21.
         test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName) and exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone)"
         flag="fatal">[IS-R-003]-If seller is icelandic then it shall contain his address with street name and zip code — Ef seljandi er íslenskur þá skal heimilisfang seljanda innihalda götuheiti og póstnúmer (BT-35 og BT-38).</assert>
       <assert id="IS-R-006"
-        test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) 
+        test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)
 					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12
 					  or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))"
         flag="fatal">[IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist — Ef seljandi er íslenskur og greiðslumáti (BT-81) er krafa (kóti 9) þá skal koma fram 12 stafa númer (bankanúmer, höfuðbók 66 og reikningsnúmer) (BT-84)</assert>
       <assert id="IS-R-007"
-        test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) 
+        test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)
 					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12
 					  or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))"
         flag="fatal">[IS-R-007]-If seller is icelandic and payment means code is 42 then a 12 digit account id must exist — Ef seljandi er íslenskur og greiðslumáti (BT-81) er millifærsla (kóti 42) þá skal koma fram 12 stafa reikningnúmer (BT-84)</assert>
@@ -1080,28 +1080,28 @@ Last update: 2026 May release 3.0.21.
         test="
           some $code in $MIMECODE
             satisfies @mimeCode = $code"
-        flag="fatal">Mime code must be according to subset of IANA code list.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
     </rule>
     <rule context="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode">
       <assert id="PEPPOL-EN16931-CL002"
         test="
           some $code in $UNCL5189
             satisfies normalize-space(text()) = $code"
-        flag="fatal">Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL002]-Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
     </rule>
     <rule context="cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode">
       <assert id="PEPPOL-EN16931-CL003"
         test="
           some $code in $UNCL7161
             satisfies normalize-space(text()) = $code"
-        flag="fatal">Reason code MUST be according to UNCL 7161 D.16B.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL003]-Reason code MUST be according to UNCL 7161 D.16B.</assert>
     </rule>
     <rule context="cac:InvoicePeriod/cbc:DescriptionCode">
       <assert id="PEPPOL-EN16931-CL006"
         test="
           some $code in $UNCL2005
             satisfies normalize-space(text()) = $code"
-        flag="fatal">Invoice period description code must be according to UNCL 2005 D.16B.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL006]-Invoice period description code must be according to UNCL 2005 D.16B.</assert>
     </rule>
     <rule
       context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount">
@@ -1109,60 +1109,60 @@ Last update: 2026 May release 3.0.21.
         test="
           some $code in $ISO4217
             satisfies @currencyID = $code"
-        flag="fatal">Currency code must be according to ISO 4217:2005</assert>
+        flag="fatal">[PEPPOL-EN16931-CL007]-Currency code must be according to ISO 4217:2005</assert>
     </rule>
     <rule context="cbc:InvoiceTypeCode">
       <assert id="PEPPOL-EN16931-P0100"
         test="
           not($profile = ('01','02')) or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 393 395 553 575 623 780 817 870 875 876 877', '\s')
             satisfies normalize-space(text()) = $code)"
-        flag="fatal">Invoice type code MUST be set according to the profile.</assert>
+        flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
       <assert id="PEPPOL-EN16931-P0112"
         test="not(normalize-space(.) = '326' or normalize-space(.) = '384') or ($supplierCountryIsDE and $customerCountryIsDE)"
-        flag="fatal">Invoice type code 326 or 384 are only allowed when both buyer and seller are German organizations </assert>		
+        flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326 or 384 are only allowed when both buyer and seller are German organizations </assert>
     </rule>
-		
+
     <rule context="cbc:CreditNoteTypeCode">
       <assert id="PEPPOL-EN16931-P0101"
         test="
           not($profile = ('01','02')) or (some $code in tokenize('381 396 81 83 532', '\s')
             satisfies normalize-space(text()) = $code)"
-        flag="fatal">Credit note type code MUST be set according to the profile.</assert>
+        flag="fatal">[PEPPOL-EN16931-P0101]-Credit note type code MUST be set according to the profile.</assert>
     </rule>
     <rule
       context="cbc:IssueDate | cbc:DueDate | cbc:TaxPointDate | cbc:StartDate | cbc:EndDate | cbc:ActualDeliveryDate">
       <assert id="PEPPOL-EN16931-F001"
-        test="string-length(text()) = 10 and (string(.) castable as xs:date)" flag="fatal">A date MUST be formatted YYYY-MM-DD.</assert>
+        test="string-length(text()) = 10 and (string(.) castable as xs:date)" flag="fatal">[PEPPOL-EN16931-F001]-A date MUST be formatted YYYY-MM-DD.</assert>
     </rule>
     <rule context="cbc:EndpointID[@schemeID]">
       <assert id="PEPPOL-EN16931-CL008"
         test="
         some $code in $eaid
-        satisfies @schemeID = $code" flag="fatal">Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
+        satisfies @schemeID = $code" flag="fatal">[PEPPOL-EN16931-CL008]-Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-G']">
-      <assert id="PEPPOL-EN16931-P0104" test="normalize-space(cbc:ID)='G'" flag="fatal">Tax Category G MUST be used when exemption reason code is VATEX-EU-G</assert>
+      <assert id="PEPPOL-EN16931-P0104" test="normalize-space(cbc:ID)='G'" flag="fatal">[PEPPOL-EN16931-P0104]-Tax Category G MUST be used when exemption reason code is VATEX-EU-G</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-O']">
-      <assert id="PEPPOL-EN16931-P0105" test="normalize-space(cbc:ID)='O'" flag="fatal">Tax Category O MUST be used when exemption reason code is VATEX-EU-O</assert>
+      <assert id="PEPPOL-EN16931-P0105" test="normalize-space(cbc:ID)='O'" flag="fatal">[PEPPOL-EN16931-P0105]-Tax Category O MUST be used when exemption reason code is VATEX-EU-O</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-IC']">
-      <assert id="PEPPOL-EN16931-P0106" test="normalize-space(cbc:ID)='K'" flag="fatal">Tax Category K MUST be used when exemption reason code is VATEX-EU-IC</assert>
+      <assert id="PEPPOL-EN16931-P0106" test="normalize-space(cbc:ID)='K'" flag="fatal">[PEPPOL-EN16931-P0106]-Tax Category K MUST be used when exemption reason code is VATEX-EU-IC</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-AE']">
-      <assert id="PEPPOL-EN16931-P0107" test="normalize-space(cbc:ID)='AE'" flag="fatal">Tax Category AE MUST be used when exemption reason code is VATEX-EU-AE</assert>
+      <assert id="PEPPOL-EN16931-P0107" test="normalize-space(cbc:ID)='AE'" flag="fatal">[PEPPOL-EN16931-P0107]-Tax Category AE MUST be used when exemption reason code is VATEX-EU-AE</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-D']">
-      <assert id="PEPPOL-EN16931-P0108" test="normalize-space(cbc:ID)='E'" flag="fatal">Tax Category E MUST be used when exemption reason code is VATEX-EU-D</assert>
+      <assert id="PEPPOL-EN16931-P0108" test="normalize-space(cbc:ID)='E'" flag="fatal">[PEPPOL-EN16931-P0108]-Tax Category E MUST be used when exemption reason code is VATEX-EU-D</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-F']">
-      <assert id="PEPPOL-EN16931-P0109" test="normalize-space(cbc:ID)='E'" flag="fatal">Tax Category E MUST be used when exemption reason code is VATEX-EU-F</assert>
+      <assert id="PEPPOL-EN16931-P0109" test="normalize-space(cbc:ID)='E'" flag="fatal">[PEPPOL-EN16931-P0109]-Tax Category E MUST be used when exemption reason code is VATEX-EU-F</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-I']">
-      <assert id="PEPPOL-EN16931-P0110" test="normalize-space(cbc:ID)='E'" flag="fatal">Tax Category E MUST be used when exemption reason code is VATEX-EU-I</assert>
+      <assert id="PEPPOL-EN16931-P0110" test="normalize-space(cbc:ID)='E'" flag="fatal">[PEPPOL-EN16931-P0110]-Tax Category E MUST be used when exemption reason code is VATEX-EU-I</assert>
     </rule>
     <rule context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-J']">
-      <assert id="PEPPOL-EN16931-P0111" test="normalize-space(cbc:ID)='E'" flag="fatal">Tax Category E MUST be used when exemption reason code is VATEX-EU-J</assert>
+      <assert id="PEPPOL-EN16931-P0111" test="normalize-space(cbc:ID)='E'" flag="fatal">[PEPPOL-EN16931-P0111]-Tax Category E MUST be used when exemption reason code is VATEX-EU-J</assert>
     </rule>
   </pattern>
 </schema>

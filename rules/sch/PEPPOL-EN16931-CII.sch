@@ -171,7 +171,7 @@ Last update: 2026 May release 3.0.21.
 ((string-to-codepoints(substring($val,11,1)) - 48) * 19)) mod 89 = 0
 "/>
   </function>
-  
+
     <!-- Function for Swedish organisation numbers (0007) -->
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkSEOrgnr" as="xs:boolean">
     <param name="number" as="xs:string"/>
@@ -186,10 +186,10 @@ Last update: 2026 May release 3.0.21.
 			<variable name="checkDigit" select="substring($number, 10, 1)"/>
 			<variable name="sum" as="xs:integer">
 			  <sequence select="xs:integer(sum(
-						for $pos in 1 to string-length($mainPart) return 
-							if ($pos mod 2 = 1) 
-							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 + 
-								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10 
+						for $pos in 1 to string-length($mainPart) return
+							if ($pos mod 2 = 1)
+							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 +
+								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10
 							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))
 					))"/>
 			</variable>
@@ -198,46 +198,46 @@ Last update: 2026 May release 3.0.21.
 		</otherwise>
 	</choose>
   </function>
-  
+
   <pattern>
     <rule context="rsm:ExchangedDocumentContext">
-      <assert id="PEPPOL-EN16931-R001" test="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID" flag="fatal">Business process MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
-      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), 
-      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))" 
-      flag="fatal">Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
+      <assert id="PEPPOL-EN16931-R001" test="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID" flag="fatal">[PEPPOL-EN16931-R001]-Business process MUST be provided.</assert>
+      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
+      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()),
+      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))"
+      flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
     </rule>
     <rule context="ram:ApplicableHeaderTradeAgreement">
-      <assert id="PEPPOL-EN16931-R003" test="ram:BuyerReference or ram:BuyerOrderReferencedDocument/ram:IssuerAssignedID" flag="fatal">A buyer reference or purchase order reference MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R006" test="count(ram:AdditionalReferencedDocument[ram:TypeCode='130']) &lt;=1" flag="fatal">Only one invoiced object is allowed on document level</assert>
-      <assert id="PEPPOL-EN16931-R080" test="count(ram:AdditionalReferencedDocument[ram:TypeCode='50']) &lt;=1" flag="fatal">Only one project reference is allowed on document level</assert>
+      <assert id="PEPPOL-EN16931-R003" test="ram:BuyerReference or ram:BuyerOrderReferencedDocument/ram:IssuerAssignedID" flag="fatal">[PEPPOL-EN16931-R003]-A buyer reference or purchase order reference MUST be provided.</assert>
+      <assert id="PEPPOL-EN16931-R006" test="count(ram:AdditionalReferencedDocument[ram:TypeCode='130']) &lt;=1" flag="fatal">[PEPPOL-EN16931-R006]-Only one invoiced object is allowed on document level</assert>
+      <assert id="PEPPOL-EN16931-R080" test="count(ram:AdditionalReferencedDocument[ram:TypeCode='50']) &lt;=1" flag="fatal">[PEPPOL-EN16931-R080]-Only one project reference is allowed on document level</assert>
     </rule>
     <rule context="ram:ApplicableHeaderTradeSettlement">
-      <assert id="PEPPOL-EN16931-R005" test="not(ram:TaxCurrencyCode) or normalize-space(ram:TaxCurrencyCode/text()) != normalize-space(ram:InvoiceCurrencyCode/text())" flag="fatal">VAT accounting currency code MUST be different from invoice currency code when provided.</assert>
-      <assert id="PEPPOL-EN16931-R053" test="count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode]) = 1" flag="fatal">Only one tax total with tax subtotals MUST be provided.</assert>
+      <assert id="PEPPOL-EN16931-R005" test="not(ram:TaxCurrencyCode) or normalize-space(ram:TaxCurrencyCode/text()) != normalize-space(ram:InvoiceCurrencyCode/text())" flag="fatal">[PEPPOL-EN16931-R005]-VAT accounting currency code MUST be different from invoice currency code when provided.</assert>
+      <assert id="PEPPOL-EN16931-R053" test="count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode]) = 1" flag="fatal">[PEPPOL-EN16931-R053]-Only one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054" test="
                     count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID != $documentCurrencyCode]) = (if (ram:TaxCurrencyCode) then
                         1
                     else
-                        0)" flag="fatal">Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
-      <assert id="PEPPOL-EN16931-R055" test="not(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:TaxCurrencyCode) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &lt; 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &lt; 0) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &gt;= 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &gt;= 0)" flag="fatal">Invoice total VAT amount and Invoice total VAT amount in accounting currency MUST have the same operational sign</assert>
+                        0)" flag="fatal">[PEPPOL-EN16931-R054]-Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
+      <assert id="PEPPOL-EN16931-R055" test="not(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:TaxCurrencyCode) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &lt; 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &lt; 0) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &gt;= 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &gt;= 0)" flag="fatal">[PEPPOL-EN16931-R055]-Invoice total VAT amount and Invoice total VAT amount in accounting currency MUST have the same operational sign</assert>
     </rule>
     <!-- PEPPOL-EN16931-R051 is obsolete in CII. -->
     <rule context="rsm:ExchangedDocument">
-      <assert id="PEPPOL-EN16931-R002" test="count(ram:IncludedNote) &lt;= 1 and not(ram:IncludedNote/ram:SubjectCode)" flag="fatal">No more than one note is allowed on document level.</assert>
+      <assert id="PEPPOL-EN16931-R002" test="count(ram:IncludedNote) &lt;= 1 and not(ram:IncludedNote/ram:SubjectCode)" flag="fatal">[PEPPOL-EN16931-R002]-No more than one note is allowed on document level.</assert>
     </rule>
     <rule context="ram:BuyerTradeParty">
-      <assert id="PEPPOL-EN16931-R010" test="ram:URIUniversalCommunication/ram:URIID" flag="fatal">Buyer electronic address MUST be provided</assert>
+      <assert id="PEPPOL-EN16931-R010" test="ram:URIUniversalCommunication/ram:URIID" flag="fatal">[PEPPOL-EN16931-R010]-Buyer electronic address MUST be provided</assert>
     </rule>
     <rule context="ram:SellerTradeParty">
-      <assert id="PEPPOL-EN16931-R020" test="ram:URIUniversalCommunication/ram:URIID" flag="fatal">Seller electronic address MUST be provided</assert>
+      <assert id="PEPPOL-EN16931-R020" test="ram:URIUniversalCommunication/ram:URIID" flag="fatal">[PEPPOL-EN16931-R020]-Seller electronic address MUST be provided</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[ram:CalculationPercent and not(ram:BasisAmount)]">
-      <assert id="PEPPOL-EN16931-R041" test="false()" flag="fatal">Allowance/charge base
+      <assert id="PEPPOL-EN16931-R041" test="false()" flag="fatal">[PEPPOL-EN16931-R041]-Allowance/charge base
                 amount MUST be provided when allowance/charge percentage is provided.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[not(ram:CalculationPercent) and ram:BasisAmount]">
-      <assert id="PEPPOL-EN16931-R042" test="false()" flag="fatal">Allowance/charge percentage
+      <assert id="PEPPOL-EN16931-R042" test="false()" flag="fatal">[PEPPOL-EN16931-R042]-Allowance/charge percentage
                 MUST be provided when allowance/charge base amount is provided.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge">
@@ -245,22 +245,22 @@ Last update: 2026 May release 3.0.21.
                     not(ram:CalculationPercent and ram:BasisAmount) or u:slack(if (ram:ActualAmount) then
                         ram:ActualAmount
                     else
-                        0, (xs:decimal(ram:BasisAmount) * xs:decimal(ram:CalculationPercent)) div 100, 0.02)" flag="fatal">Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
-      <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
+                        0, (xs:decimal(ram:BasisAmount) * xs:decimal(ram:CalculationPercent)) div 100, 0.02)" flag="fatal">[PEPPOL-EN16931-R040]-Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
+      <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">[PEPPOL-EN16931-R043]-Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
     </rule>
     <rule context="ram:AppliedTradeAllowanceCharge">
-      <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
+      <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">[PEPPOL-EN16931-R043]-Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
     </rule>
     <rule context="
                 ram:SpecifiedTradeSettlementPaymentMeans[some $code in tokenize('49 59', '\s')
                     satisfies normalize-space(ram:TypeCode) = $code]">
-      <assert id="PEPPOL-EN16931-R061" test="../ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID" flag="fatal">Mandate reference MUST be provided for direct debit.</assert>
+      <assert id="PEPPOL-EN16931-R061" test="../ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID" flag="fatal">[PEPPOL-EN16931-R061]-Mandate reference MUST be provided for direct debit.</assert>
     </rule>
     <rule context="rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime]/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime">
-      <assert id="PEPPOL-EN16931-R110" test="udt:DateTimeString &gt;= ../../../../ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime/udt:DateTimeString" flag="fatal">Start date of line period MUST be within invoice period.</assert>
+      <assert id="PEPPOL-EN16931-R110" test="udt:DateTimeString &gt;= ../../../../ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime/udt:DateTimeString" flag="fatal">[PEPPOL-EN16931-R110]-Start date of line period MUST be within invoice period.</assert>
     </rule>
     <rule context="rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:EndDateTime]/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod/ram:EndDateTime">
-      <assert id="PEPPOL-EN16931-R111" test="udt:DateTimeString &lt;= ../../../../ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:EndDateTime/udt:DateTimeString" flag="fatal">End date of line period MUST be within invoice period.</assert>
+      <assert id="PEPPOL-EN16931-R111" test="udt:DateTimeString &lt;= ../../../../ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:EndDateTime/udt:DateTimeString" flag="fatal">[PEPPOL-EN16931-R111]-End date of line period MUST be within invoice period.</assert>
     </rule>
     <rule context="ram:IncludedSupplyChainTradeLineItem">
       <let name="lineExtensionAmount" value="
@@ -293,65 +293,65 @@ Last update: 2026 May release 3.0.21.
                         round(sum(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']/ram:ActualAmount/xs:decimal(.)) * 10 * 10) div 100
                     else
                         0"/>
-      <assert id="PEPPOL-EN16931-R120" test="u:slack($lineExtensionAmount, ($quantity * ($priceAmount div $baseQuantity)) + $chargesTotal - $allowancesTotal, 0.02)" flag="fatal">Invoice line net amount MUST equal (Invoiced quantity * (Item net price/item price base quantity) + Sum of invoice line charge amount - sum of invoice line allowance amount</assert>
-      <assert id="PEPPOL-EN16931-R100" test="count(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument[ram:TypeCode='130']) &lt;=1" flag="fatal">Only one invoiced object is allowed pr line</assert>
-      <assert id="PEPPOL-EN16931-R101" test="(not(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument) or (ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument/ram:TypeCode='130'))" flag="fatal">Element Document reference can only be used for Invoice line object</assert>
+      <assert id="PEPPOL-EN16931-R120" test="u:slack($lineExtensionAmount, ($quantity * ($priceAmount div $baseQuantity)) + $chargesTotal - $allowancesTotal, 0.02)" flag="fatal">[PEPPOL-EN16931-R120]-Invoice line net amount MUST equal (Invoiced quantity * (Item net price/item price base quantity) + Sum of invoice line charge amount - sum of invoice line allowance amount</assert>
+      <assert id="PEPPOL-EN16931-R100" test="count(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument[ram:TypeCode='130']) &lt;=1" flag="fatal">[PEPPOL-EN16931-R100]-Only one invoiced object is allowed pr line</assert>
+      <assert id="PEPPOL-EN16931-R101" test="(not(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument) or (ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument/ram:TypeCode='130'))" flag="fatal">[PEPPOL-EN16931-R101]-Element Document reference can only be used for Invoice line object</assert>
     </rule>
     <rule context="ram:NetPriceProductTradePrice | ram:GrossPriceProductTradePrice">
-      <assert id="PEPPOL-EN16931-R121" test="not(ram:BasisQuantity) or xs:decimal(ram:BasisQuantity) &gt; 0" flag="fatal">Base quantity MUST be a positive number above zero.</assert>
+      <assert id="PEPPOL-EN16931-R121" test="not(ram:BasisQuantity) or xs:decimal(ram:BasisQuantity) &gt; 0" flag="fatal">[PEPPOL-EN16931-R121]-Base quantity MUST be a positive number above zero.</assert>
     </rule>
     <!-- PEPPOL-EN16931-R044 and PEPPOL-EN16931-R046 are not needed due to lack of elements for the EN. -->
     <!-- Price -->
     <rule context="ram:NetPriceProductTradePrice/ram:BasisQuantity[@unitCode] | ram:GrossPriceProductTradePrice/ram:BasisQuantity[@unitCode]">
-      <assert id="PEPPOL-EN16931-R130" test="@unitCode = ../../../ram:SpecifiedLineTradeDelivery/ram:BilledQuantity/@unitCode" flag="fatal">Unit code of price base quantity MUST be same as invoiced quantity.</assert>
+      <assert id="PEPPOL-EN16931-R130" test="@unitCode = ../../../ram:SpecifiedLineTradeDelivery/ram:BilledQuantity/@unitCode" flag="fatal">[PEPPOL-EN16931-R130]-Unit code of price base quantity MUST be same as invoiced quantity.</assert>
     </rule>
     <!-- Validation of ICD -->
     <rule context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088']">
-      <assert id="PEPPOL-COMMON-R040" test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">GLN must have a valid format according to GS1 rules.</assert>
+      <assert id="PEPPOL-COMMON-R040" test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN must have a valid format according to GS1 rules.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0192'] | ram:ID[@schemeID = '0192'] | ram:GlobalID[@schemeID = '0192']">
-      <assert id="PEPPOL-COMMON-R041" test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">Norwegian organization number MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R041" test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">[PEPPOL-COMMON-R041]-Norwegian organization number MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0184'] | ram:ID[@schemeID = '0184'] | ram:GlobalID[@schemeID = '0184']">
-      <assert id="PEPPOL-COMMON-R042" 
+      <assert id="PEPPOL-COMMON-R042"
         test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
                or
-              (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)" 
-        flag="fatal">Danish organization number (CVR) MUST be stated in the correct format.</assert>
+              (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)"
+        flag="fatal">[PEPPOL-COMMON-R042]-Danish organization number (CVR) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0096'] | ram:ID[@schemeID = '0096'] | ram:GlobalID[@schemeID = '0096']">
-      <assert id="PEPPOL-COMMON-R052" 
-        test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)" 
-        flag="warning">Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R052"
+        test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
+        flag="warning">[PEPPOL-COMMON-R052]-Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0198'] | ram:ID[@schemeID = '0198'] | ram:GlobalID[@schemeID = '0198']">
-      <assert id="PEPPOL-COMMON-R053" 
-        test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)" 
-        flag="warning">Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R053"
+        test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
+        flag="warning">[PEPPOL-COMMON-R053]-Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208']">
-      <assert id="PEPPOL-COMMON-R043" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())" flag="fatal">Belgian enterprise number MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R043" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())" flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0201'] | ram:ID[@schemeID = '0201'] | ram:GlobalID[@schemeID = '0201']">
-      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0210'] | ram:ID[@schemeID = '0210'] | ram:GlobalID[@schemeID = '0210']">
-      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R045]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '9907']">
-      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R046]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0211'] | ram:ID[@schemeID = '0211'] | ram:GlobalID[@schemeID = '0211']">
-      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R047]-Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
     </rule>
 <!--     <rule context="ram:URIID[@schemeID = '9906']">
-      <assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R048]-Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
     </rule> -->
     <rule context="ram:URIID[@schemeID = '0007'] | ram:ID[@schemeID = '0007'] | ram:GlobalID[@schemeID = '0007']">
-      <assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct format.</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '0151'] | ram:ID[@schemeID = '0151'] | ram:GlobalID[@schemeID = '0151']">
-      <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">Australian Business Number (ABN) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
 
   </pattern>
@@ -467,7 +467,7 @@ Last update: 2026 May release 3.0.21.
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization[../ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:ID]">
       <assert id="SE-R-003" test="string(number(ram:ID)) != 'NaN'" flag="fatal">Swedish organisation numbers should be numeric.</assert>
       <assert id="SE-R-004" test="string-length(normalize-space(ram:ID)) = 10" flag="fatal">Swedish organisation numbers consist of 10 characters.</assert>
-	  <assert id="SE-R-013" test="u:checkSEOrgnr(normalize-space(ram:ID))" flag="fatal">The last digit of a Swedish organization number must be valid according to the Luhn algorithm.</assert>	  
+	  <assert id="SE-R-013" test="u:checkSEOrgnr(normalize-space(ram:ID))" flag="fatal">The last digit of a Swedish organization number must be valid according to the Luhn algorithm.</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:SpecifiedLegalOrganization/ram:ID]/ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'FC']">
       <assert id="SE-R-005" test="normalize-space(upper-case(.)) = 'GODKÄND FÖR F-SKATT'" flag="fatal">For Swedish suppliers, when using Seller tax registration identifier, 'Godkänd för F-skatt' must be stated</assert>
@@ -568,37 +568,37 @@ Last update: 2026 May release 3.0.21.
     <rule context="ram:AttachmentBinaryObject[@mimeCode]">
       <assert id="PEPPOL-EN16931-CL001" test="
                     some $code in $MIMECODE
-                        satisfies @mimeCode = $code" flag="fatal">Mime code must be according to subset of IANA code list.</assert>
+                        satisfies @mimeCode = $code" flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']/ram:ReasonCode">
       <assert id="PEPPOL-EN16931-CL002" test="
                     some $code in $UNCL5189
-                        satisfies normalize-space(text()) = $code" flag="fatal">Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
+                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL002]-Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']/ram:ReasonCode">
       <assert id="PEPPOL-EN16931-CL003" test="
                     some $code in $UNCL7161
-                        satisfies normalize-space(text()) = $code" flag="fatal">Reason code MUST be according to UNCL 7161 D.16B.</assert>
+                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL003]-Reason code MUST be according to UNCL 7161 D.16B.</assert>
     </rule>
     <!-- PEPPOL-EN16931-CL006 is omitted due to lack of description code for invoice period in CII syntax. -->
     <rule context="ram:TaxTotalAmount[@currencyID]">
       <assert id="PEPPOL-EN16931-CL007" test="
                     some $code in $ISO4217
-                        satisfies @currencyID = $code" flag="fatal">Currency code must be according to ISO 4217:2005</assert>
+                        satisfies @currencyID = $code" flag="fatal">[PEPPOL-EN16931-CL007]-Currency code must be according to ISO 4217:2005</assert>
     </rule>
     <rule context="ram:ExchangedDocument/ram:TypeCode">
       <assert id="PEPPOL-EN16931-P0100" test="
                     not($profile = ('01','02')) or (some $code in tokenize('71 102 218 219 326 331 382 553 817 870 875 876 877 380 383 384 386 388 393 82 80 84 395 575 623 780 381 396 81 83 532', '\s')
-                        satisfies normalize-space(text()) = $code)" flag="fatal">Invoice type code MUST be set according to the profile.</assert>
+                        satisfies normalize-space(text()) = $code)" flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
     </rule>
     <!-- PEPPOL-EN16931-P0101 is part of PEPPOL-EN16931-P0100. -->
     <rule context="udt:DateTimeString">
-      <assert id="PEPPOL-EN16931-F001" test="normalize-space(@format) = '102' and string-length(text()) = 8 and matches(normalize-space(text()), '20[0-9]{6}')" flag="fatal">A date MUST be formatted YYYYMMDD.</assert>
+      <assert id="PEPPOL-EN16931-F001" test="normalize-space(@format) = '102' and string-length(text()) = 8 and matches(normalize-space(text()), '20[0-9]{6}')" flag="fatal">[PEPPOL-EN16931-F001]-A date MUST be formatted YYYYMMDD.</assert>
     </rule>
     <rule context="ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID | ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID">
       <assert id="PEPPOL-EN16931-CL008" test="
                 some $code in $eaid
-                satisfies @schemeID = $code" flag="fatal">Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
+                satisfies @schemeID = $code" flag="fatal">[PEPPOL-EN16931-CL008]-Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
     </rule>
   </pattern>
 </schema>
