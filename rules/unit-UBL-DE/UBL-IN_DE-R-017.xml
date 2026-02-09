@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
 <assert>
-    <description>DE-R-017 The element "Invoice type code" (BT-3) should only contain the following values from code list UNTDID 1001: 326 (Partial invoice), 380 (Commercial invoice), 384 (Corrected invoice), 389 (Self-billed invoice), 381 (Credit note), 875 (Partial construction invoice), 876 (Partial final construction invoice), 877 (Final construction invoice).</description>
+    <description>DE-R-017 If both supplier and customer are German, the element "Invoice type code" (BT-3) should only contain the following values from code list UNTDID 1001: 326 (Partial invoice), 380 (Commercial invoice), 384 (Corrected invoice), 389 (Self-billed invoice), 381 (Credit note), 875 (Partial construction invoice), 876 (Partial final construction invoice), 877 (Final construction invoice).</description>
     <scope>DE-R-017</scope>
 </assert>
 <test>
