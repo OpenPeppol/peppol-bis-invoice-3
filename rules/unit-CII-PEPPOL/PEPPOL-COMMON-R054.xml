@@ -31,7 +31,7 @@
   <!-- Error cases: URIID for supplier and customer, non-digit characters, too few characters, and too many characters -->
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
@@ -50,7 +50,7 @@
   </test>
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
@@ -69,7 +69,7 @@
   </test>
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
@@ -88,7 +88,7 @@
   </test>
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
@@ -107,7 +107,7 @@
   </test>
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
@@ -126,7 +126,7 @@
   </test>
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R054</error>
+      <warning>PEPPOL-COMMON-R054</warning>
     </assert>
     <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <rsm:ExchangedDocument>
