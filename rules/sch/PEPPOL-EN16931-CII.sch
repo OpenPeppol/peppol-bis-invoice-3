@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
@@ -6,195 +6,98 @@ Last update: 2026 May release 3.0.21.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
   <title>Rules for Peppol BIS 3.0 Billing</title>
-  <ns uri="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" prefix="rsm"/>
-  <ns uri="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" prefix="udt"/>
-  <ns uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" prefix="qdt"/>
-  <ns uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" prefix="ram"/>
-  <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
-  <ns uri="utils" prefix="u"/>
+  <ns uri="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" prefix="rsm" />
+  <ns uri="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" prefix="udt" />
+  <ns uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" prefix="qdt" />
+  <ns uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" prefix="ram" />
+  <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs" />
+  <ns uri="utils" prefix="u" />
   <!-- Parameters -->
-  <let name="profile" value="
-            if (/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter and matches(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then
-                tokenize(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), ':')[7]
-            else
-                'Unknown'"/>
-  <let name="supplierCountry" value="
-            if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then
-                upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))
-            else
-                if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then
-                    upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))
-                else
-                    if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID) then
-                        upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID))
-                    else
-                        'XX'"/>
+  <let name="profile" value="&#xD;&#xA;            if (/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter and matches(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then&#xD;&#xA;                tokenize(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), ':')[7]&#xD;&#xA;            else&#xD;&#xA;                'Unknown'" />
+  <let name="supplierCountry" value="&#xD;&#xA;            if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then&#xD;&#xA;                upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))&#xD;&#xA;            else&#xD;&#xA;                if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then&#xD;&#xA;                    upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))&#xD;&#xA;                else&#xD;&#xA;                    if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID) then&#xD;&#xA;                        upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID))&#xD;&#xA;                    else&#xD;&#xA;                        'XX'" />
   <!-- -->
-  <let name="documentCurrencyCode" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode"/>
-  <let name="taxCurrencyCode" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:TaxCurrencyCode"/>
+  <let name="documentCurrencyCode" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode" />
+  <let name="taxCurrencyCode" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:TaxCurrencyCode" />
   <!-- Functions -->
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:gln" as="xs:boolean">
-    <param name="val"/>
-    <variable name="length" select="string-length($val) - 1"/>
-    <variable name="digits" select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)"/>
-    <variable name="weightedSum" select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (1 + ((($i + 1) mod 2) * 2)))"/>
-    <sequence select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))"/>
+    <param name="val" />
+    <variable name="length" select="string-length($val) - 1" />
+    <variable name="digits" select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
+    <variable name="weightedSum" select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (1 + ((($i + 1) mod 2) * 2)))" />
+    <sequence select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:slack" as="xs:boolean">
-    <param name="exp" as="xs:decimal"/>
-    <param name="val" as="xs:decimal"/>
-    <param name="slack" as="xs:decimal"/>
-    <sequence select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val"/>
+    <param name="exp" as="xs:decimal" />
+    <param name="val" as="xs:decimal" />
+    <param name="slack" as="xs:decimal" />
+    <sequence select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod11" as="xs:boolean">
-    <param name="val"/>
-    <variable name="length" select="string-length($val) - 1"/>
-    <variable name="digits" select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)"/>
-    <variable name="weightedSum" select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (($i mod 6) + 2))"/>
-    <sequence select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
+    <param name="val" />
+    <variable name="length" select="string-length($val) - 1" />
+    <variable name="digits" select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
+    <variable name="weightedSum" select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (($i mod 6) + 2))" />
+    <sequence select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))" />
   </function>
 	<function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod97-0208" as="xs:boolean">
-		<param name="val"/>
-		<variable name="checkdigits" select="substring($val,9,2)"/>
-		<variable name="calculated_digits" select="xs:string(97 - (xs:integer(substring($val,1,8)) mod 97))"/>
-		<sequence select="number($checkdigits) = number($calculated_digits)"/>
+		<param name="val" />
+		<variable name="checkdigits" select="substring($val,9,2)" />
+		<variable name="calculated_digits" select="xs:string(97 - (xs:integer(substring($val,1,8)) mod 97))" />
+		<sequence select="number($checkdigits) = number($calculated_digits)" />
 	</function>
 <function name="u:checkCodiceIPA" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string?"/>
+    <param name="arg" as="xs:string?" />
     <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
-    <sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
+    <sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()" />
   </function>
   <function name="u:checkCF" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string?"/>
-    <sequence select="
-		if ( (string-length($arg) = 16) or (string-length($arg) = 11) )
-		then
-		(
-			if ((string-length($arg) = 16))
-			then
-			(
-				if (u:checkCF16($arg))
-				then
-				(
-					true()
-				)
-				else
-				(
-					false()
-				)
-			)
-			else
-			(
-				if(($arg castable as xs:integer)) then true() else false()
-
-			)
-		)
-		else
-		(
-			false()
-		)
-		"/>
+    <param name="arg" as="xs:string?" />
+    <sequence select="&#xD;&#xA;		if ( (string-length($arg) = 16) or (string-length($arg) = 11) )&#xD;&#xA;		then&#xD;&#xA;		(&#xD;&#xA;			if ((string-length($arg) = 16))&#xD;&#xA;			then&#xD;&#xA;			(&#xD;&#xA;				if (u:checkCF16($arg))&#xD;&#xA;				then&#xD;&#xA;				(&#xD;&#xA;					true()&#xD;&#xA;				)&#xD;&#xA;				else&#xD;&#xA;				(&#xD;&#xA;					false()&#xD;&#xA;				)&#xD;&#xA;			)&#xD;&#xA;			else&#xD;&#xA;			(&#xD;&#xA;				if(($arg castable as xs:integer)) then true() else false()&#xD;&#xA;&#xD;&#xA;			)&#xD;&#xA;		)&#xD;&#xA;		else&#xD;&#xA;		(&#xD;&#xA;			false()&#xD;&#xA;		)&#xD;&#xA;		" />
   </function>
   <function name="u:checkCF16" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string?"/>
+    <param name="arg" as="xs:string?" />
     <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
-    <sequence select="
-				if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and
-						(substring($arg,7,2) castable as xs:integer) and
-						(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and
-						(substring($arg,10,2) castable as xs:integer) and
-						(substring($arg,12,3) castable as xs:string) and
-						(substring($arg,15,1) castable as xs:integer) and
-						(string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)
-					)
-				then true()
-				else false()
-				"/>
+    <sequence select="&#xD;&#xA;				if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and&#xD;&#xA;						(substring($arg,7,2) castable as xs:integer) and&#xD;&#xA;						(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and&#xD;&#xA;						(substring($arg,10,2) castable as xs:integer) and&#xD;&#xA;						(substring($arg,12,3) castable as xs:string) and&#xD;&#xA;						(substring($arg,15,1) castable as xs:integer) and&#xD;&#xA;						(string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)&#xD;&#xA;					)&#xD;&#xA;				then true()&#xD;&#xA;				else false()&#xD;&#xA;				" />
   </function>
   <function name="u:checkPIVAseIT" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string"/>
-    <variable name="paese" select="substring($arg,1,2)"/>
-    <variable name="codice" select="substring($arg,3)"/>
-    <sequence select="
-
-			if ( $paese = 'IT' or $paese = 'it' )
-			then
-			(
-				if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))
-				then
-				(
-					true()
-				)
-				else
-				(
-					false()
-				)
-			)
-			else
-			(
-				true()
-			)
-
-		"/>
+    <param name="arg" as="xs:string" />
+    <variable name="paese" select="substring($arg,1,2)" />
+    <variable name="codice" select="substring($arg,3)" />
+    <sequence select="&#xD;&#xA;&#xD;&#xA;			if ( $paese = 'IT' or $paese = 'it' )&#xD;&#xA;			then&#xD;&#xA;			(&#xD;&#xA;				if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))&#xD;&#xA;				then&#xD;&#xA;				(&#xD;&#xA;					true()&#xD;&#xA;				)&#xD;&#xA;				else&#xD;&#xA;				(&#xD;&#xA;					false()&#xD;&#xA;				)&#xD;&#xA;			)&#xD;&#xA;			else&#xD;&#xA;			(&#xD;&#xA;				true()&#xD;&#xA;			)&#xD;&#xA;&#xD;&#xA;		" />
   </function>
   <function name="u:checkPIVA" as="xs:integer" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string?"/>
-    <sequence select="
-				if (not($arg castable as xs:integer))
-					then 1
-					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )"/>
+    <param name="arg" as="xs:string?" />
+    <sequence select="&#xD;&#xA;				if (not($arg castable as xs:integer))&#xD;&#xA;					then 1&#xD;&#xA;					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
   </function>
   <function name="u:addPIVA" as="xs:integer" xmlns="http://www.w3.org/1999/XSL/Transform">
-    <param name="arg" as="xs:string"/>
-    <param name="pari" as="xs:integer"/>
-    <variable name="tappo" select="if (not($arg castable as xs:integer)) then 0 else 1"/>
-    <variable name="mapper" select="if ($tappo = 0) then 0 else
-																		( if ($pari = 1)
-																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )
-																			else ( xs:integer(substring($arg,1,1) ) )
-																		)"/>
-    <sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
+    <param name="arg" as="xs:string" />
+    <param name="pari" as="xs:integer" />
+    <variable name="tappo" select="if (not($arg castable as xs:integer)) then 0 else 1" />
+    <variable name="mapper" select="if ($tappo = 0) then 0 else&#xD;&#xA;																		( if ($pari = 1)&#xD;&#xA;																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )&#xD;&#xA;																			else ( xs:integer(substring($arg,1,1) ) )&#xD;&#xA;																		)" />
+    <sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:abn" as="xs:boolean">
-    <param name="val"/>
-    <sequence select="(
-((string-to-codepoints(substring($val,1,1)) - 49) * 10) +
-((string-to-codepoints(substring($val,2,1)) - 48) * 1) +
-((string-to-codepoints(substring($val,3,1)) - 48) * 3) +
-((string-to-codepoints(substring($val,4,1)) - 48) * 5) +
-((string-to-codepoints(substring($val,5,1)) - 48) * 7) +
-((string-to-codepoints(substring($val,6,1)) - 48) * 9) +
-((string-to-codepoints(substring($val,7,1)) - 48) * 11) +
-((string-to-codepoints(substring($val,8,1)) - 48) * 13) +
-((string-to-codepoints(substring($val,9,1)) - 48) * 15) +
-((string-to-codepoints(substring($val,10,1)) - 48) * 17) +
-((string-to-codepoints(substring($val,11,1)) - 48) * 19)) mod 89 = 0
-"/>
+    <param name="val" />
+    <sequence select="(&#xD;&#xA;((string-to-codepoints(substring($val,1,1)) - 49) * 10) +&#xD;&#xA;((string-to-codepoints(substring($val,2,1)) - 48) * 1) +&#xD;&#xA;((string-to-codepoints(substring($val,3,1)) - 48) * 3) +&#xD;&#xA;((string-to-codepoints(substring($val,4,1)) - 48) * 5) +&#xD;&#xA;((string-to-codepoints(substring($val,5,1)) - 48) * 7) +&#xD;&#xA;((string-to-codepoints(substring($val,6,1)) - 48) * 9) +&#xD;&#xA;((string-to-codepoints(substring($val,7,1)) - 48) * 11) +&#xD;&#xA;((string-to-codepoints(substring($val,8,1)) - 48) * 13) +&#xD;&#xA;((string-to-codepoints(substring($val,9,1)) - 48) * 15) +&#xD;&#xA;((string-to-codepoints(substring($val,10,1)) - 48) * 17) +&#xD;&#xA;((string-to-codepoints(substring($val,11,1)) - 48) * 19)) mod 89 = 0&#xD;&#xA;" />
   </function>
 
     <!-- Function for Swedish organisation numbers (0007) -->
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkSEOrgnr" as="xs:boolean">
-    <param name="number" as="xs:string"/>
+    <param name="number" as="xs:string" />
 	<choose>
 		<!-- Check if input is numeric -->
 		<when test="not(matches($number, '^\d+$'))">
-			<sequence select="false()"/>
+			<sequence select="false()" />
 		</when>
 		<otherwise>
 			<!-- verify the check number of the provided identifier according to the Luhn algorithm-->
-			<variable name="mainPart" select="substring($number, 1, 9)"/>
-			<variable name="checkDigit" select="substring($number, 10, 1)"/>
+			<variable name="mainPart" select="substring($number, 1, 9)" />
+			<variable name="checkDigit" select="substring($number, 10, 1)" />
 			<variable name="sum" as="xs:integer">
-			  <sequence select="xs:integer(sum(
-						for $pos in 1 to string-length($mainPart) return
-							if ($pos mod 2 = 1)
-							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 +
-								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10
-							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))
-					))"/>
+			  <sequence select="xs:integer(sum(&#xD;&#xA;						for $pos in 1 to string-length($mainPart) return&#xD;&#xA;							if ($pos mod 2 = 1)&#xD;&#xA;							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 +&#xD;&#xA;								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10&#xD;&#xA;							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))&#xD;&#xA;					))" />
 			</variable>
-			<variable name="calculatedCheckDigit" select="(10 - $sum mod 10) mod 10"/>
-			<sequence select="$calculatedCheckDigit = number($checkDigit)"/>
+			<variable name="calculatedCheckDigit" select="(10 - $sum mod 10) mod 10" />
+			<sequence select="$calculatedCheckDigit = number($checkDigit)" />
 		</otherwise>
 	</choose>
   </function>
@@ -203,9 +106,7 @@ Last update: 2026 May release 3.0.21.
     <rule context="rsm:ExchangedDocumentContext">
       <assert id="PEPPOL-EN16931-R001" test="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID" flag="fatal">[PEPPOL-EN16931-R001]-Business process MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
-      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()),
-      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))"
-      flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
+      <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()),&#xD;&#xA;      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))" flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
     </rule>
     <rule context="ram:ApplicableHeaderTradeAgreement">
       <assert id="PEPPOL-EN16931-R003" test="ram:BuyerReference or ram:BuyerOrderReferencedDocument/ram:IssuerAssignedID" flag="fatal">[PEPPOL-EN16931-R003]-A buyer reference or purchase order reference MUST be provided.</assert>
@@ -215,11 +116,7 @@ Last update: 2026 May release 3.0.21.
     <rule context="ram:ApplicableHeaderTradeSettlement">
       <assert id="PEPPOL-EN16931-R005" test="not(ram:TaxCurrencyCode) or normalize-space(ram:TaxCurrencyCode/text()) != normalize-space(ram:InvoiceCurrencyCode/text())" flag="fatal">[PEPPOL-EN16931-R005]-VAT accounting currency code MUST be different from invoice currency code when provided.</assert>
       <assert id="PEPPOL-EN16931-R053" test="count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode]) = 1" flag="fatal">[PEPPOL-EN16931-R053]-Only one tax total with tax subtotals MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R054" test="
-                    count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID != $documentCurrencyCode]) = (if (ram:TaxCurrencyCode) then
-                        1
-                    else
-                        0)" flag="fatal">[PEPPOL-EN16931-R054]-Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
+      <assert id="PEPPOL-EN16931-R054" test="&#xD;&#xA;                    count(ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID != $documentCurrencyCode]) = (if (ram:TaxCurrencyCode) then&#xD;&#xA;                        1&#xD;&#xA;                    else&#xD;&#xA;                        0)" flag="fatal">[PEPPOL-EN16931-R054]-Only one tax total without tax subtotals MUST be provided when tax currency code is provided.</assert>
       <assert id="PEPPOL-EN16931-R055" test="not(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:TaxCurrencyCode) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &lt; 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &lt; 0) or (ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $taxCurrencyCode] &gt;= 0 and ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID = $documentCurrencyCode] &gt;= 0)" flag="fatal">[PEPPOL-EN16931-R055]-Invoice total VAT amount and Invoice total VAT amount in accounting currency MUST have the same operational sign</assert>
     </rule>
     <!-- PEPPOL-EN16931-R051 is obsolete in CII. -->
@@ -241,19 +138,13 @@ Last update: 2026 May release 3.0.21.
                 MUST be provided when allowance/charge base amount is provided.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge">
-      <assert id="PEPPOL-EN16931-R040" test="
-                    not(ram:CalculationPercent and ram:BasisAmount) or u:slack(if (ram:ActualAmount) then
-                        ram:ActualAmount
-                    else
-                        0, (xs:decimal(ram:BasisAmount) * xs:decimal(ram:CalculationPercent)) div 100, 0.02)" flag="fatal">[PEPPOL-EN16931-R040]-Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
+      <assert id="PEPPOL-EN16931-R040" test="&#xD;&#xA;                    not(ram:CalculationPercent and ram:BasisAmount) or u:slack(if (ram:ActualAmount) then&#xD;&#xA;                        ram:ActualAmount&#xD;&#xA;                    else&#xD;&#xA;                        0, (xs:decimal(ram:BasisAmount) * xs:decimal(ram:CalculationPercent)) div 100, 0.02)" flag="fatal">[PEPPOL-EN16931-R040]-Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists</assert>
       <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">[PEPPOL-EN16931-R043]-Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
     </rule>
     <rule context="ram:AppliedTradeAllowanceCharge">
       <assert id="PEPPOL-EN16931-R043" test="normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'true' or normalize-space(ram:ChargeIndicator/udt:Indicator/text()) = 'false'" flag="fatal">[PEPPOL-EN16931-R043]-Allowance/charge ChargeIndicator value MUST equal 'true' or 'false'</assert>
     </rule>
-    <rule context="
-                ram:SpecifiedTradeSettlementPaymentMeans[some $code in tokenize('49 59', '\s')
-                    satisfies normalize-space(ram:TypeCode) = $code]">
+    <rule context="&#xD;&#xA;                ram:SpecifiedTradeSettlementPaymentMeans[some $code in tokenize('49 59', '\s')&#xD;&#xA;                    satisfies normalize-space(ram:TypeCode) = $code]">
       <assert id="PEPPOL-EN16931-R061" test="../ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID" flag="fatal">[PEPPOL-EN16931-R061]-Mandate reference MUST be provided for direct debit.</assert>
     </rule>
     <rule context="rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime]/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod/ram:StartDateTime">
@@ -263,36 +154,12 @@ Last update: 2026 May release 3.0.21.
       <assert id="PEPPOL-EN16931-R111" test="udt:DateTimeString &lt;= ../../../../ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod/ram:EndDateTime/udt:DateTimeString" flag="fatal">[PEPPOL-EN16931-R111]-End date of line period MUST be within invoice period.</assert>
     </rule>
     <rule context="ram:IncludedSupplyChainTradeLineItem">
-      <let name="lineExtensionAmount" value="
-                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeSettlementLineMonetarySummation/ram:LineTotalAmount) then
-                        xs:decimal(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeSettlementLineMonetarySummation/ram:LineTotalAmount)
-                    else
-                        0"/>
-      <let name="quantity" value="
-                    if (ram:SpecifiedLineTradeDelivery/ram:BilledQuantity) then
-                        xs:decimal(ram:SpecifiedLineTradeDelivery/ram:BilledQuantity)
-                    else
-                        1"/>
-      <let name="priceAmount" value="
-                    if (ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:ChargeAmount) then
-                        xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:ChargeAmount)
-                    else
-                        0"/>
-      <let name="baseQuantity" value="
-                    if (ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity and xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity) != 0) then
-                        xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity)
-                    else
-                        1"/>
-      <let name="allowancesTotal" value="
-                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']) then
-                        round(sum(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']/ram:ActualAmount/xs:decimal(.)) * 10 * 10) div 100
-                    else
-                        0"/>
-      <let name="chargesTotal" value="
-                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']) then
-                        round(sum(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']/ram:ActualAmount/xs:decimal(.)) * 10 * 10) div 100
-                    else
-                        0"/>
+      <let name="lineExtensionAmount" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeSettlementLineMonetarySummation/ram:LineTotalAmount) then&#xD;&#xA;                        xs:decimal(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeSettlementLineMonetarySummation/ram:LineTotalAmount)&#xD;&#xA;                    else&#xD;&#xA;                        0" />
+      <let name="quantity" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeDelivery/ram:BilledQuantity) then&#xD;&#xA;                        xs:decimal(ram:SpecifiedLineTradeDelivery/ram:BilledQuantity)&#xD;&#xA;                    else&#xD;&#xA;                        1" />
+      <let name="priceAmount" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:ChargeAmount) then&#xD;&#xA;                        xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:ChargeAmount)&#xD;&#xA;                    else&#xD;&#xA;                        0" />
+      <let name="baseQuantity" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity and xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity) != 0) then&#xD;&#xA;                        xs:decimal(ram:SpecifiedLineTradeAgreement/ram:NetPriceProductTradePrice/ram:BasisQuantity)&#xD;&#xA;                    else&#xD;&#xA;                        1" />
+      <let name="allowancesTotal" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']) then&#xD;&#xA;                        round(sum(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']/ram:ActualAmount/xs:decimal(.)) * 10 * 10) div 100&#xD;&#xA;                    else&#xD;&#xA;                        0" />
+      <let name="chargesTotal" value="&#xD;&#xA;                    if (ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']) then&#xD;&#xA;                        round(sum(ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']/ram:ActualAmount/xs:decimal(.)) * 10 * 10) div 100&#xD;&#xA;                    else&#xD;&#xA;                        0" />
       <assert id="PEPPOL-EN16931-R120" test="u:slack($lineExtensionAmount, ($quantity * ($priceAmount div $baseQuantity)) + $chargesTotal - $allowancesTotal, 0.02)" flag="fatal">[PEPPOL-EN16931-R120]-Invoice line net amount MUST equal (Invoiced quantity * (Item net price/item price base quantity) + Sum of invoice line charge amount - sum of invoice line allowance amount</assert>
       <assert id="PEPPOL-EN16931-R100" test="count(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument[ram:TypeCode='130']) &lt;=1" flag="fatal">[PEPPOL-EN16931-R100]-Only one invoiced object is allowed pr line</assert>
       <assert id="PEPPOL-EN16931-R101" test="(not(ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument) or (ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument/ram:TypeCode='130'))" flag="fatal">[PEPPOL-EN16931-R101]-Element Document reference can only be used for Invoice line object</assert>
@@ -313,21 +180,13 @@ Last update: 2026 May release 3.0.21.
       <assert id="PEPPOL-COMMON-R041" test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">[PEPPOL-COMMON-R041]-Norwegian organization number MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0184'] | ram:ID[@schemeID = '0184'] | ram:GlobalID[@schemeID = '0184']">
-      <assert id="PEPPOL-COMMON-R042"
-        test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
-               or
-              (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)"
-        flag="fatal">[PEPPOL-COMMON-R042]-Danish organization number (CVR) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R042" test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)&#xD;&#xA;               or&#xD;&#xA;              (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)" flag="fatal">[PEPPOL-COMMON-R042]-Danish organization number (CVR) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0096'] | ram:ID[@schemeID = '0096'] | ram:GlobalID[@schemeID = '0096']">
-      <assert id="PEPPOL-COMMON-R052"
-        test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
-        flag="warning">[PEPPOL-COMMON-R052]-Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R052" test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)" flag="warning">[PEPPOL-COMMON-R052]-Danish chamber of commerce number (P) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0198'] | ram:ID[@schemeID = '0198'] | ram:GlobalID[@schemeID = '0198']">
-      <assert id="PEPPOL-COMMON-R053"
-        test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
-        flag="warning">[PEPPOL-COMMON-R053]-Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
+      <assert id="PEPPOL-COMMON-R053" test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)" flag="warning">[PEPPOL-COMMON-R053]-Danish ERSTORG number (SE) MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())" flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct format.</assert>
@@ -354,21 +213,19 @@ Last update: 2026 May release 3.0.21.
       <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']">
-      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
+      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">[PEPPOL-COMMON-R054]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']">
-      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
+      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
-      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
+      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
     </rule>
     <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
-      <assert id="PEPPOL-COMMON-R056-2"
-        test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')"
-        flag="warning">Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
+      <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
-      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (12345678901234567890).</assert>
+      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (12345678901234567890).</assert>
     </rule>
 <!--
 -->
@@ -377,92 +234,39 @@ Last update: 2026 May release 3.0.21.
   <pattern>
     <!-- Norway -->
     <rule context="ram:SellerTradeParty[$supplierCountry = 'NO']">
-      <assert id="NO-R-002" test="ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'FC'][normalize-space(text()) = 'Foretaksregisteret']" flag="warning">Most invoice issuers are required to append "Foretaksregisteret" to
+      <assert id="NO-R-002" test="ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'FC'][normalize-space(text()) = 'Foretaksregisteret']" flag="warning">[NO-R-002]-Most invoice issuers are required to append "Foretaksregisteret" to
                 their invoice. "Dersom selger er aksjeselskap, allmennaksjeselskap eller filial av
                 utenlandsk selskap skal også ordet «Foretaksregisteret» fremgå av salgsdokumentet,
                 jf. foretaksregisterloven § 10-2."</assert>
-      <assert id="NO-R-001" test="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)='NO' and matches(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID,3) , '^[0-9]{9}MVA$')
-                and u:mod11(substring(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/ram:ID, 3, 9)) or not(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)='NO')" flag="fatal">For Norwegian suppliers, a VAT number MUST be the country code prefix NO followed by a valid Norwegian organization number (nine numbers) followed by the letters MVA.</assert>
+      <assert id="NO-R-001" test="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)='NO' and matches(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID,3) , '^[0-9]{9}MVA$')&#xD;&#xA;                and u:mod11(substring(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/ram:ID, 3, 9)) or not(ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)='NO')" flag="fatal">[NO-R-001]-For Norwegian suppliers, a VAT number MUST be the country code prefix NO followed by a valid Norwegian organization number (nine numbers) followed by the letters MVA.</assert>
     </rule>
   </pattern>
   <!-- DENMARK -->
   <pattern>
-    <let name="DKSupplierCountry" value="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID"/>
-    <let name="DKCustomerCountry" value="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID"/>
+    <let name="DKSupplierCountry" value="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID" />
+    <let name="DKCustomerCountry" value="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID" />
     <!-- Document level -->
     <rule context="rsm:CrossIndustryInvoice[$DKSupplierCountry = 'DK']">
       <!--Check for Legal entity-->
-      <assert id="DK-R-002" test="(normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/text()) != '')" flag="fatal">Danish suppliers MUST provide legal entity.</assert>
+      <assert id="DK-R-002" test="(normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/text()) != '')" flag="fatal">[DK-R-002]-Danish suppliers MUST provide legal entity.</assert>
       <!--Check for Non VAT Tax code-->
-      <assert id="DK-R-004" test="not((($DKCustomerCountry = 'DK') and (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ReasonCode = 'ZZZ'))
-                              and not ((string-length(normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason/text())) = 4
-                                       and number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason) &gt;= 0
-                                       and number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason &lt;= 9999)) or
-                                       (((rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason
-                                                                          and contains(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#')
-                                                                          and not(starts-with(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#'))
-                                                                          and not(ends-with(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#'))))    )
-                                      )
-                              )" flag="fatal">When specifying non-VAT Taxes for Danish customers, Danish suppliers MUST use the AllowanceChargeReasonCode="ZZZ" and MUST be specified in AllowanceChargeReason; Either as the 4-digit Tax category or must include a #, but the # is not allowed as first and last character</assert>
-      <assert id="DK-R-013" test="not(($DKCustomerCountry = 'DK') and
-                                  ( ((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID))
-                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID/@schemeID) = ''))
-                                   or
-                                    ((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:GlobalID))
-                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:GlobalID/@schemeID) = ''))
-                                  )
-                              )" flag="fatal">For Danish Suppliers it is mandatory to use schemeID when GlobalID is used for SellerTradeParty or BuyerTradeParty</assert>
-      <assert id="DK-R-014" test="not((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID))
-                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID) != '0184')
-                              )" flag="fatal">For Danish Suppliers it is mandatory to specify schemeID as "0184" when SpecifiedLegalOrganization is used for SellerTradeParty</assert>
-      <assert id="DK-R-016" test="not((($DKCustomerCountry = 'DK') and (normalize-space(rsm:ExchangedDocument/ram:TypeCode/text()) = '381'))
-                              and (number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:DuePayableAmount/text()) &lt; 0)
-                              )" flag="fatal">For Danish Suppliers, a Credit note cannot have a negative total (DuePayableAmount)</assert>
+      <assert id="DK-R-004" test="not((($DKCustomerCountry = 'DK') and (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ReasonCode = 'ZZZ'))&#xD;&#xA;                              and not ((string-length(normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason/text())) = 4&#xD;&#xA;                                       and number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason) &gt;= 0&#xD;&#xA;                                       and number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason &lt;= 9999)) or&#xD;&#xA;                                       (((rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason&#xD;&#xA;                                                                          and contains(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#')&#xD;&#xA;                                                                          and not(starts-with(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#'))&#xD;&#xA;                                                                          and not(ends-with(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:Reason, '#'))))    )&#xD;&#xA;                                      )&#xD;&#xA;                              )" flag="fatal">[DK-R-004]-When specifying non-VAT Taxes for Danish customers, Danish suppliers MUST use the AllowanceChargeReasonCode="ZZZ" and MUST be specified in AllowanceChargeReason; Either as the 4-digit Tax category or must include a #, but the # is not allowed as first and last character</assert>
+      <assert id="DK-R-013" test="not(($DKCustomerCountry = 'DK') and&#xD;&#xA;                                  ( ((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID))&#xD;&#xA;                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID/@schemeID) = ''))&#xD;&#xA;                                   or&#xD;&#xA;                                    ((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:GlobalID))&#xD;&#xA;                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:GlobalID/@schemeID) = ''))&#xD;&#xA;                                  )&#xD;&#xA;                              )" flag="fatal">[DK-R-013]-For Danish Suppliers it is mandatory to use schemeID when GlobalID is used for SellerTradeParty or BuyerTradeParty</assert>
+      <assert id="DK-R-014" test="not((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID))&#xD;&#xA;                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID) != '0184')&#xD;&#xA;                              )" flag="fatal">[DK-R-014]-For Danish Suppliers it is mandatory to specify schemeID as "0184" when SpecifiedLegalOrganization is used for SellerTradeParty</assert>
+      <assert id="DK-R-016" test="not((($DKCustomerCountry = 'DK') and (normalize-space(rsm:ExchangedDocument/ram:TypeCode/text()) = '381'))&#xD;&#xA;                              and (number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:DuePayableAmount/text()) &lt; 0)&#xD;&#xA;                              )" flag="fatal">[DK-R-016]-For Danish Suppliers, a Credit note cannot have a negative total (DuePayableAmount)</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans">
-      <assert id="DK-R-005" test="(contains(' 1 10 31 42 48 49 50 58 59 93 97 ', concat(' ', ram:TypeCode, ' ')))" flag="fatal">For Danish suppliers the following Payment means type codes are allowed: 1, 10, 31, 42, 48, 49, 50, 58, 59, 93 and 97</assert>
-      <assert id="DK-R-006" test="not( ((ram:TypeCode = '31') or (ram:TypeCode = '42'))
-                              and not((normalize-space(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) != '') and (normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID/text()) != ''))
-                              )" flag="fatal">For Danish suppliers, bank account and registration account are mandatory if payment means is 31 or 42</assert>
-      <assert id="DK-R-007" test="not((ram:TypeCode = '49')
-                              and not((normalize-space(../ram:CreditorReferenceID/text()) != '')
-                                      and (normalize-space(ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID/text()) != ''))
-                              )" flag="fatal">For Danish suppliers DirectDebitMandateID and CreditorReferenceID are mandatory when payment means is 49</assert>
-      <assert id="DK-R-008" test="not((ram:TypeCode = '50')
-                              and not(((substring(../ram:PaymentReference, 0, 4) = '01#')
-                                        or (substring(../ram:PaymentReference, 0, 4) = '04#')
-                                        or (substring(../ram:PaymentReference, 0, 4) = '15#'))
-                                      and (string-length(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) = 7)
-                                      )
-                              )" flag="fatal">For Danish Suppliers PaymentReference is mandatory and MUST start with 01#, 04# or 15# (kortartkode), and PayeePartyCreditorFinancialAccount/IBANID (Giro kontonummer) is mandatory and must be 7 characters long, when payment means equals 50 (Giro)</assert>
-      <assert id="DK-R-009" test="not((ram:TypeCode = '50')
-                              and ((substring(../ram:PaymentReference, 0, 4) = '04#')
-                                    or (substring(../ram:PaymentReference, 0, 4)  = '15#'))
-                              and not(string-length(../ram:PaymentReference) = 19)
-                              )" flag="fatal">For Danish Suppliers if the PaymentReference is prefixed with 04# or 015# the 16 digits instruction Id must be added to the PaymentReference eg. "04#1234567890123456" when Payment means equals 50 (Giro)</assert>
-      <assert id="DK-R-010" test="not((ram:TypeCode = '93')
-                              and not(((substring(../ram:PaymentReference, 0, 4) = '71#')
-                                        or (substring(../ram:PaymentReference, 0, 4) = '73#')
-                                        or (substring(../ram:PaymentReference, 0, 4) = '75#'))
-                                      and (string-length(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) = 8)
-                                      )
-                              )" flag="fatal">For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.</assert>
-      <assert id="DK-R-011" test="not((ram:TypeCode = '93')
-                              and ((substring(../ram:PaymentReference, 0, 4) = '71#')
-                                    or (substring(../ram:PaymentReference, 0, 4)  = '75#'))
-                              and not((string-length(../ram:PaymentReference) = 18)
-                                    or (string-length(../ram:PaymentReference) = 19))
-                              )" flag="fatal">For Danish Suppliers if the PaymentReference is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentReference eg. "71#1234567890123456" when payment Method equals 93 (FIK)</assert>
+      <assert id="DK-R-005" test="(contains(' 1 10 31 42 48 49 50 58 59 93 97 ', concat(' ', ram:TypeCode, ' ')))" flag="fatal">[DK-R-005]-For Danish suppliers the following Payment means type codes are allowed: 1, 10, 31, 42, 48, 49, 50, 58, 59, 93 and 97</assert>
+      <assert id="DK-R-006" test="not( ((ram:TypeCode = '31') or (ram:TypeCode = '42'))&#xD;&#xA;                              and not((normalize-space(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) != '') and (normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID/text()) != ''))&#xD;&#xA;                              )" flag="fatal">[DK-R-006]-For Danish suppliers, bank account and registration account are mandatory if payment means is 31 or 42</assert>
+      <assert id="DK-R-007" test="not((ram:TypeCode = '49')&#xD;&#xA;                              and not((normalize-space(../ram:CreditorReferenceID/text()) != '')&#xD;&#xA;                                      and (normalize-space(ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID/text()) != ''))&#xD;&#xA;                              )" flag="fatal">[DK-R-007]-For Danish suppliers DirectDebitMandateID and CreditorReferenceID are mandatory when payment means is 49</assert>
+      <assert id="DK-R-008" test="not((ram:TypeCode = '50')&#xD;&#xA;                              and not(((substring(../ram:PaymentReference, 0, 4) = '01#')&#xD;&#xA;                                        or (substring(../ram:PaymentReference, 0, 4) = '04#')&#xD;&#xA;                                        or (substring(../ram:PaymentReference, 0, 4) = '15#'))&#xD;&#xA;                                      and (string-length(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) = 7)&#xD;&#xA;                                      )&#xD;&#xA;                              )" flag="fatal">[DK-R-008]-For Danish Suppliers PaymentReference is mandatory and MUST start with 01#, 04# or 15# (kortartkode), and PayeePartyCreditorFinancialAccount/IBANID (Giro kontonummer) is mandatory and must be 7 characters long, when payment means equals 50 (Giro)</assert>
+      <assert id="DK-R-009" test="not((ram:TypeCode = '50')&#xD;&#xA;                              and ((substring(../ram:PaymentReference, 0, 4) = '04#')&#xD;&#xA;                                    or (substring(../ram:PaymentReference, 0, 4)  = '15#'))&#xD;&#xA;                              and not(string-length(../ram:PaymentReference) = 19)&#xD;&#xA;                              )" flag="fatal">[DK-R-009]-For Danish Suppliers if the PaymentReference is prefixed with 04# or 015# the 16 digits instruction Id must be added to the PaymentReference eg. "04#1234567890123456" when Payment means equals 50 (Giro)</assert>
+      <assert id="DK-R-010" test="not((ram:TypeCode = '93')&#xD;&#xA;                              and not(((substring(../ram:PaymentReference, 0, 4) = '71#')&#xD;&#xA;                                        or (substring(../ram:PaymentReference, 0, 4) = '73#')&#xD;&#xA;                                        or (substring(../ram:PaymentReference, 0, 4) = '75#'))&#xD;&#xA;                                      and (string-length(ram:PayeePartyCreditorFinancialAccount/ram:IBANID/text()) = 8)&#xD;&#xA;                                      )&#xD;&#xA;                              )" flag="fatal">[DK-R-010]-For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.</assert>
+      <assert id="DK-R-011" test="not((ram:TypeCode = '93')&#xD;&#xA;                              and ((substring(../ram:PaymentReference, 0, 4) = '71#')&#xD;&#xA;                                    or (substring(../ram:PaymentReference, 0, 4)  = '75#'))&#xD;&#xA;                              and not((string-length(../ram:PaymentReference) = 18)&#xD;&#xA;                                    or (string-length(../ram:PaymentReference) = 19))&#xD;&#xA;                              )" flag="fatal">[DK-R-011]-For Danish Suppliers if the PaymentReference is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentReference eg. "71#1234567890123456" when payment Method equals 93 (FIK)</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem">
       <!-- Chedk for commodityCode on linelevel -->
-      <assert id="DK-R-003" test="not((ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID = 'TST')
-                              and not((ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '19.05.01')
-                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '19.0501')
-                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.08.01')
-                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.0801')
-                               )
-                              )" flag="warning">If ItemClassification is provided from Danish suppliers, UNSPSC version 19.05.01 or 26.08.01 should be used</assert>
+      <assert id="DK-R-003" test="not((ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID = 'TST')&#xD;&#xA;                              and not((ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '19.05.01')&#xD;&#xA;                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '19.0501')&#xD;&#xA;                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.08.01')&#xD;&#xA;                                     or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.0801')&#xD;&#xA;                               )&#xD;&#xA;                              )" flag="warning">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC version 19.05.01 or 26.08.01 should be used</assert>
     </rule>
   </pattern>
   <!-- Italian rules -->
@@ -479,33 +283,33 @@ Last update: 2026 May release 3.0.21.
   <!-- Swedish rules -->
   <pattern>
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:SpecifiedTaxRegistration/substring(ram:ID[@schemeID = 'VAT'], 1, 2) = 'SE']">
-      <assert id="SE-R-001" test="string-length(normalize-space(ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VAT'])) = 14" flag="fatal">For Swedish suppliers, Swedish VAT-numbers must consist of 14 characters.</assert>
-      <assert id="SE-R-002" test="string(number(substring(ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VAT'], 3, 12))) != 'NaN'" flag="fatal">For Swedish suppliers, the Swedish VAT-numbers must have the trailing 12 characters in numeric form</assert>
+      <assert id="SE-R-001" test="string-length(normalize-space(ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VAT'])) = 14" flag="fatal">[SE-R-001]-For Swedish suppliers, Swedish VAT-numbers must consist of 14 characters.</assert>
+      <assert id="SE-R-002" test="string(number(substring(ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VAT'], 3, 12))) != 'NaN'" flag="fatal">[SE-R-002]-For Swedish suppliers, the Swedish VAT-numbers must have the trailing 12 characters in numeric form</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization[../ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:ID]">
-      <assert id="SE-R-003" test="string(number(ram:ID)) != 'NaN'" flag="fatal">Swedish organisation numbers should be numeric.</assert>
-      <assert id="SE-R-004" test="string-length(normalize-space(ram:ID)) = 10" flag="fatal">Swedish organisation numbers consist of 10 characters.</assert>
-	  <assert id="SE-R-013" test="u:checkSEOrgnr(normalize-space(ram:ID))" flag="fatal">The last digit of a Swedish organization number must be valid according to the Luhn algorithm.</assert>
+      <assert id="SE-R-003" test="string(number(ram:ID)) != 'NaN'" flag="fatal">[SE-R-003]-Swedish organisation numbers should be numeric.</assert>
+      <assert id="SE-R-004" test="string-length(normalize-space(ram:ID)) = 10" flag="fatal">[SE-R-004]-Swedish organisation numbers consist of 10 characters.</assert>
+	  <assert id="SE-R-013" test="u:checkSEOrgnr(normalize-space(ram:ID))" flag="fatal">[SE-R-013]-The last digit of a Swedish organization number must be valid according to the Luhn algorithm.</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:SpecifiedLegalOrganization/ram:ID]/ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'FC']">
-      <assert id="SE-R-005" test="normalize-space(upper-case(.)) = 'GODKÄND FÖR F-SKATT'" flag="fatal">For Swedish suppliers, when using Seller tax registration identifier, 'Godkänd för F-skatt' must be stated</assert>
+      <assert id="SE-R-005" test="normalize-space(upper-case(.)) = 'GODKÄND FÖR F-SKATT'" flag="fatal">[SE-R-005]-For Swedish suppliers, when using Seller tax registration identifier, 'Godkänd för F-skatt' must be stated</assert>
     </rule>
     <rule context="//ram:ApplicableTradeTax[/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']/ram:SpecifiedTaxRegistration[substring(ram:ID[@schemeID = 'VAT'], 1, 2) = 'SE']] | //ram:CategoryTradeTax[/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']/ram:SpecifiedTaxRegistration[substring(ram:ID[@schemeID = 'VAT'], 1, 2) = 'SE']]">
-      <assert id="SE-R-006" test="number(ram:RateApplicablePercent) = 25 or number(ram:RateApplicablePercent) = 12 or number(ram:RateApplicablePercent) = 6" flag="fatal">For Swedish suppliers, only standard VAT rate of 6, 12 or 25 are used</assert>
+      <assert id="SE-R-006" test="number(ram:RateApplicablePercent) = 25 or number(ram:RateApplicablePercent) = 12 or number(ram:RateApplicablePercent) = 6" flag="fatal">[SE-R-006]-For Swedish suppliers, only standard VAT rate of 6, 12 or 25 are used</assert>
     </rule>
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '30' and normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID) = 'SE:PLUSGIRO']/ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID">
-      <assert id="SE-R-007" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">For Swedish suppliers using Plusgiro, the Account ID must be numeric </assert>
-      <assert id="SE-R-010" test="string-length(normalize-space(.)) &gt;= 2 and string-length(normalize-space(.)) &lt;= 8" flag="warning">For Swedish suppliers using Plusgiro, the Account ID must have 2-8 characters</assert>
+      <assert id="SE-R-007" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-007]-For Swedish suppliers using Plusgiro, the Account ID must be numeric </assert>
+      <assert id="SE-R-010" test="string-length(normalize-space(.)) &gt;= 2 and string-length(normalize-space(.)) &lt;= 8" flag="warning">[SE-R-010]-For Swedish suppliers using Plusgiro, the Account ID must have 2-8 characters</assert>
     </rule>
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '30' and normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID) = 'SE:BANKGIRO']/ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID">
-      <assert id="SE-R-008" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">For Swedish suppliers using Bankgiro, the Account ID must be numeric </assert>
-      <assert id="SE-R-009" test="string-length(normalize-space(.)) = 7 or string-length(normalize-space(.)) = 8" flag="warning">For Swedish suppliers using Bankgiro, the Account ID must have 7-8 characters</assert>
+      <assert id="SE-R-008" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-008]-For Swedish suppliers using Bankgiro, the Account ID must be numeric </assert>
+      <assert id="SE-R-009" test="string-length(normalize-space(.)) = 7 or string-length(normalize-space(.)) = 8" flag="warning">[SE-R-009]-For Swedish suppliers using Bankgiro, the Account ID must have 7-8 characters</assert>
     </rule>
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '50' or normalize-space(ram:TypeCode) = '56']">
-      <assert id="SE-R-011" test="false()" flag="warning">For Swedish suppliers using Swedish Bankgiro or Plusgiro, the proper way to indicate this is to use Code 30 for PaymentMeans and FinancialInstitutionBranch ID with code SE:BANKGIRO or SE:PLUSGIRO</assert>
+      <assert id="SE-R-011" test="false()" flag="warning">[SE-R-011]-For Swedish suppliers using Swedish Bankgiro or Plusgiro, the proper way to indicate this is to use Code 30 for PaymentMeans and FinancialInstitutionBranch ID with code SE:BANKGIRO or SE:PLUSGIRO</assert>
     </rule>
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE'] and ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '31']">
-      <assert id="SE-R-012" test="false()" flag="warning">For domestic transactions between Swedish trading partners, credit transfer should be indicated by PaymentMeansCode=”30”</assert>
+      <assert id="SE-R-012" test="false()" flag="warning">[SE-R-012]-For domestic transactions between Swedish trading partners, credit transfer should be indicated by PaymentMeansCode=”30”</assert>
     </rule>
   </pattern>
   <!-- NETHERLANDS -->
@@ -536,12 +340,7 @@ Last update: 2026 May release 3.0.21.
 
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:SpecifiedLegalOrganization/ram:ID[$supplierCountryIsNL and $customerCountryIsNL]">
       <!-- Original rule in NLCIUS: BR-NL-10 -->
-      <assert id="NL-R-005" test="
-          (contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ')
-           or
-           contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')
-          ) and (normalize-space(.) != '')
-      " flag="fatal">[NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)</assert>
+      <assert id="NL-R-005" test="&#xD;&#xA;          (contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ')&#xD;&#xA;           or&#xD;&#xA;           contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')&#xD;&#xA;          ) and (normalize-space(.) != '')&#xD;&#xA;      " flag="fatal">[NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)</assert>
     </rule>
 
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress[$supplierCountryIsNL and $taxRepresentativeCountryIsNL]">
@@ -551,21 +350,12 @@ Last update: 2026 May release 3.0.21.
 
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation[$supplierCountryIsNL]">
       <!-- Original rule in NLCIUS: BR-NL-11 -->
-      <assert id="NL-R-007" test="(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:TypeCode/text()) != '381' and
-                                   xs:decimal(ram:DuePayableAmount) &lt;= 0.0) or
-                                  (normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:TypeCode/text()) = '381' and
-                                   xs:decimal(ram:DuePayableAmount) &gt;= 0.0) or
-                                  (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans)" flag="fatal">[NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (ram:SpecifiedTradeSettlementPaymentMeans) if the payment is from customer to supplier</assert>
+      <assert id="NL-R-007" test="(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:TypeCode/text()) != '381' and&#xD;&#xA;                                   xs:decimal(ram:DuePayableAmount) &lt;= 0.0) or&#xD;&#xA;                                  (normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:TypeCode/text()) = '381' and&#xD;&#xA;                                   xs:decimal(ram:DuePayableAmount) &gt;= 0.0) or&#xD;&#xA;                                  (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans)" flag="fatal">[NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (ram:SpecifiedTradeSettlementPaymentMeans) if the payment is from customer to supplier</assert>
     </rule>
 
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[$supplierCountryIsNL and $customerCountryIsNL]">
       <!-- Original rule in NLCIUS: BR-NL-12 -->
-      <assert id="NL-R-008" test="normalize-space(ram:TypeCode) = '30' or
-                normalize-space(ram:TypeCode) = '48' or
-                normalize-space(ram:TypeCode) = '49' or
-                normalize-space(ram:TypeCode) = '57' or
-                normalize-space(ram:TypeCode) = '58' or
-                normalize-space(ram:TypeCode) = '59'" flag="fatal">[NL-R-008] For suppliers in the Netherlands, if the customer is in the Netherlands, the payment means code (ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode) MUST be one of 30, 48, 49, 57, 58 or 59</assert>
+      <assert id="NL-R-008" test="normalize-space(ram:TypeCode) = '30' or&#xD;&#xA;                normalize-space(ram:TypeCode) = '48' or&#xD;&#xA;                normalize-space(ram:TypeCode) = '49' or&#xD;&#xA;                normalize-space(ram:TypeCode) = '57' or&#xD;&#xA;                normalize-space(ram:TypeCode) = '58' or&#xD;&#xA;                normalize-space(ram:TypeCode) = '59'" flag="fatal">[NL-R-008] For suppliers in the Netherlands, if the customer is in the Netherlands, the payment means code (ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode) MUST be one of 30, 48, 49, 57, 58 or 59</assert>
     </rule>
 
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeAgreement/ram:BuyerOrderReferencedDocument/ram:LineID[$supplierCountryIsNL]">
@@ -576,47 +366,35 @@ Last update: 2026 May release 3.0.21.
   <!-- Restricted code lists and formatting -->
   <pattern>
     <let name="ISO3166" value="tokenize('AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW 1A XI', '\s')" />
-    <let name="ISO4217" value="tokenize('AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BOV BRL BSD BTN BWP BYN BZD CAD CDF CHE CHF CHW CLF CLP CNY COP COU CRC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HTG HUF IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MXV MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STD SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD USN UYI UYU UYW UZS VED VES VND VUV WST XAF XAG XAU XBA XBB XBC XBD XCD XDR XOF XPD XPF XPT XSU XTS XUA YER ZAR ZMW ZWG XXX CNH', '\s')"/>
+    <let name="ISO4217" value="tokenize('AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BOV BRL BSD BTN BWP BYN BZD CAD CDF CHE CHF CHW CLF CLP CNY COP COU CRC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HTG HUF IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MXV MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STD SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD USN UYI UYU UYW UZS VED VES VND VUV WST XAF XAG XAU XBA XBB XBC XBD XCD XDR XOF XPD XPF XPT XSU XTS XUA YER ZAR ZMW ZWG XXX CNH', '\s')" />
     <let name="MIMECODE" value="tokenize('application/pdf image/png image/jpeg text/csv application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.oasis.opendocument.spreadsheet', '\s')" />
     <let name="UNCL2005" value="tokenize('3 35 432', '\s')" />
     <let name="UNCL5189" value="tokenize('41 42 60 62 63 64 65 66 67 68 70 71 88 95 100 102 103 104 105', '\s')" />
     <let name="UNCL7161" value="tokenize('AA AAA AAC AAD AAE AAF AAH AAI AAS AAT AAV AAY AAZ ABA ABB ABC ABD ABF ABK ABL ABN ABR ABS ABT ABU ACF ACG ACH ACI ACJ ACK ACL ACM ACS ADC ADE ADJ ADK ADL ADM ADN ADO ADP ADQ ADR ADT ADW ADY ADZ AEA AEB AEC AED AEF AEH AEI AEJ AEK AEL AEM AEN AEO AEP AES AET AEU AEV AEW AEX AEY AEZ AJ AU CA CAB CAD CAE CAF CAI CAJ CAK CAL CAM CAN CAO CAP CAQ CAR CAS CAT CAU CAV CAW CAX CAY CAZ CD CG CS CT DAB DAC DAD DAF DAG DAH DAI DAJ DAK DAL DAM DAN DAO DAP DAQ DL EG EP ER FAA FAB FAC FC FH FI GAA HAA HD HH IAA IAB ID IF IR IS KO L1 LA LAA LAB LF MAE MI ML NAA OA PA PAA PC PL PRV RAB RAC RAD RAF RE RF RH RV SA SAA SAD SAE SAI SG SH SM SU TAB TAC TT TV V1 V2 WH XAA YY ZZZ', '\s')" />
-    <let name="UNCL5305" value="tokenize('AE E S Z G O K L M B', '\s')"/>
-    <let name="eaid" value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0151 0177 0183 0184 0188 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 0208 0209 0210 0211 0212 0213 0215 0216 0218 0221 0230 0235 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9957 9959 0147 0154 0158 0170 0194 0203 0205 0217 0225 0240 0244 0245 ', '\s')"/>
+    <let name="UNCL5305" value="tokenize('AE E S Z G O K L M B', '\s')" />
+    <let name="eaid" value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0151 0177 0183 0184 0188 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 0208 0209 0210 0211 0212 0213 0215 0216 0218 0221 0230 0235 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9957 9959 0147 0154 0158 0170 0194 0203 0205 0217 0225 0240 0244 0245 ', '\s')" />
     <rule context="ram:AttachmentBinaryObject[@mimeCode]">
-      <assert id="PEPPOL-EN16931-CL001" test="
-                    some $code in $MIMECODE
-                        satisfies @mimeCode = $code" flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
+      <assert id="PEPPOL-EN16931-CL001" test="&#xD;&#xA;                    some $code in $MIMECODE&#xD;&#xA;                        satisfies @mimeCode = $code" flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']/ram:ReasonCode">
-      <assert id="PEPPOL-EN16931-CL002" test="
-                    some $code in $UNCL5189
-                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL002]-Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
+      <assert id="PEPPOL-EN16931-CL002" test="&#xD;&#xA;                    some $code in $UNCL5189&#xD;&#xA;                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL002]-Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
     </rule>
     <rule context="ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'true']/ram:ReasonCode">
-      <assert id="PEPPOL-EN16931-CL003" test="
-                    some $code in $UNCL7161
-                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL003]-Reason code MUST be according to UNCL 7161 D.16B.</assert>
+      <assert id="PEPPOL-EN16931-CL003" test="&#xD;&#xA;                    some $code in $UNCL7161&#xD;&#xA;                        satisfies normalize-space(text()) = $code" flag="fatal">[PEPPOL-EN16931-CL003]-Reason code MUST be according to UNCL 7161 D.16B.</assert>
     </rule>
     <!-- PEPPOL-EN16931-CL006 is omitted due to lack of description code for invoice period in CII syntax. -->
     <rule context="ram:TaxTotalAmount[@currencyID]">
-      <assert id="PEPPOL-EN16931-CL007" test="
-                    some $code in $ISO4217
-                        satisfies @currencyID = $code" flag="fatal">[PEPPOL-EN16931-CL007]-Currency code must be according to ISO 4217:2005</assert>
+      <assert id="PEPPOL-EN16931-CL007" test="&#xD;&#xA;                    some $code in $ISO4217&#xD;&#xA;                        satisfies @currencyID = $code" flag="fatal">[PEPPOL-EN16931-CL007]-Currency code must be according to ISO 4217:2005</assert>
     </rule>
     <rule context="ram:ExchangedDocument/ram:TypeCode">
-      <assert id="PEPPOL-EN16931-P0100" test="
-                    not($profile = ('01','02')) or (some $code in tokenize('71 102 218 219 326 331 382 553 817 870 875 876 877 380 383 384 386 388 393 82 80 84 395 575 623 780 381 396 81 83 532', '\s')
-                        satisfies normalize-space(text()) = $code)" flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
+      <assert id="PEPPOL-EN16931-P0100" test="&#xD;&#xA;                    not($profile = ('01','02')) or (some $code in tokenize('71 102 218 219 326 331 382 553 817 870 875 876 877 380 383 384 386 388 393 82 80 84 395 575 623 780 381 396 81 83 532', '\s')&#xD;&#xA;                        satisfies normalize-space(text()) = $code)" flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
     </rule>
     <!-- PEPPOL-EN16931-P0101 is part of PEPPOL-EN16931-P0100. -->
     <rule context="udt:DateTimeString">
       <assert id="PEPPOL-EN16931-F001" test="normalize-space(@format) = '102' and string-length(text()) = 8 and matches(normalize-space(text()), '20[0-9]{6}')" flag="fatal">[PEPPOL-EN16931-F001]-A date MUST be formatted YYYYMMDD.</assert>
     </rule>
     <rule context="ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID | ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID">
-      <assert id="PEPPOL-EN16931-CL008" test="
-                some $code in $eaid
-                satisfies @schemeID = $code" flag="fatal">[PEPPOL-EN16931-CL008]-Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
+      <assert id="PEPPOL-EN16931-CL008" test="&#xD;&#xA;                some $code in $eaid&#xD;&#xA;                satisfies @schemeID = $code" flag="fatal">[PEPPOL-EN16931-CL008]-Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"</assert>
     </rule>
   </pattern>
 </schema>

@@ -28,8 +28,19 @@ Release date:: May 2026
 ==  EN 16931 schematrons updated
 
 * Fatal rule PEPPOL-EN16931-R004 in UBL and CII schematron updated to reflect the correct requirement for CustomizationID without version information.
-  ** Added new tests to test file to check if version information is included in CustomizationID and provide appropriate error message.
+  ** Added new tests to test file to check if version information is included in CustomizationID and provide appropriate error message. 
 
 ==  Changes to Country-Specific Rules
 
+* New warning rules for Dutch identifiers with scheme 0106, 0190, 0217, 9944, and NL VAT numbers added to UBL and CII schematrons:
+  ** PEPPOL-COMMON-R054: Identifiers with scheme 0106 should be 8 digits
+  ** PEPPOL-COMMON-R055: Identifiers with scheme 0190 should be 20 digits
+  ** PEPPOL-COMMON-R056-1: Identifiers with scheme 9944 should have the format NL123456789B12
+  ** PEPPOL-COMMON-R056-2: VAT identifiers starting with NL should have the format NL123456789B12
+  ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 20 digits
+  ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
 
+
+== Other changes
+
+* Updated stylesheet and added html for testing the stylesheet.

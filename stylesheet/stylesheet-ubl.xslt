@@ -192,1055 +192,1095 @@
 		<cl id="iso3166">
 			<c id="AD">
 				<t id="en">Andorra</t>
-				<t id="no">Andorra</t>
 			</c>
 			<c id="AE">
 				<t id="en">United Arab Emirates</t>
-				<t id="no">De forente arabiske emirater</t>
 			</c>
 			<c id="AF">
 				<t id="en">Afghanistan</t>
-				<t id="no">Afghanistan</t>
 			</c>
 			<c id="AG">
 				<t id="en">Antigua and Barbuda</t>
-				<t id="no">Antigua og Barbuda</t>
 			</c>
 			<c id="AI">
 				<t id="en">Anguilla</t>
-				<t id="no">Anguilla</t>
 			</c>
 			<c id="AL">
 				<t id="en">Albania</t>
-				<t id="no">Albania</t>
 			</c>
 			<c id="AM">
 				<t id="en">Armenia</t>
-				<t id="no">Armenia</t>
 			</c>
 			<c id="AO">
 				<t id="en">Angola</t>
-				<t id="no">Angola</t>
 			</c>
 			<c id="AQ">
 				<t id="en">Antarctica</t>
-				<t id="no">Antarktis</t>
 			</c>
 			<c id="AR">
 				<t id="en">Argentina</t>
-				<t id="no">Argentina</t>
 			</c>
 			<c id="AS">
 				<t id="en">American Samoa</t>
-				<t id="no">Amerikansk Samoa</t>
 			</c>
 			<c id="AT">
 				<t id="en">Austria</t>
-				<t id="no">Østerrike</t>
 			</c>
 			<c id="AU">
 				<t id="en">Australia</t>
-				<t id="no">Australia</t>
 			</c>
 			<c id="AW">
 				<t id="en">Aruba</t>
-				<t id="no">Aruba</t>
 			</c>
 			<c id="AX">
 				<t id="en">Åland Islands</t>
-				<t id="no">Åland</t>
 			</c>
 			<c id="AZ">
 				<t id="en">Azerbaijan</t>
-				<t id="no">Aserbajdsjan</t>
 			</c>
 			<c id="BA">
 				<t id="en">Bosnia and Herzegovina</t>
-				<t id="no">Bosnia-Hercegovina</t>
 			</c>
 			<c id="BB">
 				<t id="en">Barbados</t>
-				<t id="no">Barbados</t>
 			</c>
 			<c id="BD">
 				<t id="en">Bangladesh</t>
-				<t id="no">Bangladesh</t>
 			</c>
 			<c id="BE">
 				<t id="en">Belgium</t>
-				<t id="no">Belgia</t>
 			</c>
 			<c id="BF">
 				<t id="en">Burkina Faso</t>
-				<t id="no">Burkina Faso</t>
 			</c>
 			<c id="BG">
 				<t id="en">Bulgaria</t>
-				<t id="no">Bulgaria</t>
 			</c>
 			<c id="BH">
 				<t id="en">Bahrain</t>
-				<t id="no">Bahrain</t>
 			</c>
 			<c id="BI">
 				<t id="en">Burundi</t>
-				<t id="no">Burundi</t>
 			</c>
 			<c id="BJ">
 				<t id="en">Benin</t>
-				<t id="no">Benin</t>
 			</c>
 			<c id="BL">
 				<t id="en">Saint Barthélemy</t>
-				<t id="no">Saint-Barthélemy</t>
 			</c>
 			<c id="BM">
 				<t id="en">Bermuda</t>
-				<t id="no">Bermuda</t>
 			</c>
 			<c id="BN">
 				<t id="en">Brunei Darussalam</t>
-				<t id="no">Brunei</t>
 			</c>
 			<c id="BO">
 				<t id="en">Bolivia, Plurinational State of</t>
-				<t id="no">Bolivia</t>
 			</c>
 			<c id="BQ">
 				<t id="en">Bonaire, Sint Eustatius and Saba</t>
-				<t id="no">Bonaire, Sint Eustatius og Saba</t>
 			</c>
 			<c id="BR">
 				<t id="en">Brazil</t>
-				<t id="no">Brasil</t>
 			</c>
 			<c id="BS">
 				<t id="en">Bahamas</t>
-				<t id="no">Bahamas</t>
 			</c>
 			<c id="BT">
 				<t id="en">Bhutan</t>
-				<t id="no">Bhutan</t>
 			</c>
 			<c id="BV">
 				<t id="en">Bouvet Island</t>
-				<t id="no">Bouvetøya</t>
 			</c>
 			<c id="BW">
 				<t id="en">Botswana</t>
-				<t id="no">Botswana</t>
 			</c>
 			<c id="BY">
 				<t id="en">Belarus</t>
-				<t id="no">Hviterussland</t>
 			</c>
 			<c id="BZ">
 				<t id="en">Belize</t>
-				<t id="no">Belize</t>
 			</c>
 			<c id="CA">
 				<t id="en">Canada</t>
-				<t id="no">Canada</t>
 			</c>
 			<c id="CC">
 				<t id="en">Cocos (Keeling) Islands</t>
-				<t id="no">Kokosøyene</t>
 			</c>
 			<c id="CD">
 				<t id="en">Congo, the Democratic Republic of the</t>
-				<t id="no">Den demokratiske republikken Kongo</t>
 			</c>
 			<c id="CF">
 				<t id="en">Central African Republic</t>
-				<t id="no">Den sentralafrikanske republikk</t>
 			</c>
 			<c id="CG">
 				<t id="en">Congo</t>
-				<t id="no">Republikken Kongo</t>
 			</c>
 			<c id="CH">
 				<t id="en">Switzerland</t>
-				<t id="no">Sveits</t>
 			</c>
 			<c id="CI">
 				<t id="en">Côte d'Ivoire</t>
-				<t id="no">Elfenbenskysten</t>
 			</c>
 			<c id="CK">
 				<t id="en">Cook Islands</t>
-				<t id="no">Cookøyene</t>
 			</c>
 			<c id="CL">
 				<t id="en">Chile</t>
-				<t id="no">Chile</t>
 			</c>
 			<c id="CM">
 				<t id="en">Cameroon</t>
-				<t id="no">Kamerun</t>
 			</c>
 			<c id="CN">
 				<t id="en">China</t>
-				<t id="no">Kina</t>
 			</c>
 			<c id="CO">
 				<t id="en">Colombia</t>
-				<t id="no">Colombia</t>
 			</c>
 			<c id="CR">
 				<t id="en">Costa Rica</t>
-				<t id="no">Costa Rica</t>
 			</c>
 			<c id="CU">
 				<t id="en">Cuba</t>
-				<t id="no">Cuba</t>
 			</c>
 			<c id="CV">
 				<t id="en">Cabo Verde</t>
-				<t id="no">Kapp Verde</t>
 			</c>
 			<c id="CW">
 				<t id="en">Curaçao</t>
-				<t id="no">Curaçao</t>
 			</c>
 			<c id="CX">
 				<t id="en">Christmas Island</t>
-				<t id="no">Christmasøya</t>
 			</c>
 			<c id="CY">
 				<t id="en">Cyprus</t>
-				<t id="no">Kypros</t>
 			</c>
 			<c id="CZ">
 				<t id="en">Czechia</t>
-				<t id="no">Tsjekkia</t>
 			</c>
 			<c id="DE">
 				<t id="en">Germany</t>
-				<t id="no">Tyskland</t>
 			</c>
 			<c id="DJ">
 				<t id="en">Djibouti</t>
-				<t id="no">Djibouti</t>
 			</c>
 			<c id="DK">
 				<t id="en">Denmark</t>
-				<t id="no">Danmark</t>
 			</c>
 			<c id="DM">
 				<t id="en">Dominica</t>
-				<t id="no">Dominica</t>
 			</c>
 			<c id="DO">
 				<t id="en">Dominican Republic</t>
-				<t id="no">Den dominikanske republikk</t>
 			</c>
 			<c id="DZ">
 				<t id="en">Algeria</t>
-				<t id="no">Algerie</t>
 			</c>
 			<c id="EC">
 				<t id="en">Ecuador</t>
-				<t id="no">Ecuador</t>
 			</c>
 			<c id="EE">
 				<t id="en">Estonia</t>
-				<t id="no">Estland</t>
 			</c>
 			<c id="EG">
 				<t id="en">Egypt</t>
-				<t id="no">Egypt</t>
 			</c>
 			<c id="EH">
 				<t id="en">Western Sahara</t>
-				<t id="no">Vest-Sahara</t>
 			</c>
 			<c id="ER">
 				<t id="en">Eritrea</t>
-				<t id="no">Eritrea</t>
 			</c>
 			<c id="ES">
 				<t id="en">Spain</t>
-				<t id="no">Spania</t>
 			</c>
 			<c id="ET">
 				<t id="en">Ethiopia</t>
-				<t id="no">Etiopia</t>
 			</c>
 			<c id="FI">
 				<t id="en">Finland</t>
-				<t id="no">Finland</t>
 			</c>
 			<c id="FJ">
 				<t id="en">Fiji</t>
-				<t id="no">Fiji</t>
 			</c>
 			<c id="FK">
 				<t id="en">Falkland Islands (Malvinas)</t>
-				<t id="no">Falklandsøyene</t>
 			</c>
 			<c id="FM">
 				<t id="en">Micronesia, Federated States of</t>
-				<t id="no">Mikronesiaføderasjonen</t>
 			</c>
 			<c id="FO">
 				<t id="en">Faroe Islands</t>
-				<t id="no">Færøyene</t>
 			</c>
 			<c id="FR">
 				<t id="en">France</t>
-				<t id="no">Frankrike</t>
 			</c>
 			<c id="GA">
 				<t id="en">Gabon</t>
-				<t id="no">Gabon</t>
 			</c>
 			<c id="GB">
 				<t id="en">United Kingdom of Great Britain and Northern Ireland</t>
-				<t id="no">Storbritannia</t>
 			</c>
 			<c id="GD">
 				<t id="en">Grenada</t>
-				<t id="no">Grenada</t>
 			</c>
 			<c id="GE">
 				<t id="en">Georgia</t>
-				<t id="no">Georgia</t>
 			</c>
 			<c id="GF">
 				<t id="en">French Guiana</t>
-				<t id="no">Fransk Guyana</t>
 			</c>
 			<c id="GG">
 				<t id="en">Guernsey</t>
-				<t id="no">Guernsey</t>
 			</c>
 			<c id="GH">
 				<t id="en">Ghana</t>
-				<t id="no">Ghana</t>
 			</c>
 			<c id="GI">
 				<t id="en">Gibraltar</t>
-				<t id="no">Gibraltar</t>
 			</c>
 			<c id="GL">
 				<t id="en">Greenland</t>
-				<t id="no">Grønland</t>
 			</c>
 			<c id="GM">
 				<t id="en">Gambia</t>
-				<t id="no">Gambia</t>
 			</c>
 			<c id="GN">
 				<t id="en">Guinea</t>
-				<t id="no">Guinea</t>
 			</c>
 			<c id="GP">
 				<t id="en">Guadeloupe</t>
-				<t id="no">Guadeloupe</t>
 			</c>
 			<c id="GQ">
 				<t id="en">Equatorial Guinea</t>
-				<t id="no">Ekvatorial-Guinea</t>
 			</c>
 			<c id="GR">
 				<t id="en">Greece</t>
-				<t id="no">Hellas</t>
 			</c>
 			<c id="GS">
 				<t id="en">South Georgia and the South Sandwich Islands</t>
-				<t id="no">Sør-Georgia og Sør-Sandwichøyene</t>
 			</c>
 			<c id="GT">
 				<t id="en">Guatemala</t>
-				<t id="no">Guatemala</t>
 			</c>
 			<c id="GU">
 				<t id="en">Guam</t>
-				<t id="no">Guam</t>
 			</c>
 			<c id="GW">
 				<t id="en">Guinea-Bissau</t>
-				<t id="no">Guinea-Bissau</t>
 			</c>
 			<c id="GY">
 				<t id="en">Guyana</t>
-				<t id="no">Guyana</t>
 			</c>
 			<c id="HK">
 				<t id="en">Hong Kong</t>
-				<t id="no">Hongkong</t>
 			</c>
 			<c id="HM">
 				<t id="en">Heard Island and McDonald Islands</t>
-				<t id="no">Heard- og McDonaldøyene</t>
 			</c>
 			<c id="HN">
 				<t id="en">Honduras</t>
-				<t id="no">Honduras</t>
 			</c>
 			<c id="HR">
 				<t id="en">Croatia</t>
-				<t id="no">Kroatia</t>
 			</c>
 			<c id="HT">
 				<t id="en">Haiti</t>
-				<t id="no">Haiti</t>
 			</c>
 			<c id="HU">
 				<t id="en">Hungary</t>
-				<t id="no">Ungarn</t>
 			</c>
 			<c id="ID">
 				<t id="en">Indonesia</t>
-				<t id="no">Indonesia</t>
 			</c>
 			<c id="IE">
 				<t id="en">Ireland</t>
-				<t id="no">Irland</t>
 			</c>
 			<c id="IL">
 				<t id="en">Israel</t>
-				<t id="no">Israel</t>
 			</c>
 			<c id="IM">
 				<t id="en">Isle of Man</t>
-				<t id="no">Man</t>
 			</c>
 			<c id="IN">
 				<t id="en">India</t>
-				<t id="no">India</t>
 			</c>
 			<c id="IO">
 				<t id="en">British Indian Ocean Territory</t>
-				<t id="no">Det britiske territoriet i Indiahavet</t>
 			</c>
 			<c id="IQ">
 				<t id="en">Iraq</t>
-				<t id="no">Irak</t>
 			</c>
 			<c id="IR">
 				<t id="en">Iran, Islamic Republic of</t>
-				<t id="no">Iran</t>
 			</c>
 			<c id="IS">
 				<t id="en">Iceland</t>
-				<t id="no">Island</t>
 			</c>
 			<c id="IT">
 				<t id="en">Italy</t>
-				<t id="no">Italia</t>
 			</c>
 			<c id="JE">
 				<t id="en">Jersey</t>
-				<t id="no">Jersey</t>
 			</c>
 			<c id="JM">
 				<t id="en">Jamaica</t>
-				<t id="no">Jamaica</t>
 			</c>
 			<c id="JO">
 				<t id="en">Jordan</t>
-				<t id="no">Jordan</t>
 			</c>
 			<c id="JP">
 				<t id="en">Japan</t>
-				<t id="no">Japan</t>
 			</c>
 			<c id="KE">
 				<t id="en">Kenya</t>
-				<t id="no">Kenya</t>
 			</c>
 			<c id="KG">
 				<t id="en">Kyrgyzstan</t>
-				<t id="no">Kirgisistan</t>
 			</c>
 			<c id="KH">
 				<t id="en">Cambodia</t>
-				<t id="no">Kambodsja</t>
 			</c>
 			<c id="KI">
 				<t id="en">Kiribati</t>
-				<t id="no">Kiribati</t>
 			</c>
 			<c id="KM">
 				<t id="en">Comoros</t>
-				<t id="no">Komorene</t>
 			</c>
 			<c id="KN">
 				<t id="en">Saint Kitts and Nevis</t>
-				<t id="no">Saint Kitts og Nevis</t>
 			</c>
 			<c id="KP">
 				<t id="en">Korea, Democratic People's Republic of</t>
-				<t id="no">Nord-Korea</t>
 			</c>
 			<c id="KR">
 				<t id="en">Korea, Republic of</t>
-				<t id="no">Sør-Korea</t>
 			</c>
 			<c id="KW">
 				<t id="en">Kuwait</t>
-				<t id="no">Kuwait</t>
 			</c>
 			<c id="KY">
 				<t id="en">Cayman Islands</t>
-				<t id="no">Caymanøyene</t>
 			</c>
 			<c id="KZ">
 				<t id="en">Kazakhstan</t>
-				<t id="no">Kasakhstan</t>
 			</c>
 			<c id="LA">
 				<t id="en">Lao People's Democratic Republic</t>
-				<t id="no">Laos</t>
 			</c>
 			<c id="LB">
 				<t id="en">Lebanon</t>
-				<t id="no">Libanon</t>
 			</c>
 			<c id="LC">
 				<t id="en">Saint Lucia</t>
-				<t id="no">Saint Lucia</t>
 			</c>
 			<c id="LI">
 				<t id="en">Liechtenstein</t>
-				<t id="no">Liechtenstein</t>
 			</c>
 			<c id="LK">
 				<t id="en">Sri Lanka</t>
-				<t id="no">Sri Lanka</t>
 			</c>
 			<c id="LR">
 				<t id="en">Liberia</t>
-				<t id="no">Liberia</t>
 			</c>
 			<c id="LS">
 				<t id="en">Lesotho</t>
-				<t id="no">Lesotho</t>
 			</c>
 			<c id="LT">
 				<t id="en">Lithuania</t>
-				<t id="no">Litauen</t>
 			</c>
 			<c id="LU">
 				<t id="en">Luxembourg</t>
-				<t id="no">Luxembourg</t>
 			</c>
 			<c id="LV">
 				<t id="en">Latvia</t>
-				<t id="no">Latvia</t>
 			</c>
 			<c id="LY">
 				<t id="en">Libya</t>
-				<t id="no">Libya</t>
 			</c>
 			<c id="MA">
 				<t id="en">Morocco</t>
-				<t id="no">Marokko</t>
 			</c>
 			<c id="MC">
 				<t id="en">Monaco</t>
-				<t id="no">Monaco</t>
 			</c>
 			<c id="MD">
 				<t id="en">Moldova, Republic of</t>
-				<t id="no">Moldova</t>
 			</c>
 			<c id="ME">
 				<t id="en">Montenegro</t>
-				<t id="no">Montenegro</t>
 			</c>
 			<c id="MF">
 				<t id="en">Saint Martin (French part)</t>
-				<t id="no">Saint-Martin</t>
 			</c>
 			<c id="MG">
 				<t id="en">Madagascar</t>
-				<t id="no">Madagaskar</t>
 			</c>
 			<c id="MH">
 				<t id="en">Marshall Islands</t>
-				<t id="no">Marshalløyene</t>
 			</c>
 			<c id="MK">
 				<t id="en">Macedonia, the former Yugoslav Republic of</t>
-				<t id="no">Makedonia</t>
 			</c>
 			<c id="ML">
 				<t id="en">Mali</t>
-				<t id="no">Mali</t>
 			</c>
 			<c id="MM">
 				<t id="en">Myanmar</t>
-				<t id="no">Myanmar</t>
 			</c>
 			<c id="MN">
 				<t id="en">Mongolia</t>
-				<t id="no">Mongolia</t>
 			</c>
 			<c id="MO">
 				<t id="en">Macao</t>
-				<t id="no">Macao</t>
 			</c>
 			<c id="MP">
 				<t id="en">Northern Mariana Islands</t>
-				<t id="no">Nord-Marianene</t>
 			</c>
 			<c id="MQ">
 				<t id="en">Martinique</t>
-				<t id="no">Martinique</t>
 			</c>
 			<c id="MR">
 				<t id="en">Mauritania</t>
-				<t id="no">Mauritania</t>
 			</c>
 			<c id="MS">
 				<t id="en">Montserrat</t>
-				<t id="no">Montserrat</t>
 			</c>
 			<c id="MT">
 				<t id="en">Malta</t>
-				<t id="no">Malta</t>
 			</c>
 			<c id="MU">
 				<t id="en">Mauritius</t>
-				<t id="no">Mauritius</t>
 			</c>
 			<c id="MV">
 				<t id="en">Maldives</t>
-				<t id="no">Maldivene</t>
 			</c>
 			<c id="MW">
 				<t id="en">Malawi</t>
-				<t id="no">Malawi</t>
 			</c>
 			<c id="MX">
 				<t id="en">Mexico</t>
-				<t id="no">Mexico</t>
 			</c>
 			<c id="MY">
 				<t id="en">Malaysia</t>
-				<t id="no">Malaysia</t>
 			</c>
 			<c id="MZ">
 				<t id="en">Mozambique</t>
-				<t id="no">Mosambik</t>
 			</c>
 			<c id="NA">
 				<t id="en">Namibia</t>
-				<t id="no">Namibia</t>
 			</c>
 			<c id="NC">
 				<t id="en">New Caledonia</t>
-				<t id="no">Ny-Caledonia</t>
 			</c>
 			<c id="NE">
 				<t id="en">Niger</t>
-				<t id="no">Niger</t>
 			</c>
 			<c id="NF">
 				<t id="en">Norfolk Island</t>
-				<t id="no">Norfolkøya</t>
 			</c>
 			<c id="NG">
 				<t id="en">Nigeria</t>
-				<t id="no">Nigeria</t>
 			</c>
 			<c id="NI">
 				<t id="en">Nicaragua</t>
-				<t id="no">Nicaragua</t>
 			</c>
 			<c id="NL">
 				<t id="en">Netherlands</t>
-				<t id="no">Nederland</t>
 			</c>
 			<c id="NO">
 				<t id="en">Norway</t>
-				<t id="no">Norge</t>
 			</c>
 			<c id="NP">
 				<t id="en">Nepal</t>
-				<t id="no">Nepal</t>
 			</c>
 			<c id="NR">
 				<t id="en">Nauru</t>
-				<t id="no">Nauru</t>
 			</c>
 			<c id="NU">
 				<t id="en">Niue</t>
-				<t id="no">Niue</t>
 			</c>
 			<c id="NZ">
 				<t id="en">New Zealand</t>
-				<t id="no">New Zealand</t>
 			</c>
 			<c id="OM">
 				<t id="en">Oman</t>
-				<t id="no">Oman</t>
 			</c>
 			<c id="PA">
 				<t id="en">Panama</t>
-				<t id="no">Panama</t>
 			</c>
 			<c id="PE">
 				<t id="en">Peru</t>
-				<t id="no">Peru</t>
 			</c>
 			<c id="PF">
 				<t id="en">French Polynesia</t>
-				<t id="no">Fransk Polynesia</t>
 			</c>
 			<c id="PG">
 				<t id="en">Papua New Guinea</t>
-				<t id="no">Papua Ny-Guinea</t>
 			</c>
 			<c id="PH">
 				<t id="en">Philippines</t>
-				<t id="no">Filippinene</t>
 			</c>
 			<c id="PK">
 				<t id="en">Pakistan</t>
-				<t id="no">Pakistan</t>
 			</c>
 			<c id="PL">
 				<t id="en">Poland</t>
-				<t id="no">Polen</t>
 			</c>
 			<c id="PM">
 				<t id="en">Saint Pierre and Miquelon</t>
-				<t id="no">Saint-Pierre og Miquelon</t>
 			</c>
 			<c id="PN">
 				<t id="en">Pitcairn</t>
-				<t id="no">Pitcairnøyene</t>
 			</c>
 			<c id="PR">
 				<t id="en">Puerto Rico</t>
-				<t id="no">Puerto Rico</t>
 			</c>
 			<c id="PS">
 				<t id="en">Palestine, State of</t>
-				<t id="no">Palestina</t>
 			</c>
 			<c id="PT">
 				<t id="en">Portugal</t>
-				<t id="no">Portugal</t>
 			</c>
 			<c id="PW">
 				<t id="en">Palau</t>
-				<t id="no">Palau</t>
 			</c>
 			<c id="PY">
 				<t id="en">Paraguay</t>
-				<t id="no">Paraguay</t>
 			</c>
 			<c id="QA">
 				<t id="en">Qatar</t>
-				<t id="no">Qatar</t>
 			</c>
 			<c id="RE">
 				<t id="en">Réunion</t>
-				<t id="no">Réunion</t>
 			</c>
 			<c id="RO">
 				<t id="en">Romania</t>
-				<t id="no">Romania</t>
 			</c>
 			<c id="RS">
 				<t id="en">Serbia</t>
-				<t id="no">Serbia</t>
 			</c>
 			<c id="RU">
 				<t id="en">Russian Federation</t>
-				<t id="no">Russland</t>
 			</c>
 			<c id="RW">
 				<t id="en">Rwanda</t>
-				<t id="no">Rwanda</t>
 			</c>
 			<c id="SA">
 				<t id="en">Saudi Arabia</t>
-				<t id="no">Saudi-Arabia</t>
 			</c>
 			<c id="SB">
 				<t id="en">Solomon Islands</t>
-				<t id="no">Salomonøyene</t>
 			</c>
 			<c id="SC">
 				<t id="en">Seychelles</t>
-				<t id="no">Seychellene</t>
 			</c>
 			<c id="SD">
 				<t id="en">Sudan</t>
-				<t id="no">Sudan</t>
 			</c>
 			<c id="SE">
 				<t id="en">Sweden</t>
-				<t id="no">Sverige</t>
 			</c>
 			<c id="SG">
 				<t id="en">Singapore</t>
-				<t id="no">Singapore</t>
 			</c>
 			<c id="SH">
 				<t id="en">Saint Helena, Ascension and Tristan da Cunha</t>
-				<t id="no">St. Helena, Ascension og Tristan da Cunha</t>
 			</c>
 			<c id="SI">
 				<t id="en">Slovenia</t>
-				<t id="no">Slovenia</t>
 			</c>
 			<c id="SJ">
 				<t id="en">Svalbard and Jan Mayen</t>
-				<t id="no">Svalbard og Jan Mayen</t>
 			</c>
 			<c id="SK">
 				<t id="en">Slovakia</t>
-				<t id="no">Slovakia</t>
 			</c>
 			<c id="SL">
 				<t id="en">Sierra Leone</t>
-				<t id="no">Sierra Leone</t>
 			</c>
 			<c id="SM">
 				<t id="en">San Marino</t>
-				<t id="no">San Marino</t>
 			</c>
 			<c id="SN">
 				<t id="en">Senegal</t>
-				<t id="no">Senegal</t>
 			</c>
 			<c id="SO">
 				<t id="en">Somalia</t>
-				<t id="no">Somalia</t>
 			</c>
 			<c id="SR">
 				<t id="en">Suriname</t>
-				<t id="no">Surinam</t>
 			</c>
 			<c id="SS">
 				<t id="en">South Sudan</t>
-				<t id="no">Sør-Sudan</t>
 			</c>
 			<c id="ST">
 				<t id="en">Sao Tome and Principe</t>
-				<t id="no">São Tomé og Príncipe</t>
 			</c>
 			<c id="SV">
 				<t id="en">El Salvador</t>
-				<t id="no">El Salvador</t>
 			</c>
 			<c id="SX">
 				<t id="en">Sint Maarten (Dutch part)</t>
-				<t id="no">Sint Maarten</t>
 			</c>
 			<c id="SY">
 				<t id="en">Syrian Arab Republic</t>
-				<t id="no">Syria</t>
 			</c>
 			<c id="SZ">
 				<t id="en">Swaziland</t>
-				<t id="no">Swaziland</t>
 			</c>
 			<c id="TC">
 				<t id="en">Turks and Caicos Islands</t>
-				<t id="no">Turks- og Caicosøyene</t>
 			</c>
 			<c id="TD">
 				<t id="en">Chad</t>
-				<t id="no">Tsjad</t>
 			</c>
 			<c id="TF">
 				<t id="en">French Southern Territories</t>
-				<t id="no">De franske sørterritorier</t>
 			</c>
 			<c id="TG">
 				<t id="en">Togo</t>
-				<t id="no">Togo</t>
 			</c>
 			<c id="TH">
 				<t id="en">Thailand</t>
-				<t id="no">Thailand</t>
 			</c>
 			<c id="TJ">
 				<t id="en">Tajikistan</t>
-				<t id="no">Tadsjikistan</t>
 			</c>
 			<c id="TK">
 				<t id="en">Tokelau</t>
-				<t id="no">Tokelau</t>
 			</c>
 			<c id="TL">
 				<t id="en">Timor-Leste</t>
-				<t id="no">Øst-Timor</t>
 			</c>
 			<c id="TM">
 				<t id="en">Turkmenistan</t>
-				<t id="no">Turkmenistan</t>
 			</c>
 			<c id="TN">
 				<t id="en">Tunisia</t>
-				<t id="no">Tunisia</t>
 			</c>
 			<c id="TO">
 				<t id="en">Tonga</t>
-				<t id="no">Tonga</t>
 			</c>
 			<c id="TR">
 				<t id="en">Turkey</t>
-				<t id="no">Tyrkia</t>
 			</c>
 			<c id="TT">
 				<t id="en">Trinidad and Tobago</t>
-				<t id="no">Trinidad og Tobago</t>
 			</c>
 			<c id="TV">
 				<t id="en">Tuvalu</t>
-				<t id="no">Tuvalu</t>
 			</c>
 			<c id="TW">
 				<t id="en">Taiwan, Province of China</t>
-				<t id="no">Taiwan</t>
 			</c>
 			<c id="TZ">
 				<t id="en">Tanzania, United Republic of</t>
-				<t id="no">Tanzania</t>
 			</c>
 			<c id="UA">
 				<t id="en">Ukraine</t>
-				<t id="no">Ukraina</t>
 			</c>
 			<c id="UG">
 				<t id="en">Uganda</t>
-				<t id="no">Uganda</t>
 			</c>
 			<c id="UM">
 				<t id="en">United States Minor Outlying Islands</t>
-				<t id="no">USAs ytre småøyer</t>
 			</c>
 			<c id="US">
 				<t id="en">United States of America</t>
-				<t id="no">USA</t>
 			</c>
 			<c id="UY">
 				<t id="en">Uruguay</t>
-				<t id="no">Uruguay</t>
 			</c>
 			<c id="UZ">
 				<t id="en">Uzbekistan</t>
-				<t id="no">Usbekistan</t>
 			</c>
 			<c id="VA">
 				<t id="en">Holy See</t>
-				<t id="no">Vatikanstaten</t>
 			</c>
 			<c id="VC">
 				<t id="en">Saint Vincent and the Grenadines</t>
-				<t id="no">Saint Vincent og Grenadinene</t>
 			</c>
 			<c id="VE">
 				<t id="en">Venezuela, Bolivarian Republic of</t>
-				<t id="no">Venezuela</t>
 			</c>
 			<c id="VG">
 				<t id="en">Virgin Islands, British</t>
-				<t id="no">De britiske Jomfruøyer</t>
 			</c>
 			<c id="VI">
 				<t id="en">Virgin Islands, U.S.</t>
-				<t id="no">De amerikanske Jomfruøyer</t>
 			</c>
 			<c id="VN">
 				<t id="en">Viet Nam</t>
-				<t id="no">Vietnam</t>
 			</c>
 			<c id="VU">
 				<t id="en">Vanuatu</t>
-				<t id="no">Vanuatu</t>
 			</c>
 			<c id="WF">
 				<t id="en">Wallis and Futuna</t>
-				<t id="no">Wallis og Futuna</t>
 			</c>
 			<c id="WS">
 				<t id="en">Samoa</t>
-				<t id="no">Samoa</t>
 			</c>
 			<c id="YE">
 				<t id="en">Yemen</t>
-				<t id="no">Jemen</t>
 			</c>
 			<c id="YT">
 				<t id="en">Mayotte</t>
-				<t id="no">Mayotte</t>
 			</c>
 			<c id="ZA">
 				<t id="en">South Africa</t>
-				<t id="no">Sør-Afrika</t>
 			</c>
 			<c id="ZM">
 				<t id="en">Zambia</t>
-				<t id="no">Zambia</t>
 			</c>
 			<c id="ZW">
 				<t id="en">Zimbabwe</t>
-				<t id="no">Zimbabwe</t>
 			</c>
 		</cl>
 		<cl id="uncl1001invoice">
 			<c id="380">
 				<t id="en">Commercial invoice</t>
-				<t id="no">Kommersiell faktura</t>
 			</c>
 			<c id="393">
 				<t id="en">Factored invoice</t>
-				<t id="no">Factored invoice</t>
 			</c>
 			<c id="82">
 				<t id="en">Metered services invoice</t>
-				<t id="no">Metered services invoice</t>
 			</c>
 			<c id="80">
 				<t id="en">Debit note related to goods or services</t>
-				<t id="no">Debit note related to goods or services</t>
 			</c>
 			<c id="84">
 				<t id="en">Debit note related to financial adjustments</t>
-				<t id="no">Debit note related to financial adjustments</t>
 			</c>
 			<c id="395">
 				<t id="en">Consignment invoice</t>
-				<t id="no">Consignment invoice</t>
 			</c>
 			<c id="575">
 				<t id="en">Forwarder’s invoice</t>
-				<t id="no">Forwarder’s invoice</t>
 			</c>
 			<c id="780">
 				<t id="en">Freight invoice</t>
-				<t id="no">Freight invoice</t>
 			</c>
 		</cl>
 		<cl id="uncl1001-cn">
 			<c id="81">
 				<t id="en">Credit note related to goods or services</t>
-				<t id="no">Credit note related to goods or services</t>
 			</c>
 			<c id="83">
 				<t id="en">Credit note related to financial adjustments</t>
-				<t id="no">Credit note related to financial adjustments</t>
 			</c>
 			<c id="381">
 				<t id="en">Credit note</t>
-				<t id="no">Credit note</t>
 			</c>
 			<c id="396">
 				<t id="en">Factored credit note</t>
-				<t id="no">Factored credit note</t>
 			</c>
 			<c id="532">
 				<t id="en">Forwarder's credit note</t>
-				<t id="no">Forwarder's credit note</t>
+			</c>
+		</cl>
+		<cl id="uncl4461">
+			<c id="1">
+				<t id="en">Instrument not defined</t>
+			</c>
+			<c id="10">
+				<t id="en">In cash</t>
+			</c>
+			<c id="30">
+				<t id="en">Credit transfer</t>
+			</c>
+			<c id="31">
+				<t id="en">Debit transfer</t>
+			</c>
+			<c id="42">
+				<t id="en">Payment to bank account</t>
+			</c>
+			<c id="48">
+				<t id="en">Bank card</t>
+			</c>
+			<c id="49">
+				<t id="en">Direct debit</t>
+			</c>
+			<c id="57">
+				<t id="en">Standing agreement</t>
+			</c>
+			<c id="58">
+				<t id="en">SEPA credit transfer</t>
+			</c>
+			<c id="59">
+				<t id="en">SEPA direct debit</t>
+			</c>
+		</cl>
+		<cl id="uncl5305">
+			<c id="AE">
+				<t id="en">Vat Reverse Charge</t>
+			</c>
+			<c id="E">
+				<t id="en">Exempt from Tax</t>
+			</c>
+			<c id="S">
+				<t id="en">Standard rate</t>
+			</c>
+			<c id="Z">
+				<t id="en">Zero rated goods</t>
+			</c>
+			<c id="G">
+				<t id="en">Free export item, VAT not charged</t>
+			</c>
+			<c id="O">
+				<t id="en">Services outside scope of tax</t>
+			</c>
+			<c id="K">
+				<t id="en">VAT exempt for EEA intra-community supply</t>
+			</c>
+			<c id="L">
+				<t id="en">Canary Islands general indirect tax</t>
+			</c>
+			<c id="M">
+				<t id="en">Tax for production, services and importation in Ceuta and Melilla</t>
+			</c>
+			<c id="B">
+				<t id="en">Transferred (VAT), In Italy</t>
+			</c>
+		</cl>
+		<cl id="uncl5189">
+			<c id="41">
+				<t id="en">Bonus for works ahead of schedule</t>
+			</c>
+			<c id="42">
+				<t id="en">Other bonus</t>
+			</c>
+			<c id="60">
+				<t id="en">Manufacturer's consumer discount</t>
+			</c>
+			<c id="62">
+				<t id="en">Due to military status</t>
+			</c>
+			<c id="63">
+				<t id="en">Due to work accident</t>
+			</c>
+			<c id="64">
+				<t id="en">Special agreement</t>
+			</c>
+			<c id="65">
+				<t id="en">Production error discount</t>
+			</c>
+			<c id="66">
+				<t id="en">New outlet discount</t>
+			</c>
+			<c id="67">
+				<t id="en">Sample discount</t>
+			</c>
+			<c id="68">
+				<t id="en">End-of-range discount</t>
+			</c>
+			<c id="70">
+				<t id="en">Incoterm discount</t>
+			</c>
+			<c id="71">
+				<t id="en">Point of sales threshold allowance</t>
+			</c>
+			<c id="88">
+				<t id="en">Material surcharge/deduction</t>
+			</c>
+			<c id="95">
+				<t id="en">Discount</t>
+			</c>
+			<c id="100">
+				<t id="en">Special rebate</t>
+			</c>
+			<c id="102">
+				<t id="en">Fixed long term</t>
+			</c>
+			<c id="103">
+				<t id="en">Temporary</t>
+			</c>
+			<c id="104">
+				<t id="en">Standard</t>
+			</c>
+			<c id="105">
+				<t id="en">Year end bonus</t>
+			</c>
+		</cl>
+		<cl id="uncl7161">
+			<c id="AA">
+				<t id="en">Advertising</t>
+			</c>
+			<c id="AAA">
+				<t id="en">Telecommunication</t>
+			</c>
+			<c id="ABL">
+				<t id="en">Additional packaging</t>
+			</c>
+			<c id="ADR">
+				<t id="en">Other services</t>
+			</c>
+			<c id="AEO">
+				<t id="en">Collection and recycling</t>
+			</c>
+			<c id="FC">
+				<t id="en">Freight service</t>
+			</c>
+			<c id="FI">
+				<t id="en">Financing</t>
+			</c>
+			<c id="LA">
+				<t id="en">Labelling</t>
+			</c>
+			<c id="PC">
+				<t id="en">Packing</t>
+			</c>
+		</cl>
+		<cl id="uncl2005">
+			<c id="3">
+				<t id="en">Invoice date</t>
+			</c>
+			<c id="35">
+				<t id="en">Delivery date</t>
+			</c>
+			<c id="432">
+				<t id="en">Payment date</t>
+			</c>
+		</cl>
+		<cl id="uncl1153">
+			<c id="AAA">
+				<t id="en">Proforma invoice</t>
+			</c>
+			<c id="ABT">
+				<t id="en">Drawing</t>
+			</c>
+			<c id="ADE">
+				<t id="en">Commercial invoice</t>
+			</c>
+			<c id="AFO">
+				<t id="en">Beneficiary's certificate</t>
+			</c>
+			<c id="ALO">
+				<t id="en">Time sheet</t>
+			</c>
+			<c id="CD">
+				<t id="en">Certificate of analysis</t>
+			</c>
+			<c id="DQ">
+				<t id="en">Delivery note</t>
+			</c>
+			<c id="PK">
+				<t id="en">Packing list</t>
+			</c>
+			<c id="TG">
+				<t id="en">Transport document</t>
+			</c>
+			<c id="VV">
+				<t id="en">Electronic file</t>
+			</c>
+			<c id="PN">
+				<t id="en">Price/sales catalogue</t>
+			</c>
+			<c id="OA">
+				<t id="en">Order acknowledgement</t>
+			</c>
+			<c id="CN">
+				<t id="en">Credit note</t>
+			</c>
+			<c id="IV">
+				<t id="en">Invoice</t>
+			</c>
+		</cl>
+		<cl id="uncl7143">
+			<c id="AA">
+				<t id="en">Product version number</t>
+			</c>
+			<c id="AB">
+				<t id="en">Assembly</t>
+			</c>
+			<c id="ABZ">
+				<t id="en">UNSPSC</t>
+			</c>
+			<c id="CPV">
+				<t id="en">Common Procurement Vocabulary</t>
+			</c>
+			<c id="EAN">
+				<t id="en">EAN (deprecated)</t>
+			</c>
+			<c id="GN">
+				<t id="en">National product group code</t>
+			</c>
+			<c id="HS">
+				<t id="en">Harmonised system</t>
+			</c>
+			<c id="IB">
+				<t id="en">ISBN</t>
+			</c>
+			<c id="IN">
+				<t id="en">Buyer's item number</t>
+			</c>
+			<c id="MF">
+				<t id="en">Manufacturer's part number</t>
+			</c>
+			<c id="MN">
+				<t id="en">Model number</t>
+			</c>
+			<c id="MP">
+				<t id="en">Product/service identification number</t>
+			</c>
+			<c id="NB">
+				<t id="en">Batch number</t>
+			</c>
+			<c id="ON">
+				<t id="en">Customer order number</t>
+			</c>
+			<c id="PD">
+				<t id="en">Part number description</t>
+			</c>
+			<c id="PL">
+				<t id="en">Purchaser's order line number</t>
+			</c>
+			<c id="PO">
+				<t id="en">Purchase order number</t>
+			</c>
+			<c id="PV">
+				<t id="en">Promotional variant number</t>
+			</c>
+			<c id="SA">
+				<t id="en">Supplier's article number</t>
+			</c>
+			<c id="SN">
+				<t id="en">Serial number</t>
+			</c>
+			<c id="SRS">
+				<t id="en">RSK number</t>
+			</c>
+			<c id="SRT">
+				<t id="en">STLB</t>
+			</c>
+			<c id="SRU">
+				<t id="en">DIN</t>
+			</c>
+			<c id="SRV">
+				<t id="en">CCC (Spanish classification system)</t>
+			</c>
+			<c id="SRW">
+				<t id="en">German classification system</t>
+			</c>
+			<c id="SRX">
+				<t id="en">IFLS (Institut für Landes- und Stadtentwicklungsforschung)</t>
+			</c>
+			<c id="SRY">
+				<t id="en">GTIN</t>
+			</c>
+			<c id="SRZ">
+				<t id="en">eCl@ss</t>
+			</c>
+			<c id="SS">
+				<t id="en">European Waste Catalogue</t>
+			</c>
+			<c id="STL">
+				<t id="en">STILAS</t>
+			</c>
+			<c id="STN">
+				<t id="en">Supplier's sequential number</t>
 			</c>
 		</cl>
 	</xsl:variable>
@@ -1260,261 +1300,219 @@
 		<g id="attachments">
 			<f id="Attachments">
 				<t id="en">Attachments</t>
-				<t id="no">Vedlegg</t>
 			</f>
 			<f id="Download">
 				<t id="en">Download</t>
-				<t id="no">Last ned</t>
 			</f>
 			<f id="Embedded">
 				<t id="en">Embedded</t>
-				<t id="no">Innebygd</t>
 			</f>
 		</g>
 		<g id="delivery">
 			<f id="Address">
 				<t id="en">Address</t>
-				<t id="no">Adresse</t>
 			</f>
 			<f id="Delivery">
 				<t id="en">Delivery</t>
-				<t id="no">Leveringssted</t>
 			</f>
 			<f id="DeliveryDate">
 				<t id="en">Date</t>
-				<t id="no">Dato</t>
 			</f>
 			<f id="DeliveryID">
 				<t id="en">Location</t>
-				<t id="no">Identifikator</t>
 			</f>
 		</g>
 		<g id="document">
 			<f id="CreditNote">
 				<t id="en">Credit Note</t>
-				<t id="no">Kreditnota</t>
 			</f>
 			<f id="Invoice">
 				<t id="en">Invoice</t>
-				<t id="no">Faktura</t>
 			</f>
 		</g>
 		<g id="item">
 			<f id="BuyersItemIdentification">
 				<t id="en">Buyers Item Identification</t>
-				<t id="no">Kjøpers vareidentifikator</t>
 			</f>
 			<f id="CommodityClassification">
 				<t id="en">Commodity Classification</t>
-				<t id="no">Klassifisering</t>
 			</f>
 			<f id="OriginCountry">
 				<t id="en">Origin Country</t>
-				<t id="no">Opprinnelseland</t>
 			</f>
 			<f id="SellersItemIdentification">
 				<t id="en">Sellers Item Identification</t>
-				<t id="no">Selgers vareidentifikator</t>
 			</f>
 			<f id="StandardItemIdentification">
 				<t id="en">Standard Item Identification</t>
-				<t id="no">Registrert vareidentifikator</t>
 			</f>
 		</g>
 		<g id="line">
 			<f id="Allowance">
 				<t id="en">Allowance</t>
-				<t id="no">Rabatt</t>
 			</f>
 			<f id="AllowanceIncluded">
 				<t id="en">Included allowance</t>
-				<t id="no">Inkludert rabatt</t>
 			</f>
 			<f id="AllowanceTotalAmount">
 				<t id="en">Allowance Total</t>
-				<t id="no">Rabattotal</t>
 			</f>
 			<f id="Charge">
 				<t id="en">Charge</t>
-				<t id="no">Gebyr</t>
 			</f>
 			<f id="ChargeIncluded">
 				<t id="en">Included charge</t>
-				<t id="no">Inkludert gebyr</t>
 			</f>
 			<f id="ChargeTotalAmount">
 				<t id="en">Charge Total</t>
-				<t id="no">Gebyrtotal</t>
 			</f>
 			<f id="DocumentReference">
 				<t id="en">Document Reference</t>
-				<t id="no">Dokumentreferanse</t>
 			</f>
 			<f id="InvoicePeriod">
 				<t id="en">Invoice Period</t>
-				<t id="no">Fakturaperiode</t>
 			</f>
 			<f id="LineExtensionAmount">
 				<t id="en">Line Total</t>
-				<t id="no">Linjetotal</t>
 			</f>
 			<f id="OrderLineReference">
 				<t id="en">Order Line</t>
-				<t id="no">Ordrelinje</t>
 			</f>
 		</g>
 		<g id="metadata">
 			<f id="AccountingCost">
 				<t id="en">Accounting Cost</t>
-				<t id="no">Kontering</t>
 			</f>
 			<f id="BuyerReference">
 				<t id="en">Buyer Reference</t>
-				<t id="no">Kjøpers referanse</t>
 			</f>
 			<f id="ContractDocumentReference">
 				<t id="en">Contract Reference</t>
-				<t id="no">Kontraktsnummer</t>
 			</f>
 			<f id="DespatchDocumentReference">
 				<t id="en">Despatch Reference</t>
-				<t id="no">Pakkseddel</t>
 			</f>
 			<f id="DocumentCurrencyCode">
 				<t id="en">Currency</t>
-				<t id="no">Valuta</t>
 			</f>
 			<f id="DueDate">
 				<t id="en">Due Date</t>
-				<t id="no">Betalingsfrist</t>
 			</f>
 			<f id="ID">
 				<t id="en">Identifier</t>
-				<t id="no">Identifikator</t>
 			</f>
 			<f id="InvoiceDocumentReference">
 				<t id="en">Preceding Invoice Reference</t>
-				<t id="no">Fakturareferanse</t>
 			</f>
 			<f id="InvoicePeriod">
 				<t id="en">Invoice Period</t>
-				<t id="no">Fakturaperiode</t>
 			</f>
 			<f id="IssueDate">
 				<t id="en">Issue Date</t>
-				<t id="no">Utstedt</t>
 			</f>
 			<f id="Metadata">
 				<t id="en">Metadata</t>
-				<t id="no">Metadata</t>
 			</f>
 			<f id="ObjectIdentifier">
 				<t id="en">Call for Tender/Lot</t>
-				<t id="no">Objektidentifikator</t>
 			</f>
 			<f id="OrderReference">
 				<t id="en">Order Reference</t>
-				<t id="no">Ordrenummer</t>
 			</f>
 			<f id="OriginatorDocumentReference">
 				<t id="en">Originator Reference</t>
-				<t id="no">Kildeidentifikator</t>
 			</f>
 			<f id="ProjectReference">
 				<t id="en">Project Reference</t>
-				<t id="no">Prosjektreferanse</t>
 			</f>
 			<f id="ReceiptDocumentReference">
 				<t id="en">Receipt Reference</t>
-				<t id="no">Kvitteringsreferanse</t>
 			</f>
 			<f id="TaxCurrencyCode">
 				<t id="en">Tax Currency</t>
-				<t id="no">MVA-valuta</t>
 			</f>
 			<f id="TaxPointDate">
 				<t id="en">Tax Date</t>
-				<t id="no">MVA-dato</t>
 			</f>
 		</g>
 		<g id="party">
 			<f id="BankingReference">
 				<t id="en">Banking Reference</t>
-				<t id="no">Bankidentifikator</t>
 			</f>
 			<f id="Customer">
 				<t id="en">Customer</t>
-				<t id="no">Kunde</t>
 			</f>
 			<f id="EndpointID">
 				<t id="en">Technical Address</t>
-				<t id="no">Teknisk adresse</t>
 			</f>
 			<f id="PartyIdentification">
 				<t id="en">Party Identification</t>
-				<t id="no">Aktøridentifikator</t>
 			</f>
 			<f id="PartyTaxScheme">
 				<t id="en">Tax Identification</t>
-				<t id="no">MVA-identifikator</t>
 			</f>
 			<f id="Supplier">
 				<t id="en">Supplier</t>
-				<t id="no">Leverandør</t>
 			</f>
 		</g>
 		<g id="payment">
 			<f id="Payment">
 				<t id="en">Payment</t>
-				<t id="no">Betaling</t>
+			</f>
+			<f id="PaymentMeansCode">
+				<t id="en">Payment means</t>
+			</f>
+			<f id="PaymentID">
+				<t id="en">Remittance information</t>
+			</f>
+			<f id="Account">
+				<t id="en">Account</t>
+			</f>
+			<f id="MandateReference">
+				<t id="en">Mandate reference</t>
+			</f>
+			<f id="DebitedAccount">
+				<t id="en">Debited account</t>
+			</f>
+			<f id="CardAccount">
+				<t id="en">Card account</t>
 			</f>
 		</g>
 		<g id="tax">
 			<f id="Category">
 				<t id="en">Category</t>
-				<t id="no">Kategori</t>
 			</f>
 			<f id="Tax">
 				<t id="en">Tax</t>
-				<t id="no">Merverdiavgift</t>
 			</f>
 			<f id="TaxableAmount">
 				<t id="en">Taxable</t>
-				<t id="no">Grunnlag</t>
 			</f>
 			<f id="TaxAmount">
 				<t id="en">Tax</t>
-				<t id="no">MVA</t>
 			</f>
 			<f id="Total">
 				<t id="en">Total</t>
-				<t id="no">Total</t>
 			</f>
 		</g>
 		<g id="total">
 			<f id="PayableAmount">
 				<t id="en">Payable</t>
-				<t id="no">Payable</t>
 			</f>
 			<f id="PayableRoundingAmount">
 				<t id="en">Rounding Amount</t>
-				<t id="no">Avrunding</t>
 			</f>
 			<f id="PrepaidAmount">
 				<t id="en">Prepaid</t>
-				<t id="no">Forhåndsbetalt</t>
 			</f>
 			<f id="TaxExclusiveAmount">
 				<t id="en">Tax Exclusive</t>
-				<t id="no">Før MVA</t>
 			</f>
 			<f id="TaxInclusiveAmount">
 				<t id="en">Tax Inclusive</t>
-				<t id="no">Etter MVA</t>
 			</f>
 			<f id="Totals">
 				<t id="en">Totals</t>
-				<t id="no">Totaler</t>
 			</f>
 		</g>
 	</xsl:variable>
@@ -2285,6 +2283,22 @@
 					<dt class="col-sm-4">Account</dt>
 					<dd class="col-sm-8">
 						<xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID"/> (<xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID"/>)</dd>
+					<xsl:if test="cac:PaymentMandate/cbc:ID">
+						<dt class="col-sm-4">
+							<xsl:copy-of select="u:label('payment', 'MandateReference')"/>
+						</dt>
+						<dd class="col-sm-8">
+							<xsl:value-of select="cac:PaymentMandate/cbc:ID"/>
+						</dd>
+					</xsl:if>
+					<xsl:if test="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID">
+						<dt class="col-sm-4">
+							<xsl:copy-of select="u:label('payment', 'DebitedAccount')"/>
+						</dt>
+						<dd class="col-sm-8">
+							<xsl:value-of select="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID"/>
+						</dd>
+					</xsl:if>
 				</dl>
 			</div>
 		</div>
