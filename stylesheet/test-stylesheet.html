@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEPPOL BIS Invoice Stylesheet Tester</title>
+    <script src="SaxonJS2.rt.js"></script>
+    <script src="embedded-sef.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+            max-width: 1200px;
+            margin: auto !important;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .control-panel {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        button.secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        button.secondary:hover {
+            background-color: #545b62;
+        }
+        .file-input-wrapper {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        .file-input-wrapper label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .file-input-wrapper label:hover {
+            background-color: #0052a3;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            display: block;
+        }
+        #output {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-height: 200px;
+            overflow-x: auto;
+            word-wrap: break-word;
+        }
+        .output-empty {
+            color: #999;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+        }
+        .file-info {
+            display: none;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .file-info.show {
+            display: block;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0066cc;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        .spinner.show {
+            display: block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Override stylesheet media queries to prevent clipping */
+        #output .container,
+        #output #document {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 15px !important;
+            box-sizing: border-box !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 PEPPOL BIS Invoice Stylesheet Tester</h1>
+        
+        <div class="info-box">
+            <h3>ℹ️ About This Tool</h3>
+            <p>Test the <code>stylesheet-ubl.xslt</code> transformation with PEPPOL BIS Invoice XML files using <strong>Saxon-JS 2</strong> (XSLT 3.0 processor for browsers).</p>
+            <p><strong>Features tested:</strong> Payment mandates, attachments, multiple parties, allowances/charges, tax categories, and all codelists.</p>
+        </div>
+
+        <div class="control-panel">
+            <h3>📂 Select Invoice XML File</h3>
+            
+            <div class="file-input-wrapper">
+                <input type="file" id="xmlFile" accept=".xml,text/xml,application/xml" />
+                <label for="xmlFile">📄 Select XML Invoice File (transforms automatically)</label>
+            </div>
+            
+            <div class="file-info" id="fileInfo"></div>
+            <div class="file-info" id="xsltFileInfo"></div>
+            
+            <button class="secondary" id="downloadBtn" disabled>💾 Download HTML</button>
+            
+            <div class="spinner" id="spinner"></div>
+            <div class="status" id="status"></div>
+        </div>
+
+        <div id="output">
+            <div class="output-empty">
+                👆 Select an XML invoice file above to see the transformed output
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let xmlContent = null;
+        let sefContent = null;
+        let transformedHtml = null;
+
+        const xmlFileInput = document.getElementById('xmlFile');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const output = document.getElementById('output');
+        const status = document.getElementById('status');
+        const fileInfo = document.getElementById('fileInfo');
+        const spinner = document.getElementById('spinner');
+
+        // Show status message
+        function showStatus(message, type = 'info') {
+            status.textContent = message;
+            status.className = 'status ' + type;
+            setTimeout(() => {
+                if (type === 'success') {
+                    status.style.display = 'none';
+                }
+            }, 5000);
+        }
+
+        // Load SEF
+        function loadStylesheet(sefJson){
+            try {
+                spinner.classList.add('show');
+                showStatus('⏳ Loading stylesheet...', 'info');
+                
+                sefContent = sefJson;
+                
+                const version = sefJson.version || sefJson.Σ || 'unknown';
+                console.log('SEF loaded successfully. Version:', version);
+                
+                showStatus(`✅ Stylesheet loaded (v${version}) - ready for transformation`, 'success');
+                document.getElementById('xsltFileInfo').textContent = `📋 Stylesheet: stylesheet-ubl.sef.json (v${version}) - loaded`;
+                document.getElementById('xsltFileInfo').classList.add('show');
+                
+                return true;
+            } catch (error) {
+                sefContent = null;
+                showStatus('❌ Error loading stylesheet: ' + error.message, 'error');
+                console.error('SEF loading error:', error);
+                return false;
+            } finally {
+                spinner.classList.remove('show');
+            }
+        }
+
+        // Load XML file
+        function loadXMLFile(file) {
+            spinner.classList.add('show');
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const content = e.target.result;
+                    
+                    if (!content || content.trim().length === 0) {
+                        throw new Error('XML file is empty');
+                    }
+                    
+                    // Store as text for Saxon-JS
+                    xmlContent = content;
+                    
+                    // Also parse for validation and info
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(content, 'text/xml');
+                    
+                    // Check for parse errors
+                    const parseError = xmlDoc.querySelector('parsererror');
+                    if (parseError) {
+                        throw new Error('XML parse error: ' + parseError.textContent);
+                    }
+                    
+                    // Try different namespace-aware selectors
+                    const invoiceId = xmlDoc.getElementsByTagName('ID')[0] || 
+                                     xmlDoc.querySelector('Invoice > ID, CreditNote > ID');
+                    const idText = invoiceId ? invoiceId.textContent : 'unknown';
+                    
+                    console.log('XML loaded successfully. Root element:', xmlDoc.documentElement.localName);
+                    fileInfo.textContent = `📄 Loaded: ${file.name} (Invoice ID: ${idText})`;
+                    fileInfo.classList.add('show');
+                    showStatus('✅ XML file loaded - transforming...', 'success');
+                    
+                    // Auto-transform after loading XML
+                    setTimeout(() => transformXML(), 100);
+                } catch (error) {
+                    xmlContent = null;
+                    showStatus('❌ Error loading XML: ' + error.message, 'error');
+                    console.error('XML loading error:', error);
+                    spinner.classList.remove('show');
+                }
+            };
+            
+            reader.onerror = function() {
+                showStatus('❌ Error reading file', 'error');
+                spinner.classList.remove('show');
+            };
+            
+            reader.readAsText(file, 'UTF-8');
+        }
+
+
+
+        // Perform XSLT transformation using Saxon-JS with SEF
+        async function transformXML() {
+            if (!xmlContent) {
+                showStatus('❌ Please load an XML invoice file first', 'error');
+                return;
+            }
+            if (!sefContent) {
+                showStatus('❌ Please load the SEF file first', 'error');
+                return;
+            }
+
+            spinner.classList.add('show');
+            status.style.display = 'none';
+
+            console.log('Starting Saxon-JS transformation with SEF...');
+            showStatus('⚙️ Transforming XML...', 'info');
+
+            try {
+                // Use the compiled SEF content
+                const result = await SaxonJS.transform({
+                    stylesheetInternal: sefContent,
+                    sourceText: xmlContent,
+                    destination: "serialized",
+                    stylesheetParams: {}
+                }, "async");
+                
+                if (result && result.principalResult) {
+                    transformedHtml = result.principalResult;
+                    output.innerHTML = transformedHtml;
+                    downloadBtn.disabled = false;
+                    showStatus('✅ Transformation completed successfully with Saxon-JS', 'success');
+                    
+                    // Scroll to output
+                    output.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    throw new Error('Transformation produced no output');
+                }
+            } catch (error) {
+                showStatus('❌ Transformation error: ' + error.message, 'error');
+                console.error('Transformation error:', error);
+                
+                // Provide helpful error message
+                let errorHtml = `<div class="output-empty" style="color: #dc3545;">
+                    <p>⚠️ Transformation failed.</p>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <hr>
+                    <p><strong>Troubleshooting:</strong></p>
+                    <ul style="text-align: left;">
+                        <li>Ensure you loaded a valid SEF file (stylesheet-ubl.sef.json)</li>
+                        <li>Verify the XML file is a valid PEPPOL BIS Invoice</li>
+                        <li>Check the browser console for detailed error information</li>
+                    </ul>
+                    <p><strong>To regenerate SEF file:</strong></p>
+                    <pre style="background: #f4f4f4; padding: 10px; text-align: left;">xslt3 -t -xsl:stylesheet-ubl.xslt -export:stylesheet-ubl.sef.json -nogo</pre>
+                    </div>`;
+                
+                output.innerHTML = errorHtml;
+            } finally {
+                spinner.classList.remove('show');
+            }
+        }
+
+        // Download HTML
+        function downloadHTML() {
+            if (!transformedHtml) {
+                showStatus('❌ No transformed content to download', 'error');
+                return;
+            }
+
+            const fullHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEPPOL Invoice</title>
+</head>
+<body>
+${transformedHtml}
+</body>
+</html>`;
+
+            const blob = new Blob([fullHtml], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'invoice-output-' + new Date().toISOString().slice(0, 10) + '.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showStatus('✅ HTML file downloaded', 'success');
+        }
+
+        // Event listeners
+        xmlFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                loadXMLFile(e.target.files[0]);
+            }
+        });
+        downloadBtn.addEventListener('click', downloadHTML);
+
+        // Drag and drop support
+        document.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (e.dataTransfer.files.length > 0) {
+                const file = e.dataTransfer.files[0];
+                if (file.name.endsWith('.xml')) {
+                    loadXMLFile(file);
+                } else {
+                    showStatus('❌ Please drop an XML file', 'error');
+                }
+            }
+        });
+
+        // Auto-load embedded SEF on page load
+        try {
+            showStatus('⏳ Loading stylesheet...', 'info');
+            loadStylesheet(EMBEDDED_SEF);
+        } catch (error) {
+            showStatus('❌ Failed to load stylesheet: ' + error.message, 'error');
+            console.error('Auto-load error:', error);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+# Override parent .gitignore to include test files
+!test-stylesheet.html
