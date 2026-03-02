@@ -13,7 +13,14 @@ Last update: 2026 May release 3.0.21.
   <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs" />
   <ns uri="utils" prefix="u" />
   <!-- Parameters -->
-  <let name="profile" value="&#xD;&#xA;            if (/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter and matches(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then&#xD;&#xA;                tokenize(normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID), ':')[7]&#xD;&#xA;            else&#xD;&#xA;                'Unknown'" />
+    <let name="profile"
+     value="
+       if (normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID) = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0')
+       then '01'
+       else if (normalize-space(/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID) = 'urn:peppol:bis:billing_with_response')
+       then '02'
+       else 'Unknown'
+     " />
   <let name="supplierCountry" value="&#xD;&#xA;            if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then&#xD;&#xA;                upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))&#xD;&#xA;            else&#xD;&#xA;                if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)) then&#xD;&#xA;                    upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VAT']/substring(ram:ID, 1, 2)))&#xD;&#xA;                else&#xD;&#xA;                    if (/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID) then&#xD;&#xA;                        upper-case(normalize-space(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID))&#xD;&#xA;                    else&#xD;&#xA;                        'XX'" />
   <!-- -->
   <let name="documentCurrencyCode" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode" />
@@ -105,7 +112,7 @@ Last update: 2026 May release 3.0.21.
   <pattern>
     <rule context="rsm:ExchangedDocumentContext">
       <assert id="PEPPOL-EN16931-R001" test="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID" flag="fatal">[PEPPOL-EN16931-R001]-Business process MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.</assert>
+      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST have an approved profile identifier.</assert>
       <assert id="PEPPOL-EN16931-R004" test="starts-with(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()),&#xD;&#xA;      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0') and not(contains(normalize-space(ram:GuidelineSpecifiedDocumentContextParameter/ram:ID/text()), '::'))" flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the format rules for the identifier.</assert>
     </rule>
     <rule context="ram:ApplicableHeaderTradeAgreement">

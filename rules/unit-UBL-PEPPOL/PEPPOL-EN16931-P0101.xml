@@ -40,7 +40,7 @@
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 			xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
 
-			<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:02:1.0</cbc:ProfileID>
+			<cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
 
 			<cbc:CreditNoteTypeCode>83</cbc:CreditNoteTypeCode>
 
@@ -82,7 +82,7 @@
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 			xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
 
-			<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:02:1.0</cbc:ProfileID>
+			<cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
 
 			<cbc:CreditNoteTypeCode>380</cbc:CreditNoteTypeCode>
 

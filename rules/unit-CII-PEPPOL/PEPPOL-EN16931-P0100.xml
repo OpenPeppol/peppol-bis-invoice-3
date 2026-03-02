@@ -57,7 +57,7 @@
 
             <ExchangedDocumentContext>
                 <ram:BusinessProcessSpecifiedDocumentContextParameter>
-                    <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:02:1.0</ram:ID>
+                    <ram:ID>urn:peppol:bis:billing_with_response</ram:ID>
                 </ram:BusinessProcessSpecifiedDocumentContextParameter>
             </ExchangedDocumentContext>
 
