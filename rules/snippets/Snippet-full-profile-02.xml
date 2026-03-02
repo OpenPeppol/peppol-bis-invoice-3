@@ -4,7 +4,7 @@
     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
     <!-- tag::profile[] -->
     <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
-    <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:02:1.0</cbc:ProfileID>
+    <cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
     <!-- end::profile[] -->
     <cbc:ID>Snippet1</cbc:ID>
     <cbc:IssueDate>2017-11-13</cbc:IssueDate>
