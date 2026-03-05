@@ -945,8 +945,7 @@
     <Code>
         <Id>0191</Id>
         <Name>Company Code (Estonia)</Name>
-        <Description>Intended Purpose/App. Area: Company code is major and only unique identifier of all institutions and organisations in Estonia. This code is widely used for various purposes, including electronic commerce. Usage of company code is required in communication between institutions and also in communication between private and public organisations. For use in EDI or other B2B (B2C) exchanges to identify private and public organisations. Issuing agency: Centre of Registers and Information Systems of the Ministry of Justice in Estonia.
-          </Description>
+        <Description>Intended Purpose/App. Area: Company code is major and only unique identifier of all institutions and organisations in Estonia. This code is widely used for various purposes, including electronic commerce. Usage of company code is required in communication between institutions and also in communication between private and public organisations. For use in EDI or other B2B (B2C) exchanges to identify private and public organisations. Issuing agency: Centre of Registers and Information Systems of the Ministry of Justice in Estonia.</Description>
     </Code>
     <Code>
         <Id>0192</Id>
@@ -956,21 +955,18 @@
     <Code>
         <Id>0193</Id>
         <Name>UBL.BE Party Identifier</Name>
-        <Description>Intended Purpose/App. Area: Identification and addressing of different parties involved in invoicing. Issuing agency: UBL.BE in Belgium.
-		</Description>
+        <Description>Intended Purpose/App. Area: Identification and addressing of different parties involved in invoicing. Issuing agency: UBL.BE in Belgium.</Description>
     </Code>
     <Code>
         <Id>0194</Id>
         <Name>KOIOS Open Technical Dictionary</Name>
-        <Description>Intended Purpose/App. Area: The KOIOS OTD is a collection of terminology defined by and obtained from consensus bodies such as ISO, IEC, and other groups that have a consensus process for developing terminology. The KOIOS OTD contains terms, definitions, and images of concepts used to describe individuals, organizations, locations, goods and services. The KOIOS OTD conforms to ISO 22745 (all parts) and is designed to enable the exchange of characteristic data in all stages of the life-cycle of an item, and to ensure that the resulting specifications conform to ISO 8000-110. Issuing agency: KOIOS Master Data Limited in UK.
-        </Description>
-    </Code>	
+        <Description>Intended Purpose/App. Area: The KOIOS OTD is a collection of terminology defined by and obtained from consensus bodies such as ISO, IEC, and other groups that have a consensus process for developing terminology. The KOIOS OTD contains terms, definitions, and images of concepts used to describe individuals, organizations, locations, goods and services. The KOIOS OTD conforms to ISO 22745 (all parts) and is designed to enable the exchange of characteristic data in all stages of the life-cycle of an item, and to ensure that the resulting specifications conform to ISO 8000-110. Issuing agency: KOIOS Master Data Limited in UK.</Description>
+    </Code>
     <Code>
         <Id>0195</Id>
         <Name>Singapore Nationwide E-lnvoice Framework</Name>
         <Description>Intended Purpose/App. Area: For use in electronic messages in accordance to the Singapore
-            nationwide e-invoice framework on Identification of organization. Issuing agency: Infocomm Media Development Authority in Singapore.
-        </Description>
+            nationwide e-invoice framework on Identification of organization. Issuing agency: Infocomm Media Development Authority in Singapore.</Description>
     </Code>
     <Code>
         <Id>0196</Id>
@@ -981,42 +977,41 @@
         <Id>0197</Id>
         <Name>APPLiA Pl Standard</Name>
         <Description>Intended Purpose/App. Area: Through their European industry association APPLiA (Home Appliance Europe), manufacturers of home appliances have launched the Product Information (Pl) initiative. The initiative introduces a standard structure for product information. Pl Standard helps retailers to take full advantage of electronic communication and data processing, as the Internet and ICT are fundamentally changing how products and services are offered, bought, and sold.. Issuing agency: APPLiA Home Appliance Europe, in Belgium</Description>
-    </Code>	
+    </Code>
     <Code>
         <Id>0198</Id>
         <Name>ERSTORG</Name>
-        <Description>Intended Purpose/App. Area: To be used for identifying Danish companies based on VAT numbers included juridical. Issuing agency: The Danish Business Authority in Denmark.
-        </Description>
-    </Code>	
+        <Description>Intended Purpose/App. Area: To be used for identifying Danish companies based on VAT numbers included juridical. Issuing agency: The Danish Business Authority in Denmark.</Description>
+    </Code>
     <Code>
         <Id>0199</Id>
         <Name>Legal Entity Identifier (LEI)</Name>
-		<Description>Intended Purpose/App. Area: The LEI is the global, open identifier established at the urging of the Financial Stability Board and the recommendation of the G20. The LEI is established as the ISO 17442 standard, is governed by the LEI Regulatory Oversight Committee (LEI-ROC) and has been implemented by the Global Legal Entity Identifier Foundation (GLEIF). The LEI code connects to key reference information that enables clear and unique identification of legal entities participating in financial transactions. Each LEI contains information about an entity's ownership structure and thus answers the questions of 'who is who' and 'who owns whom'. Simply put, the publicly available LEI data pool can be regarded as a global directory, which greatly enhances transparency in the global marketplace. Already applied very broadly within financial regulation and rapidly being adopted for KYC and a number of other purposes in financial markets, the LEI is set to spread into a range of other fields, including trade facilitation, business reporting and supply chain management. Issuing agency: GLEIF, a global organization.</Description>
+        <Description>Intended Purpose/App. Area: The LEI is the global, open identifier established at the urging of the Financial Stability Board and the recommendation of the G20. The LEI is established as the ISO 17442 standard, is governed by the LEI Regulatory Oversight Committee (LEI-ROC) and has been implemented by the Global Legal Entity Identifier Foundation (GLEIF). The LEI code connects to key reference information that enables clear and unique identification of legal entities participating in financial transactions. Each LEI contains information about an entity's ownership structure and thus answers the questions of 'who is who' and 'who owns whom'. Simply put, the publicly available LEI data pool can be regarded as a global directory, which greatly enhances transparency in the global marketplace. Already applied very broadly within financial regulation and rapidly being adopted for KYC and a number of other purposes in financial markets, the LEI is set to spread into a range of other fields, including trade facilitation, business reporting and supply chain management. Issuing agency: GLEIF, a global organization.</Description>
     </Code>
     <Code>
         <Id>0200</Id>
         <Name>Legal entity code (Lithuania)</Name>
-		<Description>Intended Purpose/App. Area: For use in EDI (electronic data interchange) for C2B and others exchanges to identify legal entities. Issuing agency: State Enterprise Centre of Registers in Lithuania.</Description>
+        <Description>Intended Purpose/App. Area: For use in EDI (electronic data interchange) for C2B and others exchanges to identify legal entities. Issuing agency: State Enterprise Centre of Registers in Lithuania.</Description>
     </Code>
     <Code>
         <Id>0201</Id>
         <Name>Codice Univoco Unità Organizzativa iPA</Name>
-		<Description>Intended Purpose/App. Area: Used to identify uniquely all organizational units of public bodies, authorities and public services in Italy. Issuing agency: Agenzia per l’Italia digitale in Italy.</Description>
+        <Description>Intended Purpose/App. Area: Used to identify uniquely all organizational units of public bodies, authorities and public services in Italy. Issuing agency: Agenzia per l’Italia digitale in Italy.</Description>
     </Code>
     <Code>
         <Id>0202</Id>
         <Name>Indirizzo di Posta Elettronica Certificata</Name>
-		<Description>Intended Purpose/App. Area: Used to identify senders and receivers of certified electronic mail as defined by Italian law. Issuing agency: Agenzia per l’Italia digitale in Italy.</Description>
-	</Code>
+        <Description>Intended Purpose/App. Area: Used to identify senders and receivers of certified electronic mail as defined by Italian law. Issuing agency: Agenzia per l’Italia digitale in Italy.</Description>
+    </Code>
     <Code>
         <Id>0203</Id>
         <Name>eDelivery Network Participant identifier</Name>
-		<Description>Intended Purpose/App. Area: Used as an electronic address identifier for participants within a secure data communication network. Issuing agency: Agency for Digital Government in Sweden.</Description>
-		</Code>
-	<Code>
+        <Description>Intended Purpose/App. Area: Used as an electronic address identifier for participants within a secure data communication network. Issuing agency: Agency for Digital Government in Sweden.</Description>
+    </Code>
+    <Code>
         <Id>0204</Id>
         <Name>Leitweg-ID</Name>
-		<Description>Intended Purpose/App. Area: Identification of Public Authorities. Issuing agency: Koordinierungsstelle für IT-Standards (KoSIT) in Germany.</Description>
+        <Description>Intended Purpose/App. Area: Identification of Public Authorities. Issuing agency: Koordinierungsstelle für IT-Standards (KoSIT) in Germany.</Description>
     </Code>
     <Code>
         <Id>0205</Id>
@@ -1039,154 +1034,182 @@
         <Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities and establishment units operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium.
 Classes moyennes et Energie</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0209</Id>
         <Name>GS1 identification keys</Name>
         <Description>Intended Purpose/App. Area: GS1 identification keys and key qualifiers may be used by an information system to refer unambiguously to an entity such as a trade item, logistics unit, physical location, document, or service relationship. Issuing agency: GS1, a global organization.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0210</Id>
         <Name>CODICE FISCALE</Name>
         <Description>Intended Purpose/App. Area: Electronic Invoicing and e-procurement. Issuing agency: Agenzia delle Entrate, Italy.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0211</Id>
         <Name>PARTITA IVA</Name>
         <Description>Intended Purpose/App. Area: Electronic Invoicing and e-procurement. Issuing agency: Agenzia delle Entrate, Italy.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0212</Id>
         <Name>Finnish Organization Identifier</Name>
         <Description>Intended Purpose/App. Area: Identification scheme will be used for electronic trade purposes in e-invoicing, purchasing, electronic receipts. Issuing agency: State Treasury of Finland / Valtiokonttor.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0213</Id>
         <Name>Finnish Organization Value Add Tax Identifier</Name>
         <Description>Intended Purpose/App. Area: Identification scheme will be used for electronic trade purposes in e-invoicing, purchasing, electronic receipts. Issuing agency: State Treasury of Finland / Valtiokonttor.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0214</Id>
         <Name>Tradeplace TradePI Standard</Name>
         <Description>Intended Purpose/App. Area: Tradeplace is an independent company, set up as a joint venture of several Home Appliance- and Consumer Electronics manufacturers. Tradeplace has launched their TradePI (Product Information) initiative for home appliances, consumer electronics, DIY and affiliated industries that are connected to Tradeplace. The initiative introduces an enhanced standard structure for product information. The TradePI Standard helps retailers to take full advantage of electronic communication and data processing, as the Internet and ICT are fundamentally changing how products and services are offered, bought, and sold. Issuing agency: Tradeplace B.V., The Netherlands.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0215</Id>
         <Name>Net service ID</Name>
         <Description>Intended Purpose/App. Area: Identification scheme will be used for electronic trade purposes in e-invoicing, purchasing, electronic receipts. Issuing agency: Tieto Finland Oy, FINLAND.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0216</Id>
         <Name>OVTcode</Name>
         <Description>Intended Purpose/App. Area: Identification scheme will be used for electronic trade purposes in e-invoicing, purchasing, electronic receipts. Issuing agency: TIEKE- Tietoyhteiskunnan kehittamiskeskus, FINLAND.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0217</Id>
         <Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
         <Description>Intended Purpose/App. Area: Electronic invoicing. Issuing agency: Nederlands Normalisatie Instituut (NEN)</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0218</Id>
         <Name>Unified registration number (Latvia)</Name>
         <Description>Intended Purpose/App. Area: Each legal entity registered with the Register of Enterprises of the Republic of Latvia is assigned a unique unified registration number. This unique unified registration number is used to identify legal subjects for every purpose where it might be necessary, including for the use of the tax authority. Issuing agency: The Register of Enterprises of the Republic of Latvia.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0219</Id>
         <Name>Taxpayer registration code (Latvia)</Name>
         <Description>Intended Purpose/App. Area: For use in Electronic data interchange (EDI) to identify private and public organizations. Issuing agency: State Revenue Service of the Republic of Latvia.</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0220</Id>
         <Name>The Register of Natural Persons (Latvia)</Name>
         <Description>Intended Purpose/App. Area: The Register combines the functionality of the current information system of the Population Register and Civil Register. The Register is a uniform state registration and recording system of information and natural persons that provides identification of natural persons, data processing and accumulation, and includes and updates information about civil entries. The data included in the Register is used for statistical surveys, tax forecasting and calculation, organizing of elections and other processes of national importance. When entering information regarding a person in the Register, the Office of Citizenship and Migration Affairs of the Republic of Latvia shall assign an automatically generated individual personal identity number thereto. Issuing agency: Office of Citizenship and Migration Affairs of the Republic of Latvia.</Description>
-    </Code>  
-	<Code>
+    </Code>
+    <Code>
         <Id>0221</Id>
         <Name>The registered number of the qualified invoice issuer</Name>
         <Description>Intended Purpose/App. Area: The registered number of the qualified invoice issuer is used on the invoice-based method for Japanese consumption tax, which will be implemented on 1 October 2023. Issuing agency: National Tax Agency Japan</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0222</Id>
         <Name>Metadata Registry Support</Name>
         <Description>Intended Purpose/App. Area: Database of metadata supporting description of object-data-information-etc. Issuing agency: Farance Inc.</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0223</Id>
         <Name>EU based company</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers for organizations based in EU. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0224</Id>
         <Name>FTCTC CODE ROUTAGE</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers used in electronic invoices for routing among accredited platforms for the French Continuous Transactional Control reform on e-invoicing. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0225</Id>
         <Name>FRCTC ELECTRONIC ADDRESS</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers used as electronic addresses in the context of the French Continuous Transactional Control reform on e-invoicing. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0226</Id>
         <Name>FRCTC Particulier</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers for French citizen sending invoices to the French Public Sector. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0227</Id>
         <Name>NON - EU based company</Name>
         <Description>Intended Purpose/App. Area: NON - EU based company. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0228</Id>
         <Name>Répertoire des Entreprises et des Etablissements (RIDET)</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers for organizations at national level in Nouvelle Caledonie (French). Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0229</Id>
         <Name>T.A.H.I.T.I (traitement automatique hiérarchisé des institutions de Tahiti et des îles)</Name>
         <Description>Intended Purpose/App. Area: To provide identifiers for organizations at national level in TAHITI (French). Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0230</Id>
         <Name>National e-Invoicing Framework</Name>
         <Description>Intended Purpose/App. Area: Identifier for  organizations. Issuing agency: Malaysia Digital Economy Corporation Sdn Bhd (MDEC)</Description>
-    </Code> 
-	<Code>
+    </Code>
+    <Code>
         <Id>0231</Id>
         <Name>Single taxable company (France)</Name>
         <Description>'Intended Purpose/App. Area: Provide identifiers to companies in a single taxable company regime. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)'</Description>
-    </Code> 	
-	<Code>
+    </Code>
+    <Code>
         <Id>0232</Id>
         <Name>NOBB product number</Name>
         <Description>Intended Purpose/App. Area:  . Issuing agency:  '</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0233</Id>
-        <Name>Name not known</Name>
-        <Description>Description not known</Description>
+        <Name>Elnummer</Name>
+        <Description>Elnummer</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0234</Id>
         <Name>Toimitusosoite ID</Name>
         <Description>'Intended Purpose/App. Area: Identification scheme is used to identify delivery locations of the Finnish government accounting units. Issuing agency: Toimitusosoite ID'</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0235</Id>
         <Name>UAE Tax Identification Number (TIN)</Name>
         <Description>'Intended Purpose/App. Area: A unique number issued to a range of persons required to be identified for tax purposes. Issuing agency: UAE Federal Tax Authority'</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0236</Id>
-        <Name>Name not known</Name>
-        <Description>Description not known</Description>
+        <Name>ToimipaikkalD</Name>
+        <Description>ToimipaikkalD</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0237</Id>
         <Name>CPR (Danish person civil registration number)</Name>
         <Description>'Intended Purpose/App. Area:  . Issuing agency:  '</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>0238</Id>
         <Name>Plateforme.s agréée.s à la facturation électronique (PPF/PDP)</Name>
         <Description>'Intended Purpose/App. Area: To provide identifiers for E-invoicing Public Platform and Partner Dematerialisation Platform. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)'</Description>
+    </Code>
+    <Code>
+        <Id>0239</Id>
+        <Name>EAEU</Name>
+    </Code>
+    <Code>
+        <Id>0240</Id>
+        <Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
+    </Code>
+    <Code>
+        <Id>0241</Id>
+        <Name>Name unknown</Name>
+    </Code>
+    <Code>
+        <Id>0242</Id>
+        <Name>OpenPeppol Service Provider Identification Scheme (SPIS)</Name>
+    </Code>
+    <Code>
+        <Id>0243</Id>
+        <Name>Name unknown</Name>
+    </Code>
+    <Code>
+        <Id>0244</Id>
+        <Name>Tax Identification (Tax ID), Nigeria</Name>
+    </Code>
+    <Code>
+        <Id>0245</Id>
+        <Name>Tax identification number (DIČ), Slovakia</Name>
     </Code>
 </CodeList>

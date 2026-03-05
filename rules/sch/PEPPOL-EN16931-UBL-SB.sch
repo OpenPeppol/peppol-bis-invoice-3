@@ -58,13 +58,13 @@ Last update: 2025 March release 3.0.0.
       select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
     <variable name="weightedSum"
       select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (1 + ((($i + 1) mod 2) * 2)))" />
-    <value-of select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))" />
+    <sequence select="(10 - ($weightedSum mod 10)) mod 10 = number(substring($val, $length + 1, 1))" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:slack" as="xs:boolean">
     <param name="exp" as="xs:decimal" />
     <param name="val" as="xs:decimal" />
     <param name="slack" as="xs:decimal" />
-    <value-of select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val" />
+    <sequence select="xs:decimal($exp + $slack) &gt;= $val and xs:decimal($exp - $slack) &lt;= $val" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod11" as="xs:boolean">
     <param name="val" />
@@ -73,7 +73,7 @@ Last update: 2025 March release 3.0.0.
       select="reverse(for $i in string-to-codepoints(substring($val, 0, $length + 1)) return $i - 48)" />
     <variable name="weightedSum"
       select="sum(for $i in (0 to $length - 1) return $digits[$i + 1] * (($i mod 6) + 2))" />
-    <value-of
+    <sequence
       select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))" />
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod97-0208" as="xs:boolean">
@@ -81,7 +81,7 @@ Last update: 2025 March release 3.0.0.
     <variable name="checkdigits" select="substring($val,9,2)" />
     <variable name="calculated_digits"
       select="xs:string(97 - (xs:integer(substring($val,1,8)) mod 97))" />
-    <value-of select="number($checkdigits) = number($calculated_digits)" />
+    <sequence select="number($checkdigits) = number($calculated_digits)" />
   </function>
   <function name="u:checkCodiceIPA" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
     <param name="arg" as="xs:string?" />
@@ -188,7 +188,7 @@ Last update: 2025 March release 3.0.0.
   </function>
   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:abn" as="xs:boolean">
     <param name="val" />
-    <value-of
+    <sequence
       select="(
 ((string-to-codepoints(substring($val,1,1)) - 49) * 10) +
 ((string-to-codepoints(substring($val,2,1)) - 48) * 1) +
@@ -221,7 +221,7 @@ Last update: 2025 March release 3.0.0.
 			(number($digits[3])*64) +
 			(number($digits[2])*128) +
 			(number($digits[1])*256) " />
-    <value-of select="($checksum  mod 11) mod 10 = number($digits[9])" />
+    <sequence select="($checksum  mod 11) mod 10 = number($digits[9])" />
   </function>
 
   <!-- Function for Swedish organisation numbers (0007) -->
@@ -237,14 +237,14 @@ Last update: 2025 March release 3.0.0.
         <variable name="mainPart" select="substring($number, 1, 9)" />
         <variable name="checkDigit" select="substring($number, 10, 1)" />
         <variable name="sum" as="xs:integer">
-          <value-of
-            select="sum(
+          <sequence
+            select="xs:integer(sum(
 						for $pos in 1 to string-length($mainPart) return 
 							if ($pos mod 2 = 1) 
 							then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 + 
 								 (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10 
 							else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))
-					)" />
+					))" />
         </variable>
         <variable name="calculatedCheckDigit" select="(10 - $sum mod 10) mod 10" />
         <sequence select="$calculatedCheckDigit = number($checkDigit)" />
@@ -503,7 +503,7 @@ Last update: 2025 March release 3.0.0.
     <let name="UNCL7161"
       value="tokenize('AA AAA AAC AAD AAE AAF AAH AAI AAS AAT AAV AAY AAZ ABA ABB ABC ABD ABF ABK ABL ABN ABR ABS ABT ABU ACF ACG ACH ACI ACJ ACK ACL ACM ACS ADC ADE ADJ ADK ADL ADM ADN ADO ADP ADQ ADR ADT ADW ADY ADZ AEA AEB AEC AED AEF AEH AEI AEJ AEK AEL AEM AEN AEO AEP AES AET AEU AEV AEW AEX AEY AEZ AJ AU CA CAB CAD CAE CAF CAI CAJ CAK CAL CAM CAN CAO CAP CAQ CAR CAS CAT CAU CAV CAW CAX CAY CAZ CD CG CS CT DAB DAC DAD DAF DAG DAH DAI DAJ DAK DAL DAM DAN DAO DAP DAQ DL EG EP ER FAA FAB FAC FC FH FI GAA HAA HD HH IAA IAB ID IF IR IS KO L1 LA LAA LAB LF MAE MI ML NAA OA PA PAA PC PL RAB RAC RAD RAF RE RF RH RV SA SAA SAD SAE SAI SG SH SM SU TAB TAC TT TV V1 V2 WH XAA YY ZZZ', '\s')" />
     <let name="UNCL5305" value="tokenize('AE E S Z G O K L M', '\s')" />
-    <let name="eaid" value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0147 0151 0170 0177 0183 0184 0188 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 0208 0209 0210 0211 0212 0213 0215 0216 0218 0221 0230 0235 9901 9906 9907 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9957 9959', '\s')"/>
+    <let name="eaid" value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0151 0177 0183 0184 0188 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 0208 0209 0210 0211 0212 0213 0215 0216 0218 0221 0230 0235 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9957 9959 0147 0154 0158 0170 0194 0203 0205 0217 0225 0240 0244 0245 ', '\s')"/>
     <rule context="cbc:EmbeddedDocumentBinaryObject[@mimeCode]">
       <assert id="PEPPOL-EN16931-CL001"
         test="

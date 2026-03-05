@@ -57,7 +57,7 @@
                 <cbc:ID>99887766</cbc:ID>
             </cac:PartyIdentification>
             <cac:PartyIdentification>
-                <cbc:ID schemeID="SEPA">23123687</cbc:ID><!--1-->
+                <cbc:ID>23123687</cbc:ID><!--1-->
             </cac:PartyIdentification>
    <!-- omitted code for clarity -->
             <!-- end::direct-debit[] -->

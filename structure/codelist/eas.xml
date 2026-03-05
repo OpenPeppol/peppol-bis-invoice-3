@@ -3,7 +3,6 @@
     <Title>Electronic Address Scheme (EAS)</Title>
     <Identifier>eas</Identifier>
     <Agency>CEF</Agency>
-
     <Code>
         <Id>0002</Id>
         <Name>System Information et Repertoire des Entreprise et des Etablissements: SIRENE</Name>
@@ -41,7 +40,7 @@
         <Name>"Vereniging van Kamers van Koophandel en Fabrieken in Nederland (Association of
             Chambers of Commerce and Industry in the Netherlands), Scheme (EDIRA compliant)"</Name>
     </Code>
-	    <Code>
+    <Code>
         <Id>0130</Id>
         <Name>Directorates of the European Commission</Name>
     </Code>
@@ -84,7 +83,7 @@
     </Code>
     <Code>
         <Id>0192</Id>
-        <Name>Enhetsregisteret ved Bronnoysundregisterne </Name>
+        <Name>Enhetsregisteret ved Bronnoysundregisterne</Name>
     </Code>
     <Code>
         <Id>0193</Id>
@@ -122,27 +121,27 @@
         <Id>0204</Id>
         <Name>Leitweg-ID</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0208</Id>
         <Name>Numero d'entreprise / ondernemingsnummer / Unternehmensnummer</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0209</Id>
         <Name>GS1 identification keys</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0210</Id>
         <Name>CODICE FISCALE</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0211</Id>
         <Name>PARTITA IVA</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0212</Id>
         <Name>Finnish Organization Identifier</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>0213</Id>
         <Name>Finnish Organization Value Add Tax Identifier</Name>
     </Code>
@@ -158,20 +157,17 @@
         <Id>0218</Id>
         <Name>Unified registration number (Latvia)</Name>
     </Code>
-	 <Code>
+    <Code>
         <Id>0221</Id>
         <Name>The registered number of the qualified invoice issuer (Japan)</Name>
     </Code>
-	 <Code>
+    <Code>
         <Id>0230</Id>
         <Name>National e-Invoicing Framework (Malaysia)</Name>
     </Code>
-	 <Code>
+    <Code>
         <Id>0235</Id>
         <Name>UAE Tax Identification Number (TIN)</Name>
-    </Code>    <Code>
-        <Id>9901</Id>
-        <Name>Danish Ministry of the Interior and Health</Name>
     </Code>
     <Code>
         <Id>9910</Id>
@@ -195,11 +191,11 @@
     </Code>
     <Code>
         <Id>9919</Id>
-        <Name>Kennziffer des Unternehmensregisters </Name>
+        <Name>Kennziffer des Unternehmensregisters</Name>
     </Code>
     <Code>
         <Id>9920</Id>
-        <Name>Agencia Española de Administración Tributaria </Name>
+        <Name>Agencia Española de Administración Tributaria</Name>
     </Code>
     <Code>
         <Id>9922</Id>
@@ -333,9 +329,56 @@
         <Id>9957</Id>
         <Name>French VAT number</Name>
     </Code>
-     <Code>
+    <Code>
         <Id>9959</Id>
         <Name>Employer Identification Number (EIN, USA)</Name>
     </Code>
-
+    <Code>
+        <Id>0147</Id>
+        <Name>Standard Company Code</Name>
+    </Code>
+    <Code>
+        <Id>0154</Id>
+        <Name>Identification number of economic subjects: (ICO)</Name>
+    </Code>
+    <Code>
+        <Id>0158</Id>
+        <Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
+    </Code>
+    <Code>
+        <Id>0170</Id>
+        <Name>Teikoku Company Code</Name>
+    </Code>
+    <Code>
+        <Id>0194</Id>
+        <Name>KOIOS Open Technical Dictionary</Name>
+    </Code>
+    <Code>
+        <Id>0203</Id>
+        <Name>eDelivery Network Participant identifier</Name>
+    </Code>
+    <Code>
+        <Id>0205</Id>
+        <Name>CODDEST</Name>
+    </Code>
+    <Code>
+        <Id>0217</Id>
+        <Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
+    </Code>
+    <Code>
+        <Id>0225</Id>
+        <Name>FRCTC ELECTRONIC ADDRESS</Name>
+    </Code>
+    <Code>
+        <Id>0240</Id>
+        <Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
+    </Code>
+    <Code>
+        <Id>0244</Id>
+        <Name>Tax Identification (Tax ID), Nigeria</Name>
+    </Code>
+    <Code>
+        <Id>0245</Id>
+        <Name>Tax identification number (DIČ), Slovakia</Name>
+    </Code>
 </CodeList>

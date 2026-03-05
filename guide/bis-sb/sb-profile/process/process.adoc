@@ -14,8 +14,8 @@ A self-billed invoice may also refer to a contract or a frame agreement. The sel
   .. The customer books the invoice as accounts payable.
 * The supplier receives the self-billed invoice and processes it as revenue in the sales control system leading to one of the following results:
   .. The supplier fully approves the self-billed invoice, posts it in the accounting system as revenue and accounts receivable.
-  .. The supplier completely rejects the self-billed invoice, contacts the supplier and requests a self-billed credit note.
-  .. The supplier disputes parts of the self-billed invoice, contacts the supplier and requests a self-billed credit note and/or a new self-billed invoice.
+  .. The supplier completely rejects the self-billed invoice, contacts the buyer and requests a self-billed credit note.
+  .. The supplier disputes parts of the self-billed invoice, contacts the buyer and requests a self-billed credit note and/or a new self-billed invoice.
 
 The diagram below shows the basic self-billing process with the use of this Peppol BIS profile. This process assumes that both the self-billed invoice and the self-billed credit note are exchanged electronically.
 

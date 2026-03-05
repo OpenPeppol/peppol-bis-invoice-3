@@ -1,0 +1,10 @@
+= Version 3.0.1
+[horizontal]
+Hotfix date:: March 2026
+
+* Added code 0245 for Tax identification number (DIČ), Slovakia
+* Updated code lists ICD and EAS to last official versions
+* Updated schematrons to reflect the changes in the code lists.
+* Failing test case for direct debit payment means fixed by removing schemeID from PartyIdentification/ID element in the example XML file. This change is not reflected in the documentation as the schemeID was not allowed by the BIS Billing rules and thus should not have been used in the example. The change is only made to the example XML file and not to the schematrons or documentation as the BIS Self-Billing rules do not allow for any schemeID in that element.
+* Updated process description in the documentation to reflect the reversed roles of buyer and supplier in the self-billing process compared to the regular billing process. The process description is updated to make it clear that the buyer is the invoice issuer and the supplier is the invoice receiver in the self-billing process, which is different from the regular billing process where the supplier is the invoice issuer and the buyer is the invoice receiver. The updated process description also includes more details about the self-billing process and how it works in practice.
+* Corrected value-of test in the Schematron and XSLT stylesheets to use xsl:sequence.

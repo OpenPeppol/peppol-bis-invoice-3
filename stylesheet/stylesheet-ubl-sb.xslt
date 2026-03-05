@@ -1520,7 +1520,7 @@
 	</xsl:variable>
 	<xsl:param name="language" select="'en'"/>
 	<xsl:function name="u:lang">
-		<xsl:value-of select="$language"/>
+		<xsl:sequence select="$language"/>
 	</xsl:function>
 	<xsl:template name="mode_document">
 		<xsl:apply-templates select="*" mode="document"/>
