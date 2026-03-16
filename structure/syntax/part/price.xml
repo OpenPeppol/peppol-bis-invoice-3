@@ -51,6 +51,8 @@
                 <Description>The unit of measure that applies to the Item price base quantity, must be the same as the unit code of the Invoiced/credited quantity. Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of UN/ECE Recommendation 20, Revision 11 (2015):
                     The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure.
                 </Description>
+                <DataType>Code</DataType>
+                <Reference type="BUSINESS_TERM">BT-150</Reference>
                 <Reference type="CODE_LIST">UNECERec20</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R130</Reference>
                 <Value type="EXAMPLE">C62</Value>
