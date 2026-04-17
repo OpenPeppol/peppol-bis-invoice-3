@@ -6,7 +6,6 @@
 
 * When a BIS message is enveloped, the value of the SBDH element *Receiver/Identifier* SHALL match the *Party/EndpointID* element value of the receiver party, including the value of its *schemeID* attribute.
 
-To support implementers, a Schematron file is provided for automated validation of the enveloping rules described above. Use of this Schematron is optional, however conformance to the rules themselves is mandatory.
 
 Example:
 [attributes]
@@ -17,6 +16,8 @@ Example:
     SBDH envelope: 
         <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
 ====
+
+To support implementers, a Schematron file is provided for automated validation of the enveloping rules described above. Use of this Schematron is optional, however conformance to the rules themselves is mandatory.
 
 See Policy for use of Identifiers for more information on how to represent identifiers in envelope and messages.
 
