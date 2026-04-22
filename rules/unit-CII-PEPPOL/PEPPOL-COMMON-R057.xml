@@ -16,12 +16,12 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:SellerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">12345678901234567890</ram:URIID>
+              <ram:URIID schemeID="0217">123456789012</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:SellerTradeParty>
           <ram:BuyerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">09876543210987654321</ram:URIID>
+              <ram:URIID schemeID="0217">098765432112</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:BuyerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -41,7 +41,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:SellerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">X234567890123456789X</ram:URIID>
+              <ram:URIID schemeID="0217">X9876543211X</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:SellerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -60,7 +60,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:BuyerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">X234567890123456789X</ram:URIID>
+              <ram:URIID schemeID="0217">X9876543211X</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:BuyerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -79,7 +79,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:SellerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">1919191919191919191</ram:URIID>
+              <ram:URIID schemeID="0217">12345678901</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:SellerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -98,7 +98,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:BuyerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">1919191919191919191</ram:URIID>
+              <ram:URIID schemeID="0217">12345678901</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:BuyerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -117,7 +117,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:SellerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">212121212121212121212</ram:URIID>
+              <ram:URIID schemeID="0217">1234567890123</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:SellerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
@@ -136,7 +136,7 @@
         <ram:ApplicableHeaderTradeAgreement>
           <ram:BuyerTradeParty>
             <ram:URIUniversalCommunication>
-              <ram:URIID schemeID="0217">212121212121212121212</ram:URIID>
+              <ram:URIID schemeID="0217">1234567890123</ram:URIID>
             </ram:URIUniversalCommunication>
           </ram:BuyerTradeParty>
         </ram:ApplicableHeaderTradeAgreement>
