@@ -12,7 +12,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">12345678901234567890</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">123456789012</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -25,7 +25,7 @@
       <cac:AccountingCustomerParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">12345678901234567890</cbc:ID>
+            <cbc:ID schemeID="0217">123456789012</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingCustomerParty>
@@ -38,7 +38,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">12345678901234567890</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">123456789012</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -50,7 +50,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">12345678901234567890</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">123456789012</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -63,7 +63,7 @@
       <cac:AccountingSupplierParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">12345678901234567890</cbc:ID>
+            <cbc:ID schemeID="0217">123456789012</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingSupplierParty>
@@ -76,7 +76,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">12345678901234567890</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">123456789012</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -89,7 +89,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">X234567890123456789X</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">X9876543211X</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -102,7 +102,7 @@
       <cac:AccountingCustomerParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">X234567890123456789X</cbc:ID>
+            <cbc:ID schemeID="0217">X9876543211X</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingCustomerParty>
@@ -115,7 +115,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">X234567890123456789X</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">X9876543211X</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -127,7 +127,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">1919191919191919191</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">12345678901</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -140,7 +140,7 @@
       <cac:AccountingCustomerParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">1919191919191919191</cbc:ID>
+            <cbc:ID schemeID="0217">12345678901</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingCustomerParty>
@@ -153,7 +153,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">1919191919191919191</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">12345678901</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -165,7 +165,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">212121212121212121212</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">1234567890123</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -178,7 +178,7 @@
       <cac:AccountingCustomerParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">212121212121212121212</cbc:ID>
+            <cbc:ID schemeID="0217">1234567890123</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingCustomerParty>
@@ -191,7 +191,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">212121212121212121212</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">1234567890123</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingCustomerParty>
     </Invoice>
@@ -203,7 +203,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">X234567890123456789X</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">X9876543211X</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -216,7 +216,7 @@
       <cac:AccountingSupplierParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">X234567890123456789X</cbc:ID>
+            <cbc:ID schemeID="0217">X9876543211X</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingSupplierParty>
@@ -229,7 +229,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">X234567890123456789X</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">X9876543211X</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -241,7 +241,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">1919191919191919191</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">12345678901</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -254,7 +254,7 @@
       <cac:AccountingSupplierParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">1919191919191919191</cbc:ID>
+            <cbc:ID schemeID="0217">12345678901</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingSupplierParty>
@@ -267,7 +267,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">1919191919191919191</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">12345678901</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -279,7 +279,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:EndpointID schemeID="0217">212121212121212121212</cbc:EndpointID>
+          <cbc:EndpointID schemeID="0217">1234567890123</cbc:EndpointID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
@@ -292,7 +292,7 @@
       <cac:AccountingSupplierParty>
         <cac:Party>
           <cac:PartyIdentification>
-            <cbc:ID schemeID="0217">212121212121212121212</cbc:ID>
+            <cbc:ID schemeID="0217">1234567890123</cbc:ID>
           </cac:PartyIdentification>
         </cac:Party>
       </cac:AccountingSupplierParty>
@@ -305,7 +305,7 @@
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
         <cac:Party>
-          <cbc:CompanyID schemeID="0217">212121212121212121212</cbc:CompanyID>
+          <cbc:CompanyID schemeID="0217">1234567890123</cbc:CompanyID>
         </cac:Party>
       </cac:AccountingSupplierParty>
     </Invoice>
