@@ -20,7 +20,7 @@
 :CEN: https://www.cencenelec.eu[CEN]
 
 //CEN TC434
-:EN16931: https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT:71870&cs=1D0C36D84F6C30D746A7F9FB3E16CC355[EN 16931]
+:EN16931: https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108974/Registry+of+supporting+artefacts+to+implement+EN16931[EN 16931]
 // all references hard to find and update, changed to peppol
 // :tc434: https://standards.cencenelec.eu/dyn/www/f?p=205:29:0::::FSP_ORG_ID,FSP_LANG_ID:1883209,25&cs=18F2559A05E966F8D6BA2CD11622D2977#1[CEN/TC 434]
 // :ubl-binding: https://standards.cen.eu/dyn/www/f?p=204:110:0::::FSP_PROJECT:63740&cs=141ABC6EDBD750DFA4EC61F187628828F

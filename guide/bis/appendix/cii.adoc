@@ -5,4 +5,5 @@ This {peppol} BIS supports the *optional* use of the UN/CEFACT XML Cross Industr
 
 All invoice instances expressed in CII shall be compliant to the restrictions and rules made by this BIS, and hence a CII instance document, shall be validated against the Peppol specific rules, just as the UBL instance documents.
 
-Specification identifier (BT-24) and business process type (BT-23) are the same in a CII instance as for the UBL instance, see <<prof-01>>
+Specification identifier (BT-24) and business process type (BT-23) are the same in a CII instance as for the UBL instance, see <<prof-01>> and <<prof-02>>.
+

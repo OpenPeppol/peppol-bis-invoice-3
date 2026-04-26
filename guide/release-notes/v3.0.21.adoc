@@ -12,20 +12,43 @@ Release date:: May 2026
 
 == Changes to code lists and validation artefacts
 * Codelist publication date: 2026-03-06
-* Validation artefacts UBL and CII 1.3.15 publication date: 2026-04-10
+* Validation artefacts UBL and CII 1.3.16 publication date: 2026-04-10
+
 
 * Rule PEPPOL-EN16931-P0100 and PEPPOL-EN16931-P0101 which checks for valid invoice type codes are updated so that the rules also takes the new profile 02 (billing with response) into consideration.
 * New optional validation rules to check SBDH compliance added to download page
 * Texts for Peppol rules are now prefixed with rule identifier
 * Changed rule PEPPOL-COMMON-R052 and PEPPOL-COMMON-R053 to be errors instead of warnings, as the rules are now mandatory for all profiles.
 
-[cols="1,1,1"]
+[cols="1,1,1,1"]
 |===
-|codelist|removed|added
+|codelist|removed|added|description changed
+|eas |0 [] |3 [0242,0246,0248] |2 [0096,0199]
+|icd |0 [] |3 [0246,0247,0248] |4 [0096,0158,0208,0241,0243]
+|ISO4217 |2 [ANG,BGN] |1 [XCG] |0 []
 |===
 
 
 ==  EN 16931 schematrons updated
+* CEN rules updated 
+** Bug in BR-CO-26 UBL validation
+** Missing validation on BT-81, BT-82, BT-83 for CII
+** Code list changes
+** BR-CO-25 applied on credit notes in UBL but not CII
+** UBL-SR-23 incorrect mapping path in BIS3 INV and CN.
+** UBL-CR-674 incorrect mapping path in BIS3 INV and CN.
+** BR-B-02 rule path mis-mapping to ID
+** BR-CL-01 in UBL to be corrected - 502 and 503 are Credit Notes
+** Missing CII-SR equivalent to UBL-SR-47
+** New CII-SR-464 without EN-Relation to BT-86
+** BUG in 1.13.15 -> BR-CO-27 wrong codes used (CII) and still wrong naming
+** Missing UBL-SR-03 (BT-16) equivalent for BT-17 (/Invoice/cac:OriginatorDocumentReference/cbc:ID)
+** Discrepancies between CII and UBL schematrons (on rules BR-18, BR-20, BR-50, BR-51)
+** CII: missing check for BT-128
+** CII: BT-123 - missing cardinality check
+** CII: Issues at ram:SpecifiedTradeSettlementHeaderMonetarySummation
+** Multiple issues regarding ram:SpecifiedTradeAllowanceCharge
+** CII XSLT failing when multiple ram:ActualAmount are existing in ram:SpecifiedTradeAllowanceCharge
 
 * Fatal rule PEPPOL-EN16931-R004 in UBL and CII schematron updated to reflect the correct requirement for CustomizationID without version information.
   ** Added new tests to test file to check if version information is included in CustomizationID and provide appropriate error message. 
@@ -35,12 +58,12 @@ Release date:: May 2026
   ** PEPPOL-COMMON-R055: Identifiers with scheme 0190 should be 20 digits
   ** PEPPOL-COMMON-R056-1: Identifiers with scheme 9944 should have the format NL123456789B12
   ** PEPPOL-COMMON-R056-2: VAT identifiers starting with NL should have the format NL123456789B12
-  ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 20 digits
+  ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 12 digits
   ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
 
 ==  Changes to Country-Specific Rules
-
-
+* DK-R-017 becomes fatal.
+* DK-R-003 becomes fatal.
 
 == Other changes
 

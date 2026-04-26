@@ -423,6 +423,10 @@
 		<Description>Reference number identifying a customer's order.</Description>
 	</Code>
 	<Code>
+		<Id>PPI</Id>
+		<Name>Phytosanitary Passport identifier</Name>
+	</Code>
+	<Code>
 		<Id>PV</Id>
 		<Name>Promotional variant number</Name>
 		<Description>The item number is a promotional variant number.</Description>
@@ -928,9 +932,5 @@
 		<Id>ZZZ</Id>
 		<Name>Mutually defined</Name>
 		<Description>Item type identification mutually agreed between interchanging parties.</Description>
-	</Code>
-	<Code>
-		<Id>PPI</Id>
-		<Name>Phytosanitary Passport identifier</Name>
 	</Code>
 </CodeList>
