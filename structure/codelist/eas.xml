@@ -29,7 +29,7 @@
 	</Code>
 	<Code>
 		<Id>0096</Id>
-		<Name>DANISH CHAMBER OF COMMERCE Scheme (EDIRA compliant)</Name>
+		<Name>The Danish Business Authority - P-number (DK:P)</Name>
 	</Code>
 	<Code>
 		<Id>0097</Id>
@@ -53,8 +53,24 @@
 		<Name>SECETI Object Identifiers</Name>
 	</Code>
 	<Code>
+		<Id>0147</Id>
+		<Name>Standard Company Code</Name>
+	</Code>
+	<Code>
 		<Id>0151</Id>
 		<Name>Australian Business Number (ABN) Scheme</Name>
+	</Code>
+	<Code>
+		<Id>0154</Id>
+		<Name>Identification number of economic subjects: (ICO)</Name>
+	</Code>
+	<Code>
+		<Id>0158</Id>
+		<Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
+	</Code>
+	<Code>
+		<Id>0170</Id>
+		<Name>Teikoku Company Code</Name>
 	</Code>
 	<Code>
 		<Id>0177</Id>
@@ -90,6 +106,10 @@
 		<Name>UBL.BE party identifier</Name>
 	</Code>
 	<Code>
+		<Id>0194</Id>
+		<Name>KOIOS Open Technical Dictionary</Name>
+	</Code>
+	<Code>
 		<Id>0195</Id>
 		<Name>Singapore UEN identifier</Name>
 	</Code>
@@ -103,7 +123,7 @@
 	</Code>
 	<Code>
 		<Id>0199</Id>
-		<Name>Legal Entity Identifier (LEI)</Name>
+		<Name>Global legal entity identifier (GLEIF)</Name>
 	</Code>
 	<Code>
 		<Id>0200</Id>
@@ -118,8 +138,16 @@
 		<Name>Indirizzo di Posta Elettronica Certificata</Name>
 	</Code>
 	<Code>
+		<Id>0203</Id>
+		<Name>eDelivery Network Participant identifier</Name>
+	</Code>
+	<Code>
 		<Id>0204</Id>
 		<Name>Leitweg-ID</Name>
+	</Code>
+	<Code>
+		<Id>0205</Id>
+		<Name>CODDEST</Name>
 	</Code>
 	<Code>
 		<Id>0208</Id>
@@ -154,6 +182,10 @@
 		<Name>OVTcode</Name>
 	</Code>
 	<Code>
+		<Id>0217</Id>
+		<Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
+	</Code>
+	<Code>
 		<Id>0218</Id>
 		<Name>Unified registration number (Latvia)</Name>
 	</Code>
@@ -162,12 +194,40 @@
 		<Name>The registered number of the qualified invoice issuer (Japan)</Name>
 	</Code>
 	<Code>
+		<Id>0225</Id>
+		<Name>FRCTC ELECTRONIC ADDRESS</Name>
+	</Code>
+	<Code>
 		<Id>0230</Id>
 		<Name>National e-Invoicing Framework (Malaysia)</Name>
 	</Code>
 	<Code>
 		<Id>0235</Id>
 		<Name>UAE Tax Identification Number (TIN)</Name>
+	</Code>
+	<Code>
+		<Id>0240</Id>
+		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
+	</Code>
+	<Code>
+		<Id>0242</Id>
+		<Name>OpenPeppol Service Provider Identification Scheme (SPIS)</Name>
+	</Code>
+	<Code>
+		<Id>0244</Id>
+		<Name>Tax Identification (Tax ID), Nigeria</Name>
+	</Code>
+	<Code>
+		<Id>0245</Id>
+		<Name>Tax identification number (DIČ), Slovakia</Name>
+	</Code>
+	<Code>
+		<Id>0246</Id>
+		<Name>German Electronic Business Address</Name>
+	</Code>
+	<Code>
+		<Id>0248</Id>
+		<Name>Oman Value Added Tax Identification Number (VATIN)</Name>
 	</Code>
 	<Code>
 		<Id>9910</Id>
@@ -332,53 +392,4 @@
 	<Code>
 		<Id>9959</Id>
 		<Name>Employer Identification Number (EIN, USA)</Name>
-	</Code>
-	<Code>
-		<Id>0147</Id>
-		<Name>Standard Company Code</Name>
-	</Code>
-	<Code>
-		<Id>0154</Id>
-		<Name>Identification number of economic subjects: (ICO)</Name>
-	</Code>
-	<Code>
-		<Id>0158</Id>
-		<Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
-	</Code>
-	<Code>
-		<Id>0170</Id>
-		<Name>Teikoku Company Code</Name>
-	</Code>
-	<Code>
-		<Id>0194</Id>
-		<Name>KOIOS Open Technical Dictionary</Name>
-	</Code>
-	<Code>
-		<Id>0203</Id>
-		<Name>eDelivery Network Participant identifier</Name>
-	</Code>
-	<Code>
-		<Id>0205</Id>
-		<Name>CODDEST</Name>
-	</Code>
-	<Code>
-		<Id>0217</Id>
-		<Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
-	</Code>
-	<Code>
-		<Id>0225</Id>
-		<Name>FRCTC ELECTRONIC ADDRESS</Name>
-	</Code>
-	<Code>
-		<Id>0240</Id>
-		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
-	</Code>
-	<Code>
-		<Id>0244</Id>
-		<Name>Tax Identification (Tax ID), Nigeria</Name>
-	</Code>
-	<Code>
-		<Id>0245</Id>
-		<Name>Tax identification number (DIČ), Slovakia</Name>
-	</Code>	
-</CodeList>
+	</Code></CodeList>

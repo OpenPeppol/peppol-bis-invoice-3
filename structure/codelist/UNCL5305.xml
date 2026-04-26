@@ -11,31 +11,20 @@
 		<Description>Code specifying that the standard VAT rate is levied from the invoicee.</Description>
 	</Code>
 	<Code>
+        <Id>B</Id>
+        <Name>Transferred (VAT), In Italy</Name>
+        <Description>VAT not to be paid to the issuer of the invoice but directly to relevant tax authority. This code 		is allowed in the EN 16931 for Italy only based on the Italian A-deviation.</Description>
+    </Code>
+	<Code>
 		<Id>E</Id>
 		<Name>Exempt from Tax</Name>
 		<Description>Code specifying that taxes are not applicable.</Description>
-	</Code>
-	<Code>
-		<Id>S</Id>
-		<Name>Standard rate</Name>
-		<Description>Code specifying the standard rate.</Description>
-	</Code>
-	<Code>
-		<Id>Z</Id>
-		<Name>Zero rated goods</Name>
-		<Description>Code specifying that the goods are at a zero rate.</Description>
 	</Code>
 	<Code>
 		<Id>G</Id>
 		<Name>Free export item, VAT not charged</Name>
 		<Description>Code specifying that the item is free export and taxes
             are not charged.</Description>
-	</Code>
-	<Code>
-		<Id>O</Id>
-		<Name>Services outside scope of tax</Name>
-		<Description>Code specifying that taxes are not applicable to the
-            services.</Description>
 	</Code>
 	<Code>
 		<Id>K</Id>
@@ -65,8 +54,19 @@
             of Ceuta and Melilla.</Description>
 	</Code>
 	<Code>
-        <Id>B</Id>
-        <Name>Transferred (VAT), In Italy</Name>
-        <Description>VAT not to be paid to the issuer of the invoice but directly to relevant tax authority. This code 		is allowed in the EN 16931 for Italy only based on the Italian A-deviation.</Description>
-    </Code>
+		<Id>O</Id>
+		<Name>Services outside scope of tax</Name>
+		<Description>Code specifying that taxes are not applicable to the
+            services.</Description>
+	</Code>
+	<Code>
+		<Id>S</Id>
+		<Name>Standard rate</Name>
+		<Description>Code specifying the standard rate.</Description>
+	</Code>
+	<Code>
+		<Id>Z</Id>
+		<Name>Zero rated goods</Name>
+		<Description>Code specifying that the goods are at a zero rate.</Description>
+	</Code>
 </CodeList>
