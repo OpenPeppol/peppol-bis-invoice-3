@@ -29,25 +29,25 @@
     <!-- Standard billing: Receiver = AccountingCustomerParty -->
     <rule context="/p1:StandardBusinessDocument/p1:StandardBusinessDocumentHeader/p1:Receiver/p1:Identifier[$isBilling and not($isSelfBilling)]">
       <assert id="BR-SBDH-1" test=". = concat(/p1:StandardBusinessDocument/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID/@schemeID, ':', normalize-space(/p1:StandardBusinessDocument/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID))" flag="fatal">
-		[BR-SBDH-1]-When a BIS message is enveloped, the value of the SBDH element Receiver/Identifier SHALL match the Party/EndpointID element value of the receiver party, including the value of its schemeID attribute.
+		[BR-SBDH-1]-When a BIS Invoice or CreditNote message is enveloped, the value of the SBDH element Receiver/Identifier SHALL match the Party/EndpointID element value of the receiver party, including the value of its schemeID attribute.
       </assert>
     </rule>
     <!-- Standard billing: Sender = AccountingSupplierParty -->
     <rule context="/p1:StandardBusinessDocument/p1:StandardBusinessDocumentHeader/p1:Sender/p1:Identifier[$isBilling and not($isSelfBilling)]">
       <assert id="BR-SBDH-2" test=". = concat(/p1:StandardBusinessDocument/*/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID/@schemeID, ':', normalize-space(/p1:StandardBusinessDocument/*/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID))" flag="fatal">
-		[BR-SBDH-2]-When a BIS message is enveloped, the value of the SBDH element Sender/Identifier SHALL match the Party/EndpointID element value of the sender party, including the value of its schemeID attribute.
+		[BR-SBDH-2]-When a BIS Invoice or CreditNote message is enveloped, the value of the SBDH element Sender/Identifier SHALL match the Party/EndpointID element value of the sender party, including the value of its schemeID attribute.
       </assert>
     </rule>
     <!-- Self-billing: Receiver = AccountingSupplierParty (invoice is sent to the supplier for acceptance) -->
     <rule context="/p1:StandardBusinessDocument/p1:StandardBusinessDocumentHeader/p1:Receiver/p1:Identifier[$isSelfBilling]">
       <assert id="BR-SBDH-3" test=". = concat(/p1:StandardBusinessDocument/*/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID/@schemeID, ':', normalize-space(/p1:StandardBusinessDocument/*/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID))" flag="fatal">
-		[BR-SBDH-3]-When a self-billing message is enveloped, the value of the SBDH element Receiver/Identifier SHALL match the AccountingSupplierParty/Party/EndpointID element value, including the value of its schemeID attribute.
+		[BR-SBDH-3]-When a self-billing Invoice or CreditNote message is enveloped, the value of the SBDH element Receiver/Identifier SHALL match the AccountingSupplierParty/Party/EndpointID element value, including the value of its schemeID attribute.
       </assert>
     </rule>
     <!-- Self-billing: Sender = AccountingCustomerParty (the customer is the issuer) -->
     <rule context="/p1:StandardBusinessDocument/p1:StandardBusinessDocumentHeader/p1:Sender/p1:Identifier[$isSelfBilling]">
       <assert id="BR-SBDH-4" test=". = concat(/p1:StandardBusinessDocument/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID/@schemeID, ':', normalize-space(/p1:StandardBusinessDocument/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID))" flag="fatal">
-		[BR-SBDH-4]-When a self-billing message is enveloped, the value of the SBDH element Sender/Identifier SHALL match the AccountingCustomerParty/Party/EndpointID element value, including the value of its schemeID attribute.
+		[BR-SBDH-4]-When a self-billing Invoice or CreditNote message is enveloped, the value of the SBDH element Sender/Identifier SHALL match the AccountingCustomerParty/Party/EndpointID element value, including the value of its schemeID attribute.
       </assert>
     </rule>
   </pattern>

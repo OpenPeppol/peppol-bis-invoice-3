@@ -19,6 +19,7 @@
   <testfolder>unit-UBL-SE</testfolder>
   <testfolder>unit-UBL-GR</testfolder>
   <testfolder>unit-UBL-NL</testfolder>
+  <testfolder>unit-SBDH</testfolder>
 
   <!-- CII -->
 
@@ -55,6 +56,12 @@
     <identifier>peppolbis-en16931-base-3.0-ubl</identifier>
     <title>PEPPOL BIS Billing 3.0 (Base)</title>
     <file path="sch/PEPPOL-EN16931-UBL.sch" infoUrl="http://docs.peppol.eu/poacc/billing/3.0/rules/{}/"/>
+  </configuration>
+
+  <configuration>
+    <identifier>peppolbis-envelope-3.0-sbdh</identifier>
+    <title>PEPPOL BIS Billing 3.0 (Envelope)</title>
+    <file path="sch/PeppolBIS-Envelope-Rules.sch"/>
   </configuration>
 
   <configuration>
