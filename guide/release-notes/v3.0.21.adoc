@@ -7,7 +7,7 @@ Release date:: May 2026
 
 == Changes to BIS document
 
-* Corected the naming where it occured to Peppol instead of PEPPOL. 
+* Corrected the naming where it occurred to Peppol instead of PEPPOL. 
 * New optional profile added for a process where an invoice response is required step in the collaboration. The profile (02) requires a separate SMP registration. The same profile identifier has been added to the Invoice Response BIS.
 
 == Changes to code lists and validation artefacts
@@ -16,7 +16,7 @@ Release date:: May 2026
 
 
 * Rule PEPPOL-EN16931-P0100 and PEPPOL-EN16931-P0101 which checks for valid invoice type codes are updated so that the rules also takes the new profile 02 (billing with response) into consideration.
-* New optional validation rules to check SBDH compliance added to download page
+* New optional validation rules to check SBDH compliance for both Billing and Self-Billing added to download page
 * Texts for Peppol rules are now prefixed with rule identifier
 * Changed rule PEPPOL-COMMON-R052 and PEPPOL-COMMON-R053 to be errors instead of warnings, as the rules are now mandatory for all profiles.
 
@@ -68,3 +68,7 @@ Release date:: May 2026
 == Other changes
 
 * Updated stylesheet and added html for testing the stylesheet.
+* Changed release notes for 3.0.20 on PEPPOL-COMMON-R052 to reflect correct rule check to be ten digits instead of eight digits.
+* vefa/validator bumped from 2.3.1 to 2.4.0, to mitigate certificate expiry date.
+* Documentation EN16931 link update to point to an active link, as the previous link was no longer active. The new link points to the official CEN website where the EN 16931 standard can be accessed.
+
