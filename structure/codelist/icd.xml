@@ -476,7 +476,7 @@
     </Code>
     <Code>
         <Id>0096</Id>
-        <Name>DANISH CHAMBER OF COMMERCE Scheme (EDIRA compliant)</Name>
+        <Name>The Danish Business Authority - P-number (DK:P)</Name>
         <Description>Issuing agency: Danish Chamber of Commerce, Denmark.</Description>
     </Code>
     <Code>
@@ -785,7 +785,7 @@
     </Code>
     <Code>
         <Id>0158</Id>
-        <Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
+        <Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2'001, § 27</Name>
         <Description>The unique identification of economic subjects (legal persons and natural persons-entrepreneurs) used for registration The identification number ICO is used in Slovakia in almost all administrative acts (tax system, banking system, statistics, etc.) Issuing agency: Slovak Statistical Office, Slovak             Republic.</Description>
     </Code>
     <Code>
@@ -1194,7 +1194,7 @@ Classes moyennes et Energie</Description>
     </Code>
     <Code>
         <Id>0241</Id>
-        <Name>Name unknown</Name>
+        <Name>Hitachi Rail</Name>
     </Code>
     <Code>
         <Id>0242</Id>
@@ -1202,7 +1202,7 @@ Classes moyennes et Energie</Description>
     </Code>
     <Code>
         <Id>0243</Id>
-        <Name>Name unknown</Name>
+        <Name>Business Partner Number (Catena-X)</Name>
     </Code>
     <Code>
         <Id>0244</Id>
@@ -1212,4 +1212,16 @@ Classes moyennes et Energie</Description>
         <Id>0245</Id>
         <Name>Tax identification number (DIČ), Slovakia</Name>
     </Code>
+    <Code>
+		<Id>0246</Id>
+		<Name>German Electronic Business Address</Name>
+	</Code>
+    <Code>
+		<Id>0247</Id>
+		<Name>Name unknown</Name>
+	</Code>
+    <Code>
+		<Id>0248</Id>
+		<Name>Oman Value Added Tax Identification Number (VATIN)</Name>
+	</Code>
 </CodeList>

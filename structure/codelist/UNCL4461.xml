@@ -404,6 +404,11 @@
         <Name>Online payment service</Name>
         <Description>Payment will be made or has been made by an online payment service.</Description>
     </Code>
+
+    <Code>
+		<Id>69</Id>
+		<Name>Transfer Advice</Name>
+	</Code>
     <Code>
         <Id>70</Id>
         <Name>Bill drawn by the creditor on the debtor</Name>

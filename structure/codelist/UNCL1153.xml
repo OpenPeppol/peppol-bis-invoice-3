@@ -3255,6 +3255,11 @@
         <Description>The party identification number used in the European
             Union's Trade Control and Expert System (TRACES).</Description>
     </Code>
+
+    <Code>
+		<Id>AXU</Id>
+		<Name>Block Stowage Reference</Name>
+	</Code>
     <Code>
         <Id>BA</Id>
         <Name>Beginning meter reading actual</Name>

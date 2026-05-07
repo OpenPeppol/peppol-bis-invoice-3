@@ -8,7 +8,7 @@
                 invoice issuance.
             </Description>
             <Reference type="BUSINESS_TERM">BG-18</Reference>
-            <Reference type="RULE">BR-66</Reference>
+                <!--Reference type="RULE">BR-66</Reference-->
             <!--Reference type="RULE">DE-R-023-2</Reference-->
             <!--Reference type="RULE">DE-R-024-1</Reference-->
             <!--Reference type="RULE">DE-R-025-2</Reference-->

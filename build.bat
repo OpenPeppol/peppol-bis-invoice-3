@@ -16,7 +16,7 @@ docker run --rm -i ^
     difi/vefa-structure:0.7
 
 REM Validator
-docker run --rm -i -v "%PROJECT%:/src" anskaffelser/validator:2.1.0 build -x -t -n eu.peppol.postaward.v3.billing -a rules,guide -target target/validator /src
+docker run --rm -i -v "%PROJECT%:/src" phelger/vefa-validator:2.4.3 build -x -t -n eu.peppol.postaward.v3.billing -a rules,guide -target target/validator /src
 
 REM Generate adoc-files from rules
 REM CEN-EN16931-UBL

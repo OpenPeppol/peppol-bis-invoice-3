@@ -21,10 +21,6 @@
         <Name>Armenian Dram</Name>
     </Code>
     <Code>
-        <Id>ANG</Id>
-        <Name>Netherlands Antillean Guilder</Name>
-    </Code>
-    <Code>
         <Id>AOA</Id>
         <Name>Kwanza</Name>
     </Code>
@@ -55,10 +51,6 @@
     <Code>
         <Id>BDT</Id>
         <Name>Taka</Name>
-    </Code>
-    <Code>
-        <Id>BGN</Id>
-        <Name>Bulgarian Lev</Name>
     </Code>
     <Code>
         <Id>BHD</Id>
@@ -137,6 +129,10 @@
         <Name>Chilean Peso</Name>
     </Code>
     <Code>
+		<Id>CNH</Id>
+		<Name>Renminbi (offshore)</Name>
+	</Code>
+    <Code>
         <Id>CNY</Id>
         <Name>Yuan Renminbi</Name>
     </Code>
@@ -151,10 +147,6 @@
     <Code>
         <Id>CRC</Id>
         <Name>Costa Rican Colon</Name>
-    </Code>
-    <Code>
-        <Id>CUC</Id>
-        <Name>Peso Convertible</Name>
     </Code>
     <Code>
         <Id>CUP</Id>
@@ -668,6 +660,10 @@
         <Name>East Caribbean Dollar</Name>
     </Code>
     <Code>
+		<Id>XCG</Id>
+		<Name>Caribbean guilder</Name>
+	</Code>
+    <Code>
         <Id>XDR</Id>
         <Name>SDR (Special Drawing Right)</Name>
     </Code>
@@ -700,6 +696,10 @@
         <Name>ADB Unit of Account</Name>
     </Code>
     <Code>
+		<Id>XXX</Id>
+		<Name>The codes assigned for transactions where no currency is involved</Name>
+	</Code>
+    <Code>
         <Id>YER</Id>
         <Name>Yemeni Rial</Name>
     </Code>
@@ -714,9 +714,5 @@
     <Code>
         <Id>ZWG</Id>
         <Name>Zimbabwe Gold</Name>
-    </Code>
-    <Code>
-        <Id>ZWL</Id>
-        <Name>Zimbabwe Dollar</Name>
     </Code>
 </CodeList>

@@ -1,0 +1,52 @@
+= Version 3.0.2
+Release date:: May 2026
+* Date of member review: 2026-03-02
+* Date of publication: 2026-05-18
+* Mandatory to use from: 2026-08-24
+
+
+== Codelist updates
+
+[cols="1,1,1,1"]
+|===
+|codelist|removed|added|description changed
+|eas |0 [] |3 [0242,0246,0248] |2 [0096,0199]
+|icd |0 [] |3 [0246,0247,0248] |4 [0096,0158,0241,0243]
+|ISO4217 |4 [ANG,BGN,CUC,ZWL] |3 [CNH,XCG,XXX] |0 []
+|UNCL1153 |0 [] |1 [AXU] |0 []
+|UNCL4461 |0 [] |1 [69] |0 []
+|UNCL7143 |0 [] |1 [PPI] |0 []
+|VATEX |0 [] |26 [VATEX-EU-135-1,VATEX-EU-153,VATEX-FR-CGI261-1,VATEX-FR-CGI261-2,VATEX-FR-CGI261-3,VATEX-FR-CGI261-4,VATEX-FR-CGI261-5,VATEX-FR-CGI261-7,VATEX-FR-CGI261-8,VATEX-FR-CGI261A,VATEX-FR-CGI261B,VATEX-FR-CGI261C-1,VATEX-FR-CGI261C-2,VATEX-FR-CGI261C-3,VATEX-FR-CGI261D-1,VATEX-FR-CGI261D-1BIS,VATEX-FR-CGI261D-2,VATEX-FR-CGI261D-3,VATEX-FR-CGI261D-4,VATEX-FR-CGI261E-1,VATEX-FR-CGI261E-2,VATEX-FR-CGI277A,VATEX-FR-CGI275,VATEX-FR-298SEXDECIESA,VATEX-FR-CGI295,VATEX-FR-AE] |0 []
+|===
+
+
+==  EN 16931 schematrons updated
+* CEN rules updated 
+** Bug in BR-CO-26 UBL validation
+** Code list changes
+** UBL-SR-23 incorrect mapping path in BIS3 INV and CN.
+** UBL-CR-674 incorrect mapping path in BIS3 INV and CN.
+** BR-B-02 rule path mis-mapping to ID
+** BR-CL-01 in UBL to be corrected - 502 and 503 are Credit Notes
+** Missing UBL-SR-03 (BT-16) equivalent for BT-17 (/Invoice/cac:OriginatorDocumentReference/cbc:ID)
+
+* Fatal rule PEPPOL-EN16931-R004 in UBL schematron updated to reflect the correct requirement for CustomizationID without version information.
+  ** Added new test to check if version information is included in CustomizationID and provide appropriate error message. 
+
+* New warning rules for Dutch identifiers with scheme 0106, 0190, 0217, 9944, and NL VAT numbers added to UBL schematron:
+  ** PEPPOL-COMMON-R054: Identifiers with scheme 0106 should be 8 digits
+  ** PEPPOL-COMMON-R055: Identifiers with scheme 0190 should be 20 digits
+  ** PEPPOL-COMMON-R056-1: Identifiers with scheme 9944 should have the format NL123456789B12
+  ** PEPPOL-COMMON-R056-2: VAT identifiers starting with NL should have the format NL123456789B12
+  ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 12 digits
+  ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
+
+== Changes to code lists and validation artefacts
+
+* Updated schematrons to reflect the changes in the code lists.
+* Corrected stale references to removed or renamed Schematron rules in structure metadata, removing build-time warnings about referenced rules not found.
+
+== Other changes
+* vefa/validator bumped from 2.3.1 to 2.4.3, to mitigate certificate expiry date.
+* Updated stylesheet
+* Documentation EN16931 link update to point to an active link, as the previous link was no longer active. The new link points to the official CEN website where the EN 16931 standard can be accessed.

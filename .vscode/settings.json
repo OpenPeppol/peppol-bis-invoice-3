@@ -6,5 +6,6 @@
         "invoicee",
         "poacc",
         "selfbilling"
-    ]
+    ],
+    "liveServer.settings.port": 5533
 }
