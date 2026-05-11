@@ -34,7 +34,7 @@ Release date:: May 2026
 ** Bug in BR-CO-26 UBL validation
 ** Missing validation on BT-81, BT-82, BT-83 for CII
 ** Code list changes
-** BR-CO-25 applied on credit notes in UBL but not CII
+** BR-CO-25 removed
 ** UBL-SR-23 incorrect mapping path in BIS3 INV and CN.
 ** UBL-CR-674 incorrect mapping path in BIS3 INV and CN.
 ** BR-B-02 rule path mis-mapping to ID
@@ -61,6 +61,12 @@ Release date:: May 2026
   ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 12 digits
   ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
 
+* Added in rule PEPPOL-EN16931-R007 for France 2 new temporary profiles on UBL Invoice and Credit Note.
+  ** cenbii-procid-ubl::urn:peppol:france:billing:regulated
+  ** cenbii-procid-ubl::urn:peppol:france:billing:non-regulated
+  ** Added new tests to test file to check for the new profiles.
+  *** For the next release, the implementation should be revised towards a generic model using reusable profile IDs for national regulated and national non-regulated invoice processes. The country-specific process details should then be handled through the PASR.
+
 ==  Changes to Country-Specific Rules
 * DK-R-017 becomes fatal.
 * DK-R-003 becomes fatal.
@@ -69,6 +75,6 @@ Release date:: May 2026
 
 * Updated stylesheet and added html for testing the stylesheet.
 * Changed release notes for 3.0.20 on PEPPOL-COMMON-R052 to reflect correct rule check to be ten digits instead of eight digits.
-* vefa/validator bumped from 2.3.1 to 2.4.0, to mitigate certificate expiry date.
+* vefa/validator bumped from 2.3.1 to 2.4.3, to mitigate certificate expiry date.
 * Documentation EN16931 link update to point to an active link, as the previous link was no longer active. The new link points to the official CEN website where the EN 16931 standard can be accessed.
 
