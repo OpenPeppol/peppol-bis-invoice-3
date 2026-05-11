@@ -17,7 +17,11 @@ Last update: 2026 May release 3.0.21.
   <!-- Parameters -->
   <let name="profile"
      value="
-       if (normalize-space(/*/cbc:ProfileID) = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0')
+       if (normalize-space(/*/cbc:ProfileID) = (
+        'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0',
+        'cenbii-procid-ubl::urn:peppol:france:billing:regulated',
+        'cenbii-procid-ubl::urn:peppol:france:billing:non-regulated'
+       ))
        then '01'
        else if (normalize-space(/*/cbc:ProfileID) = 'urn:peppol:bis:billing_with_response')
        then '02'
