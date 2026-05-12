@@ -62,8 +62,8 @@ Release date:: May 2026
   ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
 
 * Added in rule PEPPOL-EN16931-R007 for France 2 new temporary profiles on UBL Invoice and Credit Note.
-  ** cenbii-procid-ubl::urn:peppol:france:billing:regulated
-  ** cenbii-procid-ubl::urn:peppol:france:billing:non-regulated
+  ** urn:peppol:france:billing:regulated
+  ** urn:peppol:france:billing:non-regulated
   ** Added new tests to test file to check for the new profiles.
   *** For the next release, the implementation should be revised towards a generic model using reusable profile IDs for national regulated and national non-regulated invoice processes. The country-specific process details should then be handled through the PASR.
 
