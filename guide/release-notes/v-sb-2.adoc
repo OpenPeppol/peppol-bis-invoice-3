@@ -1,6 +1,5 @@
 = Version 3.0.2
 Release date:: May 2026
-* Date of member review: 2026-03-02
 * Date of publication: 2026-05-18
 * Mandatory to use from: 2026-08-24
 
@@ -22,13 +21,21 @@ Release date:: May 2026
 
 ==  EN 16931 schematrons updated
 * CEN rules updated 
-** Bug in BR-CO-26 UBL validation
-** Code list changes
-** UBL-SR-23 incorrect mapping path in BIS3 INV and CN.
-** UBL-CR-674 incorrect mapping path in BIS3 INV and CN.
-** BR-B-02 rule path mis-mapping to ID
-** BR-CL-01 in UBL to be corrected - 502 and 503 are Credit Notes
-** Missing UBL-SR-03 (BT-16) equivalent for BT-17 (/Invoice/cac:OriginatorDocumentReference/cbc:ID)
+** BR-CO-25 removed.
+** BR-66 and BR-67 removed and reissued as UBL-SR-54 and UBL-SR-55.
+** UBL-SR-56 added for BT-17 (/Invoice/cac:OriginatorDocumentReference/cbc:ID).
+** BR-IG-* rules renamed to BR-AF-* and BR-IP-* rules renamed to BR-AG-*.
+** BR-AF-05, BR-AF-06, BR-AF-07 and BR-AG-05, BR-AG-06, BR-AG-07 corrected so IGIC and IPSI VAT rates on invoice lines, document-level allowances and document-level charges may be 0 (zero) or greater than zero.
+** BR-CO-26 UBL validation corrected to ignore Seller identifiers with schemeID SEPA.
+** BR-CL-10 updated with a SEPA exception for AccountingSupplierParty and PayeeParty identifiers.
+** UBL-SR-22 and UBL-SR-23 incorrect mapping paths in BIS3 INV and CN corrected.
+** UBL-SR-53 added for PartyTaxScheme to require both TaxScheme/ID and CompanyID.
+** UBL-CR-674 incorrect mapping path in BIS3 INV and CN corrected.
+** BR-B-02 wording corrected to include BT-118.
+** BR-CL-01 corrected by moving 502 and 503 to Credit Notes and adding invoice codes 471, 472, 473, 500 and 501.
+** UBL-CR-572, UBL-CR-577 and UBL-CR-583 corrected to use BarcodeSymbologyID.
+** Duplicate rule UBL-CR-631 removed.
+** Code list changes.
 
 * Fatal rule PEPPOL-EN16931-R004 in UBL schematron updated to reflect the correct requirement for CustomizationID without version information.
   ** Added new test to check if version information is included in CustomizationID and provide appropriate error message. 
@@ -41,12 +48,20 @@ Release date:: May 2026
   ** PEPPOL-COMMON-R057: Identifiers with scheme 0217 should be 12 digits
   ** rules will become fatal in future release, but are warnings in this release to allow for transition period for implementers to update their systems and data.
 
+* Added in rule PEPPOL-EN16931-R007 for France 2 new temporary profiles on UBL Invoice and Credit Note.
+  ** urn:peppol:france:billing:regulated
+  ** urn:peppol:france:billing:non-regulated
+  ** Added new tests to test file to check for the new profiles.
+  *** For the next release, the implementation should be revised towards a generic model using reusable profile IDs for national regulated and national non-regulated invoice processes. The country-specific process details should then be handled through the PASR.
+
+
 == Changes to code lists and validation artefacts
 
 * Updated schematrons to reflect the changes in the code lists.
 * Corrected stale references to removed or renamed Schematron rules in structure metadata, removing build-time warnings about referenced rules not found.
 
 == Other changes
-* vefa/validator bumped from 2.3.1 to 2.4.3, to mitigate certificate expiry date.
+* vefa/validator bumped from 2.1.0 to 2.4.3, to mitigate certificate expiry date.
 * Updated stylesheet
 * Documentation EN16931 link update to point to an active link, as the previous link was no longer active. The new link points to the official CEN website where the EN 16931 standard can be accessed.
+* removed CII reference on main page, but kept Appendix B stating that CII is not supported, as this is still relevant information for implementers who may be considering using CII for their implementations. The removal of the CII reference from the main page was done to avoid confusion and to focus the documentation on the supported features and functionalities of the BIS Self-Billing specification, while still providing clear information about the limitations of the specification in relation to CII in the appendix.

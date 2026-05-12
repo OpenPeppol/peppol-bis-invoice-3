@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
@@ -16,12 +16,18 @@ Last update: 2026 May release 3.0.2.
   <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs" />
   <ns uri="utils" prefix="u" />
   <!-- Parameters -->
-  <let name="profile"
-    value="
-      if (/*/cbc:ProfileID and matches(normalize-space(/*/cbc:ProfileID), 'urn:fdc:peppol.eu:2017:poacc:selfbilling:([0-9]{2}):1.0')) then
-        tokenize(normalize-space(/*/cbc:ProfileID), ':')[7]
-      else
-        'Unknown'" />
+<let name="profile"
+     value="
+       if (normalize-space(/*/cbc:ProfileID) = (
+        'urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0',
+        'urn:peppol:france:billing:regulated',
+        'urn:peppol:france:billing:non-regulated'
+       ))
+       then '01'
+       else if (normalize-space(/*/cbc:ProfileID) = 'urn:peppol:bis:billing_with_response')
+       then '02'
+       else 'Unknown'
+     " />
   <let name="supplierCountry"
     value="
       if (/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then
@@ -281,7 +287,7 @@ Last update: 2026 May release 3.0.2.
     <!-- Document level -->
     <rule context="ubl-creditnote:CreditNote | ubl-invoice:Invoice">
       <assert id="PEPPOL-EN16931-R001" test="cbc:ProfileID" flag="fatal">[PEPPOL-EN16931-R001]-Business process MUST be provided.</assert>
-      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:selfbilling:NN:1.0' where NN indicates the process number.</assert>
+      <assert id="PEPPOL-EN16931-R007" test="$profile != 'Unknown'" flag="fatal">[PEPPOL-EN16931-R007]-Business process MUST have an approved identifier.</assert>
       <assert id="PEPPOL-EN16931-R002"
         test="count(cbc:Note) &lt;= 1 or ($supplierCountryIsDE and $customerCountryIsDE)"
         flag="fatal">[PEPPOL-EN16931-R002]-No more than one note is allowed on document level, unless both the buyer and seller are German organizations.</assert>
@@ -289,7 +295,7 @@ Last update: 2026 May release 3.0.2.
         flag="fatal">[PEPPOL-EN16931-R003]-A buyer reference or purchase order reference MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R004"
         test="starts-with(normalize-space(cbc:CustomizationID/text()), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0') and not(contains(normalize-space(cbc:CustomizationID/text()), '::'))"
-        flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST have the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0'.</assert>
+        flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST have the value 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0' and follow the format rules for the identifier.</assert>
       <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">[PEPPOL-EN16931-R053]-Only one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054"
         test="count(cac:TaxTotal[not(cac:TaxSubtotal)]) = (if (cbc:TaxCurrencyCode) then 1 else 0)"
