@@ -48,6 +48,12 @@
         <Path>rules/sch/PEPPOL-EN16931-UBL-SB.sch</Path>
         <Title>Rules for Peppol BIS 3.0 Self-Billing</Title>
     </Resource>
+    <Resource>
+        <Identifier>sbdh-peppol</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/sch/PeppolBIS-Envelope-Rules.sch</Path>
+        <Title>Rules for Enveloping compliance</Title>
+    </Resource>
     
     <!-- Code lists -->
     <Resource>
@@ -136,6 +142,14 @@
         <Title>Schematron for TC434 rules (UBL)</Title>
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">CEN-EN16931-UBL.sch</Property>
+    </Resource>
+
+    <Resource>
+        <Type>native:File</Type>
+        <Path>rules/sch/PeppolBIS-Envelope-Rules.sch</Path>
+        <Title>Schematron for Enveloping compliance rules</Title>
+        <Description>Supplementary Schematron rules for testing Enveloping compliance</Description>
+        <Property key="download">PeppolBIS-Envelope-Rules.sch</Property>
     </Resource>
 
     <Resource>

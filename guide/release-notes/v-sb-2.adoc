@@ -59,6 +59,7 @@ Release date:: May 2026
 
 * Updated schematrons to reflect the changes in the code lists.
 * Corrected stale references to removed or renamed Schematron rules in structure metadata, removing build-time warnings about referenced rules not found.
+* New optional validation rules to check SBDH compliance for both Billing and Self-Billing added to download page
 
 == Other changes
 * vefa/validator bumped from 2.1.0 to 2.4.3, to mitigate certificate expiry date.
