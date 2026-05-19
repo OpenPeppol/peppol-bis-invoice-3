@@ -16,16 +16,12 @@
 		<Name>SIRET-CODE</Name>
 	</Code>
 	<Code>
-		<Id>0037</Id>
-		<Name>LY-tunnus</Name>
-	</Code>
-	<Code>
 		<Id>0060</Id>
 		<Name>Data Universal Numbering System (D-U-N-S Number)</Name>
 	</Code>
 	<Code>
 		<Id>0088</Id>
-		<Name>EAN Location Code</Name>
+		<Name>Global Location Number</Name>
 	</Code>
 	<Code>
 		<Id>0096</Id>
@@ -53,28 +49,8 @@
 		<Name>SECETI Object Identifiers</Name>
 	</Code>
 	<Code>
-		<Id>0147</Id>
-		<Name>Standard Company Code</Name>
-	</Code>
-	<Code>
 		<Id>0151</Id>
 		<Name>Australian Business Number (ABN) Scheme</Name>
-	</Code>
-	<Code>
-		<Id>0154</Id>
-		<Name>Identification number of economic subjects: (ICO)</Name>
-	</Code>
-	<Code>
-		<Id>0158</Id>
-		<Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
-	</Code>
-	<Code>
-		<Id>0170</Id>
-		<Name>Teikoku Company Code</Name>
-	</Code>
-	<Code>
-		<Id>0177</Id>
-		<Name>Odette International Limited</Name>
 	</Code>
 	<Code>
 		<Id>0183</Id>
@@ -83,7 +59,7 @@
 	</Code>
 	<Code>
 		<Id>0184</Id>
-		<Name>DIGSTORG</Name>
+		<Name>The Danish Business Authority - CVR-number (DK:CVR)</Name>
 	</Code>
 	<Code>
 		<Id>0188</Id>
@@ -91,39 +67,31 @@
 	</Code>
 	<Code>
 		<Id>0190</Id>
-		<Name>Dutch Originator's Identification Number</Name>
+		<Name>Organisatie-identificatienummer (OIN)</Name>
 	</Code>
 	<Code>
 		<Id>0191</Id>
-		<Name>Centre of Registers and Information Systems of the Ministry of Justice</Name>
+		<Name>Company code</Name>
 	</Code>
 	<Code>
 		<Id>0192</Id>
-		<Name>Enhetsregisteret ved Bronnoysundregisterne</Name>
-	</Code>
-	<Code>
-		<Id>0193</Id>
-		<Name>UBL.BE party identifier</Name>
-	</Code>
-	<Code>
-		<Id>0194</Id>
-		<Name>KOIOS Open Technical Dictionary</Name>
+		<Name>Organisasjonsnummer</Name>
 	</Code>
 	<Code>
 		<Id>0195</Id>
-		<Name>Singapore UEN identifier</Name>
+		<Name>Singapore Nationwide E-Invoice Framework</Name>
 	</Code>
 	<Code>
 		<Id>0196</Id>
-		<Name>Kennitala - Iceland legal id for individuals and legal entities</Name>
+		<Name>Icelandic identifier</Name>
 	</Code>
 	<Code>
 		<Id>0198</Id>
-		<Name>ERSTORG</Name>
+		<Name>The Danish Business Authority - SE-number (DK:SE)</Name>
 	</Code>
 	<Code>
 		<Id>0199</Id>
-		<Name>Global legal entity identifier (GLEIF)</Name>
+		<Name>Legal Entity Identifier (LEI)</Name>
 	</Code>
 	<Code>
 		<Id>0200</Id>
@@ -134,20 +102,8 @@
 		<Name>Codice Univoco Unità Organizzativa iPA</Name>
 	</Code>
 	<Code>
-		<Id>0202</Id>
-		<Name>Indirizzo di Posta Elettronica Certificata</Name>
-	</Code>
-	<Code>
-		<Id>0203</Id>
-		<Name>eDelivery Network Participant identifier</Name>
-	</Code>
-	<Code>
 		<Id>0204</Id>
-		<Name>Leitweg-ID</Name>
-	</Code>
-	<Code>
-		<Id>0205</Id>
-		<Name>CODDEST</Name>
+		<Name>Peppol-Leitweg-ID</Name>
 	</Code>
 	<Code>
 		<Id>0208</Id>
@@ -166,24 +122,8 @@
 		<Name>PARTITA IVA</Name>
 	</Code>
 	<Code>
-		<Id>0212</Id>
-		<Name>Finnish Organization Identifier</Name>
-	</Code>
-	<Code>
-		<Id>0213</Id>
-		<Name>Finnish Organization Value Add Tax Identifier</Name>
-	</Code>
-	<Code>
-		<Id>0215</Id>
-		<Name>Net service ID</Name>
-	</Code>
-	<Code>
 		<Id>0216</Id>
 		<Name>OVTcode</Name>
-	</Code>
-	<Code>
-		<Id>0217</Id>
-		<Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
 	</Code>
 	<Code>
 		<Id>0218</Id>
@@ -391,5 +331,6 @@
 	</Code>
 	<Code>
 		<Id>9959</Id>
-		<Name>Employer Identification Number (EIN, USA)</Name>
-	</Code></CodeList>
+		<Name>US Employer ID Number</Name>
+	</Code>
+</CodeList>
