@@ -28,7 +28,7 @@ Release date:: May 2026
 |ISO4217 |2 [ANG,BGN] |1 [XCG] |0 []
 |===
 
-EAS was pointing to a wrong codelist, therefore it had an amount of unusable codes. This is now corrected.
+EAS was pointing to a wrong codelist, therefore it had a number of unusable codes. This is now corrected.
 
 
 ==  EN 16931 schematrons updated
