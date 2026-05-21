@@ -53,6 +53,10 @@
         <Name>Australian Business Number (ABN) Scheme</Name>
     </Code>
     <Code>
+        <Id>0158</Id>
+        <Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
+    </Code>
+    <Code>
         <Id>0183</Id>
         <Name>Numéro d'identification suisse des enterprises (IDE), Swiss Unique Business
             Identification Number (UIDB)</Name>
