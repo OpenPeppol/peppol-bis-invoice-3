@@ -584,7 +584,6 @@ Last update: 2026 May release 3.0.21.
   <!-- Sender Rules -->
   <pattern>
     <let name="dateRegExp" value="'^(0?[1-9]|[12][0-9]|3[01])[-\\/ ]?(0?[1-9]|1[0-2])[-\\/ ]?(19|20)[0-9]{2}'" />
-    <let name="greekDocumentType" value="tokenize('1.1 1.6 2.1 2.4 5.1 5.2 ','\s')" />
     <let name="tokenizedUblIssueDate" value="tokenize(/*/cbc:IssueDate,'-')" />
     <!-- Invoice ID -->
     <rule context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]">
@@ -601,7 +600,6 @@ Last update: 2026 May release 3.0.21.
 			                                and $tokenizedIdDate[2] = $tokenizedUblIssueDate[2]
 			                                and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])" flag="fatal">[GR-R-001-3]-When the Supplier is Greek, the Invoice Id second segment must be a valid Date that matches the invoice Issue Date</assert>
       <assert id="GR-R-001-4" test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0" flag="fatal">[GR-R-001-4]-When Supplier is Greek, the Invoice Id third segment must be a positive integer</assert>
-      <assert id="GR-R-001-5" test="string-length(normalize-space($IdSegments[4]))&gt;0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)" flag="fatal">[GR-R-001-5]-When Supplier is Greek, the Invoice Id in the fourth segment must be a valid greek document type</assert>
       <assert id="GR-R-001-6" test="string-length($IdSegments[5]) &gt; 0 " flag="fatal">[GR-R-001-6]-When Supplier is Greek, the Invoice Id fifth segment must not be empty</assert>
       <assert id="GR-R-001-7" test="string-length($IdSegments[6]) &gt; 0 " flag="fatal">[GR-R-001-7]-When Supplier is Greek, the Invoice Id sixth segment must not be empty</assert>
     </rule>
