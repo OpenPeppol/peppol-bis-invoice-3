@@ -1,0 +1,33 @@
+= Version 3.0.22
+[horizontal]
+Release date:: November 2026
+* Date of member review: 2026-09-14
+* Date of publication: 2026-11-23
+* Mandatory to use from: 2027-02-24
+
+== Changes to BIS document
+
+
+== Changes to code lists and validation artefacts
+* Codelist publication date: 2026-09-11
+* Validation artefacts UBL and CII 1.3.16 publication date: 2026-10-9
+
+
+
+[cols="1,1,1,1"]
+|===
+|codelist|removed|added|description changed
+| | | |
+|===
+
+
+==  EN 16931 schematrons updated
+* CEN rules updated 
+
+==  Changes to Country-Specific Rules
+* Added rules for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
+
+== Other changes
+
+
