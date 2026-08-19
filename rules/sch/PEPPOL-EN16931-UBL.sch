@@ -436,6 +436,21 @@ Last update: 2026 May release 3.0.21.
     </rule>
   </pattern>
   <!-- National rules -->
+  <!-- SLOVAKIA -->
+  <pattern>
+    <let name="SKSupplierCountry" value="upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
+    <let name="SKCustomerCountry" value="upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
+    <rule context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      <assert id="SK-R-002" test="cbc:StreetName" flag="warning">[SK-R-002]-For domestic Slovak transactions, BT-35 Seller street name shall be provided.</assert>
+      <assert id="SK-R-003" test="cbc:CityName" flag="warning">[SK-R-003]-For domestic Slovak transactions, BT-37 Seller city name shall be provided.</assert>
+      <assert id="SK-R-004" test="cbc:PostalZone" flag="warning">[SK-R-004]-For domestic Slovak transactions, BT-38 Seller postal code shall be provided.</assert>
+    </rule>
+    <rule context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      <assert id="SK-R-005" test="cbc:StreetName" flag="warning">[SK-R-005]-For domestic Slovak transactions, BT-50 Buyer street name shall be provided.</assert>
+      <assert id="SK-R-006" test="cbc:CityName" flag="warning">[SK-R-006]-For domestic Slovak transactions, BT-52 Buyer city name shall be provided.</assert>
+      <assert id="SK-R-007" test="cbc:PostalZone" flag="warning">[SK-R-007]-For domestic Slovak transactions, BT-53 Buyer postal code shall be provided.</assert>
+    </rule>
+  </pattern>
   <pattern>
     <!-- NORWAY -->
     <rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']">
@@ -800,6 +815,12 @@ Last update: 2026 May release 3.0.21.
       <assert test="cac:TaxCategory/cbc:Percent[boolean(normalize-space(.))]" flag="fatal" id="DE-R-014">[DE-R-014]-If both supplier and customer are located in Germany, the element "VAT category rate" (BT-119) shall be provided.</assert>
     </rule>
   </pattern>
+  <!-- SLOVAKIA -->
+  <pattern>
+    <rule context="ubl-invoice:Invoice[$supplierCountry = 'SK' and $customerCountry = 'SK']">
+      <assert id="SK-R-001" test="not(normalize-space(cbc:InvoiceTypeCode) = '384') or cac:BillingReference" flag="warning">[SK-R-001]-If both supplier and customer are located in Slovakia, and if "Invoice type code" (BT-3) contains the code 384 (Corrected invoice), "Preceding invoice reference" (BG-3) should be provided at least once.</assert>
+    </rule>
+  </pattern>
   <!-- Restricted code lists and formatting -->
   <pattern>
     <let name="ISO3166" value="tokenize('AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW 1A XI', '\s')" />
@@ -839,7 +860,7 @@ Last update: 2026 May release 3.0.21.
       <assert id="PEPPOL-EN16931-P0100" test="
           not($profile = ('01','02')) or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 389 393 395 553 575 623 780 817 870 875 876 877', '\s')
             satisfies normalize-space(text()) = $code)" flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
-      <assert id="PEPPOL-EN16931-P0112" test="not(normalize-space(.) = '326' or normalize-space(.) = '384' or normalize-space(.) = '389') or ($supplierCountryIsDE and $customerCountryIsDE)" flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326, 384 or 389 are only allowed when both buyer and seller are German organizations </assert>
+      <assert id="PEPPOL-EN16931-P0112" test="not(normalize-space(.) = '326' or normalize-space(.) = '384' or normalize-space(.) = '389') or ($supplierCountryIsDE and $customerCountryIsDE) or (normalize-space(.) = '384' and $supplierCountry = 'SK' and $customerCountry = 'SK')" flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326, 384 or 389 are only allowed when both buyer and seller are German organizations. Invoice type code 384 is only allowed when both buyer and seller are Slovak organizations.</assert>
     </rule>
 
     <rule context="cbc:CreditNoteTypeCode">

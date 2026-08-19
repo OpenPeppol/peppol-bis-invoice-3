@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
 	<assert>
-		<description>Invoice type code 326, 384 or 389 are only allowed when both buyer and seller are German organizations </description>
+		<description>Invoice type code 326, 384 or 389 are only allowed when both buyer and seller are German organizations. Invoice type code 384 is only allowed when both buyer and seller are Slovak organizations.</description>
 		<scope>PEPPOL-EN16931-P0112</scope>
 	</assert>
 	<test>
@@ -212,7 +212,7 @@
 			</cac:AccountingCustomerParty>
 		</Invoice>
 	</test>
-		<test>
+	<test>
 		<assert>
 			<success>PEPPOL-EN16931-P0112</success>
 		</assert>
@@ -262,6 +262,419 @@
 					</cac:PostalAddress>
 				</cac:Party>
 			</cac:AccountingCustomerParty>
+		</Invoice>
+	</test>
+	<!-- SK384-001: the contribution adds the domestic Slovak success case. -->
+	<test>
+		<assert>
+			<success>PEPPOL-EN16931-P0112</success>
+		</assert>
+		<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+		         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+		  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+		  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+		  <cbc:ID>SK384-001</cbc:ID>
+		  <cbc:IssueDate>2026-08-12</cbc:IssueDate>
+		  <cbc:DueDate>2026-09-11</cbc:DueDate>
+		  <cbc:InvoiceTypeCode>384</cbc:InvoiceTypeCode>
+		  <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+		  <cbc:BuyerReference>SK-BUYER-REFERENCE-2026</cbc:BuyerReference>
+		  <cac:BillingReference>
+		    <cac:InvoiceDocumentReference>
+		      <cbc:ID>SK-ORIGINAL-2026-0001</cbc:ID>
+		    </cac:InvoiceDocumentReference>
+		  </cac:BillingReference>
+		  <cac:AccountingSupplierParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">8580000000016</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>SK-SUPPLIER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>Slovak Test Supplier s.r.o.</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Mlynske nivy 12</cbc:StreetName>
+		        <cbc:CityName>Bratislava</cbc:CityName>
+		        <cbc:PostalZone>821 09</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>SK</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>SK2020000001</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>Slovak Test Supplier s.r.o.</cbc:RegistrationName>
+		        <cbc:CompanyID>50000001</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Receivable</cbc:Name>
+		        <cbc:ElectronicMail>supplier@example.sk</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingSupplierParty>
+		  <cac:AccountingCustomerParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">8580000000023</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>SK-CUSTOMER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>Slovak Test Customer a.s.</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Sturova 8</cbc:StreetName>
+		        <cbc:CityName>Kosice</cbc:CityName>
+		        <cbc:PostalZone>040 01</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>SK</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>SK2020000002</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>Slovak Test Customer a.s.</cbc:RegistrationName>
+		        <cbc:CompanyID>50000002</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Payable</cbc:Name>
+		        <cbc:ElectronicMail>customer@example.sk</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingCustomerParty>
+		  <cac:Delivery>
+		    <cbc:ActualDeliveryDate>2026-08-10</cbc:ActualDeliveryDate>
+		  </cac:Delivery>
+		  <cac:PaymentMeans>
+		    <cbc:PaymentMeansCode name="Credit transfer">30</cbc:PaymentMeansCode>
+		    <cbc:PaymentID>SK384-001</cbc:PaymentID>
+		    <cac:PayeeFinancialAccount>
+		      <cbc:ID>SK3112000000198742637541</cbc:ID>
+		      <cbc:Name>Slovak Test Supplier s.r.o.</cbc:Name>
+		    </cac:PayeeFinancialAccount>
+		  </cac:PaymentMeans>
+		  <cac:PaymentTerms>
+		    <cbc:Note>Payment due within 30 days.</cbc:Note>
+		  </cac:PaymentTerms>
+		  <cac:TaxTotal>
+		    <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		    <cac:TaxSubtotal>
+		      <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+		      <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		      <cac:TaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:TaxCategory>
+		    </cac:TaxSubtotal>
+		  </cac:TaxTotal>
+		  <cac:LegalMonetaryTotal>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+		    <cbc:TaxInclusiveAmount currencyID="EUR">120.00</cbc:TaxInclusiveAmount>
+		    <cbc:PayableAmount currencyID="EUR">120.00</cbc:PayableAmount>
+		  </cac:LegalMonetaryTotal>
+		  <cac:InvoiceLine>
+		    <cbc:ID>1</cbc:ID>
+		    <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cac:Item>
+		      <cbc:Name>Professional services</cbc:Name>
+		      <cac:ClassifiedTaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:ClassifiedTaxCategory>
+		    </cac:Item>
+		    <cac:Price>
+		      <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
+		    </cac:Price>
+		  </cac:InvoiceLine>
+		</Invoice>
+	</test>
+	<!-- SK384-004: cross-border code 384 remains prohibited. -->
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0112</error>
+		</assert>
+		<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+		         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+		  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+		  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+		  <cbc:ID>SK384-004</cbc:ID>
+		  <cbc:IssueDate>2026-08-12</cbc:IssueDate>
+		  <cbc:DueDate>2026-09-11</cbc:DueDate>
+		  <cbc:InvoiceTypeCode>384</cbc:InvoiceTypeCode>
+		  <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+		  <cbc:BuyerReference>SK-BUYER-REFERENCE-2026</cbc:BuyerReference>
+		  <cac:AccountingSupplierParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">8580000000016</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>SK-SUPPLIER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>Slovak Test Supplier s.r.o.</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Mlynske nivy 12</cbc:StreetName>
+		        <cbc:CityName>Bratislava</cbc:CityName>
+		        <cbc:PostalZone>821 09</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>SK</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>SK2020000001</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>Slovak Test Supplier s.r.o.</cbc:RegistrationName>
+		        <cbc:CompanyID>50000001</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Receivable</cbc:Name>
+		        <cbc:ElectronicMail>supplier@example.sk</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingSupplierParty>
+		  <cac:AccountingCustomerParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">4000000000020</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>DE-CUSTOMER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>German Test Customer GmbH</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Friedrichstrasse 10</cbc:StreetName>
+		        <cbc:CityName>Berlin</cbc:CityName>
+		        <cbc:PostalZone>10117</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>DE123456789</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>German Test Customer GmbH</cbc:RegistrationName>
+		        <cbc:CompanyID>HRB 123456</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Payable</cbc:Name>
+		        <cbc:ElectronicMail>customer@example.de</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingCustomerParty>
+		  <cac:Delivery>
+		    <cbc:ActualDeliveryDate>2026-08-10</cbc:ActualDeliveryDate>
+		  </cac:Delivery>
+		  <cac:PaymentMeans>
+		    <cbc:PaymentMeansCode name="Credit transfer">30</cbc:PaymentMeansCode>
+		    <cbc:PaymentID>SK384-004</cbc:PaymentID>
+		    <cac:PayeeFinancialAccount>
+		      <cbc:ID>SK3112000000198742637541</cbc:ID>
+		      <cbc:Name>Slovak Test Supplier s.r.o.</cbc:Name>
+		    </cac:PayeeFinancialAccount>
+		  </cac:PaymentMeans>
+		  <cac:PaymentTerms>
+		    <cbc:Note>Payment due within 30 days.</cbc:Note>
+		  </cac:PaymentTerms>
+		  <cac:TaxTotal>
+		    <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		    <cac:TaxSubtotal>
+		      <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+		      <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		      <cac:TaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:TaxCategory>
+		    </cac:TaxSubtotal>
+		  </cac:TaxTotal>
+		  <cac:LegalMonetaryTotal>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+		    <cbc:TaxInclusiveAmount currencyID="EUR">120.00</cbc:TaxInclusiveAmount>
+		    <cbc:PayableAmount currencyID="EUR">120.00</cbc:PayableAmount>
+		  </cac:LegalMonetaryTotal>
+		  <cac:InvoiceLine>
+		    <cbc:ID>1</cbc:ID>
+		    <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cac:Item>
+		      <cbc:Name>Professional services</cbc:Name>
+		      <cac:ClassifiedTaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:ClassifiedTaxCategory>
+		    </cac:Item>
+		    <cac:Price>
+		      <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
+		    </cac:Price>
+		  </cac:InvoiceLine>
+		</Invoice>
+	</test>
+	<!-- SK384-005: the reverse cross-border direction remains prohibited. -->
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0112</error>
+		</assert>
+		<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+		         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+		  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+		  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+		  <cbc:ID>SK384-005</cbc:ID>
+		  <cbc:IssueDate>2026-08-12</cbc:IssueDate>
+		  <cbc:DueDate>2026-09-11</cbc:DueDate>
+		  <cbc:InvoiceTypeCode>384</cbc:InvoiceTypeCode>
+		  <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+		  <cbc:BuyerReference>SK-BUYER-REFERENCE-2026</cbc:BuyerReference>
+		  <cac:AccountingSupplierParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">4000000000013</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>DE-SUPPLIER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>German Test Supplier GmbH</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Hauptstrasse 20</cbc:StreetName>
+		        <cbc:CityName>Munich</cbc:CityName>
+		        <cbc:PostalZone>80331</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>DE987654321</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>German Test Supplier GmbH</cbc:RegistrationName>
+		        <cbc:CompanyID>HRB 654321</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Receivable</cbc:Name>
+		        <cbc:ElectronicMail>supplier@example.de</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingSupplierParty>
+		  <cac:AccountingCustomerParty>
+		    <cac:Party>
+		      <cbc:EndpointID schemeID="0088">8580000000023</cbc:EndpointID>
+		      <cac:PartyIdentification>
+		        <cbc:ID>SK-CUSTOMER-001</cbc:ID>
+		      </cac:PartyIdentification>
+		      <cac:PartyName>
+		        <cbc:Name>Slovak Test Customer a.s.</cbc:Name>
+		      </cac:PartyName>
+		      <cac:PostalAddress>
+		        <cbc:StreetName>Sturova 8</cbc:StreetName>
+		        <cbc:CityName>Kosice</cbc:CityName>
+		        <cbc:PostalZone>040 01</cbc:PostalZone>
+		        <cac:Country>
+		          <cbc:IdentificationCode>SK</cbc:IdentificationCode>
+		        </cac:Country>
+		      </cac:PostalAddress>
+		      <cac:PartyTaxScheme>
+		        <cbc:CompanyID>SK2020000002</cbc:CompanyID>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:PartyTaxScheme>
+		      <cac:PartyLegalEntity>
+		        <cbc:RegistrationName>Slovak Test Customer a.s.</cbc:RegistrationName>
+		        <cbc:CompanyID>50000002</cbc:CompanyID>
+		      </cac:PartyLegalEntity>
+		      <cac:Contact>
+		        <cbc:Name>Accounts Payable</cbc:Name>
+		        <cbc:ElectronicMail>customer@example.sk</cbc:ElectronicMail>
+		      </cac:Contact>
+		    </cac:Party>
+		  </cac:AccountingCustomerParty>
+		  <cac:Delivery>
+		    <cbc:ActualDeliveryDate>2026-08-10</cbc:ActualDeliveryDate>
+		  </cac:Delivery>
+		  <cac:PaymentMeans>
+		    <cbc:PaymentMeansCode name="Credit transfer">30</cbc:PaymentMeansCode>
+		    <cbc:PaymentID>SK384-005</cbc:PaymentID>
+		    <cac:PayeeFinancialAccount>
+		      <cbc:ID>SK3112000000198742637541</cbc:ID>
+		      <cbc:Name>Slovak Test Supplier s.r.o.</cbc:Name>
+		    </cac:PayeeFinancialAccount>
+		  </cac:PaymentMeans>
+		  <cac:PaymentTerms>
+		    <cbc:Note>Payment due within 30 days.</cbc:Note>
+		  </cac:PaymentTerms>
+		  <cac:TaxTotal>
+		    <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		    <cac:TaxSubtotal>
+		      <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+		      <cbc:TaxAmount currencyID="EUR">20.00</cbc:TaxAmount>
+		      <cac:TaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:TaxCategory>
+		    </cac:TaxSubtotal>
+		  </cac:TaxTotal>
+		  <cac:LegalMonetaryTotal>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+		    <cbc:TaxInclusiveAmount currencyID="EUR">120.00</cbc:TaxInclusiveAmount>
+		    <cbc:PayableAmount currencyID="EUR">120.00</cbc:PayableAmount>
+		  </cac:LegalMonetaryTotal>
+		  <cac:InvoiceLine>
+		    <cbc:ID>1</cbc:ID>
+		    <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		    <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+		    <cac:Item>
+		      <cbc:Name>Professional services</cbc:Name>
+		      <cac:ClassifiedTaxCategory>
+		        <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>20</cbc:Percent>
+		        <cac:TaxScheme>
+		          <cbc:ID>VAT</cbc:ID>
+		        </cac:TaxScheme>
+		      </cac:ClassifiedTaxCategory>
+		    </cac:Item>
+		    <cac:Price>
+		      <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
+		    </cac:Price>
+		  </cac:InvoiceLine>
 		</Invoice>
 	</test>
 	<test>
