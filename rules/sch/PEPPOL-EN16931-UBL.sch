@@ -436,6 +436,21 @@ Last update: 2026 May release 3.0.21.
     </rule>
   </pattern>
   <!-- National rules -->
+  <!-- SLOVAKIA -->
+  <pattern>
+    <let name="SKSupplierCountry" value="upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
+    <let name="SKCustomerCountry" value="upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
+    <rule context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      <assert id="SK-R-002" test="cbc:StreetName" flag="warning">[SK-R-002]-For domestic Slovak transactions, BT-35 Seller street name shall be provided.</assert>
+      <assert id="SK-R-003" test="cbc:CityName" flag="warning">[SK-R-003]-For domestic Slovak transactions, BT-37 Seller city name shall be provided.</assert>
+      <assert id="SK-R-004" test="cbc:PostalZone" flag="warning">[SK-R-004]-For domestic Slovak transactions, BT-38 Seller postal code shall be provided.</assert>
+    </rule>
+    <rule context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      <assert id="SK-R-005" test="cbc:StreetName" flag="warning">[SK-R-005]-For domestic Slovak transactions, BT-50 Buyer street name shall be provided.</assert>
+      <assert id="SK-R-006" test="cbc:CityName" flag="warning">[SK-R-006]-For domestic Slovak transactions, BT-52 Buyer city name shall be provided.</assert>
+      <assert id="SK-R-007" test="cbc:PostalZone" flag="warning">[SK-R-007]-For domestic Slovak transactions, BT-53 Buyer postal code shall be provided.</assert>
+    </rule>
+  </pattern>
   <pattern>
     <!-- NORWAY -->
     <rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']">
