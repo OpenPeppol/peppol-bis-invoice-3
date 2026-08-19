@@ -837,9 +837,9 @@ Last update: 2026 May release 3.0.21.
     </rule>
     <rule context="cbc:InvoiceTypeCode">
       <assert id="PEPPOL-EN16931-P0100" test="
-          not($profile = ('01','02')) or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 393 395 553 575 623 780 817 870 875 876 877', '\s')
+          not($profile = ('01','02')) or (some $code in tokenize('71 80 82 84 102 218 219 326 331 380 382 383 384 386 388 389 393 395 553 575 623 780 817 870 875 876 877', '\s')
             satisfies normalize-space(text()) = $code)" flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
-      <assert id="PEPPOL-EN16931-P0112" test="not(normalize-space(.) = '326' or normalize-space(.) = '384') or ($supplierCountryIsDE and $customerCountryIsDE)" flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326 or 384 are only allowed when both buyer and seller are German organizations </assert>
+      <assert id="PEPPOL-EN16931-P0112" test="not(normalize-space(.) = '326' or normalize-space(.) = '384' or normalize-space(.) = '389') or ($supplierCountryIsDE and $customerCountryIsDE)" flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326, 384 or 389 are only allowed when both buyer and seller are German organizations </assert>
     </rule>
 
     <rule context="cbc:CreditNoteTypeCode">
