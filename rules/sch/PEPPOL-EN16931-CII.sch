@@ -329,16 +329,16 @@ Last update: 2026 May release 3.0.21.
       <assert id="PEPPOL-COMMON-R043" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())" flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct format.</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0201'] | ram:ID[@schemeID = '0201'] | ram:GlobalID[@schemeID = '0201']">
-      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA Code (Codice Univoco Unità Organizzativa) SHOULD be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0210'] | ram:ID[@schemeID = '0210'] | ram:GlobalID[@schemeID = '0210']">
-      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R045]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R045]-Tax Code (Codice Fiscale) SHOULD be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '9907']">
-      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R046]-Tax Code (Codice Fiscale) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R046" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R046]-Tax Code (Codice Fiscale) SHOULD be stated in the correct format</assert>
     </rule>
     <rule context="ram:URIID[@schemeID = '0211'] | ram:ID[@schemeID = '0211'] | ram:GlobalID[@schemeID = '0211']">
-      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R047]-Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
+      <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R047]-Italian VAT Code (Partita Iva) SHOULD be stated in the correct format</assert>
     </rule>
 <!--     <rule context="ram:URIID[@schemeID = '9906']">
       <assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R048]-Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
@@ -456,7 +456,7 @@ Last update: 2026 May release 3.0.21.
                                      or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.08.01')
                                      or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.0801')
                                )
-                              )" flag="warning">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC version 19.05.01 or 26.08.01 should be used</assert>
+                              )" flag="warning">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC version 19.05.01 or 26.08.01 SHOULD be used</assert>
     </rule>
   </pattern>
   <!-- Italian rules -->
@@ -477,7 +477,7 @@ Last update: 2026 May release 3.0.21.
       <assert id="SE-R-002" test="string(number(substring(ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VAT'], 3, 12))) != 'NaN'" flag="fatal">[SE-R-002]-For Swedish suppliers, the Swedish VAT-numbers must have the trailing 12 characters in numeric form</assert>
     </rule>
     <rule context="rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization[../ram:PostalTradeAddress/ram:CountryID = 'SE' and ram:ID]">
-      <assert id="SE-R-003" test="string(number(ram:ID)) != 'NaN'" flag="fatal">[SE-R-003]-Swedish organisation numbers should be numeric.</assert>
+      <assert id="SE-R-003" test="string(number(ram:ID)) != 'NaN'" flag="fatal">[SE-R-003]-Swedish organisation numbers SHOULD be numeric.</assert>
       <assert id="SE-R-004" test="string-length(normalize-space(ram:ID)) = 10" flag="fatal">[SE-R-004]-Swedish organisation numbers consist of 10 characters.</assert>
 	  <assert id="SE-R-013" test="u:checkSEOrgnr(normalize-space(ram:ID))" flag="fatal">[SE-R-013]-The last digit of a Swedish organization number must be valid according to the Luhn algorithm.</assert>
     </rule>
@@ -499,7 +499,7 @@ Last update: 2026 May release 3.0.21.
       <assert id="SE-R-011" test="false()" flag="warning">[SE-R-011]-For Swedish suppliers using Swedish Bankgiro or Plusgiro, the proper way to indicate this is to use Code 30 for PaymentMeans and FinancialInstitutionBranch ID with code SE:BANKGIRO or SE:PLUSGIRO</assert>
     </rule>
     <rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE'] and ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '31']">
-      <assert id="SE-R-012" test="false()" flag="warning">[SE-R-012]-For domestic transactions between Swedish trading partners, credit transfer should be indicated by PaymentMeansCode=”30”</assert>
+      <assert id="SE-R-012" test="false()" flag="warning">[SE-R-012]-For domestic transactions between Swedish trading partners, credit transfer SHOULD be indicated by PaymentMeansCode=”30”</assert>
     </rule>
   </pattern>
   <!-- NETHERLANDS -->
