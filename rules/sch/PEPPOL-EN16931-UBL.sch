@@ -534,35 +534,20 @@ Last update: 2026 May release 3.0.21.
     flag="warning">[PEPPOL-COMMON-R048]-Italian
     VAT Code (Partita Iva) must be stated in the correct format</assert>
     </rule> -->
-    <rule
-      context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
-      <assert id="PEPPOL-COMMON-R049"
-        test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())"
-        flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct
-        format.</assert>
+    <rule context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
+      <assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct format.</assert>
     </rule>
-    <rule
-      context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
-      <assert id="PEPPOL-COMMON-R050"
-        test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian
-        Business Number (ABN) MUST be stated in the correct format.</assert>
+    <rule context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
+      <assert id="PEPPOL-COMMON-R050" test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
-    <rule
-      context="cbc:EndpointID[@schemeID = '0106'] | cac:PartyIdentification/cbc:ID[@schemeID = '0106'] | cbc:CompanyID[@schemeID = '0106']">
-      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">[PEPPOL-COMMON-R054]-Dutch
-        Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
+    <rule context="cbc:EndpointID[@schemeID = '0106'] | cac:PartyIdentification/cbc:ID[@schemeID = '0106'] | cbc:CompanyID[@schemeID = '0106']">
+      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="fatal">[PEPPOL-COMMON-R054]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
     </rule>
-    <rule
-      context="cbc:EndpointID[@schemeID = '0190'] | cac:PartyIdentification/cbc:ID[@schemeID = '0190'] | cbc:CompanyID[@schemeID = '0190']">
-      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')"
-        flag="warning">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be
-        stated in the correct format (12345678901234567890).</assert>
+    <rule context="cbc:EndpointID[@schemeID = '0190'] | cac:PartyIdentification/cbc:ID[@schemeID = '0190'] | cbc:CompanyID[@schemeID = '0190']">
+      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')" flag="fatal">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
     </rule>
-    <rule
-      context="cbc:EndpointID[@schemeID = '9944'] | cac:PartyIdentification/cbc:ID[@schemeID = '9944'] | cbc:CompanyID[@schemeID = '9944']">
-      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')"
-        flag="warning">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct
-        format (NL123456789B12).</assert>
+    <rule context="cbc:EndpointID[@schemeID = '9944'] | cac:PartyIdentification/cbc:ID[@schemeID = '9944'] | cbc:CompanyID[@schemeID = '9944']">
+      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
     </rule>
     <!-- If main VAT number starts with NL, validate that too -->
     <rule
@@ -570,15 +555,10 @@ Last update: 2026 May release 3.0.21.
                    [normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']
                    /cbc:CompanyID
                    [starts-with(normalize-space(.), 'NL')]">
-      <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')"
-        flag="warning">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format
-        (NL123456789B12).</assert>
+    <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
     </rule>
-    <rule
-      context="cbc:EndpointID[@schemeID = '0217'] | cac:PartyIdentification/cbc:ID[@schemeID = '0217'] | cbc:CompanyID[@schemeID = '0217']">
-      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')"
-        flag="warning">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217)
-        MUST be stated in the correct format (123456789012).</assert>
+    <rule context="cbc:EndpointID[@schemeID = '0217'] | cac:PartyIdentification/cbc:ID[@schemeID = '0217'] | cbc:CompanyID[@schemeID = '0217']">
+      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')" flag="fatal">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
     </rule>
   </pattern>
   <!-- National rules -->
@@ -862,9 +842,7 @@ Last update: 2026 May release 3.0.21.
     'XX'" />
   <!-- Sender Rules -->
   <pattern>
-    <let name="dateRegExp"
-      value="'^(0?[1-9]|[12][0-9]|3[01])[-\\/ ]?(0?[1-9]|1[0-2])[-\\/ ]?(19|20)[0-9]{2}'" />
-    <let name="greekDocumentType" value="tokenize('1.1 1.6 2.1 2.4 5.1 5.2 ','\s')" />
+    <let name="dateRegExp" value="'^(0?[1-9]|[12][0-9]|3[01])[-\\/ ]?(0?[1-9]|1[0-2])[-\\/ ]?(19|20)[0-9]{2}'" />
     <let name="tokenizedUblIssueDate" value="tokenize(/*/cbc:IssueDate,'-')" />
     <!-- Invoice ID -->
     <rule
@@ -885,21 +863,10 @@ Last update: 2026 May release 3.0.21.
 			                              and matches($IdSegments[2],$dateRegExp)
 			                              and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3]
 			                                and $tokenizedIdDate[2] = $tokenizedUblIssueDate[2]
-			                                and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])"
-        flag="fatal">[GR-R-001-3]-When the Supplier is Greek, the Invoice Id second segment must be
-        a valid Date that matches the invoice Issue Date</assert>
-      <assert id="GR-R-001-4"
-        test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0"
-        flag="fatal">[GR-R-001-4]-When Supplier is Greek, the Invoice Id third segment must be a
-        positive integer</assert>
-      <assert id="GR-R-001-5"
-        test="string-length(normalize-space($IdSegments[4]))&gt;0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)"
-        flag="fatal">[GR-R-001-5]-When Supplier is Greek, the Invoice Id in the fourth segment must
-        be a valid greek document type</assert>
-      <assert id="GR-R-001-6" test="string-length($IdSegments[5]) &gt; 0 " flag="fatal">[GR-R-001-6]-When
-        Supplier is Greek, the Invoice Id fifth segment must not be empty</assert>
-      <assert id="GR-R-001-7" test="string-length($IdSegments[6]) &gt; 0 " flag="fatal">[GR-R-001-7]-When
-        Supplier is Greek, the Invoice Id sixth segment must not be empty</assert>
+			                                and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])" flag="fatal">[GR-R-001-3]-When the Supplier is Greek, the Invoice Id second segment must be a valid Date that matches the invoice Issue Date</assert>
+      <assert id="GR-R-001-4" test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0" flag="fatal">[GR-R-001-4]-When Supplier is Greek, the Invoice Id third segment must be a positive integer</assert>
+      <assert id="GR-R-001-6" test="string-length($IdSegments[5]) &gt; 0 " flag="fatal">[GR-R-001-6]-When Supplier is Greek, the Invoice Id fifth segment must not be empty</assert>
+      <assert id="GR-R-001-7" test="string-length($IdSegments[6]) &gt; 0 " flag="fatal">[GR-R-001-7]-When Supplier is Greek, the Invoice Id sixth segment must not be empty</assert>
     </rule>
     <rule context="cac:AccountingSupplierParty[$isGreekSender]/cac:Party">
       <!-- Supplier Name Mandatory -->

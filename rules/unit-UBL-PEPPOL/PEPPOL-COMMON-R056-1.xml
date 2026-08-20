@@ -84,7 +84,7 @@
   <!-- Failure cases: EndpointID, PartyIdentification, and CompanyID with schemeID="9944", with non-allowed characters, not enough characters, and too many characters, for both AccountingSupplierParty and AccountingCustomerParty. One additional check: NL prefix -->
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -96,7 +96,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -108,7 +108,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -122,7 +122,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -134,7 +134,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -146,7 +146,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -160,7 +160,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -172,7 +172,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -184,7 +184,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -198,7 +198,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingCustomerParty>
@@ -210,7 +210,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -222,7 +222,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -236,7 +236,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -248,7 +248,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -260,7 +260,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -274,7 +274,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -286,7 +286,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -298,7 +298,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>
@@ -312,7 +312,7 @@
   </test>
   <test>
     <assert>
-      <warning>PEPPOL-COMMON-R056-1</warning>
+      <error>PEPPOL-COMMON-R056-1</error>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
       <cac:AccountingSupplierParty>

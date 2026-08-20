@@ -470,48 +470,28 @@ Last update: 2026 May release 3.0.21.
     flag="warning">[PEPPOL-COMMON-R048]-Italian VAT Code (Partita Iva) must be stated in the correct
     format</assert>
     </rule> -->
-    <rule
-      context="ram:URIID[@schemeID = '0007'] | ram:ID[@schemeID = '0007'] | ram:GlobalID[@schemeID = '0007']">
-      <assert id="PEPPOL-COMMON-R049"
-        test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())"
-        flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct
-        format.</assert>
+    <rule context="ram:URIID[@schemeID = '0007'] | ram:ID[@schemeID = '0007'] | ram:GlobalID[@schemeID = '0007']">
+      <assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct format.</assert>
     </rule>
-    <rule
-      context="ram:URIID[@schemeID = '0151'] | ram:ID[@schemeID = '0151'] | ram:GlobalID[@schemeID = '0151']">
-      <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian
-        Business Number (ABN) MUST be stated in the correct format.</assert>
+	<rule context="ram:URIID[@schemeID = '0151'] | ram:ID[@schemeID = '0151'] | ram:GlobalID[@schemeID = '0151']">
+      <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
-    <rule
-      context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']">
-      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">[PEPPOL-COMMON-R054]-Dutch
-        Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
+	<rule context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']">
+      <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="fatal">[PEPPOL-COMMON-R054]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
     </rule>
-    <rule
-      context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']">
-      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')"
-        flag="warning">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be
-        stated in the correct format (12345678901234567890).</assert>
+	<rule context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']">
+      <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')" flag="fatal">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
     </rule>
-    <rule
-      context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
-      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')"
-        flag="warning">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct
-        format (NL123456789B12).</assert>
+	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
+      <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
     </rule>
-    <rule
-      context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
-      <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')"
-        flag="warning">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format
-        (NL123456789B12).</assert>
+    <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
+      <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
     </rule>
-    <rule
-      context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
-      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')"
-        flag="warning">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217)
-        MUST be stated in the correct format (123456789012).</assert>
+	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
+      <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')" flag="fatal">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
     </rule>
-    <!--
+<!--
 -->
   </pattern>
   <!-- National rules -->

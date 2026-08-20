@@ -21,10 +21,15 @@ Release date:: November 2026
 * CEN rules updated 
 
 ==  Changes to Country-Specific Rules
-* Added rules for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Removed rule and sample check GR-R-001-5 for Greece (GR) [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563), UBL only
+* Added rules SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006, SK-R-007 for Slovakia (SK) [RFC-574](https://openpeppol.atlassian.net/browse/RFC-574), UBL only
 * Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
 
 == Other changes
 * Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
 
+* Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
 
+
+== Other changes
+* Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
