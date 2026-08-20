@@ -7,19 +7,15 @@ Release date:: November 2026
 
 == Changes to BIS document
 
-
 == Changes to code lists and validation artefacts
 * Codelist publication date: 2026-09-11
 * Validation artefacts UBL and CII 1.3.16 publication date: 2026-10-9
-
-
 
 [cols="1,1,1,1"]
 |===
 |codelist|removed|added|description changed
 | | | |
 |===
-
 
 ==  EN 16931 schematrons updated
 * CEN rules updated 
@@ -29,5 +25,6 @@ Release date:: November 2026
 * Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
 
 == Other changes
+* Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
 
 
