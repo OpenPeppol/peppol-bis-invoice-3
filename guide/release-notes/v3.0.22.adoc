@@ -7,12 +7,9 @@ Release date:: November 2026
 
 == Changes to BIS document
 
-
 == Changes to code lists and validation artefacts
 * Codelist publication date: 2026-09-11
 * Validation artefacts UBL and CII 1.3.16 publication date: 2026-10-9
-
-
 
 [cols="1,1,1,1"]
 |===
@@ -20,14 +17,14 @@ Release date:: November 2026
 | | | |
 |===
 
-
 ==  EN 16931 schematrons updated
 * CEN rules updated 
 
 ==  Changes to Country-Specific Rules
-* Added rules for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Removed rule and sample check GR-R-001-5 for Greece (GR) [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563), UBL only
+* Added rules SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006, SK-R-007 for Slovakia (SK) [RFC-574](https://openpeppol.atlassian.net/browse/RFC-574), UBL only
 * Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
 
+
 == Other changes
-
-
+* Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
