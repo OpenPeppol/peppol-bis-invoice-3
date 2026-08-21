@@ -1,6 +1,16 @@
 #!/bin/sh
 
 PROJECT=$(dirname $(readlink -f "$0"))
+BUILD_LOG="$PROJECT/build.log"
+
+# Keep the complete output of every build step, while reserving the original
+# stdout for the warning/error summary printed at the end.
+exec 3>&1
+: > "$BUILD_LOG" || {
+    echo "Unable to create build log: $BUILD_LOG" >&3
+    exit 1
+}
+exec >> "$BUILD_LOG" 2>&1
 
 if [ -e $PROJECT/target ]; then
     docker run --rm -i -v $PROJECT:/src alpine:3.11 rm -rf /src/target
@@ -43,3 +53,18 @@ docker run --rm -i -v $PROJECT:/documents -v $PROJECT/target:/target difi/asciid
 
 # Fix ownership
 docker run --rm -i -v $PROJECT:/src alpine:3.11 chown -R $(id -g $USER).$(id -g $USER) /src/target
+BUILD_RESULT=$?
+
+printf '\nWarnings and errors from %s:\n' "$BUILD_LOG" >&3
+if ! grep -nEi '(^|\|-|\[)(WARN(ING)?|ERROR)([[:space:]:\]]|$)' "$BUILD_LOG" >&3; then
+    echo "None." >&3
+fi
+
+printf '\nBuild log from the last "tests performed" line:\n' >&3
+if grep -qi 'tests performed' "$BUILD_LOG"; then
+    awk 'tolower($0) ~ /tests performed/ { summary = ""; found = 1 } found { summary = summary $0 ORS } END { if (found) printf "%s", summary }' "$BUILD_LOG" >&3
+else
+    echo "No test summary found." >&3
+fi
+
+exit "$BUILD_RESULT"
