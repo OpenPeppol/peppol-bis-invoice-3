@@ -224,6 +224,14 @@ Last update: 2026 May release 3.0.21.
       </otherwise>
     </choose>
   </function>
+  <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod89-LU_VAT" as="xs:boolean">
+    <param name="val" as="xs:string"/>
+    <variable name="normalized" select="upper-case(normalize-space($val))"/>
+    <variable name="base" select="substring($normalized, 3, 6)"/>
+    <variable name="checkdigits" select="substring($normalized, 9, 2)"/>
+    <variable name="calculated" select="format-integer(xs:integer($base) mod 89, '00')"/>
+    <sequence select="$checkdigits = $calculated"/>
+  </function>
 
   <pattern>
     <rule context="rsm:ExchangedDocumentContext">
@@ -490,6 +498,14 @@ Last update: 2026 May release 3.0.21.
     </rule>
 	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
       <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')" flag="fatal">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
+    </rule>
+    <!-- Luxembourg VAT number validation -->
+    <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(upper-case(normalize-space(.)), 'LU')]">
+      <assert id="PEPPOL-COMMON-R058"
+              flag="fatal"
+              test="matches(upper-case(normalize-space(.)), '^LU[0-9]{8}$') and u:mod89-LU_VAT(normalize-space(.))">
+        [PEPPOL-COMMON-R058]-Luxembourg VAT number MUST be stated in the correct format.
+      </assert>
     </rule>
 <!--
 -->
