@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
+  <assert>
+    <description>Luxembourg Register of Legal Persons number (Matricule, schemeID 0240) MUST be exactly 11 digits, digits 5-6 must be a valid legal form type code (20-99), and digit 11 must be a valid mod-11 check digit.</description>
+    <scope>PEPPOL-COMMON-R059</scope>
+  </assert>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid Matricule on Seller PartyLegalEntity          -->
+  <!-- (typecode=20, check digit=9)                                 -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R059</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">12342000019</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid Matricule on Buyer PartyIdentification        -->
+  <!-- (typecode=20, check digit=8)                                 -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R059</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="0240">99872000018</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid Matricule typecode=24, using exp11 check digit -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R059</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">12342400017</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid Matricule typecode=24, using exp12 check digit -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R059</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">12342400018</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: wrong length — only 10 digits                         -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R059</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">1234200001</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: invalid legal form type code — typecode 10 < 20      -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R059</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">12341000011</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: wrong check digit (typecode=20, expected 9, got 1)   -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R059</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyLegalEntity>
+            <cbc:CompanyID schemeID="0240">12342000011</cbc:CompanyID>
+          </cac:PartyLegalEntity>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+</testSet>
