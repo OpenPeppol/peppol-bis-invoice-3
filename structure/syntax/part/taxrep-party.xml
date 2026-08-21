@@ -155,6 +155,7 @@
                 <!--Reference type="RULE">BR-IP-02</Reference-->
                 <!--Reference type="RULE">BR-IP-03</Reference-->
                 <!--Reference type="RULE">BR-IP-04</Reference-->
+                <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Value type="EXAMPLE">FR932874294</Value>
             </Element>
             
