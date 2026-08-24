@@ -31,8 +31,8 @@ Release date:: November 2026
 
 == Other changes
 * Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
-
 * Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
+* Added inferred mandatory cardinality check into PEPPOL-COMMON ruleset with a test 
 
 
 == Other changes
