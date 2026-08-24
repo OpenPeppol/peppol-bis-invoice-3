@@ -536,10 +536,20 @@ Last update: 2026 May release 3.0.21.
     <rule
       context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043"
-        test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())"
+        test="matches(normalize-space(), '^[01][0-9]{9}$') and u:mod97-0208(normalize-space())"
         flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct
         format.</assert>
     </rule>
+    <rule 
+    context="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']">
+	  <assert id="PEPPOL-COMMON-R062"
+     flag="warning"
+     test=" not(starts-with(upper-case(normalize-space(cbc:CompanyID)), 'BE')) or (
+matches(upper-case(normalize-space(cbc:CompanyID)), '^BE[01][0-9]{9}$') and u:mod97-0208(substring(upper-case(normalize-space(cbc:CompanyID)), 3)))">
+[PEPPOL-COMMON-R062]-Belgian VAT number MUST be stated in the
+correct format.
+</assert>
+</rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']">
       <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA
