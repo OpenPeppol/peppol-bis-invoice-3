@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
+	<assert>
+		<description>Verify inferred cardinality of PayeeFinancialAccount/cbc:ID and FinancialInstitutionBranch/cbc:ID.</description>
+		<scope>PEPPOL-EN16931-R257</scope>
+		<scope>PEPPOL-EN16931-R258</scope>
+	</assert>
+	<test>
+		<assert>
+			<success>PEPPOL-EN16931-R257</success>
+			<success>PEPPOL-EN16931-R258</success>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cac:PaymentMeans>
+				<cac:PayeeFinancialAccount>
+					<cbc:ID>BExxxxxxxxxxxxx</cbc:ID>
+					<cac:FinancialInstitutionBranch>
+						<cbc:ID>CITIBEBX</cbc:ID>
+					</cac:FinancialInstitutionBranch>
+				</cac:PayeeFinancialAccount>
+			</cac:PaymentMeans>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<description>FinancialInstitution/cbc:ID does not satisfy FinancialInstitutionBranch/cbc:ID (R257). PayeeFinancialAccount/cbc:ID is present (R258 succeeds).</description>
+			<error>PEPPOL-EN16931-R257</error>
+			<success>PEPPOL-EN16931-R258</success>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cac:PaymentMeans>
+				<cac:PayeeFinancialAccount>
+					<cbc:ID>BExxxxxxxxxxxxx</cbc:ID>
+					<cac:FinancialInstitutionBranch>
+						<cac:FinancialInstitution>
+							<cbc:ID>CITIBEBX</cbc:ID>
+						</cac:FinancialInstitution>
+					</cac:FinancialInstitutionBranch>
+				</cac:PayeeFinancialAccount>
+			</cac:PaymentMeans>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<description>Missing PayeeFinancialAccount/cbc:ID triggers R258. Nested FinancialInstitution/cbc:ID also triggers R257.</description>
+			<error>PEPPOL-EN16931-R257</error>
+			<error>PEPPOL-EN16931-R258</error>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cac:PaymentMeans>
+				<cac:PayeeFinancialAccount>
+					<cac:FinancialInstitutionBranch>
+						<cac:FinancialInstitution>
+							<cbc:ID>CITIBEBX</cbc:ID>
+						</cac:FinancialInstitution>
+					</cac:FinancialInstitutionBranch>
+				</cac:PayeeFinancialAccount>
+			</cac:PaymentMeans>
+
+		</Invoice>
+	</test>
+</testSet>
