@@ -541,7 +541,10 @@ Last update: 2026 May release 3.0.21.
         format.</assert>
     </rule>
     <rule 
-    context="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']">
+     context="cac:PartyTaxScheme
+                   [normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']
+                   /cbc:CompanyID
+                   [starts-with(normalize-space(.), 'BE')]">
 	  <assert id="PEPPOL-COMMON-R062"
      flag="warning"
      test=" not(starts-with(upper-case(normalize-space(cbc:CompanyID)), 'BE')) or (
