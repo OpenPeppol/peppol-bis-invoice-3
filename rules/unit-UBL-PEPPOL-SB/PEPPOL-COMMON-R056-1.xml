@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-sbbase-3.0-ubl">
+  <assert>
+    <description>Scheme 9944 (Dutch VAT) Format check.</description>
+    <scope>PEPPOL-COMMON-R056-1</scope>
+  </assert>
+  <!-- Success cases: EndpointID, PartyIdentification, and CompanyID with schemeID="9944", for both AccountingSupplierParty and AccountingCustomerParty -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL123456789B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL123456789B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL123456789B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL123456789B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL123456789B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R056-1</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL123456789B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <!-- Failure cases: EndpointID, PartyIdentification, and CompanyID with schemeID="9944", with non-allowed characters, not enough characters, and too many characters, for both AccountingSupplierParty and AccountingCustomerParty. One additional check: NL prefix -->
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL123456789A01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">DE123456789B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL123456789A01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL123456789A01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL12345678B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL12345678B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL12345678B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL1010101010B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL1010101010B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL1010101010B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL123456789A01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL123456789A01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL123456789A01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL12345678B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL12345678B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL12345678B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:EndpointID schemeID="9944">NL1010101010B01</cbc:EndpointID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyIdentification>
+            <cbc:ID schemeID="9944">NL1010101010B01</cbc:ID>
+          </cac:PartyIdentification>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+  <test>
+    <assert>
+      <error>PEPPOL-COMMON-R056-1</error>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cbc:CompanyID schemeID="9944">NL1010101010B01</cbc:CompanyID>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+</testSet>

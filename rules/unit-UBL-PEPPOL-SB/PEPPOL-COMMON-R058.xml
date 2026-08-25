@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-sbbase-3.0-ubl">
+  <assert>
+    <description>Luxembourg VAT number (in VAT PartyTaxScheme) MUST be stated in the correct format (LU followed by 8 digits where the last 2 are base_6_digits mod 89).</description>
+    <scope>PEPPOL-COMMON-R058</scope>
+  </assert>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid LU VAT number on AccountingSupplierParty      -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R058</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>LU12345613</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid LU VAT number on AccountingCustomerParty      -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R058</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingCustomerParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>LU98765421</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingCustomerParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: valid LU VAT number on TaxRepresentativeParty       -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R058</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:TaxRepresentativeParty>
+        <cac:PartyTaxScheme>
+          <cbc:CompanyID>LU00000101</cbc:CompanyID>
+          <cac:TaxScheme>
+            <cbc:ID>VAT</cbc:ID>
+          </cac:TaxScheme>
+        </cac:PartyTaxScheme>
+      </cac:TaxRepresentativeParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- SUCCESS: non-LU VAT prefix must be ignored by this rule      -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R058</success>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>DE123456789</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: wrong check digits (LU123456 78, correct is 13)       -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <warning>PEPPOL-COMMON-R058</warning>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>LU12345678</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: wrong format — only 7 digits after LU                 -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <warning>PEPPOL-COMMON-R058</warning>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>LU1234561</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+  <!-- ============================================================ -->
+  <!-- ERROR: wrong format — 9 digits after LU                      -->
+  <!-- ============================================================ -->
+  <test>
+    <assert>
+      <warning>PEPPOL-COMMON-R058</warning>
+    </assert>
+    <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+             xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+      <cac:AccountingSupplierParty>
+        <cac:Party>
+          <cac:PartyTaxScheme>
+            <cbc:CompanyID>LU123456789</cbc:CompanyID>
+            <cac:TaxScheme>
+              <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+          </cac:PartyTaxScheme>
+        </cac:Party>
+      </cac:AccountingSupplierParty>
+    </Invoice>
+  </test>
+
+</testSet>
