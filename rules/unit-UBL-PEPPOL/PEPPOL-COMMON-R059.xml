@@ -92,7 +92,7 @@
   <!-- ============================================================ -->
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R059</error>
+      <warning>PEPPOL-COMMON-R059</warning>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
              xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -112,7 +112,7 @@
   <!-- ============================================================ -->
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R059</error>
+      <warning>PEPPOL-COMMON-R059</warning>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
              xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -132,7 +132,7 @@
   <!-- ============================================================ -->
   <test>
     <assert>
-      <error>PEPPOL-COMMON-R059</error>
+      <warning>PEPPOL-COMMON-R059</warning>
     </assert>
     <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
              xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"

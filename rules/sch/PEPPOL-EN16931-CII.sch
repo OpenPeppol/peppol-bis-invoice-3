@@ -233,26 +233,32 @@ Last update: 2026 May release 3.0.21.
     <sequence select="$checkdigits = $calculated"/>
   </function>
   <!-- Function for Luxembourg Register of Legal Persons number (Matricule) (0240) -->
-  <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:check-lux-0240" as="xs:string">
+  <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:check-lux-0240" as="xs:boolean">
     <param name="val" as="xs:string"/>
-    <sequence select="
-      if (not(matches($val, '^[0-9]{11}$'))) then 'invalid format: must be exactly 11 digits'
-      else
-        let $typecode := xs:integer(substring($val, 5, 2))
-        return if (not($typecode ge 20 and $typecode le 99)) then 'invalid legal form type code (must be 20-99)'
-        else
-          let $digits    := for $c in string-to-codepoints($val) return $c - 48,
-              $weights   := (5, 4, 3, 2, 7, 6, 5, 4, 3, 2),
-              $sum       := sum(for $i in 1 to 10 return $digits[$i] * $weights[$i]),
-              $remainder := $sum mod 11,
-              $exp11     := if ($remainder = 0) then 0 else 11 - $remainder,
-              $exp12     := if ($remainder = 0) then 1 else if ($remainder = 1) then 0 else 12 - $remainder,
-              $checkdigit := $digits[11],
-              $valid     := if ($typecode = 24) then ($checkdigit = $exp11 or $checkdigit = $exp12)
-                            else $checkdigit = $exp11
-          return if (not($valid)) then 'invalid check digit'
-          else ''
-    "/>
+    <choose>
+      <when test="not(matches($val, '^[0-9]{11}$'))">
+        <sequence select="false()"/>
+      </when>
+      <otherwise>
+        <variable name="typecode"   select="xs:integer(substring($val, 5, 2))"/>
+        <choose>
+          <when test="not($typecode ge 20 and $typecode le 99)">
+            <sequence select="false()"/>
+          </when>
+          <otherwise>
+            <variable name="digits"     select="for $c in string-to-codepoints($val) return $c - 48"/>
+            <variable name="weights"    select="(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)"/>
+            <variable name="wsum"       select="sum(for $i in 1 to 10 return $digits[$i] * $weights[$i])"/>
+            <variable name="remainder"  select="$wsum mod 11"/>
+            <variable name="exp11"      select="if ($remainder = 0) then 0 else 11 - $remainder"/>
+            <variable name="exp12"      select="if ($remainder = 0) then 1 else if ($remainder = 1) then 0 else 12 - $remainder"/>
+            <variable name="checkdigit" select="$digits[11]"/>
+            <variable name="valid"      select="if ($typecode = 24) then ($checkdigit = $exp11 or $checkdigit = $exp12) else $checkdigit = $exp11"/>
+            <sequence select="$valid"/>
+          </otherwise>
+        </choose>
+      </otherwise>
+    </choose>
   </function>
 
   <pattern>
@@ -437,7 +443,7 @@ Last update: 2026 May release 3.0.21.
     <rule
       context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088']">
       <assert id="PEPPOL-COMMON-R040"
-        test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN
+        test="matches(normalize-space(), '^[0-9]{13}$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN13
         must have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
@@ -524,7 +530,7 @@ Last update: 2026 May release 3.0.21.
     <!-- Luxembourg VAT number validation -->
     <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(upper-case(normalize-space(.)), 'LU')]">
       <assert id="PEPPOL-COMMON-R058"
-              flag="fatal"
+              flag="warning"
               test="matches(upper-case(normalize-space(.)), '^LU[0-9]{8}$') and u:mod89-LU_VAT(normalize-space(.))">
         [PEPPOL-COMMON-R058]-Luxembourg VAT number MUST be stated in the correct format.
       </assert>
@@ -532,8 +538,8 @@ Last update: 2026 May release 3.0.21.
     <!-- Luxembourg Register of Legal Persons number (Matricule) validation -->
     <rule context="ram:URIID[@schemeID = '0240'] | ram:ID[@schemeID = '0240'] | ram:GlobalID[@schemeID = '0240']">
       <assert id="PEPPOL-COMMON-R059"
-              flag="fatal"
-              test="u:check-lux-0240(normalize-space(.)) = ''">[PEPPOL-COMMON-R059]-Luxembourg Register of Legal Persons number (Matricule) MUST be stated in the correct format.</assert>
+              flag="warning"
+              test="u:check-lux-0240(normalize-space(.))">[PEPPOL-COMMON-R059]-Luxembourg Register of Legal Persons number (Matricule) MUST be stated in the correct format.</assert>
     </rule>
 <!--
 -->
