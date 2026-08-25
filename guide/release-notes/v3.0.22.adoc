@@ -30,11 +30,9 @@ Release date:: November 2026
 * Added rule PEPPOL-COMMON-R059 (introduced as warning, will change to fatal in coming release) for validation of Luxembourg Register of Legal Persons numbers (Matricule, schemeID 0240). The number must be exactly 11 digits; digits 5–6 must be a legal form type code in the range 20–99; and digit 11 must be a valid mod-11 check digit (with an alternative check digit supported for legal form type 24). Applies to Seller identifier (BT-29), Seller legal registration identifier (BT-30), Buyer identifier (BT-46), and Buyer legal registration identifier (BT-47). UBL and CII.
 * Changed rule PEPPOL-COMMON-R040 to allow GLN13 values with schemeID 0088., UBL and CII.
 
-== Other changes
 * Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
 * Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
 * Added inferred mandatory cardinality check into PEPPOL-COMMON ruleset with a test 
-
 
 == Other changes
 * Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
