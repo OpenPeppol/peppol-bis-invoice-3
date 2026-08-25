@@ -52,7 +52,7 @@ REM Ownership fix is Linux-specific and skipped
 exit /b %ERRORLEVEL%
 
 :report
-powershell -NoProfile -Command "$matches = Select-String -LiteralPath '%~1' -Pattern '(?i)(?:^|\|-|\[)(?:WARN(?:ING)?|ERROR)(?=\s|:|\]|$)'; if ($matches) { Write-Host ''; Write-Host 'Warnings and errors from %~1:'; foreach ($match in $matches) { '{0}: {1}' -f $match.LineNumber, $match.Line } } else { Write-Host ''; Write-Host 'Warnings and errors from %~1: None.' }; $testSummary = @(Select-String -LiteralPath '%~1' -Pattern '(?i)tests performed'); Write-Host ''; Write-Host 'Build log from the last tests performed line:'; if ($testSummary.Count -gt 0) { Get-Content -LiteralPath '%~1' | Select-Object -Skip ($testSummary[$testSummary.Count - 1].LineNumber - 1) } else { Write-Host 'No test summary found.' }"
+powershell -NoProfile -Command "$matches = Select-String -LiteralPath '%~1' -Pattern '(?i)(\d{2}:\d{2}:\d{2}(?:[.,]\d{1,3})?\s+(?:\|\s*-?)?(?:WARN(?:ING)?|ERROR).+)'; if ($matches) { Write-Host ''; Write-Host 'Warnings and errors from %~1:'; foreach ($match in $matches) { '{0}: {1}' -f $match.LineNumber, $match.Line } } else { Write-Host ''; Write-Host 'Warnings and errors from %~1: None.' }; $testSummary = @(Select-String -LiteralPath '%~1' -Pattern '(?i)tests performed'); Write-Host ''; Write-Host 'Build log from the last tests performed line:'; if ($testSummary.Count -gt 0) { Get-Content -LiteralPath '%~1' | Select-Object -Skip ($testSummary[$testSummary.Count - 1].LineNumber - 1) } else { Write-Host 'No test summary found.' }"
 goto :eof
 
 :dashed

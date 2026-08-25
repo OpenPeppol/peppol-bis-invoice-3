@@ -443,7 +443,7 @@ Last update: 2026 May release 3.0.21.
     <rule
       context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088']">
       <assert id="PEPPOL-COMMON-R040"
-        test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN
+        test="matches(normalize-space(), '^[0-9]{13}$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN13
         must have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
