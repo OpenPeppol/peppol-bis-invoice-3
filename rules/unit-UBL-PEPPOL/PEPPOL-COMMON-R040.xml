@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
     <assert>
+        <description>Verify validation of GLN13 values with schemeID 0088.</description>
         <scope>PEPPOL-COMMON-R040</scope>
     </assert>
     <test>
@@ -27,6 +28,34 @@
             <cac:AccountingCustomerParty>
                 <cac:Party>
                     <cbc:EndpointID schemeID="0088">9429041098401</cbc:EndpointID>
+                </cac:Party>
+            </cac:AccountingCustomerParty>
+        </Invoice>
+    </test>
+    <test>
+        <assert>
+            <error>PEPPOL-COMMON-R040</error>
+        </assert>
+        <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                 xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+            <cac:AccountingCustomerParty>
+                <cac:Party>
+                    <cbc:EndpointID schemeID="0088">94290410984011234334</cbc:EndpointID>
+                </cac:Party>
+            </cac:AccountingCustomerParty>
+        </Invoice>
+    </test>
+        <test>
+        <assert>
+            <error>PEPPOL-COMMON-R040</error>
+        </assert>
+        <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                 xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+            <cac:AccountingCustomerParty>
+                <cac:Party>
+                    <cbc:EndpointID schemeID="0088">0</cbc:EndpointID>
                 </cac:Party>
             </cac:AccountingCustomerParty>
         </Invoice>

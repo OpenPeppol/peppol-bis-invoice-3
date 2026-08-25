@@ -56,7 +56,7 @@ docker run --rm -i -v $PROJECT:/src alpine:3.11 chown -R $(id -g $USER).$(id -g 
 BUILD_RESULT=$?
 
 printf '\nWarnings and errors from %s:\n' "$BUILD_LOG" >&3
-if ! grep -nEi '(^|\|-|\[)(WARN(ING)?|ERROR)([[:space:]:\]]|$)' "$BUILD_LOG" >&3; then
+if ! grep -nEi '([0-9]{2}:[0-9]{2}:[0-9]{2}([.,][0-9]{1,3})?[[:space:]]+(\|[[:space:]]*-?)?(WARN(ING)?|ERROR).+)' "$BUILD_LOG" >&3; then
     echo "None." >&3
 fi
 
