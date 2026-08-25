@@ -603,7 +603,7 @@ Last update: 2026 May release 3.0.21.
                    /cbc:CompanyID
                    [starts-with(upper-case(normalize-space(.)), 'LU')]">
       <assert id="PEPPOL-COMMON-R058"
-              flag="fatal"
+              flag="warning"
               test="matches(upper-case(normalize-space(.)), '^LU[0-9]{8}$') and u:mod89-LU_VAT(.)">
         [PEPPOL-COMMON-R058]-Luxembourg VAT number MUST be stated in the correct format.
       </assert>
@@ -611,7 +611,7 @@ Last update: 2026 May release 3.0.21.
     <!-- Luxembourg Register of Legal Persons number (Matricule) validation -->
     <rule context="cbc:EndpointID[@schemeID = '0240'] | cac:PartyIdentification/cbc:ID[@schemeID = '0240'] | cbc:CompanyID[@schemeID = '0240']">
       <assert id="PEPPOL-COMMON-R059"
-              flag="fatal"
+              flag="warning"
               test="u:check-lux-0240(normalize-space(.))">[PEPPOL-COMMON-R059]-Luxembourg Register of Legal Persons number (Matricule) MUST be stated in the correct format.</assert>
     </rule>
   </pattern>
