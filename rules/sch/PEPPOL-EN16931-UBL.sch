@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2026 May release 3.0.21.
+Last update: 2026 November release 3.0.22.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
