@@ -1418,9 +1418,9 @@ Last update: 2026 May release 3.0.21.
         flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
       <assert id="PEPPOL-EN16931-P0112"
         test="not(normalize-space(.) = '326' or normalize-space(.) = '384' or normalize-space(.) = '389') or ($supplierCountryIsDE and $customerCountryIsDE) or (normalize-space(.) = '384' and $supplierCountry = 'SK' and $customerCountry = 'SK')"
-        flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326, 384 or 389 are only allowed when
-        both buyer and seller are German organizations. Invoice type code 384 is only allowed when
-        both buyer and seller are Slovak organizations.</assert>
+        flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type codes 326 and 389 are only allowed when both
+        buyer and seller are German organizations. Invoice type code 384 is only allowed when both
+        buyer and seller are German organizations or both are Slovak organizations.</assert>
     </rule>
 
     <rule context="cbc:CreditNoteTypeCode">
