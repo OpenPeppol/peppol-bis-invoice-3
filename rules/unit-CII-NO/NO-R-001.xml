@@ -17,7 +17,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">NO991825827MVA</ram:ID>
+							<ram:ID schemeID="VA">NO991825827MVA</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -39,7 +39,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">NO991 825 827MVA</ram:ID>
+							<ram:ID schemeID="VA">NO991 825 827MVA</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -61,7 +61,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">IS91825827</ram:ID>
+							<ram:ID schemeID="VA">IS91825827</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
