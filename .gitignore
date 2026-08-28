@@ -4,6 +4,7 @@ target
 *.html
 *.pdf
 *.epub
+build.log
 tmp*
 *.db
 .idea
