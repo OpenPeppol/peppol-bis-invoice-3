@@ -19,6 +19,7 @@ Release date:: November 2026
 ==  EN 16931 schematrons updated
 * CEN rules updated 
 
+* Added to PEPPOL-EN16931-R051 cac:TaxSubtotal/cbc:TaxAmount check on currency use
 
 
 == Changes to PEPPOL-COMMON rules
