@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2026 May release 3.0.21.
+Last update: 2026 November release 3.0.22.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
@@ -542,10 +542,22 @@ Last update: 2026 May release 3.0.21.
     <rule
       context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043"
-        test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())"
+        test="matches(normalize-space(), '^[01][0-9]{9}$') and u:mod97-0208(normalize-space())"
         flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct
         format.</assert>
     </rule>
+    <rule 
+     context="cac:PartyTaxScheme
+                   [normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']
+                   /cbc:CompanyID
+                   [starts-with(normalize-space(.), 'BE')]">
+	  <assert id="PEPPOL-COMMON-R062"
+     flag="warning"
+     test=" matches(upper-case(normalize-space(.)), '^BE[01][0-9]{9}$') and u:mod97-0208(substring(upper-case(normalize-space(.)), 3))">
+[PEPPOL-COMMON-R062]-Belgian VAT number MUST be stated in the
+correct format.
+</assert>
+</rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']">
       <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA
@@ -618,12 +630,12 @@ Last update: 2026 May release 3.0.21.
   <!-- National rules -->
   <!-- SLOVAKIA -->
   <pattern>
-    <let name="SKSupplierCountry"
-      value="upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
-    <let name="SKCustomerCountry"
-      value="upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))" />
+    <let name="supplierPostalCountryIsSK"
+      value="upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'SK'" />
+    <let name="customerPostalCountryIsSK"
+      value="upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'SK'" />
     <rule
-      context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierPostalCountryIsSK and $customerPostalCountryIsSK]">
       <assert id="SK-R-002" test="cbc:StreetName" flag="warning">[SK-R-002]-For domestic Slovak
         transactions, BT-35 Seller street name shall be provided.</assert>
       <assert id="SK-R-003" test="cbc:CityName" flag="warning">[SK-R-003]-For domestic Slovak
@@ -632,7 +644,7 @@ Last update: 2026 May release 3.0.21.
         transactions, BT-38 Seller postal code shall be provided.</assert>
     </rule>
     <rule
-      context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$SKSupplierCountry = 'SK' and $SKCustomerCountry = 'SK']">
+      context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierPostalCountryIsSK and $customerPostalCountryIsSK]">
       <assert id="SK-R-005" test="cbc:StreetName" flag="warning">[SK-R-005]-For domestic Slovak
         transactions, BT-50 Buyer street name shall be provided.</assert>
       <assert id="SK-R-006" test="cbc:CityName" flag="warning">[SK-R-006]-For domestic Slovak
@@ -1418,9 +1430,9 @@ Last update: 2026 May release 3.0.21.
         flag="fatal">[PEPPOL-EN16931-P0100]-Invoice type code MUST be set according to the profile.</assert>
       <assert id="PEPPOL-EN16931-P0112"
         test="not(normalize-space(.) = '326' or normalize-space(.) = '384' or normalize-space(.) = '389') or ($supplierCountryIsDE and $customerCountryIsDE) or (normalize-space(.) = '384' and $supplierCountry = 'SK' and $customerCountry = 'SK')"
-        flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type code 326, 384 or 389 are only allowed when
-        both buyer and seller are German organizations. Invoice type code 384 is only allowed when
-        both buyer and seller are Slovak organizations.</assert>
+        flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type codes 326 and 389 are only allowed when both
+        buyer and seller are German organizations. Invoice type code 384 is only allowed when both
+        buyer and seller are German organizations or both are Slovak organizations.</assert>
     </rule>
 
     <rule context="cbc:CreditNoteTypeCode">
