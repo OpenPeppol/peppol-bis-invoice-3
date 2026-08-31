@@ -606,10 +606,14 @@ Last update: 2026 May release 3.0.21.
         is used for SellerTradeParty or BuyerTradeParty</assert>
       <assert id="DK-R-014"
         test="not((boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID))
-                                     and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID) != '0184')
-                              )"
+                                      and (normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID) != '0184')
+                               )"
         flag="fatal">[DK-R-014]-For Danish Suppliers it is mandatory to specify schemeID as "0184"
         when SpecifiedLegalOrganization is used for SellerTradeParty</assert>
+      <assert id="DK-R-017"
+        test="not(($DKCustomerCountry = 'DK') and boolean(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:SpecifiedLegalOrganization/ram:ID) and normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID) != '0184')"
+        flag="fatal">[DK-R-017]-For Danish Customers it is mandatory to specify schemeID as "0184"
+        (DK CVR-number) when SpecifiedLegalOrganization is used for BuyerTradeParty</assert>
       <assert id="DK-R-016"
         test="not((($DKCustomerCountry = 'DK') and (normalize-space(rsm:ExchangedDocument/ram:TypeCode/text()) = '381'))
                               and (number(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:DuePayableAmount/text()) &lt; 0)
@@ -689,7 +693,7 @@ Last update: 2026 May release 3.0.21.
                                      or (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listVersionID = '26.0801')
                                )
                               )"
-        flag="warning">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC
+        flag="fatal">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC
         version 19.05.01 or 26.08.01 SHOULD be used</assert>
     </rule>
   </pattern>
