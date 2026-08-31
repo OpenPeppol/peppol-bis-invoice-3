@@ -6,7 +6,7 @@
 	</assert>
 	<test>
 		<assert>
-			<success number="4">PEPPOL-EN16931-R051</success>
+			<success number="5">PEPPOL-EN16931-R051</success>
 		</assert>
 		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -16,7 +16,9 @@
 
 			<cac:TaxTotal>
 				<cbc:TaxAmount currencyID="EUR">10</cbc:TaxAmount>
-				<cac:TaxSubtotal/>
+				<cac:TaxSubtotal>
+					<cbc:TaxAmount currencyID="EUR">10</cbc:TaxAmount>
+				</cac:TaxSubtotal>
 			</cac:TaxTotal>
 
 			<cac:LegalMonetaryTotal>
@@ -34,7 +36,7 @@
 	</test>
 	<test>
 		<assert>
-			<error number="4">PEPPOL-EN16931-R051</error>
+			<error number="5">PEPPOL-EN16931-R051</error>
 		</assert>
 		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -44,7 +46,9 @@
 
 			<cac:TaxTotal>
 				<cbc:TaxAmount currencyID="NOK">10</cbc:TaxAmount>
-				<cac:TaxSubtotal/>
+				<cac:TaxSubtotal>
+					<cbc:TaxAmount currencyID="NOK">10</cbc:TaxAmount>
+				</cac:TaxSubtotal>
 			</cac:TaxTotal>
 
 			<cac:LegalMonetaryTotal>
