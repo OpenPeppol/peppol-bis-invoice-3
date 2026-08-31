@@ -72,6 +72,8 @@ EAS was pointing to a wrong codelist, therefore it had a number of unusable code
 ==  Changes to Country-Specific Rules
 * DK-R-017 becomes fatal.
 * DK-R-003 becomes fatal.
+* Added warning rule DE-R-T02 requiring an absolute URL with a valid scheme for BT-124 when both parties are German, UBL only.
+* Hardened DE-R-017, DE-R-019, DE-R-020, and DE-R-026 by normalizing whitespace before validation, UBL only.
 
 == Other changes
 
