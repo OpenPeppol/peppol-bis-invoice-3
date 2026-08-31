@@ -45,7 +45,7 @@
 							<ram:ID schemeID="FC">Foretaksregisteret</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">NO23231</ram:ID>
+							<ram:ID schemeID="VA">NO23231</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -72,7 +72,7 @@
 					</ram:SellerTradeParty>
 					<ram:SellerTaxRepresentativeTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">NO123</ram:ID>
+							<ram:ID schemeID="VA">NO123</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTaxRepresentativeTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -100,12 +100,12 @@
 							<ram:ID schemeID="FC">Foretaksregisteret</ram:ID>
 						</ram:SpecifiedTaxRegistration>-->
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">DK23231</ram:ID>
+							<ram:ID schemeID="VA">DK23231</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 					<ram:SellerTaxRepresentativeTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">NO123</ram:ID>
+							<ram:ID schemeID="VA">NO123</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTaxRepresentativeTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -126,7 +126,7 @@
 				<ram:ApplicableHeaderTradeAgreement>
 					<ram:SellerTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<!-- <ram:ID schemeID="VAT">Foretaksregisteret</ram:ID> -->
+							<!-- <ram:ID schemeID="VA">Foretaksregisteret</ram:ID> -->
 						</ram:SpecifiedTaxRegistration>
 						<ram:PostalTradeAddress>
 							<ram:CountryID>NO</ram:CountryID>
@@ -150,10 +150,10 @@
 			<ram:ApplicableHeaderTradeAgreement>
 				<ram:SellerTradeParty>
 					<ram:SpecifiedTaxRegistration>
-						<!-- <ram:ID schemeID="VAT">Foretaksregisteret</ram:ID> -->
+						<!-- <ram:ID schemeID="VA">Foretaksregisteret</ram:ID> -->
 					</ram:SpecifiedTaxRegistration>
 					<ram:SpecifiedTaxRegistration>
-						<ram:ID schemeID="VAT">NO123</ram:ID>
+						<ram:ID schemeID="VA">NO123</ram:ID>
 					</ram:SpecifiedTaxRegistration>
 				</ram:SellerTradeParty>
 			</ram:ApplicableHeaderTradeAgreement>
@@ -174,13 +174,13 @@
 			<ram:ApplicableHeaderTradeAgreement>
 				<ram:SellerTradeParty>
 					<ram:SpecifiedTaxRegistration>
-						<!-- <ram:ID schemeID="VAT">Foretaksregisteret</ram:ID> -->
+						<!-- <ram:ID schemeID="VA">Foretaksregisteret</ram:ID> -->
 					</ram:SpecifiedTaxRegistration>
 				</ram:SellerTradeParty>
 				
 				<ram:SellerTaxRepresentativeTradeParty>
 					<ram:SpecifiedTaxRegistration>
-						<ram:ID schemeID="VAT">NO123</ram:ID>
+						<ram:ID schemeID="VA">NO123</ram:ID>
 					</ram:SpecifiedTaxRegistration>
 				</ram:SellerTaxRepresentativeTradeParty>
 				
@@ -230,7 +230,7 @@
 							<ram:ID schemeID="FC">Foretaksregisteret</ram:ID>
 						</ram:SpecifiedTaxRegistration>-->
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">DE23231</ram:ID>
+							<ram:ID schemeID="VA">DE23231</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
@@ -257,7 +257,7 @@
 					</ram:SellerTradeParty>
 					<ram:SellerTaxRepresentativeTradeParty>
 						<ram:SpecifiedTaxRegistration>
-							<ram:ID schemeID="VAT">SE123</ram:ID>
+							<ram:ID schemeID="VA">SE123</ram:ID>
 						</ram:SpecifiedTaxRegistration>
 					</ram:SellerTaxRepresentativeTradeParty>
 				</ram:ApplicableHeaderTradeAgreement>
