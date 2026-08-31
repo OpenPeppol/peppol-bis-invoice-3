@@ -11,6 +11,8 @@
             <Term>cac:PartyName</Term>
             <Name>PARTY NAME</Name>
             
+            <Reference type="RULE">PEPPOL-EN16931-R193</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R261</Reference>
             <Element>
                 <Term>cbc:Name</Term>
                 <Name>Seller tax representative name</Name>
@@ -32,6 +34,8 @@
             <Reference type="RULE">BR-19</Reference>
             
             
+            <Reference type="RULE">PEPPOL-EN16931-R197</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R265</Reference>
             <Element cardinality="0..1">
                 <Term>cbc:StreetName</Term>
                 <Name>Tax representative address line 1</Name>
@@ -95,6 +99,8 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-164</Reference>
                     <Value type="EXAMPLE">A87</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R198</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R266</Reference>
                 </Element>
             </Element>
             
@@ -102,6 +108,8 @@
                 <Term>cac:Country</Term>
                 <Name>COUNTRY</Name>
                 
+                <Reference type="RULE">PEPPOL-EN16931-R199</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R267</Reference>
                 <Element>
                     <Term>cbc:IdentificationCode</Term>
                     <Name>Tax representative country code</Name>
@@ -112,6 +120,8 @@
                     <Reference type="RULE">BR-CL-14</Reference>
                     <Reference type="CODE_LIST">ISO3166</Reference>
                     <Value type="EXAMPLE">SE</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R200</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R268</Reference>
                 </Element>
             </Element>
         </Element>
@@ -120,6 +130,8 @@
             <Term>cac:PartyTaxScheme</Term>
             <Name>PARTY VAT IDENTIFIER</Name>
             
+            <Reference type="RULE">PEPPOL-EN16931-R194</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R262</Reference>
             <Element>
                 <Term>cbc:CompanyID</Term>
                 <Name>Seller tax representative VAT identifier</Name>
@@ -157,6 +169,8 @@
                 <!--Reference type="RULE">BR-IP-04</Reference-->
                 <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Value type="EXAMPLE">FR932874294</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R196</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R264</Reference>
             </Element>
             
             <Element>
@@ -167,6 +181,8 @@
                     <Term>cbc:ID</Term>
                     <Description>Mandatory element. Use “VAT”</Description>
                     <Value type="DEFAULT">VAT</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R195</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R263</Reference>
                 </Element>
             </Element>
         </Element>

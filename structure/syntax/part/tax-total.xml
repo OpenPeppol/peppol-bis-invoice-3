@@ -78,6 +78,8 @@
                 </Attribute>
                 
                 <Value type="EXAMPLE">1945.00</Value> 
+                <Reference type="RULE">PEPPOL-EN16931-R204</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R272</Reference>
             </Element>
             
             <Element>
@@ -135,6 +137,8 @@
                     <!--Reference type="RULE">BR-IP-01</Reference-->
                     <Reference type="RULE">BR-CL-17</Reference>
                     <Value type="EXAMPLE">S</Value> 
+                    <Reference type="RULE">PEPPOL-EN16931-R203</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R271</Reference>
                 </Element>
                 
                 <Element cardinality="0..1">
@@ -199,10 +203,14 @@
                     <Term>cac:TaxScheme</Term>
                     <Name>TAX SCHEME</Name>
                     
+                    <Reference type="RULE">PEPPOL-EN16931-R201</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R269</Reference>
                     <Element>
                         <Term>cbc:ID</Term>
                         <Description>Mandatory element. Use “VAT”</Description>
                         <Value type="DEFAULT">VAT</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R202</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R270</Reference>
                     </Element>
                 </Element>
             </Element>

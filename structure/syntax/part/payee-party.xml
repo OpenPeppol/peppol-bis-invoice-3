@@ -40,6 +40,8 @@
             <Term>cac:PartyName</Term>
             <Name>PARTY NAME</Name>
             
+            <Reference type="RULE">PEPPOL-EN16931-R188</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R256</Reference>
             <Element>
                 <Term>cbc:Name</Term>
                 <Name>Payee name</Name>
@@ -77,6 +79,8 @@
                 
                 <Value type="EXAMPLE">FR932874294</Value>
                 
+                <Reference type="RULE">PEPPOL-EN16931-R187</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R255</Reference>
             </Element>
         </Element>
     </Element>

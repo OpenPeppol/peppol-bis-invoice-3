@@ -28,6 +28,7 @@
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
             <Reference type="RULE">BR-01</Reference>
             <Value type="DEFAULT">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R206</Reference>
         </Element>
 
         <Element>
@@ -41,6 +42,7 @@
             <Reference type="RULE">PEPPOL-EN16931-R001</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R007</Reference>
             <Value type="DEFAULT">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R208</Reference>
         </Element>
 
         <Element>
@@ -89,6 +91,7 @@
             <Reference type="RULE">PEPPOL-EN16931-P0101</Reference>
             <Reference type="CODE_LIST">UNCL1001-cn</Reference>
             <Value type="EXAMPLE">381</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R205</Reference>
         </Element>
 
         <Element cardinality="0..1">
@@ -118,6 +121,7 @@
             <Reference type="RULE">BR-CL-04</Reference>
             <Reference type="CODE_LIST">ISO4217</Reference>
             <Value type="EXAMPLE">EUR</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R207</Reference>
         </Element>
 
         <Element cardinality="0..1">
@@ -236,6 +240,7 @@
                 <Term>cac:InvoiceDocumentReference</Term>
                 <Name>INVOICE DOCUMENT REFERENCE</Name>
 
+                <Reference type="RULE">PEPPOL-EN16931-R166</Reference>
                 <Element>
                     <Term>cbc:ID</Term>
                     <Name>Preceding Invoice number</Name>
@@ -403,6 +408,7 @@
                         <Reference type="BUSINESS_TERM">BT-124</Reference>
                         <Reference type="RULE">DE-R-T02</Reference>
                         <Value type="EXAMPLE">http://www.example.com/index.html</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R161</Reference>
                     </Element>
                 </Element>
             </Element>
@@ -520,6 +526,7 @@
                 <!--Reference type="RULE">BR-CO-25</Reference-->
                 <Reference type="RULE">DE-R-018</Reference>
                 <Value type="EXAMPLE">Net within 30 days</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R192</Reference>
             </Element>
         </Element>
 
@@ -582,6 +589,7 @@
                     <Value type="EXAMPLE">C62</Value>
                 </Attribute>
                 <Value type="EXAMPLE">40</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R178</Reference>
             </Element>
 
             <Element>
@@ -607,6 +615,7 @@
                 </Attribute>
 
                 <Value type="EXAMPLE">3800</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R179</Reference>
             </Element>
 
             <Element cardinality="0..1">
@@ -668,6 +677,7 @@
                     <DataType>Code</DataType>
                     <Reference type="BUSINESS_TERM">BT-128</Reference>
                     <Value type="DEFAULT">130</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R167</Reference>
                 </Element>
 
             </Element>

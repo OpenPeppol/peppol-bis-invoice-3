@@ -9,6 +9,8 @@
         </Description>
         <Reference type="BUSINESS_TERM">BG-29</Reference>
         
+        <Reference type="RULE">PEPPOL-EN16931-R177</Reference>
+        <Reference type="RULE">PEPPOL-EN16931-R249</Reference>
         <Element>
             <Term>cbc:PriceAmount</Term>
             <Name>Item net price</Name>

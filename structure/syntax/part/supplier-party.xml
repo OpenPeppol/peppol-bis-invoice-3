@@ -10,6 +10,8 @@
             <Term>cac:Party</Term>
             <Name>PARTY</Name>
             
+            <Reference type="RULE">PEPPOL-EN16931-R151</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R220</Reference>
             <Element>
                 <Term>cbc:EndpointID</Term>
                 <Name>Seller electronic address</Name>
@@ -52,6 +54,8 @@
                 </Attribute>
                 
                 <Value type="EXAMPLE">7300010000001</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R160</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R229</Reference>
             </Element>
             
             <Element cardinality="0..n">
@@ -129,6 +133,8 @@
                 <Reference type="BUSINESS_TERM">BG-5</Reference>
                 <Reference type="RULE">BR-08</Reference>
                 
+                <Reference type="RULE">PEPPOL-EN16931-R156</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R225</Reference>
                 <Element cardinality="0..1">
                     <Term>cbc:StreetName</Term>
                     <Name>Seller address line 1</Name>
@@ -191,6 +197,8 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-162</Reference>
                         <Value type="EXAMPLE">Building 23</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R157</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R226</Reference>
                     </Element>
                 </Element>
                 
@@ -198,6 +206,8 @@
                     <Term>cac:Country</Term>
                     <Name>COUNTRY</Name>
                     
+                    <Reference type="RULE">PEPPOL-EN16931-R158</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R227</Reference>
                     <Element>
                         <Term>cbc:IdentificationCode</Term>
                         <Name>Seller country code</Name>
@@ -208,6 +218,8 @@
                         <Reference type="RULE">BR-CL-14</Reference>
                         <Reference type="CODE_LIST">ISO3166</Reference>
                         <Value type="EXAMPLE">GB</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R159</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R228</Reference>
                     </Element>
                 </Element>
             </Element>
@@ -280,6 +292,8 @@
                 <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
                     <Value type="EXAMPLE">NO999888777</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R155</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R224</Reference>
                 </Element>
                 
                 <Element>
@@ -290,6 +304,8 @@
                         <Term>cbc:ID</Term>
                         <Description>Mandatory element. For Seller VAT identifier (BT-31), use value “VAT”, for the seller tax registration identifier (BT-32), use != "VAT"</Description>
                         <Value type="EXAMPLE">VAT</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R154</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R223</Reference>
                     </Element>
                 </Element>
                 
@@ -300,6 +316,8 @@
                 <Name>PARTY LEGAL ENTITY</Name>
                 
                 
+                <Reference type="RULE">PEPPOL-EN16931-R152</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R221</Reference>
                 <Element>
                     <Term>cbc:RegistrationName</Term>
                     <Name>Seller name</Name>
@@ -310,6 +328,8 @@
                     <Reference type="BUSINESS_TERM">BT-27</Reference>
                     <Reference type="RULE">BR-06</Reference>
                     <Value type="EXAMPLE">Full Formal Seller Name LTD.</Value>
+                    <Reference type="RULE">PEPPOL-EN16931-R153</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R222</Reference>
                 </Element>
                 
                 <Element cardinality="0..1">
