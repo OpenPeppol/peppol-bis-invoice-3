@@ -130,6 +130,8 @@
         <Term>cac:TaxCategory</Term>
         <Name>TAX CATEGORY</Name>
         
+        <Reference type="RULE">PEPPOL-EN16931-R162</Reference>
+        <Reference type="RULE">PEPPOL-EN16931-R231</Reference>
         <Element>
             <Term>cbc:ID</Term>
             <Name>Document level allowance or charge VAT category code</Name>
@@ -146,6 +148,8 @@
             <Value type="EXAMPLE">S</Value>
             
             
+            <Reference type="RULE">PEPPOL-EN16931-R165</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R234</Reference>
         </Element>
         
         <Element cardinality="0..1">
@@ -181,10 +185,14 @@
             <Term>cac:TaxScheme</Term>
             <Name>TAX SCHEME</Name>
             
+            <Reference type="RULE">PEPPOL-EN16931-R163</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R232</Reference>
             <Element>
                 <Term>cbc:ID</Term>
                 <Description>Mandatory element. Use “VAT”</Description>
                 <Value type="DEFAULT">VAT</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R164</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R233</Reference>
             </Element>
         </Element>
     </Element>

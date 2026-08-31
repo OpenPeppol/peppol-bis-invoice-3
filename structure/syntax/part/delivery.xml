@@ -112,6 +112,8 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-165</Reference>
                         <Value type="EXAMPLE">C54</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R180</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R236</Reference>
                     </Element>
                 </Element>
                 
@@ -119,6 +121,8 @@
                     <Term>cac:Country</Term>
                     <Name>COUNTRY</Name>
                     
+                    <Reference type="RULE">PEPPOL-EN16931-R181</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R237</Reference>
                     <Element>
                         <Term>cbc:IdentificationCode</Term>
                         <Name>Deliver to country code</Name>
@@ -130,6 +134,8 @@
                         <Reference type="RULE">BR-IC-12</Reference>
                         <Reference type="CODE_LIST">ISO3166</Reference>
                         <Value type="EXAMPLE">SE</Value>
+                        <Reference type="RULE">PEPPOL-EN16931-R182</Reference>
+                        <Reference type="RULE">PEPPOL-EN16931-R238</Reference>
                     </Element>
                 </Element>
             </Element>
@@ -143,6 +149,8 @@
                 <Term>cac:PartyName</Term>
                 <Name>PARTY NAME</Name>
                 
+                <Reference type="RULE">PEPPOL-EN16931-R183</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R239</Reference>
                 <Element>
                     <Term>cbc:Name</Term>
                     <Name>Deliver to party name</Name>

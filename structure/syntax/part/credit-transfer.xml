@@ -17,6 +17,8 @@
             <Reference type="RULE">BR-50</Reference>
             <Reference type="RULE">BR-61</Reference>
             <Value type="EXAMPLE">NO99991122222</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R190</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R258</Reference>
         </Element>
         
         <Element cardinality="0..1">
@@ -41,6 +43,8 @@
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-86</Reference>
                 <Value type="EXAMPLE">9999</Value>
+                <Reference type="RULE">PEPPOL-EN16931-R189</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R257</Reference>
             </Element>
         </Element>
     </Element>

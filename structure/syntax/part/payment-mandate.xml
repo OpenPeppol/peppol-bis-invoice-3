@@ -35,6 +35,8 @@
                 <Reference type="RULE">DE-R-031</Reference>              
                 <Value type="EXAMPLE">12345676543</Value>
                 
+                <Reference type="RULE">PEPPOL-EN16931-R191</Reference>
+                <Reference type="RULE">PEPPOL-EN16931-R259</Reference>
             </Element>
         </Element>
     </Element>

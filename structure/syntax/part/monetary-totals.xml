@@ -30,6 +30,8 @@
             </Attribute>
             
             <Value type="EXAMPLE">3800.0</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R184</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R252</Reference>
         </Element>
         
         <Element>
@@ -52,6 +54,8 @@
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
             <Value type="EXAMPLE">3600.0</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R185</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R253</Reference>
         </Element>
         
         <Element>
@@ -74,6 +78,8 @@
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
             <Value type="EXAMPLE">4500.0</Value>
+            <Reference type="RULE">PEPPOL-EN16931-R186</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R254</Reference>
         </Element>
         
         <Element cardinality="0..1">
