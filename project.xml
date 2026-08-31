@@ -3,7 +3,7 @@
 
     <Name>Peppol BIS Self-Billing 3.0 - November 2026 Release</Name>
 
-    <Documentation path="bis/">Business Interoperability Specifications (BIS)</Documentation>
+    <Documentation path="bis-sb/">Business Interoperability Specifications (BIS)</Documentation>
     <Documentation path="compliance/">BIS compliance</Documentation>
 	<Documentation path="release-notes/">Release notes</Documentation>
 
