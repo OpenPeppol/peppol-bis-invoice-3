@@ -1684,8 +1684,10 @@
 	</xsl:template>
 	<xsl:template match="*" mode="attachment"/>
 	<xsl:template match="cbc:ID" mode="common">
-		<small>
-			<xsl:value-of select="@schemeID"/>:</small>
+		<xsl:if test="@schemeID">
+			<small>
+				<xsl:value-of select="@schemeID"/>:</small>
+		</xsl:if>
 		<xsl:value-of select="text()"/>
 	</xsl:template>
 	<xsl:template match="cbc:*[ends-with(local-name(), 'Amount')]" mode="common">
@@ -2132,8 +2134,8 @@
 		</div>
 		<xsl:if test="cbc:EndpointID | cac:PartyLegalEntity/cbc:CompanyID | cac:PartyIdentification | cac:PartyTaxScheme">
 			<dl style="margin-bottom: 10pt;">
-				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[@schemeID]]" mode="party"/>
-				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[not(@schemeID)]]" mode="party"/>
+				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[not(@schemeID = 'SEPA')]]" mode="party"/>
+				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[@schemeID = 'SEPA']]" mode="party"/>
 				<xsl:apply-templates select="cac:PartyTaxScheme" mode="party"/>
 				<xsl:apply-templates select="cbc:EndpointID" mode="party"/>
 			</dl>
@@ -2150,8 +2152,8 @@
 		<xsl:if test="cbc:EndpointID | cac:PartyIdentification | cac:PartyTaxScheme">
 			<dl style="margin-bottom: 10pt;">
 				<xsl:apply-templates select="cac:PartyLegalEntity/cbc:CompanyID" mode="party"/>
-				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[@schemeID]]" mode="party"/>
-				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[not(@schemeID)]]" mode="party"/>
+				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[not(@schemeID = 'SEPA')]]" mode="party"/>
+				<xsl:apply-templates select="cac:PartyIdentification[cbc:ID[@schemeID = 'SEPA']]" mode="party"/>
 				<xsl:apply-templates select="cac:PartyTaxScheme" mode="party"/>
 				<xsl:apply-templates select="cbc:EndpointID" mode="party"/>
 			</dl>
@@ -2204,7 +2206,7 @@
 			</div>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="cac:PartyIdentification[cbc:ID[@schemeID]]" mode="party">
+	<xsl:template match="cac:PartyIdentification" mode="party">
 		<dt>
 			<xsl:copy-of select="u:label('party', local-name())"/>
 		</dt>
@@ -2212,7 +2214,7 @@
 			<xsl:apply-templates select="cbc:ID" mode="common"/>
 		</dd>
 	</xsl:template>
-	<xsl:template match="cac:PartyIdentification[cbc:ID[not(@schemeID)]]" mode="party">
+	<xsl:template match="cac:PartyIdentification[cbc:ID[@schemeID = 'SEPA']]" mode="party" priority="1">
 		<dt>
 			<xsl:copy-of select="u:label('party', 'BankingReference')"/>
 		</dt>
