@@ -2224,12 +2224,18 @@
 		<div>
 			<strong>
 				<xsl:value-of select="cbc:RegistrationName"/>
-			</strong> (<xsl:value-of select="cbc:CompanyLegalForm"/>)</div>
-		<div>
-			<small>
-				<xsl:value-of select="cbc:CompanyID/@schemeID"/>:</small>
-			<xsl:value-of select="cbc:CompanyID"/>
+			</strong>
+			<xsl:if test="cbc:CompanyLegalForm"> (<xsl:value-of select="cbc:CompanyLegalForm"/>)</xsl:if>
 		</div>
+		<xsl:if test="cbc:CompanyID">
+			<div>
+				<xsl:if test="cbc:CompanyID/@schemeID">
+					<small>
+						<xsl:value-of select="cbc:CompanyID/@schemeID"/>:</small>
+				</xsl:if>
+				<xsl:value-of select="cbc:CompanyID"/>
+			</div>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="cac:PartyLegalEntity/cbc:CompanyID" mode="party">
 		<dt>Legal Company Identifier</dt>
