@@ -604,7 +604,7 @@ Last update: 2026 November release 3.0.3.
         test="
           some $code in $MIMECODE
             satisfies @mimeCode = $code"
-        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code MUST be according to subset of IANA code list.</assert>
     </rule>
     <rule context="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode">
       <assert id="PEPPOL-EN16931-CL002"
@@ -625,7 +625,7 @@ Last update: 2026 November release 3.0.3.
         test="
           some $code in $UNCL2005
             satisfies normalize-space(text()) = $code"
-        flag="fatal">[PEPPOL-EN16931-CL006]-Invoice period description code must be according to UNCL 2005 D.16B.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL006]-Invoice period description code MUST be according to UNCL 2005 D.16B.</assert>
     </rule>
     <rule
       context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount">
