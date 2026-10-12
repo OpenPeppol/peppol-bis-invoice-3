@@ -11,7 +11,7 @@ Release date:: November 2026
 
 == Changes to code lists and validation artefacts
 * Codelist publication date: 2026-09-11
-* Validation artefacts UBL and CII: version 1.3.16, publication date 2026-04-10 (unchanged since v3.0.21)
+* Validation artefacts for UBL and CII are updated in this release. The previous artefacts were version 1.3.16, published on 2026-04-10.
 
 [cols="1,1,1,1"]
 |===
@@ -19,25 +19,44 @@ Release date:: November 2026
 |All code lists |0 |0 |0
 |===
 
-==  Changes to Country-Specific Rules
-* Removed rule and sample check GR-R-001-5 for Greece (GR) [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563), UBL only
-* Added warning rule SK-R-001 requiring a preceding invoice reference (BG-3) for Slovak domestic invoices with invoice type code 384, UBL only
-* Added rules SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006, SK-R-007 for Slovakia (SK) [RFC-574](https://openpeppol.atlassian.net/browse/RFC-574), UBL only
-* Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
-* Changed rule SE-R-006 for Sweden (SE) so that it only applies to domestic transactions: in addition to the existing Swedish Seller condition, the Buyer country code (BT-55) must be SE. Swedish sellers invoicing buyers in other countries are no longer restricted to the VAT rates 6, 12 and 25. UBL and CII
+== Changes to Country-Specific Rules
 
+The countries are in alphabetical order. Within a country the rules follow the rule number.
+
+* Germany (DE), UBL only
+** Invoice type code 389 is now included in the list of allowed German invoice type codes. It was missing.
+** Rule DE-R-T02 becomes fatal. It was introduced as a warning in May 2026. It checks that BT-124 "External document location" is an absolute URL with a valid scheme when both the seller and the buyer are in Germany. The six-month transition ends with this release. The text says MUST.
+
+* Greece (GR), UBL only
+** Removed rule GR-R-001-5 and its sample check. [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563)
+** Rules GR-R-001-1, GR-R-008-2 and GR-R-008-3 stay fatal. The text now says MUST instead of SHOULD. The checks are unchanged.
+** Rule GR-S-011 stays a warning. It was changed from fatal to warning in May 2023. The text now says SHOULD instead of "must".
+
+* Slovakia (SK), UBL only
+** Added warning rule SK-R-001. A Slovak domestic invoice with invoice type code 384 must contain a preceding invoice reference (BG-3). The rule is new in this release, so it stays a warning.
+** Added warning rules SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006 and SK-R-007. [RFC-574](https://openpeppol.atlassian.net/browse/RFC-574) These rules are new in this release, so they stay warnings.
+
+* Sweden (SE), UBL and CII
+** Changed rule SE-R-006 so that it only applies to a domestic transaction. The buyer country code (BT-55) must be SE, in addition to the existing condition that the seller is Swedish. A Swedish seller invoicing a buyer in another country is no longer limited to the VAT rates 6, 12 and 25.
+** Rules SE-R-007, SE-R-008, SE-R-009 and SE-R-010 stay warnings. The text now says SHOULD instead of "must". These are existing warnings, so they do not become fatal.
 
 == Changes to PEPPOL-COMMON rules
 
-* Changed rule PEPPOL-COMMON-R040 to ONLY allow GLN13 values with schemeID 0088., UBL and CII.
-* Fixed five example files containing invalid GLNs so they comply with PEPPOL-COMMON-R040.
-* Updated validation method on rule PEPPOL-COMMON-R043 (fatal) to validate Belgian identifiers
-* Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
-* Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
-* Added rule PEPPOL-COMMON-R058 (introduced as warning, will change to fatal in coming release) for validation of Luxembourg VAT numbers. The VAT number must follow the format LU followed by 8 digits, where the last 2 digits are the check digits computed as the first 6 digits modulo 89. Applies to Seller VAT identifier (BT-31), Buyer VAT identifier (BT-48), and Tax representative VAT identifier (BT-63). UBL and CII.
-* Added rule PEPPOL-COMMON-R059 (introduced as warning, will change to fatal in coming release) for validation of Luxembourg Register of Legal Persons numbers (Matricule, schemeID 0240). The number must be exactly 11 digits; digits 5–6 must be a legal form type code in the range 20–99; and digit 11 must be a valid mod-11 check digit (with an alternative check digit supported for legal form type 24). Applies to Seller identifier (BT-29), Seller legal registration identifier (BT-30), Buyer identifier (BT-46), and Buyer legal registration identifier (BT-47). UBL and CII.
-* Added rule PEPPOL-COMMON-R062 (warning) for validation of Belgian VAT numbers.
+The rules are listed by rule number.
+
+* Changed rule PEPPOL-COMMON-R040, UBL and CII. A GLN-13 is only accepted with schemeID 0088. The rule stays fatal, and the text now says MUST.
+** Corrected five example files that contained an invalid GLN, so they pass PEPPOL-COMMON-R040.
+* Updated rule PEPPOL-COMMON-R043 (fatal). The check for a Belgian enterprise number now requires the same format as agreed for this release.
+* Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046 and PEPPOL-COMMON-R047 from "must" to "SHOULD". The rules stay warnings. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
+* Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2 and PEPPOL-COMMON-R057 from warning to fatal. These Dutch identifier rules were introduced as warnings in May 2026. The six-month transition ends with this release. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
+* Added rule PEPPOL-COMMON-R058 as a warning, UBL and CII. It checks a Luxembourg VAT number: LU followed by 8 digits, where the last 2 digits are the check digits of the first 6 digits modulo 89. It applies to the seller VAT identifier (BT-31), the buyer VAT identifier (BT-48) and the tax representative VAT identifier (BT-63). The rule is new in this release. It becomes fatal in the May 2027 release.
+* Added rule PEPPOL-COMMON-R059 as a warning, UBL and CII. It checks a Luxembourg Register of Legal Persons number (Matricule, schemeID 0240). The number must be exactly 11 digits, digits 5–6 must be a legal form type code from 20 to 99, and digit 11 must be a valid mod-11 check digit. It applies to the seller identifier (BT-29), the seller legal registration identifier (BT-30), the buyer identifier (BT-46) and the buyer legal registration identifier (BT-47). The rule is new in this release. It becomes fatal in the May 2027 release.
+* Added rule PEPPOL-COMMON-R062 as a warning. A VAT identifier that starts with BE must have the form BE, then 0 or 1, then nine digits, and the digits must pass the modulo 97 check. The rule is new in this release, so it stays a warning. It becomes fatal in the May 2027 release. The text says MUST, which is allowed for a new rule during the transition.
+
+== Changes to code list rules
+
+* Rules PEPPOL-EN16931-CL001 and PEPPOL-EN16931-CL006 stay fatal. The text now says MUST instead of "must". CL001 applies to UBL and CII. CL006 applies to UBL only, because CII has no invoice period description code.
 
 == Other changes
-* Added fatal inferred mandatory-cardinality rules PEPPOL-EN16931-R140 through PEPPOL-EN16931-R276. These 137 rules require exactly one occurrence of UBL elements that the structure model declares mandatory. UBL only; the current unit test covers R257 and R258.
-* Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK). [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585) UBL only.
+* Added fatal rules PEPPOL-EN16931-R140 through PEPPOL-EN16931-R276. These 137 rules require exactly one occurrence of UBL elements that the structure model declares mandatory. UBL only. The current unit test covers R257 and R258.
