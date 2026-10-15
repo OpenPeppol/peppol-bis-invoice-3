@@ -444,7 +444,7 @@ Last update: 2026 November release 3.0.22.
       context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088']">
       <assert id="PEPPOL-COMMON-R040"
         test="matches(normalize-space(), '^[0-9]{13}$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN13
-        must have a valid format according to GS1 rules.</assert>
+        MUST have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
       context="ram:URIID[@schemeID = '0192'] | ram:ID[@schemeID = '0192'] | ram:GlobalID[@schemeID = '0192']">
@@ -694,7 +694,7 @@ Last update: 2026 November release 3.0.22.
                                )
                               )"
         flag="fatal">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC
-        version 19.05.01 or 26.08.01 SHOULD be used</assert>
+        version 19.05.01 or 26.08.01 MUST be used</assert>
     </rule>
   </pattern>
   <!-- Italian rules -->
@@ -756,19 +756,19 @@ Last update: 2026 November release 3.0.22.
     <rule
       context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '30' and normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID) = 'SE:PLUSGIRO']/ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID">
       <assert id="SE-R-007" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-007]-For
-        Swedish suppliers using Plusgiro, the Account ID must be numeric </assert>
+        Swedish suppliers using Plusgiro, the Account ID SHOULD be numeric </assert>
       <assert id="SE-R-010"
         test="string-length(normalize-space(.)) &gt;= 2 and string-length(normalize-space(.)) &lt;= 8"
-        flag="warning">[SE-R-010]-For Swedish suppliers using Plusgiro, the Account ID must have 2-8
+        flag="warning">[SE-R-010]-For Swedish suppliers using Plusgiro, the Account ID SHOULD have 2-8
         characters</assert>
     </rule>
     <rule
       context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']]/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans[normalize-space(ram:TypeCode) = '30' and normalize-space(ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID) = 'SE:BANKGIRO']/ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID">
       <assert id="SE-R-008" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-008]-For
-        Swedish suppliers using Bankgiro, the Account ID must be numeric </assert>
+        Swedish suppliers using Bankgiro, the Account ID SHOULD be numeric </assert>
       <assert id="SE-R-009"
         test="string-length(normalize-space(.)) = 7 or string-length(normalize-space(.)) = 8"
-        flag="warning">[SE-R-009]-For Swedish suppliers using Bankgiro, the Account ID must have 7-8
+        flag="warning">[SE-R-009]-For Swedish suppliers using Bankgiro, the Account ID SHOULD have 7-8
         characters</assert>
     </rule>
     <rule
@@ -916,7 +916,7 @@ Last update: 2026 November release 3.0.22.
         test="
                     some $code in $MIMECODE
                         satisfies @mimeCode = $code"
-        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code MUST be according to subset of IANA code list.</assert>
     </rule>
     <rule
       context="ram:SpecifiedTradeAllowanceCharge[normalize-space(ram:ChargeIndicator/udt:Indicator) = 'false']/ram:ReasonCode">
