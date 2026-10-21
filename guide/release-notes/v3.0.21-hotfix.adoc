@@ -1,0 +1,10 @@
+= Version 3.0.21-hotfix
+[horizontal]
+Release date:: 2026-10-28
+
+== Changes to code lists and validation artefacts
+
+* Updated rule PEPPOL-EN16931-P0112 in the UBL schematron, link:https://openpeppol.atlassian.net/browse/RFC-605[RFC-607].
+** Invoice type code 384 (Corrected invoice) is allowed when both buyer and seller are German organizations or both are Slovak organizations.
+** Invoice type codes 326 (Partial invoice) and 389 (Self-billed invoice) are only allowed when both buyer and seller are German organizations.
+** Added samples in `rules/unit-UBL-PEPPOL/PEPPOL-EN16931-P0112.xml` for code 389 with both parties German (pass) and with non-German parties (fail), and for code 384 with both parties Slovak (pass) and with a mixed Slovak and German pair (fail).
