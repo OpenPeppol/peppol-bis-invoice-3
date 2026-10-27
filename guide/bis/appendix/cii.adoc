@@ -7,3 +7,4 @@ All invoice instances expressed in CII shall be compliant to the restrictions an
 
 Specification identifier (BT-24) and business process type (BT-23) are the same in a CII instance as for the UBL instance, see <<prof-01>> and <<prof-02>>.
 
+Profile 03 - Pro Forma invoice is available in the UBL syntax only, see <<prof-03>>.

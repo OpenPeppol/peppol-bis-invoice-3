@@ -112,4 +112,14 @@
   </configuration>
 
 
+  <configuration>
+    <identifier>peppolbis-en16931-03-3.0-ubl-invoice</identifier>
+    <title>PEPPOL BIS Billing 3.0 (Profile 03)</title>
+    <declaration type="xml.ubl">Invoice::urn:peppol:bis:proforma#urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0</declaration>
+    <inherit>ubl-invoice-2.1</inherit>
+    <inherit>peppolbis-en16931-cen-ubl</inherit>
+    <inherit>peppolbis-en16931-base-3.0-ubl</inherit>
+    <inherit>peppolbis-en16931-stylesheet-3.0-ubl</inherit>
+  </configuration>
+
 </buildConfigurations>

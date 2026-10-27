@@ -26,6 +26,8 @@ Last update: 2026 November release 3.0.22.
        then '01'
        else if (normalize-space(/*/cbc:ProfileID) = 'urn:peppol:bis:billing_with_response')
        then '02'
+       else if (/ubl-invoice:Invoice and normalize-space(/*/cbc:ProfileID) = 'urn:peppol:bis:proforma')
+       then '03'
        else 'Unknown'
      " />
   <let name="supplierCountry"
@@ -340,6 +342,10 @@ Last update: 2026 November release 3.0.22.
         flag="fatal">[PEPPOL-EN16931-R004]-Specification identifier MUST begin with the value
         'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and follow the
         format rules for the identifier.</assert>
+      <assert id="PEPPOL-EN16931-P0114"
+        test="(normalize-space(cbc:ProfileID) = 'urn:peppol:bis:proforma') = (normalize-space(cbc:CustomizationID) = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0')"
+        flag="fatal">[PEPPOL-EN16931-P0114]-The Pro Forma invoice specification identifier and the Pro
+        Forma invoice business process type MUST be used together.</assert>
       <assert id="PEPPOL-EN16931-R053" test="count(cac:TaxTotal[cac:TaxSubtotal]) = 1" flag="fatal">[PEPPOL-EN16931-R053]-Only
         one tax total with tax subtotals MUST be provided.</assert>
       <assert id="PEPPOL-EN16931-R054"
@@ -1433,6 +1439,10 @@ correct format.
         flag="fatal">[PEPPOL-EN16931-P0112]-Invoice type codes 326 and 389 are only allowed when both
         buyer and seller are German organizations. Invoice type code 384 is only allowed when both
         buyer and seller are German organizations or both are Slovak organizations.</assert>
+      <assert id="PEPPOL-EN16931-P0113"
+        test="not($profile = '03') or normalize-space(.) = '325'"
+        flag="fatal">[PEPPOL-EN16931-P0113]-In the Pro Forma invoice process the invoice type code
+        MUST be 325 (Proforma invoice).</assert>
     </rule>
 
     <rule context="cbc:CreditNoteTypeCode">

@@ -17,5 +17,7 @@ include::../../profile/annex/processes.adoc[]
 
 include::../../profile/annex/known-issues.adoc[]
 
+include::../../profile/annex/restricted-elements-03.adoc[]
+
 
 :leveloffset: -1

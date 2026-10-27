@@ -21,6 +21,7 @@
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">BT-24</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-P0114</Reference>
             <Reference type="RULE">BR-01</Reference>
             <Value type="DEFAULT">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</Value>
             <Reference type="RULE">PEPPOL-EN16931-R273</Reference>
@@ -34,6 +35,7 @@
             <Reference type="BUSINESS_TERM">BT-23</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R001</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R007</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-P0114</Reference>
             <Value type="DEFAULT">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
             <Reference type="RULE">PEPPOL-EN16931-R276</Reference>
         </Element>
@@ -79,6 +81,7 @@
             <Reference type="RULE">BR-04</Reference>
             <Reference type="RULE">BR-CL-01</Reference>
             <Reference type="RULE">PEPPOL-EN16931-P0100</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-P0113</Reference>
             <Reference type="RULE">DE-R-017</Reference>
             <Reference type="CODE_LIST">UNCL1001-inv</Reference>
             <Value type="EXAMPLE">380</Value>

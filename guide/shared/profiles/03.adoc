@@ -1,0 +1,24 @@
+
+[[prof-03]]
+= Profile 03 - Pro Forma invoice
+
+According to the definition of invoice type code `325` (Proforma invoice) in UNTDID 1001, a Pro Forma invoice is a preliminary invoice that contains, on the whole, the same information as the final invoice, but does not actually claim payment.
+
+This profile is optional and is available in the UBL syntax only. It uses the Invoice message, the business terms and the business rules of Peppol BIS Billing 3.0, and differs from Profile 01 as follows:
+
+* The specification identifier (BT-24) and the business process type (BT-23) are those of the Pro Forma invoice, and the two are always used together, see rule PEPPOL-EN16931-P0114.
+* The invoice type code (BT-3) is `325` (Proforma invoice), see rule PEPPOL-EN16931-P0113. Code `325` is not part of the code list in <<Invoice Type Code>>, which applies to Profile 01 and Profile 02, so the column "Synonym with" of that list does not apply to it.
+* Only the Invoice message is part of the profile. There is no Pro Forma credit note.
+
+A Pro Forma invoice uses only business terms of {EN16931} and is compliant with {EN16931}. Restricting the invoice type code (BT-3) to `325` is a restriction on {EN16931}, see <<Restrictions for profile 03 - Pro Forma invoice>>. Profile 03 is not a restriction of Profile 01 and Profile 02, because it allows invoice type code `325`, which they exclude. For this reason the specification identifier of Profile 03 is the specification identifier of Peppol BIS Billing 3.0, followed by `+#conformant#+` and the identifier of the Pro Forma invoice specification.
+
+Because the specification identifier differs from Profile 01 and Profile 02, a Pro Forma invoice has its own Peppol document type identifier. A Pro Forma invoice can only be delivered to a receiver that is registered in an SMP for the Pro Forma invoice document type and process. A registration for Profile 01 or Profile 02 does not cover it.
+
+[NOTE]
+====
+What the chapter <<Invoice functionality>> says about an invoice as a claim for payment and as the basis for recording in the accounts does not apply to a Pro Forma invoice. Receivers are expected to process a Pro Forma invoice separately from the invoices received in Profile 01 and Profile 02, and not to post it to the accounts as an invoice. The legal and fiscal effect of a Pro Forma invoice is determined by the applicable legislation, not by this specification.
+====
+
+In the table below you will find the values to be used as the specification identifier (BT-24) and the business process type (BT-23) for this profile
+
+include::../../syntax/profile-03.adoc[]

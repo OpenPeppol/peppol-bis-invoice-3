@@ -18,6 +18,9 @@
       or
       ($customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0' and
        $profileID       = 'urn:peppol:bis:billing_with_response')
+      or
+      ($customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0' and
+       $profileID       = 'urn:peppol:bis:proforma')
   "/>
   <!-- In self-billing the customer is the document issuer: Sender = customer, Receiver = supplier -->
   <let name="isSelfBilling" value="

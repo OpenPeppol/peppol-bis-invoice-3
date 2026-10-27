@@ -1,0 +1,38 @@
+
+= Restrictions for profile 03 - Pro Forma invoice
+
+The restrictions in <<Restrictions on the invoice and credit note transaction>> apply to profile 03 as well, except that the specification identifier (BT-24) has the value given in the table below instead of the value given there. The restrictions in <<Restrictions for profile 01 - Billing and profile 02 - Billing with response>> do not apply to profile 03.
+
+
+[cols="1s,2s,2,4,1", options="header"]
+|====
+
+| BT-ID
+| Business Term
+| Restriction Type
+| Description
+| Rule
+
+| BT-3
+| Invoice type code
+| Mark defined values as not allowed
+| The only allowed value is 325 (Proforma invoice).
+| PEPPOL-EN16931-P0113
+
+| BT-23
+| Business process type
+| Add new non-conflicting business rule to existing element(s)
+| Business process type shall have the value 'urn:peppol:bis:proforma'.
+| PEPPOL-EN16931-P0114
+
+| BT-24
+| Specification identifier
+| Add new non-conflicting business rule to existing element(s)
+| Specification identifier shall have the value +
+'urn:cen.eu:en16931:2017#compliant# +
+ urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant# +
+ urn:fdc:peppol.eu:2026:poacc:proforma:1.0'. +
+*(Remove spaces before use of value)*
+| PEPPOL-EN16931-P0114
+
+|====

@@ -16,3 +16,5 @@
 | None
 
 |====
+
+The known issue applies to profile 03 - Pro Forma invoice as well, because the profile uses the same Invoice message.

@@ -1,0 +1,39 @@
+= Version 3.0.23
+[horizontal]
+Release date:: TBD
+* Date of member review: TBD
+* Date of publication: TBD
+* Mandatory to use from: TBD
+
+== Changes to BIS document
+
+* Added optional Profile 03 - Pro Forma invoice. According to the definition of invoice type code `325` in UNTDID 1001, a Pro Forma invoice is a preliminary invoice that contains, on the whole, the same information as the final invoice, but does not actually claim payment. The profile uses the Invoice message, the business terms and the business rules of Peppol BIS Billing 3.0, and is distinguished by its own specification identifier (BT-24), its own business process type (BT-23) and invoice type code (BT-3) `325`. Only the Invoice message is part of the profile; there is no Pro Forma credit note. The profile requires a separate SMP registration. UBL only. RFC-TBD
+** *Open item*: the specification identifier `urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0` and the business process type `urn:peppol:bis:proforma` are proposed values. They have to be confirmed, and registered in the Peppol Code Lists (Document types and Processes), before publication.
+* Added the section "Profile 03 - Pro Forma invoice" to the chapter "Peppol Identifiers".
+* Added the section "Restrictions for profile 03 - Pro Forma invoice" to the appendix "Restrictions on EN16931", with the restrictions on invoice type code (BT-3), business process type (BT-23) and specification identifier (BT-24).
+* Added the section "Pro Forma invoicing" to the chapter "Business processes".
+* Added a statement to the appendix "Cross Industry Invoice" that Profile 03 is available in the UBL syntax only.
+* Added a statement to the section "Known Issues for profile 01 - Billing and profile 02 - Billing with response" of the appendix "Restrictions on EN16931" that the known issue for BT-60 and BT-90 applies to Profile 03 as well.
+* Added a reference to Profile 03 in the section "Code list for invoice type code (BT-3)".
+
+== Changes to code lists and validation artefacts
+* Codelist publication date: TBD
+* Validation artefacts UBL and CII: version 1.3.16, publication date 2026-04-10 (unchanged since v3.0.21)
+
+[cols="1,1,1,1"]
+|===
+|codelist|removed|added|description changed
+|All code lists |0 |0 |0
+|===
+
+* Invoice type code `325` is already part of the UNTDID 1001 subset used by rule BR-CL-01. The code list for invoice type code (BT-3) that applies to Profile 01 and Profile 02 is unchanged and does not contain `325`.
+
+== Other changes
+* Added rule PEPPOL-EN16931-P0113 (fatal): in the Pro Forma invoice process the invoice type code MUST be `325` (Proforma invoice). UBL only.
+* Added rule PEPPOL-EN16931-P0114 (fatal): the Pro Forma invoice specification identifier and the Pro Forma invoice business process type MUST be used together. UBL only.
+* The Pro Forma invoice business process type is an approved business process for the Invoice message in rule PEPPOL-EN16931-R007. It is not approved for the Credit Note message. UBL only.
+* Rules BR-SBDH-1 and BR-SBDH-2 also apply to an enveloped Pro Forma invoice. UBL only.
+* Only documents that use the Pro Forma invoice specification identifier or the Pro Forma invoice business process type change validity. UBL only; the CII validation rules are unchanged.
+* Invoice type code `325` remains excluded from Profile 01 and Profile 02 by rule PEPPOL-EN16931-P0100, which is unchanged. UBL only.
+* Country-specific rules apply to Profile 03 unchanged. The warning rules DE-R-017 and IS-R-001, which recommend specific invoice type codes, are therefore raised for a Pro Forma invoice to which they apply. UBL only.
+* Added a validator configuration (peppolbis-en16931-03-3.0-ubl-invoice), an example file (base-example_profile03.xml), a snippet (Snippet-full-profile-03.xml) and unit tests for Profile 03, including a CII unit test that confirms that the Pro Forma invoice business process type is rejected in CII by rule PEPPOL-EN16931-R007.

@@ -37,3 +37,11 @@ P9:: Credit notes or invoices with negative amounts, issued for a variety of rea
 The difference between the invoicing process with response and the basic invoicing process is that in the invoicing process with response, the supplier expects the customer to send a response after receiving the invoice. 
 
 See BIS 3 Upgrade for more information on Invoice Response 3.2 (T111).
+
+== Pro Forma invoicing
+
+The difference between the Pro Forma invoicing process and the basic invoicing process is that in the Pro Forma invoicing process, the supplier sends a Pro Forma invoice to the customer. According to the definition of invoice type code `325` (Proforma invoice) in UNTDID 1001, a Pro Forma invoice is a preliminary invoice that contains, on the whole, the same information as the final invoice, but does not actually claim payment. The customer is expected not to post a Pro Forma invoice to the accounts as an invoice.
+
+Only the Invoice message is used in this process. There is no Pro Forma credit note.
+
+See <<prof-03>> for the identifiers and the invoice type code of this process.

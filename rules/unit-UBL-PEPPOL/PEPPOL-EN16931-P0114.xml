@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
+	<assert>
+		<description>Verify that the Pro Forma invoice specification identifier and business process type are used together.</description>
+		<scope>PEPPOL-EN16931-P0114</scope>
+	</assert>
+	<test>
+		<assert>
+			<success>PEPPOL-EN16931-P0114</success>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:peppol:bis:proforma</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0114</error>
+		</assert>
+		<!-- Pro Forma business process type with the specification identifier of Peppol BIS Billing 3.0. -->
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:peppol:bis:proforma</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0114</error>
+		</assert>
+		<!-- Pro Forma specification identifier with the Profile 01 business process type. -->
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0114</error>
+		</assert>
+		<!-- Pro Forma specification identifier in a credit note. -->
+		<CreditNote xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+
+		</CreditNote>
+	</test>
+	<test>
+		<assert>
+			<success>PEPPOL-EN16931-P0114</success>
+		</assert>
+		<!-- The rule does not affect documents that use the specification identifier and business process type of Profile 01 or Profile 02. -->
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<success>PEPPOL-EN16931-P0114</success>
+		</assert>
+		<CreditNote xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
+
+		</CreditNote>
+	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0114</error>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-P0114</error>
+		</assert>
+		<!-- An identifier derived from the Pro Forma specification identifier is not the Pro Forma specification identifier. -->
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:fdc:peppol.eu:2026:poacc:proforma:1.0#conformant#urn:example:national:1.0</cbc:CustomizationID>
+
+			<cbc:ProfileID>urn:peppol:bis:proforma</cbc:ProfileID>
+
+		</Invoice>
+	</test>
+</testSet>

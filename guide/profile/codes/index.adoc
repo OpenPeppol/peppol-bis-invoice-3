@@ -7,6 +7,8 @@ The table indicates the name and description of each code, as well as a column "
 
 The table also gives information on what message type is to be used in the UBL syntax  for the different codes.
 
+Invoice type code `325` (Proforma invoice) is used in Profile 03 only. It is not part of this code list, see <<prof-03>>.
+
 :leveloffset: +1
 
 include::invoice-specific.adoc[]
