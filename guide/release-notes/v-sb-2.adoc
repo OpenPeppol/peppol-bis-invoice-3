@@ -1,7 +1,7 @@
 = Version 3.0.2
 Release date:: May 2026
 * Date of publication: 2026-05-20
-* Mandatory to use from: 2026-08-24
+* Mandatory to use from: 2026-08-17
 
 
 == Codelist updates
