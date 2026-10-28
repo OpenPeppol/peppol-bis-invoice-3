@@ -20,17 +20,23 @@ Release date:: November 2026
 |===
 
 ==  Changes to Country-Specific Rules
+* Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
+* Rule DE-R-T02 becomes fatal. It was introduced as a warning in May 2026. The text says MUST. UBL only.
 * Removed rule and sample check GR-R-001-5 for Greece (GR) [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563), UBL only
+* Rules GR-R-001-1, GR-R-008-2 and GR-R-008-3 stay fatal. The text now says MUST instead of SHOULD. The checks are unchanged. UBL only.
+* Rule GR-S-011 stays a warning. The text now says SHOULD instead of "must". UBL only.
 * Added warning rule SK-R-001 requiring a preceding invoice reference (BG-3) for Slovak domestic invoices with invoice type code 384, UBL only
 * Added rules SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006, SK-R-007 for Slovakia (SK) [RFC-574](https://openpeppol.atlassian.net/browse/RFC-574), UBL only
-* Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
+* Rules SK-R-001, SK-R-002, SK-R-003, SK-R-004, SK-R-005, SK-R-006 and SK-R-007 are new in this release and stay warnings. They become fatal in the May 2027 release.
 * Changed rule SE-R-006 for Sweden (SE) so that it only applies to domestic transactions: in addition to the existing Swedish Seller condition, the Buyer country code (BT-55) must be SE. Swedish sellers invoicing buyers in other countries are no longer restricted to the VAT rates 6, 12 and 25. UBL and CII
+* Rules SE-R-007, SE-R-008, SE-R-009 and SE-R-010 stay warnings. The text now says SHOULD instead of "must". UBL and CII.
 
 
 == Changes to PEPPOL-COMMON rules
 
 * Changed rule PEPPOL-COMMON-R040 to ONLY allow GLN13 values with schemeID 0088., UBL and CII.
 * Fixed five example files containing invalid GLNs so they comply with PEPPOL-COMMON-R040.
+* Rule PEPPOL-COMMON-R040 stays fatal. The text now says MUST. UBL and CII.
 * Updated validation method on rule PEPPOL-COMMON-R043 (fatal) to validate Belgian identifiers
 * Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
 * Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
@@ -38,6 +44,7 @@ Release date:: November 2026
 * Added rule PEPPOL-COMMON-R059 (introduced as warning, will change to fatal in coming release) for validation of Luxembourg Register of Legal Persons numbers (Matricule, schemeID 0240). The number must be exactly 11 digits; digits 5–6 must be a legal form type code in the range 20–99; and digit 11 must be a valid mod-11 check digit (with an alternative check digit supported for legal form type 24). Applies to Seller identifier (BT-29), Seller legal registration identifier (BT-30), Buyer identifier (BT-46), and Buyer legal registration identifier (BT-47). UBL and CII.
 * Added rule PEPPOL-COMMON-R062 (warning) for validation of Belgian VAT numbers.
 
-== Other changes
-* Added fatal inferred mandatory-cardinality rules PEPPOL-EN16931-R140 through PEPPOL-EN16931-R276. These 137 rules require exactly one occurrence of UBL elements that the structure model declares mandatory. UBL only; the current unit test covers R257 and R258.
+==  EN 16931 schematrons updated
+* Rules PEPPOL-EN16931-CL001 and PEPPOL-EN16931-CL006 stay fatal. The text now says MUST instead of "must". CL001 applies to UBL and CII. CL006 applies to UBL only, because CII has no invoice period description code.
 * Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Added fatal inferred mandatory-cardinality rules PEPPOL-EN16931-R140 through PEPPOL-EN16931-R276. These 137 rules require exactly one occurrence of UBL elements that the structure model declares mandatory. UBL only; the current unit test covers R257 and R258.

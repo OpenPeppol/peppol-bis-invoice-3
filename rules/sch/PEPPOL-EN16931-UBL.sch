@@ -508,7 +508,7 @@ Last update: 2026 November release 3.0.22.
       context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']">
       <assert id="PEPPOL-COMMON-R040"
         test="matches(normalize-space(), '^[0-9]{13}$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN13
-        must have a valid format according to GS1 rules.</assert>
+        MUST have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
       context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']">
@@ -784,7 +784,7 @@ correct format.
 							   )
 						)"
         flag="fatal">[DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC
-        version 19.05.01 or 26.08.01 SHOULD be used.</assert>
+        version 19.05.01 or 26.08.01 MUST be used.</assert>
     </rule>
     <!-- Mix level -->
     <rule context="cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']">
@@ -863,19 +863,19 @@ correct format.
     <rule
       context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:PLUSGIRO']/cac:PayeeFinancialAccount/cbc:ID">
       <assert id="SE-R-007" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-007]-For
-        Swedish suppliers using Plusgiro, the Account ID must be numeric </assert>
+        Swedish suppliers using Plusgiro, the Account ID SHOULD be numeric </assert>
       <assert id="SE-R-010"
         test="string-length(normalize-space(.)) &gt;= 2 and string-length(normalize-space(.)) &lt;= 8"
-        flag="warning">[SE-R-010]-For Swedish suppliers using Plusgiro, the Account ID must have 2-8
+        flag="warning">[SE-R-010]-For Swedish suppliers using Plusgiro, the Account ID SHOULD have 2-8
         characters</assert>
     </rule>
     <rule
       context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:BANKGIRO']/cac:PayeeFinancialAccount/cbc:ID">
       <assert id="SE-R-008" test="string(number(normalize-space(.))) != 'NaN'" flag="warning">[SE-R-008]-For
-        Swedish suppliers using Bankgiro, the Account ID must be numeric </assert>
+        Swedish suppliers using Bankgiro, the Account ID SHOULD be numeric </assert>
       <assert id="SE-R-009"
         test="string-length(normalize-space(.)) = 7 or string-length(normalize-space(.)) = 8"
-        flag="warning">[SE-R-009]-For Swedish suppliers using Bankgiro, the Account ID must have 7-8
+        flag="warning">[SE-R-009]-For Swedish suppliers using Bankgiro, the Account ID SHOULD have 7-8
         characters</assert>
     </rule>
     <rule
@@ -915,7 +915,7 @@ correct format.
       context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]">
       <let name="IdSegments" value="tokenize(.,'\|')" />
       <assert id="GR-R-001-1" test="count($IdSegments) = 6" flag="fatal">[GR-R-001-1]- When the
-        Supplier is Greek, the Invoice Id SHOULD consist of 6 segments</assert>
+        Supplier is Greek, the Invoice Id MUST consist of 6 segments</assert>
       <assert id="GR-R-001-2"
         test="string-length(normalize-space($IdSegments[1])) = 9
 			                              and u:TinVerification($IdSegments[1])
@@ -944,7 +944,7 @@ correct format.
         test="count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and
 				                        substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and
 				                        u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))"
-        flag="warning">[GR-S-011]-Greek suppliers must provide their Seller Tax Registration Number,
+        flag="warning">[GR-S-011]-Greek suppliers SHOULD provide their Seller Tax Registration Number,
         prefixed by the country code</assert>
     </rule>
     <!-- VAT Number Rules -->
@@ -966,7 +966,7 @@ correct format.
         Supplier is Greek, there SHOULD be one invoice url</assert>
       <assert id="GR-R-008-2"
         test="(count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE|URL##']) = 0 ) or (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE|URL##']) = 1 )"
-        flag="fatal">[GR-R-008-2]-When Supplier is Greek, there SHOULD be no more than one invoice
+        flag="fatal">[GR-R-008-2]-When Supplier is Greek, there MUST be no more than one invoice
         url</assert>
     </rule>
     <!-- MARK Rules -->
@@ -982,7 +982,7 @@ correct format.
       <assert id="GR-R-008-3"
         test="string-length(normalize-space(cac:Attachment/cac:ExternalReference/cbc:URI))&gt;0"
         flag="fatal">[GR-R-008-3]-When Supplier is Greek and the INVOICE URL Document reference
-        exists, the External Reference URI SHOULD be present</assert>
+        exists, the External Reference URI MUST be present</assert>
     </rule>
     <!-- Customer Name Mandatory -->
     <rule context="cac:AccountingCustomerParty[$isGreekSender]/cac:Party">
@@ -1253,8 +1253,8 @@ correct format.
     </rule>
     <rule
       context="(/ubl-invoice:Invoice/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference | /ubl-creditnote:CreditNote/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference)[$supplierCountryIsDE and $customerCountryIsDE]">
-      <assert test="matches(cbc:URI, $XR-URL-REGEX)" flag="warning" id="DE-R-T02">[DE-R-T02]-If both
-        supplier and customer are located in Germany, BT-124 "External document location" must
+      <assert test="matches(cbc:URI, $XR-URL-REGEX)" flag="fatal" id="DE-R-T02">[DE-R-T02]-If both
+        supplier and customer are located in Germany, BT-124 "External document location" MUST
         contain an absolute URL with valid scheme.</assert>
     </rule>
     <rule
@@ -1389,7 +1389,7 @@ correct format.
         test="
           some $code in $MIMECODE
             satisfies @mimeCode = $code"
-        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code must be according to subset of IANA code list.</assert>
+        flag="fatal">[PEPPOL-EN16931-CL001]-Mime code MUST be according to subset of IANA code list.</assert>
     </rule>
     <rule context="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode">
       <assert id="PEPPOL-EN16931-CL002"
@@ -1411,7 +1411,7 @@ correct format.
         test="
           some $code in $UNCL2005
             satisfies normalize-space(text()) = $code"
-        flag="fatal">[PEPPOL-EN16931-CL006]-Invoice period description code must be according to
+        flag="fatal">[PEPPOL-EN16931-CL006]-Invoice period description code MUST be according to
         UNCL 2005 D.16B.</assert>
     </rule>
     <rule
