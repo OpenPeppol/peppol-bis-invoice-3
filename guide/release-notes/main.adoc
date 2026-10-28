@@ -17,6 +17,8 @@ IMPORTANT: Changes in code lists are also reflected by changes in the validation
 
 include::v3.0.22.adoc[]
 
+include::v3.0.21-hotfix.adoc[]
+
 include::v3.0.21.adoc[]
 
 include::v3.0.20-hotfix.adoc[]
