@@ -18,6 +18,7 @@ Release date:: November 2026
 
 ==  EN 16931 schematrons updated
 * Updated PEPPOL-EN16931-R051 to include `cac:TaxSubtotal/cbc:TaxAmount` in the currency-use check.
+* Rules PEPPOL-EN16931-CL001 and PEPPOL-EN16931-CL006 stay fatal. The text now says MUST instead of "must".
 
 
 == Changes to PEPPOL-COMMON rules
