@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
     <assert>
-        <description>DE-R-028 "Seller contact email address" (BT-43) should contain exactly one @-sign, which should not be framed by a whitespace or a dot but by at least two characters on each side. A dot should not be the first or last character.</description>
+      <description>DE-R-028 If both supplier and customer are German, "Seller contact email address" (BT-43) should contain exactly one @-sign, which should not be framed by a whitespace or a dot but by at least two characters on each side. A dot should not be the first or last character.</description>
         <scope>DE-R-028</scope>
     </assert>
     <test>

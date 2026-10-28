@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
     <assert>
-        <description>DE-R-020 The element "Debited account identifier" (BT-91) should contain a valid IBAN if code 59 SEPA is provided in "Payment means type code" (BT-81).</description>
+      <description>DE-R-020 If both supplier and customer are German, the element "Debited account identifier" (BT-91) should contain a valid IBAN if code 59 SEPA is provided in "Payment means type code" (BT-81).</description>
         <scope>DE-R-020</scope>
     </assert>
     <test>

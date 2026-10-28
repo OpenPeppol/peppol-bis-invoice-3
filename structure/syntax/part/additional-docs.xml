@@ -97,6 +97,7 @@
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-124</Reference>
+                    <Reference type="RULE">DE-R-T02</Reference>
                     <Value type="EXAMPLE">http://www.example.com/index.html</Value>
                 </Element>
             </Element>

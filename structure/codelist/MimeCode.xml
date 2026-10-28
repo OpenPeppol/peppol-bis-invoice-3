@@ -9,13 +9,23 @@
 
 
     <Code>
-        <Id>text/csv</Id>
-        <Name>text/csv</Name>
+        <Id>application/pdf</Id>
+        <Name>application/pdf</Name>
+    </Code>
+    
+    <Code>
+        <Id>application/vnd.oasis.opendocument.spreadsheet</Id>
+        <Name>application/vnd.oasis.opendocument.spreadsheet</Name>
+    </Code>
+    
+    <Code>
+        <Id>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Id>
+        <Name>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Name>
     </Code>
 
     <Code>
-        <Id>application/pdf</Id>
-        <Name>application/pdf</Name>
+        <Id>image/jpeg</Id>
+        <Name>image/jpeg</Name>
     </Code>
 
     <Code>
@@ -23,19 +33,10 @@
         <Name>image/png</Name>
     </Code>
 
+
     <Code>
-        <Id>image/jpeg</Id>
-        <Name>image/jpeg</Name>
-    </Code>
-    
-    <Code>
-        <Id>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Id>
-        <Name>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Name>
-    </Code>
-    
-    <Code>
-        <Id>application/vnd.oasis.opendocument.spreadsheet</Id>
-        <Name>application/vnd.oasis.opendocument.spreadsheet</Name>
+        <Id>text/csv</Id>
+        <Name>text/csv</Name>
     </Code>
 </CodeList>
 

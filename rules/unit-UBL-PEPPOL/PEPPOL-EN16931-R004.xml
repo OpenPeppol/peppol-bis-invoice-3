@@ -40,4 +40,28 @@
 
 		</Invoice>
 	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-R004</error>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.difi.no:ehf:ver3.0::2.1</cbc:CustomizationID>
+
+		</Invoice>
+	</test>
+	<test>
+		<assert>
+			<error>PEPPOL-EN16931-R004</error>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+
+			<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</cbc:CustomizationID>
+
+		</Invoice>
+	</test>
 </testSet>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-ubl">
     <assert>
-        <description>DE-R-027 "Seller contact telephone number" (BT-42) should contain a valid telephone number. A valid telephone should consist of 3 digits minimum.</description>
+      <description>DE-R-027 If both supplier and customer are German, "Seller contact telephone number" (BT-42) should contain a valid telephone number. A valid telephone should consist of 3 digits minimum.</description>
         <scope>DE-R-027</scope>
     </assert>
     <test>

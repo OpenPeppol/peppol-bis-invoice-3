@@ -8,187 +8,6 @@
 
     <!-- START of Recommendation 20 -->
     <Code>
-        <Id>10</Id>
-        <Name>group</Name>
-        <Description>A unit of count defining the number of groups (group: set of items classified
-            together).</Description>
-    </Code>
-    <Code>
-        <Id>11</Id>
-        <Name>outfit</Name>
-        <Description>A unit of count defining the number of outfits (outfit: a complete set of
-            equipment / materials / objects used for a specific purpose).</Description>
-    </Code>
-    <Code>
-        <Id>13</Id>
-        <Name>ration</Name>
-        <Description>A unit of count defining the number of rations (ration: a single portion of
-            provisions).</Description>
-    </Code>
-    <Code>
-        <Id>14</Id>
-        <Name>shot</Name>
-        <Description>A unit of liquid measure, especially related to spirits.</Description>
-    </Code>
-    <Code>
-        <Id>15</Id>
-        <Name>stick, military</Name>
-        <Description>A unit of count defining the number of military sticks (military stick: bombs
-            or paratroops released in rapid succession from an aircraft).</Description>
-    </Code>
-    <Code>
-        <Id>20</Id>
-        <Name>twenty foot container</Name>
-        <Description>A unit of count defining the number of shipping containers that measure 20 foot
-            in length.</Description>
-    </Code>
-    <Code>
-        <Id>21</Id>
-        <Name>forty foot container</Name>
-        <Description>A unit of count defining the number of shipping containers that measure 40 foot
-            in length.</Description>
-    </Code>
-    <Code>
-        <Id>22</Id>
-        <Name>decilitre per gram</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>23</Id>
-        <Name>gram per cubic centimetre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>24</Id>
-        <Name>theoretical pound</Name>
-        <Description>A unit of mass defining the expected mass of material expressed as the number
-            of pounds.</Description>
-    </Code>
-    <Code>
-        <Id>25</Id>
-        <Name>gram per square centimetre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>27</Id>
-        <Name>theoretical ton</Name>
-        <Description>A unit of mass defining the expected mass of material, expressed as the number
-            of tons.</Description>
-    </Code>
-    <Code>
-        <Id>28</Id>
-        <Name>kilogram per square metre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>33</Id>
-        <Name>kilopascal square metre per gram</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>34</Id>
-        <Name>kilopascal per millimetre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>35</Id>
-        <Name>millilitre per square centimetre second</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>37</Id>
-        <Name>ounce per square foot</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>38</Id>
-        <Name>ounce per square foot per 0,01inch</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>40</Id>
-        <Name>millilitre per second</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>41</Id>
-        <Name>millilitre per minute</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>56</Id>
-        <Name>sitas</Name>
-        <Description>A unit of area for tin plate equal to a surface area of 100 square
-            metres.</Description>
-    </Code>
-    <Code>
-        <Id>57</Id>
-        <Name>mesh</Name>
-        <Description>A unit of count defining the number of strands per inch as a measure of the
-            fineness of a woven product.</Description>
-    </Code>
-    <Code>
-        <Id>58</Id>
-        <Name>net kilogram</Name>
-        <Description>A unit of mass defining the total number of kilograms after
-            deductions.</Description>
-    </Code>
-    <Code>
-        <Id>59</Id>
-        <Name>part per million</Name>
-        <Description>A unit of proportion equal to 10⁻⁶.</Description>
-    </Code>
-    <Code>
-        <Id>60</Id>
-        <Name>percent weight</Name>
-        <Description>A unit of proportion equal to 10⁻².</Description>
-    </Code>
-    <Code>
-        <Id>61</Id>
-        <Name>part per billion (US)</Name>
-        <Description>A unit of proportion equal to 10⁻⁹.</Description>
-    </Code>
-    <Code>
-        <Id>74</Id>
-        <Name>millipascal</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>77</Id>
-        <Name>milli-inch</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>80</Id>
-        <Name>pound per square inch absolute</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>81</Id>
-        <Name>henry</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>85</Id>
-        <Name>foot pound-force</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>87</Id>
-        <Name>pound per cubic foot</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>89</Id>
-        <Name>poise</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>91</Id>
-        <Name>stokes</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>1I</Id>
         <Name>fixed rate</Name>
         <Description>A unit of quantity expressed as a predetermined or set rate for usage of a
@@ -395,6 +214,228 @@
             depending on the viscosity of the fluid.</Description>
     </Code>
     <Code>
+        <Id>10</Id>
+        <Name>group</Name>
+        <Description>A unit of count defining the number of groups (group: set of items classified
+            together).</Description>
+    </Code>
+    <Code>
+        <Id>11</Id>
+        <Name>outfit</Name>
+        <Description>A unit of count defining the number of outfits (outfit: a complete set of
+            equipment / materials / objects used for a specific purpose).</Description>
+    </Code>
+    <Code>
+        <Id>13</Id>
+        <Name>ration</Name>
+        <Description>A unit of count defining the number of rations (ration: a single portion of
+            provisions).</Description>
+    </Code>
+    <Code>
+        <Id>14</Id>
+        <Name>shot</Name>
+        <Description>A unit of liquid measure, especially related to spirits.</Description>
+    </Code>
+    <Code>
+        <Id>15</Id>
+        <Name>stick, military</Name>
+        <Description>A unit of count defining the number of military sticks (military stick: bombs
+            or paratroops released in rapid succession from an aircraft).</Description>
+    </Code>
+    <Code>
+        <Id>20</Id>
+        <Name>twenty foot container</Name>
+        <Description>A unit of count defining the number of shipping containers that measure 20 foot
+            in length.</Description>
+    </Code>
+    <Code>
+        <Id>21</Id>
+        <Name>forty foot container</Name>
+        <Description>A unit of count defining the number of shipping containers that measure 40 foot
+            in length.</Description>
+    </Code>
+    <Code>
+        <Id>22</Id>
+        <Name>decilitre per gram</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>23</Id>
+        <Name>gram per cubic centimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>24</Id>
+        <Name>theoretical pound</Name>
+        <Description>A unit of mass defining the expected mass of material expressed as the number
+            of pounds.</Description>
+    </Code>
+    <Code>
+        <Id>25</Id>
+        <Name>gram per square centimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>27</Id>
+        <Name>theoretical ton</Name>
+        <Description>A unit of mass defining the expected mass of material, expressed as the number
+            of tons.</Description>
+    </Code>
+    <Code>
+        <Id>28</Id>
+        <Name>kilogram per square metre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>33</Id>
+        <Name>kilopascal square metre per gram</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>34</Id>
+        <Name>kilopascal per millimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>35</Id>
+        <Name>millilitre per square centimetre second</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>37</Id>
+        <Name>ounce per square foot</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>38</Id>
+        <Name>ounce per square foot per 0,01inch</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>40</Id>
+        <Name>millilitre per second</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>41</Id>
+        <Name>millilitre per minute</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>56</Id>
+        <Name>sitas</Name>
+        <Description>A unit of area for tin plate equal to a surface area of 100 square
+            metres.</Description>
+    </Code>
+    <Code>
+        <Id>57</Id>
+        <Name>mesh</Name>
+        <Description>A unit of count defining the number of strands per inch as a measure of the
+            fineness of a woven product.</Description>
+    </Code>
+    <Code>
+        <Id>58</Id>
+        <Name>net kilogram</Name>
+        <Description>A unit of mass defining the total number of kilograms after
+            deductions.</Description>
+    </Code>
+    <Code>
+        <Id>59</Id>
+        <Name>part per million</Name>
+        <Description>A unit of proportion equal to 10⁻⁶.</Description>
+    </Code>
+    <Code>
+        <Id>60</Id>
+        <Name>percent weight</Name>
+        <Description>A unit of proportion equal to 10⁻².</Description>
+    </Code>
+    <Code>
+        <Id>61</Id>
+        <Name>part per billion (US)</Name>
+        <Description>A unit of proportion equal to 10⁻⁹.</Description>
+    </Code>
+    <Code>
+        <Id>74</Id>
+        <Name>millipascal</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>77</Id>
+        <Name>milli-inch</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>80</Id>
+        <Name>pound per square inch absolute</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>81</Id>
+        <Name>henry</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>85</Id>
+        <Name>foot pound-force</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>87</Id>
+        <Name>pound per cubic foot</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>89</Id>
+        <Name>poise</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>91</Id>
+        <Name>stokes</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A2</Id>
+        <Name>ampere per centimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A3</Id>
+        <Name>ampere per millimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A4</Id>
+        <Name>ampere per square centimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A5</Id>
+        <Name>ampere square metre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A6</Id>
+        <Name>ampere per square metre kelvin squared</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A7</Id>
+        <Name>ampere per square millimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A8</Id>
+        <Name>ampere second</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>A9</Id>
+        <Name>rate</Name>
+        <Description>A unit of quantity expressed as a rate for usage of a facility or
+            service.</Description>
+    </Code>
+    <Code>
         <Id>A10</Id>
         <Name>ampere square metre per joule second</Name>
         <Description />
@@ -445,11 +486,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>A2</Id>
-        <Name>ampere per centimetre</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>A20</Id>
         <Name>British thermal unit (international table) per second square foot degree
             Rankine</Name>
@@ -493,11 +529,6 @@
     <Code>
         <Id>A29</Id>
         <Name>coulomb per cubic metre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>A3</Id>
-        <Name>ampere per millimetre</Name>
         <Description />
     </Code>
     <Code>
@@ -551,11 +582,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>A4</Id>
-        <Name>ampere per square centimetre</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>A40</Id>
         <Name>cubic metre per mole</Name>
         <Description />
@@ -605,11 +631,6 @@
             length.</Description>
     </Code>
     <Code>
-        <Id>A5</Id>
-        <Name>ampere square metre</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>A53</Id>
         <Name>electronvolt</Name>
         <Description />
@@ -636,11 +657,6 @@
             celestial dome cloud coverage. Synonym: OKTA , OCTA</Description>
     </Code>
     <Code>
-        <Id>A6</Id>
-        <Name>ampere per square metre kelvin squared</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>A68</Id>
         <Name>exajoule</Name>
         <Description />
@@ -648,11 +664,6 @@
     <Code>
         <Id>A69</Id>
         <Name>farad per metre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>A7</Id>
-        <Name>ampere per square millimetre</Name>
         <Description />
     </Code>
     <Code>
@@ -688,11 +699,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>A8</Id>
-        <Name>ampere second</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>A84</Id>
         <Name>gigacoulomb per cubic metre</Name>
         <Description />
@@ -721,12 +727,6 @@
         <Id>A89</Id>
         <Name>gigapascal</Name>
         <Description />
-    </Code>
-    <Code>
-        <Id>A9</Id>
-        <Name>rate</Name>
-        <Description>A unit of quantity expressed as a rate for usage of a facility or
-            service.</Description>
     </Code>
     <Code>
         <Id>A90</Id>
@@ -898,6 +898,28 @@
         <Description />
     </Code>
     <Code>
+        <Id>B3</Id>
+        <Name>batting pound</Name>
+        <Description>A unit of mass defining the number of pounds of wadded fibre.</Description>
+    </Code>
+    <Code>
+        <Id>B4</Id>
+        <Name>barrel, imperial</Name>
+        <Description>A unit of volume used to measure beer. One beer barrel equals 36 imperial
+            gallons.</Description>
+    </Code>
+    <Code>
+        <Id>B7</Id>
+        <Name>cycle</Name>
+        <Description>A unit of count defining the number of cycles (cycle: a recurrent period of
+            definite duration).</Description>
+    </Code>
+    <Code>
+        <Id>B8</Id>
+        <Name>joule per cubic metre</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>B10</Id>
         <Name>bit per second</Name>
         <Description>A unit of information equal to one binary digit per second.</Description>
@@ -1000,11 +1022,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>B3</Id>
-        <Name>batting pound</Name>
-        <Description>A unit of mass defining the number of pounds of wadded fibre.</Description>
-    </Code>
-    <Code>
         <Id>B30</Id>
         <Name>gibibit</Name>
         <Description>A unit of information equal to 2³⁰ bits (binary digits).</Description>
@@ -1033,12 +1050,6 @@
         <Id>B35</Id>
         <Name>kilogram per litre</Name>
         <Description />
-    </Code>
-    <Code>
-        <Id>B4</Id>
-        <Name>barrel, imperial</Name>
-        <Description>A unit of volume used to measure beer. One beer barrel equals 36 imperial
-            gallons.</Description>
     </Code>
     <Code>
         <Id>B41</Id>
@@ -1177,12 +1188,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>B7</Id>
-        <Name>cycle</Name>
-        <Description>A unit of count defining the number of cycles (cycle: a recurrent period of
-            definite duration).</Description>
-    </Code>
-    <Code>
         <Id>B70</Id>
         <Name>megacoulomb per square metre</Name>
         <Description />
@@ -1230,11 +1235,6 @@
     <Code>
         <Id>B79</Id>
         <Name>megavolt per metre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>B8</Id>
-        <Name>joule per cubic metre</Name>
         <Description />
     </Code>
     <Code>
@@ -1412,6 +1412,28 @@
             visitation).</Description>
     </Code>
     <Code>
+        <Id>C3</Id>
+        <Name>microvolt per metre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>C7</Id>
+        <Name>centipoise</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>C8</Id>
+        <Name>millicoulomb per kilogram</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>C9</Id>
+        <Name>coil group</Name>
+        <Description>A unit of count defining the number of coil groups (coil group: groups of items
+            arranged by lengths of those items placed in a joined sequence of concentric
+            circles).</Description>
+    </Code>
+    <Code>
         <Id>C10</Id>
         <Name>millifarad</Name>
         <Description />
@@ -1509,11 +1531,6 @@
     <Code>
         <Id>C29</Id>
         <Name>millitesla</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>C3</Id>
-        <Name>microvolt per metre</Name>
         <Description />
     </Code>
     <Code>
@@ -1720,11 +1737,6 @@
             kilohertz and strength p decibels.</Description>
     </Code>
     <Code>
-        <Id>C7</Id>
-        <Name>centipoise</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>C70</Id>
         <Name>picoampere</Name>
         <Description />
@@ -1770,11 +1782,6 @@
         <Name>kilovolt ampere hour</Name>
         <Description>A unit of accumulated energy of 1000 volt amperes over a period of one
             hour.</Description>
-    </Code>
-    <Code>
-        <Id>C8</Id>
-        <Name>millicoulomb per kilogram</Name>
-        <Description />
     </Code>
     <Code>
         <Id>C80</Id>
@@ -1825,13 +1832,6 @@
         <Id>C89</Id>
         <Name>reciprocal henry</Name>
         <Description />
-    </Code>
-    <Code>
-        <Id>C9</Id>
-        <Name>coil group</Name>
-        <Description>A unit of count defining the number of coil groups (coil group: groups of items
-            arranged by lengths of those items placed in a joined sequence of concentric
-            circles).</Description>
     </Code>
     <Code>
         <Id>C90</Id>
@@ -1990,6 +1990,16 @@
         <Description />
     </Code>
     <Code>
+        <Id>D1</Id>
+        <Name>reciprocal second per steradian</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>D2</Id>
+        <Name>reciprocal second per steradian metre squared</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>D03</Id>
         <Name>kilowatt hour per hour</Name>
         <Description>A unit of accumulated energy of a thousand watts over a period of one
@@ -2001,8 +2011,13 @@
         <Description>A unit of weight equal to about 1/2 ounce or 15 grams.</Description>
     </Code>
     <Code>
-        <Id>D1</Id>
-        <Name>reciprocal second per steradian</Name>
+        <Id>D5</Id>
+        <Name>kilogram per square centimetre</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>D6</Id>
+        <Name>roentgen per second</Name>
         <Description />
     </Code>
     <Code>
@@ -2050,11 +2065,6 @@
     <Code>
         <Id>D19</Id>
         <Name>square metre kelvin per watt</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>D2</Id>
-        <Name>reciprocal second per steradian metre squared</Name>
         <Description />
     </Code>
     <Code>
@@ -2181,11 +2191,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>D5</Id>
-        <Name>kilogram per square centimetre</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>D50</Id>
         <Name>volt per metre</Name>
         <Description />
@@ -2233,11 +2238,6 @@
     <Code>
         <Id>D59</Id>
         <Name>weber per metre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>D6</Id>
-        <Name>roentgen per second</Name>
         <Description />
     </Code>
     <Code>
@@ -2517,6 +2517,12 @@
         <Description>A measure of pressure expressed in newtons per square centimetre.</Description>
     </Code>
     <Code>
+        <Id>E4</Id>
+        <Name>gross kilogram</Name>
+        <Description>A unit of mass defining the total number of kilograms before
+            deductions.</Description>
+    </Code>
+    <Code>
         <Id>E07</Id>
         <Name>megawatt hour per hour</Name>
         <Description>A unit of accumulated energy of a million watts over a period of one
@@ -2674,12 +2680,6 @@
         <Name>dots per inch</Name>
         <Description>A unit of information defining the number of dots per linear inch as a measure
             of the resolution or sharpness of a graphic image.</Description>
-    </Code>
-    <Code>
-        <Id>E4</Id>
-        <Name>gross kilogram</Name>
-        <Description>A unit of mass defining the total number of kilograms before
-            deductions.</Description>
     </Code>
     <Code>
         <Id>E40</Id>
@@ -3606,6 +3606,16 @@
         <Description />
     </Code>
     <Code>
+        <Id>G2</Id>
+        <Name>US gallon per minute</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>G3</Id>
+        <Name>Imperial gallon per minute</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>G04</Id>
         <Name>centimetre per bar</Name>
         <Description />
@@ -3681,11 +3691,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>G2</Id>
-        <Name>US gallon per minute</Name>
-        <Description />
-    </Code>
-    <Code>
         <Id>G20</Id>
         <Name>pound-force foot per pound</Name>
         <Description />
@@ -3728,11 +3733,6 @@
     <Code>
         <Id>G29</Id>
         <Name>cubic metre per kelvin</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>G3</Id>
-        <Name>Imperial gallon per minute</Name>
         <Description />
     </Code>
     <Code>
@@ -4850,6 +4850,11 @@
         <Description />
     </Code>
     <Code>
+        <Id>J2</Id>
+        <Name>joule per kilogram</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>J10</Id>
         <Name>percent per millimetre</Name>
         <Description>A unit of proportion, equal to 0.01, in relation to a millimetre.</Description>
@@ -4897,11 +4902,6 @@
     <Code>
         <Id>J19</Id>
         <Name>degree Fahrenheit hour square foot per British thermal unit (thermochemical)</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>J2</Id>
-        <Name>joule per kilogram</Name>
         <Description />
     </Code>
     <Code>
@@ -5323,6 +5323,23 @@
             intervals.</Description>
     </Code>
     <Code>
+        <Id>K2</Id>
+        <Name>kilovolt ampere reactive demand</Name>
+        <Description>A unit of measure defining the reactive power demand equal to one kilovolt
+            ampere of reactive power.</Description>
+    </Code>
+    <Code>
+        <Id>K3</Id>
+        <Name>kilovolt ampere reactive hour</Name>
+        <Description>A unit of measure defining the accumulated reactive energy equal to one
+            kilovolt ampere of reactive power per hour.</Description>
+    </Code>
+    <Code>
+        <Id>K6</Id>
+        <Name>kilolitre</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>K10</Id>
         <Name>ounce (US fluid) per hour</Name>
         <Description />
@@ -5373,12 +5390,6 @@
         <Description />
     </Code>
     <Code>
-        <Id>K2</Id>
-        <Name>kilovolt ampere reactive demand</Name>
-        <Description>A unit of measure defining the reactive power demand equal to one kilovolt
-            ampere of reactive power.</Description>
-    </Code>
-    <Code>
         <Id>K20</Id>
         <Name>reciprocal cubic foot</Name>
         <Description />
@@ -5412,12 +5423,6 @@
         <Id>K28</Id>
         <Name>gallon (UK) per second</Name>
         <Description />
-    </Code>
-    <Code>
-        <Id>K3</Id>
-        <Name>kilovolt ampere reactive hour</Name>
-        <Description>A unit of measure defining the accumulated reactive energy equal to one
-            kilovolt ampere of reactive power per hour.</Description>
     </Code>
     <Code>
         <Id>K30</Id>
@@ -5553,11 +5558,6 @@
     <Code>
         <Id>K59</Id>
         <Name>kilomole per cubic metre kelvin</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>K6</Id>
-        <Name>kilolitre</Name>
         <Description />
     </Code>
     <Code>
@@ -6017,6 +6017,11 @@
         <Description />
     </Code>
     <Code>
+        <Id>L2</Id>
+        <Name>litre per minute</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>L10</Id>
         <Name>quart (US liquid) per minute</Name>
         <Description />
@@ -6064,11 +6069,6 @@
     <Code>
         <Id>L19</Id>
         <Name>millilitre per litre</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>L2</Id>
-        <Name>litre per minute</Name>
         <Description />
     </Code>
     <Code>
@@ -6576,6 +6576,26 @@
         <Description />
     </Code>
     <Code>
+        <Id>M4</Id>
+        <Name>monetary value</Name>
+        <Description>A unit of measure expressed as a monetary amount.</Description>
+    </Code>
+    <Code>
+        <Id>M5</Id>
+        <Name>microcurie</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>M7</Id>
+        <Name>micro-inch</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>M9</Id>
+        <Name>million Btu per 1000 cubic foot</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>M10</Id>
         <Name>reciprocal cubic yard</Name>
         <Description />
@@ -6728,11 +6748,6 @@
             second by exponent 2.</Description>
     </Code>
     <Code>
-        <Id>M4</Id>
-        <Name>monetary value</Name>
-        <Description>A unit of measure expressed as a monetary amount.</Description>
-    </Code>
-    <Code>
         <Id>M40</Id>
         <Name>yard per second squared</Name>
         <Description>Unit of the length according to the Anglo-American and Imperial system of units
@@ -6789,11 +6804,6 @@
         <Id>M49</Id>
         <Name>chain (based on U.S. survey foot)</Name>
         <Description>Unit of the length according the Anglo-American system of units.</Description>
-    </Code>
-    <Code>
-        <Id>M5</Id>
-        <Name>microcurie</Name>
-        <Description />
     </Code>
     <Code>
         <Id>M50</Id>
@@ -6900,11 +6910,6 @@
         <Id>M69</Id>
         <Name>cubic mile (UK statute)</Name>
         <Description>Unit of volume according to the Imperial system of units.</Description>
-    </Code>
-    <Code>
-        <Id>M7</Id>
-        <Name>micro-inch</Name>
-        <Description />
     </Code>
     <Code>
         <Id>M70</Id>
@@ -7021,11 +7026,6 @@
         <Id>M89</Id>
         <Name>tonne per year</Name>
         <Description>Unit tonne divided by the unit year with 365 days.</Description>
-    </Code>
-    <Code>
-        <Id>M9</Id>
-        <Name>million Btu per 1000 cubic foot</Name>
-        <Description />
     </Code>
     <Code>
         <Id>M90</Id>
@@ -7324,6 +7324,11 @@
             parenteral/enteral therapy.</Description>
     </Code>
     <Code>
+        <Id>N3</Id>
+        <Name>print point</Name>
+        <Description />
+    </Code>
+    <Code>
         <Id>N10</Id>
         <Name>pound foot per second</Name>
         <Description>Product of the avoirdupois pound according to the avoirdupois unit system and
@@ -7458,11 +7463,6 @@
         <Description>Power of the unit foot according to the Anglo-American and Imperial system of
             units by exponent 3 divided by the unit avoirdupois pound according to the avoirdupois
             unit system.</Description>
-    </Code>
-    <Code>
-        <Id>N3</Id>
-        <Name>print point</Name>
-        <Description />
     </Code>
     <Code>
         <Id>N30</Id>
@@ -8038,6 +8038,17 @@
         <Description>A unit of proportion equal to 0.01.</Description>
     </Code>
     <Code>
+        <Id>P2</Id>
+        <Name>pound per foot</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>P5</Id>
+        <Name>five pack</Name>
+        <Description>A unit of count defining the number of five-packs (five-pack: set of five items
+            packaged together).</Description>
+    </Code>
+    <Code>
         <Id>P10</Id>
         <Name>coulomb per metre</Name>
         <Description>Derived SI unit coulomb divided by the SI base unit metre.</Description>
@@ -8090,11 +8101,6 @@
         <Name>kilojoule per minute</Name>
         <Description>Quotient from the 1000-fold of the derived SI unit joule divided by the unit
             minute.</Description>
-    </Code>
-    <Code>
-        <Id>P2</Id>
-        <Name>pound per foot</Name>
-        <Description />
     </Code>
     <Code>
         <Id>P20</Id>
@@ -8276,12 +8282,6 @@
         <Name>newton square metre per ampere</Name>
         <Description>Product of the derived SI unit newton and the power of SI base unit metre with
             exponent 2 divided by the SI base unit ampere.</Description>
-    </Code>
-    <Code>
-        <Id>P5</Id>
-        <Name>five pack</Name>
-        <Description>A unit of count defining the number of five-packs (five-pack: set of five items
-            packaged together).</Description>
     </Code>
     <Code>
         <Id>P50</Id>
@@ -8661,6 +8661,12 @@
             person.</Description>
     </Code>
     <Code>
+        <Id>Q3</Id>
+        <Name>meal</Name>
+        <Description>A unit of count defining the number of meals (meal: an amount of food to be
+            eaten on a single occasion).</Description>
+    </Code>
+    <Code>
         <Id>Q10</Id>
         <Name>joule per tesla</Name>
         <Description>Unit of the magnetic dipole moment of the molecule as derived SI unit joule
@@ -8855,12 +8861,6 @@
     <Code>
         <Id>Q42</Id>
         <Name>Joule per standard cubic metre</Name>
-    </Code>
-    <Code>
-        <Id>Q3</Id>
-        <Name>meal</Name>
-        <Description>A unit of count defining the number of meals (meal: an amount of food to be
-            eaten on a single occasion).</Description>
     </Code>
     <Code>
         <Id>QA</Id>
@@ -9287,44 +9287,6 @@
         <Description>A unit of distance used or formerly used by British surveyors.</Description>
     </Code>
     <Code>
-        <Id>YDK</Id>
-        <Name>square yard</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>YDQ</Id>
-        <Name>cubic yard</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>YRD</Id>
-        <Name>yard</Name>
-        <Description />
-    </Code>
-    <Code>
-        <Id>Z11</Id>
-        <Name>hanging container</Name>
-        <Description>A unit of count defining the number of hanging containers.</Description>
-    </Code>
-    <Code>
-        <Id>Z9</Id>
-        <Name>nanomole</Name>
-    </Code>
-    <Code>
-        <Id>ZP</Id>
-        <Name>page</Name>
-        <Description>A unit of count defining the number of pages.</Description>
-    </Code>
-    <Code>
-        <Id>ZZ</Id>
-        <Name>mutually defined</Name>
-        <Description>A unit of measure as agreed in common between two or more
-            parties.</Description>
-    </Code>
-    <!-- END of Recommendation 20 -->
-
-    <!-- START of Recommendation 21, prefixed with X -->
-    <Code>
         <Id>X1A</Id>
         <Name>Drum, steel</Name>
     </Code>
@@ -9360,18 +9322,6 @@
     <Code>
         <Id>X3H</Id>
         <Name>Jerrican, plastic</Name>
-    </Code>
-    <Code>
-        <Id>X43</Id>
-        <Name>Bag, super bulk</Name>
-        <Description>A cloth plastic or paper based bag having the dimensions of the pallet on which
-            it is constructed.</Description>
-    </Code>
-    <Code>
-        <Id>X44</Id>
-        <Name>Bag, polybag</Name>
-        <Description>A type of plastic bag, typically used to wrap promotional pieces, publications,
-            product samples, and/or catalogues.</Description>
     </Code>
     <Code>
         <Id>X4A</Id>
@@ -9448,6 +9398,18 @@
         <Id>X8C</Id>
         <Name>Bundle, wooden</Name>
         <Description>Loose or unpacked pieces of wood tied or wrapped together.</Description>
+    </Code>
+    <Code>
+        <Id>X43</Id>
+        <Name>Bag, super bulk</Name>
+        <Description>A cloth plastic or paper based bag having the dimensions of the pallet on which
+            it is constructed.</Description>
+    </Code>
+    <Code>
+        <Id>X44</Id>
+        <Name>Bag, polybag</Name>
+        <Description>A type of plastic bag, typically used to wrap promotional pieces, publications,
+            product samples, and/or catalogues.</Description>
     </Code>
     <Code>
         <Id>XAA</Id>
@@ -10260,14 +10222,14 @@
         <Name>Pallet ISO 2 – 2/1 EURO Pallet</Name>
     </Code>
     <Code>
+        <Id>XOJ</Id>
+        <Name>1/4 EURO Pallet</Name>
+    </Code>
+    <Code>
         <Id>XOK</Id>
         <Name>Block</Name>
         <Description>A solid piece of a hard substance, such as granite, having one or more flat
             sides.</Description>
-    </Code>
-    <Code>
-        <Id>XOJ</Id>
-        <Name>1/4 EURO Pallet</Name>
     </Code>
     <Code>
         <Id>XOL</Id>
@@ -10298,14 +10260,6 @@
         <Name>Oneway pallet</Name>
     </Code>
     <Code>
-        <Id>XOV</Id>
-        <Name>Returnable pallet</Name>
-    </Code>
-    <Code>
-        <Id>XOW</Id>
-        <Name>Large bag, pallet sized</Name>
-    </Code>
-    <Code>
         <Id>XOT</Id>
         <Name>Octabin</Name>
         <Description>A standard cardboard container of large dimensions for storing for example
@@ -10316,6 +10270,14 @@
         <Name>Container, outer</Name>
         <Description>A type of containment box that serves as the outer shipping container, not
             otherwise specified as transport equipment.</Description>
+    </Code>
+    <Code>
+        <Id>XOV</Id>
+        <Name>Returnable pallet</Name>
+    </Code>
+    <Code>
+        <Id>XOW</Id>
+        <Name>Large bag, pallet sized</Name>
     </Code>
     <Code>
         <Id>XOX</Id>
@@ -10751,6 +10713,11 @@
         <Name>Bulk, liquid</Name>
     </Code>
     <Code>
+        <Id>XVN</Id>
+        <Name>Vehicle</Name>
+        <Description>A self-propelled means of conveyance.</Description>
+    </Code>
+    <Code>
         <Id>XVO</Id>
         <Name>Bulk, solid, large particles (“nodules”)</Name>
     </Code>
@@ -10761,11 +10728,6 @@
     <Code>
         <Id>XVQ</Id>
         <Name>Bulk, liquefied gas (at abnormal temperature/pressure)</Name>
-    </Code>
-    <Code>
-        <Id>XVN</Id>
-        <Name>Vehicle</Name>
-        <Description>A self-propelled means of conveyance.</Description>
     </Code>
     <Code>
         <Id>XVR</Id>
@@ -11091,6 +11053,41 @@
     <Code>
         <Id>XZZ</Id>
         <Name>Mutually defined </Name>
+    </Code>
+    <Code>
+        <Id>YDK</Id>
+        <Name>square yard</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>YDQ</Id>
+        <Name>cubic yard</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>YRD</Id>
+        <Name>yard</Name>
+        <Description />
+    </Code>
+    <Code>
+        <Id>Z9</Id>
+        <Name>nanomole</Name>
+    </Code>
+    <Code>
+        <Id>Z11</Id>
+        <Name>hanging container</Name>
+        <Description>A unit of count defining the number of hanging containers.</Description>
+    </Code>
+    <Code>
+        <Id>ZP</Id>
+        <Name>page</Name>
+        <Description>A unit of count defining the number of pages.</Description>
+    </Code>
+    <Code>
+        <Id>ZZ</Id>
+        <Name>mutually defined</Name>
+        <Description>A unit of measure as agreed in common between two or more
+            parties.</Description>
     </Code>
 
 

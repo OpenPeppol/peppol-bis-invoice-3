@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-envelope-3.0-sbdh">
+    <assert>
+        <description>Verify SBDH sender and receiver identifiers match the invoice or credit note endpoint identifiers.</description>
+        <scope>BR-SBDH-1</scope>
+        <scope>BR-SBDH-2</scope>
+        <scope>BR-SBDH-3</scope>
+        <scope>BR-SBDH-4</scope>
+    </assert>
+    <test>
+        <assert>
+            <description>Standard billing succeeds when sender and receiver identifiers match the supplier and customer endpoints.</description>
+            <success>BR-SBDH-1</success>
+            <success>BR-SBDH-2</success>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Standard billing fails when the receiver identifier does not match the customer endpoint.</description>
+            <error>BR-SBDH-1</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Standard billing fails when the sender identifier does not match the supplier endpoint.</description>
+            <error>BR-SBDH-2</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing succeeds when sender and receiver identifiers are swapped to match the customer and supplier endpoints.</description>
+            <success>BR-SBDH-3</success>
+            <success>BR-SBDH-4</success>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing fails when the receiver identifier does not match the supplier endpoint.</description>
+            <error>BR-SBDH-3</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing fails when the sender identifier does not match the customer endpoint.</description>
+            <error>BR-SBDH-4</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Unsupported customization and profile combinations are allowed without endpoint validation, even when the SBDH identifiers do not match the invoice endpoints.</description>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:1111111111111</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:2222222222222</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>Invoice</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:99:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:99:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </Invoice>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Standard billing credit notes succeed when sender and receiver identifiers match the supplier and customer endpoints.</description>
+            <success>BR-SBDH-1</success>
+            <success>BR-SBDH-2</success>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Standard billing credit notes fail when the receiver identifier does not match the customer endpoint.</description>
+            <error>BR-SBDH-1</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Standard billing credit notes fail when the sender identifier does not match the supplier endpoint.</description>
+            <error>BR-SBDH-2</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing credit notes succeed when sender and receiver identifiers are swapped to match the customer and supplier endpoints.</description>
+            <success>BR-SBDH-3</success>
+            <success>BR-SBDH-4</success>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing credit notes fail when the receiver identifier does not match the supplier endpoint.</description>
+            <error>BR-SBDH-3</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:4562458856624</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Self-billing credit notes fail when the sender identifier does not match the customer endpoint.</description>
+            <error>BR-SBDH-4</error>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:9999999999999</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:7315458756324</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:selfbilling:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:selfbilling:01:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+    <test>
+        <assert>
+            <description>Unsupported customization and profile combinations are allowed without endpoint validation for credit notes, even when the SBDH identifiers do not match the credit note endpoints.</description>
+        </assert>
+        <StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                  xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+            <StandardBusinessDocumentHeader>
+                <HeaderVersion>1.0</HeaderVersion>
+                <Sender>
+                    <Identifier Authority="iso6523-actorid-upis">0088:1111111111111</Identifier>
+                </Sender>
+                <Receiver>
+                    <Identifier Authority="iso6523-actorid-upis">0088:2222222222222</Identifier>
+                </Receiver>
+                <DocumentIdentification>
+                    <Standard>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Standard>
+                    <TypeVersion>2.1</TypeVersion>
+                    <InstanceIdentifier>123123</InstanceIdentifier>
+                    <Type>CreditNote</Type>
+                    <CreationDateAndTime>2019-02-01T15:42:10Z</CreationDateAndTime>
+                </DocumentIdentification>
+                <BusinessScope>
+                    <Scope>
+                        <Type>DOCUMENTID</Type>
+                        <InstanceIdentifier>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</InstanceIdentifier>
+                        <Identifier>busdox-docid-qns</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>PROCESSID</Type>
+                        <InstanceIdentifier>urn:fdc:peppol.eu:2017:poacc:billing:99:1.0</InstanceIdentifier>
+                        <Identifier>cenbii-procid-ubl</Identifier>
+                    </Scope>
+                    <Scope>
+                        <Type>COUNTRY_C1</Type>
+                        <InstanceIdentifier>BE</InstanceIdentifier>
+                    </Scope>
+                </BusinessScope>
+            </StandardBusinessDocumentHeader>
+            <CreditNote xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                        xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                        xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2">
+                <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+                <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:99:1.0</cbc:ProfileID>
+                <cac:AccountingSupplierParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">7315458756324</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingSupplierParty>
+                <cac:AccountingCustomerParty>
+                    <cac:Party>
+                        <cbc:EndpointID schemeID="0088">4562458856624</cbc:EndpointID>
+                    </cac:Party>
+                </cac:AccountingCustomerParty>
+            </CreditNote>
+        </StandardBusinessDocument>
+    </test>
+</testSet>

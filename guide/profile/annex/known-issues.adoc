@@ -1,5 +1,5 @@
 
-= Known Issues for profile 01 - Billing
+= Known Issues for profile 01 - Billing and profile 02 - Billing with response
 
 
 [cols="1s,2s,4,3", options="header"]

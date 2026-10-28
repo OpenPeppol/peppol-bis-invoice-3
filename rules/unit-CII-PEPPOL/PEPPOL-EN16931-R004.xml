@@ -55,4 +55,38 @@
 
         </CrossIndustryInvoice>
     </test>
+    <test>
+        <assert>
+            <error>PEPPOL-EN16931-R004</error>
+        </assert>
+        <CrossIndustryInvoice
+                xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+                xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+                xmlns="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+
+            <ExchangedDocumentContext>
+                <ram:GuidelineSpecifiedDocumentContextParameter>
+                    <ram:ID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.difi.no:ehf:ver3.0::2.1</ram:ID>
+                </ram:GuidelineSpecifiedDocumentContextParameter>
+            </ExchangedDocumentContext>
+
+        </CrossIndustryInvoice>
+    </test>
+    <test>
+        <assert>
+            <error>PEPPOL-EN16931-R004</error>
+        </assert>
+        <CrossIndustryInvoice
+                xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+                xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+                xmlns="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+
+            <ExchangedDocumentContext>
+                <ram:GuidelineSpecifiedDocumentContextParameter>
+                    <ram:ID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</ram:ID>
+                </ram:GuidelineSpecifiedDocumentContextParameter>
+            </ExchangedDocumentContext>
+
+        </CrossIndustryInvoice>
+    </test>
 </testSet>

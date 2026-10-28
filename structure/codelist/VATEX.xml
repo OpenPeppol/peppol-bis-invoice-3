@@ -138,6 +138,10 @@
             radio and television bodies.</Description>
 	</Code>
 	<Code>
+		<Id>VATEX-EU-135-1</Id>
+		<Name>Exempt based on article 135, section 1 of Council Directive 2006/112/EC</Name>
+	</Code>
+	<Code>
 		<Id>VATEX-EU-143</Id>
 		<Name>Exempt based on article 143 of Council Directive 2006/112/EC</Name>
 		<Description>Exemptions on importation.</Description>
@@ -352,6 +356,10 @@
             canteens.</Description>
 	</Code>
 	<Code>
+		<Id>VATEX-EU-153</Id>
+		<Name>Exempt based on article 153 of Council Directive 2006/112/EC</Name>
+	</Code>
+	<Code>
 		<Id>VATEX-EU-159</Id>
 		<Name>Exempt based on article 159 of Council Directive 2006/112/EC</Name>
 		<Description>Exemptions for services linked to supplies of goods intended to be placed under customs warehouses, warehouses other than customs warehouses and similar arrangements.</Description>
@@ -395,11 +403,6 @@
 		<Description>Supports EN 16931-1 rule BR-IC-10 - Only use with VAT category code K</Description>
 	</Code>
 	<Code>
-		<Id>VATEX-EU-O</Id>
-		<Name>Not subject to VAT</Name>
-		<Description>Supports EN 16931-1 rule BR-O-10 - Only use with VAT category code O</Description>
-	</Code>
-	<Code>
 		<Id>VATEX-EU-J</Id>
 		<Name>Intra-Community acquisition of collectors items and antiques</Name>
 		<Description>Collectors' items and antiques - Indication that the VAT margin scheme for
@@ -407,18 +410,17 @@
             E</Description>
 	</Code>
 	<Code>
-		<Id>VATEX-FR-FRANCHISE</Id>
-		<Name>France domestic VAT franchise in base</Name>
-		<Description>For domestic invoicing in France</Description>
+		<Id>VATEX-EU-O</Id>
+		<Name>Not subject to VAT</Name>
+		<Description>Supports EN 16931-1 rule BR-O-10 - Only use with VAT category code O</Description>
 	</Code>
 	<Code>
-		<Id>VATEX-FR-CNWVAT</Id>
-		<Name>France domestic Credit Notes without VAT, due to supplier forfeit of VAT for discount</Name>
-		<Description>For domestic Credit Notes only in France</Description>
+		<Id>VATEX-FR-298SEXDECIESA</Id>
+		<Name>Exempt based on article 298 sexdecies A of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
-		<Id>VATEX-EU-153</Id>
-		<Name>Exempt based on article 153 of Council Directive 2006/112/EC</Name>
+		<Id>VATEX-FR-AE</Id>
+		<Name>Exempt based on 2 of article 283 of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
 		<Id>VATEX-FR-CGI261-1</Id>
@@ -498,27 +500,25 @@ Exonération de TVA - Article 261 D-3° du Code Général des Impôts</Name>
 		<Name>Exempt based on 2° of article 261 E of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
-		<Id>VATEX-FR-CGI277A</Id>
-		<Name>Exempt based on article 277 A of the Code Général des Impôts (CGI ; General tax code)</Name>
-	</Code>
-	<Code>
 		<Id>VATEX-FR-CGI275</Id>
 		<Name>Exempt based on article 275 of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
-		<Id>VATEX-FR-298SEXDECIESA</Id>
-		<Name>Exempt based on article 298 sexdecies A of the Code Général des Impôts (CGI ; General tax code)</Name>
+		<Id>VATEX-FR-CGI277A</Id>
+		<Name>Exempt based on article 277 A of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
 		<Id>VATEX-FR-CGI295</Id>
 		<Name>Exempt based on article 295 of the Code Général des Impôts (CGI ; General tax code)</Name>
 	</Code>
 	<Code>
-		<Id>VATEX-FR-AE</Id>
-		<Name>Exempt based on 2 of article 283 of the Code Général des Impôts (CGI ; General tax code)</Name>
+		<Id>VATEX-FR-CNWVAT</Id>
+		<Name>France domestic Credit Notes without VAT, due to supplier forfeit of VAT for discount</Name>
+		<Description>For domestic Credit Notes only in France</Description>
 	</Code>
 	<Code>
-		<Id>VATEX-EU-135-1</Id>
-		<Name>Exempt based on article 135, section 1 of Council Directive 2006/112/EC</Name>
+		<Id>VATEX-FR-FRANCHISE</Id>
+		<Name>France domestic VAT franchise in base</Name>
+		<Description>For domestic invoicing in France</Description>
 	</Code>
 </CodeList>

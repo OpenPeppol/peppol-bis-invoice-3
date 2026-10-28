@@ -32,6 +32,11 @@
 				<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R052</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R054</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R055</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
                 
                 <Reference type="RULE">PEPPOL-EN16931-CL008</Reference>
                 
@@ -72,6 +77,11 @@
 					<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R052</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R054</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R055</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
 
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
@@ -223,6 +233,11 @@
 					<Reference type="RULE">PEPPOL-COMMON-R050</Reference>
 					<Reference type="RULE">PEPPOL-COMMON-R052</Reference>
 					<Reference type="RULE">PEPPOL-COMMON-R053</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R054</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R055</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
 
                     <Value type="EXAMPLE">SE8765456787</Value>
                 </Element>

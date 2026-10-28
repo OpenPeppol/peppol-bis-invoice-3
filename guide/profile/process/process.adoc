@@ -31,3 +31,9 @@ P6:: Payment in advance of delivery
 P7:: Invoices with references to a despatch advice
 P8:: Invoices with references to a despatch advice and a receiving advice
 P9:: Credit notes or invoices with negative amounts, issued for a variety of reasons including the return of empty packaging
+
+== Invoicing with response
+
+The difference between the invoicing process with response and the basic invoicing process is that in the invoicing process with response, the supplier expects the customer to send a response after receiving the invoice. 
+
+See BIS 3 Upgrade for more information on Invoice Response 3.2 (T111).

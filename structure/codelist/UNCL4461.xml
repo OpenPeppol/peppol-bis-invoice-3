@@ -400,6 +400,10 @@
 		<Description>Payment will be made or has been made by an online payment service.</Description>
 	</Code>
 	<Code>
+		<Id>69</Id>
+		<Name>Transfer Advice</Name>
+	</Code>
+	<Code>
 		<Id>70</Id>
 		<Name>Bill drawn by the creditor on the debtor</Name>
 		<Description>Bill drawn by the creditor on the debtor.</Description>
@@ -479,9 +483,5 @@
 		<Name>Mutually defined</Name>
 		<Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
-	</Code>
-	<Code>
-		<Id>69</Id>
-		<Name>Transfer Advice</Name>
 	</Code>
 </CodeList>

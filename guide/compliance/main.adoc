@@ -1,5 +1,5 @@
 = Compliance to BIS
-openPeppol AISBL <http://www.peppol.eu/>
+openPeppol AISBL <https://www.peppol.org/>
 :icons: font
 :source-highlighter: coderay
 :toc: left

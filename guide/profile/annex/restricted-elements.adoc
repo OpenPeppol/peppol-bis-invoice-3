@@ -1,5 +1,5 @@
 
-= Restrictions for profile 01 - Billing
+= Restrictions for profile 01 - Billing and profile 02 - Billing with response
 
 
 [cols="1s,2s,2,4,1", options="header"]

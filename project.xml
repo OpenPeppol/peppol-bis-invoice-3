@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project xmlns="urn:fdc:difi.no:2017:vefa:structure:Project-1">
 
-    <Name>Peppol BIS Billing 3.0 - November 2025 Release</Name>
+    <Name>Peppol BIS Billing 3.0 - May 2026 Release</Name>
 
     <Documentation path="bis/">Business Interoperability Specifications (BIS)</Documentation>
     <Documentation path="compliance/">BIS compliance</Documentation>
-	<Documentation path="release-notes/">Release notes</Documentation>
+    <Documentation path="release-notes/">Release notes</Documentation>
 
     <!-- Documentation -->
     <Resource>
@@ -49,7 +49,13 @@
         <Path>rules/sch/PEPPOL-EN16931-UBL.sch</Path>
         <Title>Rules for Peppol BIS 3.0 Billing</Title>
     </Resource>
-    
+	    <Resource>
+        <Identifier>sbdh-peppol</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/sch/PeppolBIS-Envelope-Rules.sch</Path>
+        <Title>Rules for Enveloping compliance</Title>
+    </Resource>
+
     <!-- Code lists -->
     <Resource>
         <Type>CodeList-1</Type>
@@ -86,7 +92,7 @@
     <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/UNCL1001-cn.xml</Path>
-    </Resource> 
+    </Resource>
     <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/UNCL1153.xml</Path>
@@ -107,14 +113,14 @@
         <Type>CodeList-1</Type>
         <Path>structure/codelist/UNCL7161.xml</Path>
     </Resource>
-       <Resource>
+    <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/MimeCode.xml</Path>
-    </Resource>   
+    </Resource>
     <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/SEPA.xml</Path>
-    </Resource> 
+    </Resource>
     <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/VATEX.xml</Path>
@@ -122,11 +128,11 @@
 
 
     <!-- Files -->
-    
+
     <Resource>
         <Type>native:File</Type>
         <Path>rules/sch/PEPPOL-EN16931-UBL.sch</Path>
-        <Title>Schematron for PEPPOL rules (UBL)</Title>
+        <Title>Schematron for Peppol rules (UBL)</Title>
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">PEPPOL-EN16931-UBL.sch</Property>
     </Resource>
@@ -137,12 +143,27 @@
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">CEN-EN16931-UBL.sch</Property>
     </Resource>
-    
+    <Resource>
+        <Type>native:File</Type>
+        <Path>rules/sch/PeppolBIS-Envelope-Rules.sch</Path>
+        <Title>Schematron for Enveloping compliance rules</Title>
+        <Description>Supplementary Schematron rules for testing Enveloping compliance</Description>
+        <Property key="download">PeppolBIS-Envelope-Rules.sch</Property>
+    </Resource>
+
     <Resource>
         <Type>native:File</Type>
         <Path>stylesheet/stylesheet-ubl.xslt</Path>
         <Title>Stylesheet for UBL instances</Title>
         <Property key="download">stylesheet-ubl.xslt</Property>
+    </Resource>
+    
+    <Resource>
+        <Type>native:File</Type>
+        <Path>stylesheet/stylesheet-viewer.zip</Path>
+        <Title>Html viewer for UBL instances</Title>
+        <Property key="download">stylesheet-viewer.zip</Property>
+        <Property key="filename">stylesheet-viewer.zip</Property>
     </Resource>
 
     <Resource>
@@ -151,8 +172,9 @@
         <Title>Example files</Title>
         <Property key="download">BIS-Billing3-Examples.zip</Property>
         <Property key="filename">BIS-Billing3-Examples.zip</Property>
-    </Resource>		
-    
+    </Resource>
+
+
     <!--Resource>
         <Type>native:File</Type>
         <Path>mapping/mapping-cii-ubl.xls</Path>

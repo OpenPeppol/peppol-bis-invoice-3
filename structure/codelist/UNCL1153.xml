@@ -3251,6 +3251,10 @@
             Union's Trade Control and Expert System (TRACES).</Description>
 	</Code>
 	<Code>
+		<Id>AXU</Id>
+		<Name>Block Stowage Reference</Name>
+	</Code>
+	<Code>
 		<Id>BA</Id>
 		<Name>Beginning meter reading actual</Name>
 		<Description>Meter reading at the beginning of an invoicing period.</Description>
@@ -4337,9 +4341,5 @@
 		<Id>ZZZ</Id>
 		<Name>Mutually defined reference number</Name>
 		<Description>Number based on party agreement.</Description>
-	</Code>
-	<Code>
-		<Id>AXU</Id>
-		<Name>Block Stowage Reference</Name>
 	</Code>
 </CodeList>
