@@ -66,6 +66,54 @@
 			</rsm:SupplyChainTradeTransaction>
 		</rsm:CrossIndustryInvoice>				
 	</test>
+
+	<test>
+		<assert>
+			<success>PEPPOL-COMMON-R043</success>
+		</assert>
+		<rsm:CrossIndustryInvoice
+			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+			xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+			xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<rsm:ExchangedDocument>
+				<ram:TypeCode>380</ram:TypeCode>
+			</rsm:ExchangedDocument>
+			<rsm:SupplyChainTradeTransaction>
+				<ram:ApplicableHeaderTradeAgreement>
+					<ram:SellerTradeParty>
+						<ram:SpecifiedLegalOrganization>
+							<ram:ID schemeID="0208">1000000021</ram:ID>
+						</ram:SpecifiedLegalOrganization>
+					</ram:SellerTradeParty>
+				</ram:ApplicableHeaderTradeAgreement>
+			</rsm:SupplyChainTradeTransaction>
+		</rsm:CrossIndustryInvoice>
+	</test>
+
+	<test>
+		<assert>
+			<error>PEPPOL-COMMON-R043</error>
+		</assert>
+		<rsm:CrossIndustryInvoice
+			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+			xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+			xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<rsm:ExchangedDocument>
+				<ram:TypeCode>380</ram:TypeCode>
+			</rsm:ExchangedDocument>
+			<rsm:SupplyChainTradeTransaction>
+				<ram:ApplicableHeaderTradeAgreement>
+					<ram:SellerTradeParty>
+						<ram:SpecifiedLegalOrganization>
+							<ram:ID schemeID="0208">2000000042</ram:ID> <!-- valid mod-97, first digit not 0 or 1 -->
+						</ram:SpecifiedLegalOrganization>
+					</ram:SellerTradeParty>
+				</ram:ApplicableHeaderTradeAgreement>
+			</rsm:SupplyChainTradeTransaction>
+		</rsm:CrossIndustryInvoice>
+	</test>
 	    
    
     <test>

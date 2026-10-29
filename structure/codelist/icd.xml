@@ -1223,4 +1223,16 @@ Classes moyennes et Energie</Description>
 	<Code>
 		<Id>0248</Id>
 		<Name>Oman Value Added Tax Identification Number (VATIN)</Name>
+	</Code>
+	<Code>
+		<Id>0249</Id>
+		<Name>The Chamber of Commerce &amp; Industry St. Eustatius &amp; Saba establishment number</Name>
+	</Code>
+	<Code>
+		<Id>0250</Id>
+		<Name>SECD - Siemens Energy Classification Dictionary</Name>
+	</Code>
+	<Code>
+		<Id>0251</Id>
+		<Name>The Bonaire Chamber of Commerce and Industry establishment number.</Name>
 	</Code></CodeList>

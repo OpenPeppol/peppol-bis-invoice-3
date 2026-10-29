@@ -11,16 +11,17 @@ Release date:: November 2026
 
 == Changes to code lists and validation artefacts
 * Codelist publication date: 2026-09-11
-* Validation artefacts UBL and CII: version 1.3.16, publication date 2026-04-10 (unchanged since v3.0.21)
+* Validation artefacts UBL and CII updated to version 1.3.17, publication date 2026-10-09
 
 [cols="1,1,1,1"]
 |===
 |codelist|removed|added|description changed
-|All code lists |0 |0 |0
+|icd |0 [] |3 [0249,0250,0251] |0 []
+|VATEX |0 [] |18 [VATEX-ES-N1,VATEX-ES-N2,VATEX-ES-IVA20,VATEX-ES-IVA21,VATEX-ES-IVA22,VATEX-ES-IVA23/24,VATEX-ES-IVA25,VATEX-ES-IVA140BIS,VATEX-ES-OTROS,VATEX-ES-IGIC1TR,VATEX-ES-IGIC11,VATEX-ES-IGIC12,VATEX-ES-IGIC13,VATEX-ES-IGIC25,VATEX-ES-IGIC47,VATEX-ES-IGIC90,VATEX-ES-IPSI7,VATEX-ES-IPSI8] |0 []
 |===
 
 ==  Changes to Country-Specific Rules
-* Added correction on Germany (DE) rules to allow code 389, was missing in the list of allowed codes, UBL only
+* Rule DE-R-017 stays a warning. The text now says SHOULD instead of "should". Invoice type code 389 was already in the allowed list. UBL only.
 * Rule DE-R-T02 becomes fatal. It was introduced as a warning in May 2026. The text says MUST. UBL only.
 * Removed rule and sample check GR-R-001-5 for Greece (GR) [RFC-563](https://openpeppol.atlassian.net/browse/RFC-563), UBL only
 * Rules GR-R-001-1, GR-R-008-2 and GR-R-008-3 stay fatal. The text now says MUST instead of SHOULD. The checks are unchanged. UBL only.
@@ -37,7 +38,7 @@ Release date:: November 2026
 * Changed rule PEPPOL-COMMON-R040 to ONLY allow GLN13 values with schemeID 0088., UBL and CII.
 * Fixed five example files containing invalid GLNs so they comply with PEPPOL-COMMON-R040.
 * Rule PEPPOL-COMMON-R040 stays fatal. The text now says MUST. UBL and CII.
-* Updated validation method on rule PEPPOL-COMMON-R043 (fatal) to validate Belgian identifiers
+* Updated validation method on rule PEPPOL-COMMON-R043 (fatal) so a Belgian enterprise number (schemeID 0208) must be 10 digits starting with 0 or 1 and pass the mod-97 check. UBL and CII.
 * Changed the wording of warning rules PEPPOL-COMMON-R044, PEPPOL-COMMON-R045, PEPPOL-COMMON-R046, and PEPPOL-COMMON-R047 from “must” to “SHOULD” to align the rule text with the severity. Updated other lowercase should to uppercase SHOULD. [RFC-558](https://openpeppol.atlassian.net/browse/RFC-558)
 * Changed rules PEPPOL-COMMON-R054, PEPPOL-COMMON-R055, PEPPOL-COMMON-R056-1, PEPPOL-COMMON-R056-2, and PEPPOL-COMMON-R057 from warning to fatal after the announced transition period. [RFC-541](https://openpeppol.atlassian.net/browse/RFC-541)
 * Added rule PEPPOL-COMMON-R058 (introduced as warning, will change to fatal in coming release) for validation of Luxembourg VAT numbers. The VAT number must follow the format LU followed by 8 digits, where the last 2 digits are the check digits computed as the first 6 digits modulo 89. Applies to Seller VAT identifier (BT-31), Buyer VAT identifier (BT-48), and Tax representative VAT identifier (BT-63). UBL and CII.
@@ -46,5 +47,5 @@ Release date:: November 2026
 
 ==  EN 16931 schematrons updated
 * Rules PEPPOL-EN16931-CL001 and PEPPOL-EN16931-CL006 stay fatal. The text now says MUST instead of "must". CL001 applies to UBL and CII. CL006 applies to UBL only, because CII has no invoice period description code.
-* Updated rule PEPPOL-EN16931-P0112 for Slovakia (SK) [RFC-585](https://openpeppol.atlassian.net/browse/RFC-585), UBL only
+* Rule PEPPOL-EN16931-P0112 did not change in this release. The update was added in the 3.0.21 hotfix, link:https://openpeppol.atlassian.net/browse/RFC-607[RFC-607], and is kept here for reference because it was initially added for this version. Invoice type code 384 is allowed when both buyer and seller are German organizations or both are Slovak organizations. Invoice type codes 326 and 389 are only allowed when both buyer and seller are German organizations. UBL only.
 * Added fatal inferred mandatory-cardinality rules PEPPOL-EN16931-R140 through PEPPOL-EN16931-R276. These 137 rules require exactly one occurrence of UBL elements that the structure model declares mandatory. UBL only; the current unit test covers R257 and R258.

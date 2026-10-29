@@ -4,6 +4,78 @@
 	<Identifier>vatex</Identifier>
 	<Agency>CEF</Agency>
 	<Code>
+		<Id>VATEX-ES-IGIC1TR</Id>
+		<Name>Exempt based on Chapter I of the Consolidated Text approved by Legislative Decree 1/2025</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC11</Id>
+		<Name>Exempt based on Article 11 of Law 20/1991 of 7 June</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC12</Id>
+		<Name>Exempt based on Article 12 of Law 20/1991 of 7 June</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC13</Id>
+		<Name>Exempt based on Article 13 of Law 20/1991 of 7 June</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC25</Id>
+		<Name>Exempt based on Article 25 of Law 19/1994 of 6 July</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC47</Id>
+		<Name>Exempt based on Article 47 of Law 19/1994 of 6 July</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IGIC90</Id>
+		<Name>Exempt based on Article 90 of the Consolidated Text approved by Legislative Decree 1/2025</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IPSI7</Id>
+		<Name>Exempt based on Article 7 of Law 8/1991 of 25 March</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IPSI8</Id>
+		<Name>Exempt based on Article 8 of Law 8/1991 of 25 March</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA20</Id>
+		<Name>Exempt based on Article 20 of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA21</Id>
+		<Name>Exempt based on Article 21 of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA22</Id>
+		<Name>Exempt based on Article 22 of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA23/24</Id>
+		<Name>Exempt based on Articles 23/24 of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA25</Id>
+		<Name>Exempt based on Article 25 of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-IVA140BIS</Id>
+		<Name>Exempt based on Article 140 bis of Law 37/1992 of 28 December</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-N1</Id>
+		<Name>Transaction not subject to VAT based on Articles 7 and 15 of Law 37/1992 of 28 December, Article 9 of Law 20/1991 of 7 June, Article 6 of Law 8/1991 of 25 March, and others</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-N2</Id>
+		<Name>Transaction not subject to VAT based on place-of-supply rules</Name>
+	</Code>
+	<Code>
+		<Id>VATEX-ES-OTROS</Id>
+		<Name>Exempt based on other grounds</Name>
+	</Code>
+	<Code>
 		<Id>VATEX-EU-79-C</Id>
 		<Name>Exempt based on article 79, point c of Council Directive 2006/112/EC</Name>
 		<Description>Exemptions relating to repayment of expenditures. Remark, Repayment of expenditure is not an exemption in the sense of the VAT Directive but may be handled as such in the context of the EN16931.</Description>

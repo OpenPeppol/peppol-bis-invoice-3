@@ -478,7 +478,7 @@ Last update: 2026 November release 3.0.22.
     <rule
       context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208']">
       <assert id="PEPPOL-COMMON-R043"
-        test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())"
+        test="matches(normalize-space(), '^[01][0-9]{9}$') and u:mod97-0208(normalize-space())"
         flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct
         format.</assert>
     </rule>

@@ -62,6 +62,38 @@
 			</cac:AccountingCustomerParty>
 		</CreditNote>
 	</test>
+
+	<test>
+		<assert>
+			<success>PEPPOL-COMMON-R043</success>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+			<cac:AccountingCustomerParty>
+				<cac:Party>
+					<cac:PartyLegalEntity>
+						<cbc:RegistrationName>Duvel</cbc:RegistrationName>
+						<cbc:CompanyID schemeID="0208">1000000021</cbc:CompanyID>
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:AccountingCustomerParty>
+		</Invoice>
+	</test>
+
+	<test>
+		<assert>
+			<error>PEPPOL-COMMON-R043</error>
+		</assert>
+		<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+			<cac:AccountingCustomerParty>
+				<cac:Party>
+					<cac:PartyLegalEntity>
+						<cbc:RegistrationName>Duvel</cbc:RegistrationName>
+						<cbc:CompanyID schemeID="0208">2000000042</cbc:CompanyID> <!-- valid mod-97, first digit not 0 or 1 -->
+					</cac:PartyLegalEntity>
+				</cac:Party>
+			</cac:AccountingCustomerParty>
+		</Invoice>
+	</test>
     
    
     <test>
