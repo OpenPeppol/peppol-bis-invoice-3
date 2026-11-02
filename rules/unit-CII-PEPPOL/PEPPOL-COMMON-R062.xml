@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-cii">
+  <assert>
+    <description>Belgian VAT numbers MUST be stated in the correct format.</description>
+    <scope>PEPPOL-COMMON-R062</scope>
+  </assert>
+
+  <test>
+    <assert>
+      <success>PEPPOL-COMMON-R062</success>
+    </assert>
+    <rsm:CrossIndustryInvoice
+      xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+      xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+      <rsm:SupplyChainTradeTransaction>
+        <ram:ApplicableHeaderTradeAgreement>
+          <ram:SellerTradeParty>
+            <ram:SpecifiedTaxRegistration>
+              <ram:ID schemeID="VA">BE0739484052</ram:ID>
+            </ram:SpecifiedTaxRegistration>
+          </ram:SellerTradeParty>
+        </ram:ApplicableHeaderTradeAgreement>
+      </rsm:SupplyChainTradeTransaction>
+    </rsm:CrossIndustryInvoice>
+  </test>
+
+  <test>
+    <assert>
+      <warning>PEPPOL-COMMON-R062</warning>
+    </assert>
+    <rsm:CrossIndustryInvoice
+      xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+      xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+      <rsm:SupplyChainTradeTransaction>
+        <ram:ApplicableHeaderTradeAgreement>
+          <ram:BuyerTradeParty>
+            <ram:SpecifiedTaxRegistration>
+              <ram:ID schemeID="VA">BE0739484059</ram:ID>
+            </ram:SpecifiedTaxRegistration>
+          </ram:BuyerTradeParty>
+        </ram:ApplicableHeaderTradeAgreement>
+      </rsm:SupplyChainTradeTransaction>
+    </rsm:CrossIndustryInvoice>
+  </test>
+</testSet>

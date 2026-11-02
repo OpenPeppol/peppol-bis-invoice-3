@@ -39,7 +39,6 @@
                 <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
-                <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-CL008</Reference>
                 
@@ -90,7 +89,6 @@
                     <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
-                <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
 					
                     <Attribute usage="Optional">
@@ -142,6 +140,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-35</Reference>
                     <Reference type="RULE">IT-R-002</Reference>
+                    <Reference type="RULE">SK-R-002</Reference>
                     <Value type="EXAMPLE">Main Street 1</Value>
                 </Element>
                 
@@ -161,6 +160,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-37</Reference>
                     <Reference type="RULE">IT-R-003</Reference>
+                    <Reference type="RULE">SK-R-003</Reference>
                     <Value type="EXAMPLE">London</Value>
                 </Element>
                 
@@ -172,6 +172,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-38</Reference>
                     <Reference type="RULE">IT-R-004</Reference>
+                    <Reference type="RULE">SK-R-004</Reference>
                     <Value type="EXAMPLE">W1G 8LZ</Value>
                 </Element>
                 
@@ -197,8 +198,6 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-162</Reference>
                         <Value type="EXAMPLE">Building 23</Value>
-                        <Reference type="RULE">PEPPOL-EN16931-R157</Reference>
-                        <Reference type="RULE">PEPPOL-EN16931-R226</Reference>
                     </Element>
                 </Element>
                 
@@ -291,6 +290,7 @@
                     <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R062</Reference>
                     <Value type="EXAMPLE">NO999888777</Value>
                     <Reference type="RULE">PEPPOL-EN16931-R155</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R224</Reference>
@@ -347,6 +347,9 @@
                     <Reference type="RULE">SE-R-003</Reference>
                     <Reference type="RULE">SE-R-004</Reference>
                     <Reference type="RULE">SE-R-013</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R040</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R043</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Seller legal registration identifier identification scheme identifier</Name>

@@ -6,8 +6,6 @@
         <Description>A group of business terms providing information about the Buyer.</Description>
         <Reference type="BUSINESS_TERM">BG-7</Reference>
         
-        <Reference type="RULE">PEPPOL-EN16931-R140</Reference>
-        <Reference type="RULE">PEPPOL-EN16931-R209</Reference>
         <Element>
             <Term>cac:Party</Term>
             <Name>PARTY</Name>
@@ -41,7 +39,6 @@
                 <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
-                <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
                 
                 <Reference type="RULE">PEPPOL-EN16931-CL008</Reference>
@@ -90,7 +87,6 @@
                     <Reference type="RULE">PEPPOL-COMMON-R056-1</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R056-2</Reference>
                     <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
-                <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
 
                     <Attribute usage="Optional">
@@ -136,6 +132,7 @@
                     <Description>The main address line in an address.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-50</Reference>
+                    <Reference type="RULE">SK-R-005</Reference>
                     <Value type="EXAMPLE">Hovudgatan 32</Value>
                 </Element>
                 
@@ -156,6 +153,7 @@
                     <Description>The common name of the city, town or village, where the Buyer's address is located.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-52</Reference>
+                    <Reference type="RULE">SK-R-006</Reference>
                     <Value type="EXAMPLE">Stockholm</Value>
                 </Element>
                 
@@ -166,6 +164,7 @@
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-53</Reference>
+                    <Reference type="RULE">SK-R-007</Reference>
                     <Value type="EXAMPLE">34567</Value>
                 </Element>
                 
@@ -191,8 +190,6 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-163</Reference>
                         <Value type="EXAMPLE">Building F2</Value>
-                        <Reference type="RULE">PEPPOL-EN16931-R147</Reference>
-                        <Reference type="RULE">PEPPOL-EN16931-R216</Reference>
                     </Element>
                 </Element>
                 
@@ -258,6 +255,7 @@
                     <Reference type="RULE">PEPPOL-COMMON-R057</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
                 <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R062</Reference>
 
                     <Value type="EXAMPLE">SE8765456787</Value>
                     <Reference type="RULE">PEPPOL-EN16931-R145</Reference>
@@ -311,6 +309,9 @@
                     <Reference type="RULE">BR-AE-04</Reference>
                     <Reference type="RULE">BR-CL-11</Reference>
                     <Reference type="RULE">DK-R-014</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R040</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R043</Reference>
+                    <Reference type="RULE">PEPPOL-COMMON-R059</Reference>
 					
                     
                     <Attribute usage="Optional">

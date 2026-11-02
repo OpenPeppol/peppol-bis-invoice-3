@@ -99,8 +99,6 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-164</Reference>
                     <Value type="EXAMPLE">A87</Value>
-                    <Reference type="RULE">PEPPOL-EN16931-R198</Reference>
-                    <Reference type="RULE">PEPPOL-EN16931-R266</Reference>
                 </Element>
             </Element>
             
@@ -168,6 +166,7 @@
                 <!--Reference type="RULE">BR-IP-03</Reference-->
                 <!--Reference type="RULE">BR-IP-04</Reference-->
                 <Reference type="RULE">PEPPOL-COMMON-R058</Reference>
+                <Reference type="RULE">PEPPOL-COMMON-R062</Reference>
                 <Value type="EXAMPLE">FR932874294</Value>
                 <Reference type="RULE">PEPPOL-EN16931-R196</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R264</Reference>

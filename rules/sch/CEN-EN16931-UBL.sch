@@ -227,6 +227,10 @@
       <assert id="BR-DEC-20" flag="fatal" test="string-length(substring-after(cbc:TaxAmount,'.'))&lt;=2">[BR-DEC-20]-The allowed maximum number of decimals for the VAT category tax amount (BT-117) is 2.    </assert>
     </rule>
     <rule context="//cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']">
+      <!--
+        QA2-01, not applied. CEN 1.3.17 removed EL from this country list. The message below still says Greece may use the prefix EL, and Peppol rule GR-R-003 requires EL for a Greek supplier VAT identifier. A Greek supplier invoice therefore fails BR-CO-09 when the prefix is EL, and fails GR-R-003 when the prefix is GR.
+        Apply this when the Greek Peppol Authority submits an RFC: in the list below, change "EH ER" to "EH EL ER".
+      -->
       <assert id="BR-CO-09" flag="fatal" test="( contains( ' 1A AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BL BJ BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS XI YE YT ZA ZM ZW ', concat(' ', substring(cbc:CompanyID,1,2), ' ')) )">[BR-CO-09]-The Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) shall have a prefix in accordance with ISO code ISO 3166-1 alpha-2 by which the country of issue may be identified. Nevertheless, Greece may use the prefix ‘EL’.</assert>
     </rule>
     <rule context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']">
@@ -375,7 +379,7 @@
       <assert id="UBL-DT-07" flag="fatal" test="(@filename)">[UBL-DT-07]-Binary object elements shall contain the file name attribute</assert>
     </rule>
     <rule context="cac:Delivery">
-      <assert id="UBL-SR-25" flag="fatal" test="not(cac:DeliveryParty) or count(cac:DeliveryParty/cac:PartyName/cbc:Name) = 1">[UBL-SR-25]-Deliver to party name shall occur maximum once</assert>
+      <assert id="UBL-SR-25" flag="fatal" test="not(cac:DeliveryParty) or count(cac:DeliveryParty/cac:PartyName/cbc:Name) = 1">[UBL-SR-25]-Deliver to party name shall occur exactly once when a deliver to party is present</assert>
     </rule>
     <rule context="cac:AllowanceCharge[cbc:ChargeIndicator = false()]">
       <assert id="UBL-SR-30" flag="fatal" test="(count(cbc:AllowanceChargeReason) &lt;= 1)">[UBL-SR-30]-Document level allowance reason shall occur maximum once</assert>
@@ -1135,7 +1139,7 @@
       <assert id="UBL-SR-27" flag="fatal" test="(count(cbc:PaymentMeansCode) &lt;= 1)">[UBL-SR-27]-Payment means text shall occur maximum once</assert>
       <assert id="UBL-SR-28" flag="fatal" test="(count(cac:PaymentMandate/cbc:ID) &lt;= 1)">[UBL-SR-28]-Mandate reference identifier shall occur maximum once</assert>
       <assert id="UBL-SR-58" flag="fatal" test="not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch) or count(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 1">[UBL-SR-58]-A Financial Institution Branch shall contain exactly one Payment service provider identifier (BT-86).</assert>
-      <assert id="UBL-SR-59" flag="fatal" test="not(cac:PayeeFinancialAccount) or count(cac:PayeeFinancialAccount/cbc:ID) = 1">[UBL-SR-59]-A Financial Institution Branch shall contain exactly one Payment account identifier (BT-84).</assert>
+      <assert id="UBL-SR-59" flag="fatal" test="not(cac:PayeeFinancialAccount) or count(cac:PayeeFinancialAccount/cbc:ID) = 1">[UBL-SR-59]-A payee financial account shall contain exactly one Payment account identifier (BT-84).</assert>
     </rule>
     <rule context="cac:BillingReference">
       <assert id="UBL-SR-06" flag="fatal" test="(count(cac:InvoiceDocumentReference) &lt;= 1)">[UBL-SR-06]-Preceding invoice reference shall occur maximum once</assert>

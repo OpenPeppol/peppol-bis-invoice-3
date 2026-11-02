@@ -65,7 +65,7 @@ include::../../syntax/codelists/inv-type.adoc[]
 
 | 326
 | Partial invoice
-| Document/message specifying details of an incomplete invoice.
+| Document/message specifying details of an incomplete invoice. (Germany only)
 | 380
 | Invoice
 

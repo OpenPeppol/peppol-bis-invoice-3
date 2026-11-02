@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSet xmlns="http://difi.no/xsd/vefa/validator/1.0" configuration="peppolbis-en16931-base-3.0-cii">
+	<assert>
+		<description>For Danish Customers it is mandatory to specify schemeID as 0184 when SpecifiedLegalOrganization is used for BuyerTradeParty</description>
+		<scope>DK-R-017</scope>
+	</assert>
+	<test>
+		<assert>
+			<success>DK-R-017</success>
+		</assert>
+		<rsm:CrossIndustryInvoice
+			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+			xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+			<rsm:SupplyChainTradeTransaction>
+				<ram:ApplicableHeaderTradeAgreement>
+					<ram:SellerTradeParty>
+						<ram:PostalTradeAddress>
+							<ram:CountryID>DK</ram:CountryID>
+						</ram:PostalTradeAddress>
+					</ram:SellerTradeParty>
+					<ram:BuyerTradeParty>
+						<ram:PostalTradeAddress>
+							<ram:CountryID>DK</ram:CountryID>
+						</ram:PostalTradeAddress>
+						<ram:SpecifiedLegalOrganization>
+							<ram:ID schemeID="0184">12345678</ram:ID>
+						</ram:SpecifiedLegalOrganization>
+					</ram:BuyerTradeParty>
+				</ram:ApplicableHeaderTradeAgreement>
+			</rsm:SupplyChainTradeTransaction>
+		</rsm:CrossIndustryInvoice>
+	</test>
+	<test>
+		<assert>
+			<error>DK-R-017</error>
+		</assert>
+		<rsm:CrossIndustryInvoice
+			xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+			xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+			<rsm:SupplyChainTradeTransaction>
+				<ram:ApplicableHeaderTradeAgreement>
+					<ram:SellerTradeParty>
+						<ram:PostalTradeAddress>
+							<ram:CountryID>DK</ram:CountryID>
+						</ram:PostalTradeAddress>
+					</ram:SellerTradeParty>
+					<ram:BuyerTradeParty>
+						<ram:PostalTradeAddress>
+							<ram:CountryID>DK</ram:CountryID>
+						</ram:PostalTradeAddress>
+						<ram:SpecifiedLegalOrganization>
+							<ram:ID schemeID="0088">5790000435968</ram:ID>
+						</ram:SpecifiedLegalOrganization>
+					</ram:BuyerTradeParty>
+				</ram:ApplicableHeaderTradeAgreement>
+			</rsm:SupplyChainTradeTransaction>
+		</rsm:CrossIndustryInvoice>
+	</test>
+</testSet>

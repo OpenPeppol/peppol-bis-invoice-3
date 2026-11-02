@@ -185,8 +185,6 @@
             <Term>cac:TaxScheme</Term>
             <Name>TAX SCHEME</Name>
             
-            <Reference type="RULE">PEPPOL-EN16931-R163</Reference>
-            <Reference type="RULE">PEPPOL-EN16931-R232</Reference>
             <Element>
                 <Term>cbc:ID</Term>
                 <Description>Mandatory element. Use “VAT”</Description>
