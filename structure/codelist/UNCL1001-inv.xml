@@ -90,7 +90,7 @@
             relevant party.
         </Description>
     </Code>
-    <!-- Germany only -->
+    <!-- Germany and Slovakia only -->
     <Code>
         <Id>384</Id>
         <Name>Corrected invoice</Name>
