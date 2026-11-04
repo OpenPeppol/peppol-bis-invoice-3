@@ -1,4 +1,4 @@
-= Version 3.0.21-hotfix
+= Version 3.0.22-hotfix
 [horizontal]
 Release date:: 2026-10-28
 
