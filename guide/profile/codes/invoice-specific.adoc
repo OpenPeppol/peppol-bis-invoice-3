@@ -89,7 +89,7 @@ include::../../syntax/codelists/inv-type.adoc[]
 
 | 384
 | Corrected invoice
-| Commercial invoice that includes revised information differing from an earlier submission of the same invoice. (Germany only)
+| Commercial invoice that includes revised information differing from an earlier submission of the same invoice. (Germany and Slovakia only)
 | 380
 | Invoice
 
