@@ -23,7 +23,7 @@ include::../../../syntax/codelists/inv-type.adoc[]
 
 | 527
 | Self billed debit note
-| An invoice the invoicee is producing instead of the seller.
+| A document which indicates that the customer is claiming debit in a self billing environment.
 |
 | Invoice
 

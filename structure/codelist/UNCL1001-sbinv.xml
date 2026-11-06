@@ -15,7 +15,7 @@
          <Code>
         <Id>527</Id>
         <Name>Self billed debit note</Name>
-        <Description>An invoice the invoicee is producing instead of the seller.</Description>
+        <Description>A document which indicates that the customer is claiming debit in a self billing environment.</Description>
     </Code>
 
 </CodeList>
