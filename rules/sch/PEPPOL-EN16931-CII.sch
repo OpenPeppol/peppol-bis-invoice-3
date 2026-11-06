@@ -358,7 +358,7 @@ Last update: 2026 May release 3.0.21.
 	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
       <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
     </rule>
-    <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
+    <rule context="ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
       <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
     </rule>
 	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
