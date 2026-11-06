@@ -20,4 +20,9 @@ Example:
 To support implementers, a Schematron file is provided for automated validation of the enveloping rules described above. Use of this Schematron is optional, however conformance to the rules themselves is mandatory.
 
 See Policy for use of Identifiers for more information on how to represent identifiers in envelope and messages.
+Policy for use of Identifiers: https://docs.peppol.eu/poacc/concept/identifier/ Policy 2 Identifier value casing
 
+Remark:
+Although an underlying identifier (such as a Chamber of Commerce or VAT number) could theoretically contain uppercase letters, Peppol mandates that software and access points must be case-insensitive during lookups (SMP lookups) and routing, in order to prevent delivery errors.
+
+That means that a value in the payload still can adhere to a validation rule that triggers when its value is not using the correct format.
