@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2026 November release 3.0.22.
+Last update: 2026 November release 3.1.0.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
@@ -30,11 +30,11 @@ Last update: 2026 November release 3.0.22.
      " />
   <let name="supplierCountry"
     value="
-      if (/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then
-        upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))
+      if ((/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]) then
+        upper-case(normalize-space((/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]))
       else
-        if (/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then
-          upper-case(normalize-space(/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))
+        if ((/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]) then
+          upper-case(normalize-space((/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]))
         else
           if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then
             upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))
@@ -42,8 +42,8 @@ Last update: 2026 November release 3.0.22.
             'XX'" />
   <let name="customerCountry"
     value="
-		if (/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then
-		upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))
+		if ((/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]) then
+		upper-case(normalize-space((/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2))[1]))
 		else
 		if (/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then
 		upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))
@@ -91,8 +91,7 @@ Last update: 2026 November release 3.0.22.
   </function>
   <function name="u:checkCodiceIPA" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
     <param name="arg" as="xs:string?" />
-    <variable name="allowed-characters">
-      ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
+    <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
     <sequence
       select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()" />
   </function>
@@ -550,7 +549,7 @@ Last update: 2026 November release 3.0.22.
      context="cac:PartyTaxScheme
                    [normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']
                    /cbc:CompanyID
-                   [starts-with(normalize-space(.), 'BE')]">
+                   [starts-with(upper-case(normalize-space(.)), 'BE')]">
 	  <assert id="PEPPOL-COMMON-R062"
      flag="warning"
      test=" matches(upper-case(normalize-space(.)), '^BE[01][0-9]{9}$') and u:mod97-0208(substring(upper-case(normalize-space(.)), 3))">
@@ -1253,7 +1252,7 @@ correct format.
     </rule>
     <rule
       context="(/ubl-invoice:Invoice/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference | /ubl-creditnote:CreditNote/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference)[$supplierCountryIsDE and $customerCountryIsDE]">
-      <assert test="matches(cbc:URI, $XR-URL-REGEX)" flag="fatal" id="DE-R-T02">[DE-R-T02]-If both
+      <assert test="matches(normalize-space(cbc:URI), $XR-URL-REGEX)" flag="fatal" id="DE-R-T02">[DE-R-T02]-If both
         supplier and customer are located in Germany, BT-124 "External document location" MUST
         contain an absolute URL with valid scheme.</assert>
     </rule>
@@ -1491,7 +1490,6 @@ correct format.
   </pattern>
   <pattern id="inferred-mandatory-cardinality">
   <rule context="ubl-creditnote:CreditNote">
-    <assert id="PEPPOL-EN16931-R140" test="count(cac:AccountingCustomerParty) = 1" flag="fatal">[PEPPOL-EN16931-R140]-ubl-creditnote:CreditNote MUST contain exactly one cac:AccountingCustomerParty.</assert>
     <assert id="PEPPOL-EN16931-R205" test="count(cbc:CreditNoteTypeCode) = 1" flag="fatal">[PEPPOL-EN16931-R205]-ubl-creditnote:CreditNote MUST contain exactly one cbc:CreditNoteTypeCode.</assert>
     <assert id="PEPPOL-EN16931-R206" test="count(cbc:CustomizationID) = 1" flag="fatal">[PEPPOL-EN16931-R206]-ubl-creditnote:CreditNote MUST contain exactly one cbc:CustomizationID.</assert>
     <assert id="PEPPOL-EN16931-R207" test="count(cbc:DocumentCurrencyCode) = 1" flag="fatal">[PEPPOL-EN16931-R207]-ubl-creditnote:CreditNote MUST contain exactly one cbc:DocumentCurrencyCode.</assert>
@@ -1517,9 +1515,6 @@ correct format.
   <rule context="ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R148" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R148]-ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R147" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R147]-ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R149" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R149]-ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1543,9 +1538,6 @@ correct format.
   <rule context="ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R158" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R158]-ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R157" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R157]-ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R159" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R159]-ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1556,7 +1548,6 @@ correct format.
     <assert id="PEPPOL-EN16931-R162" test="count(cac:TaxCategory) = 1" flag="fatal">[PEPPOL-EN16931-R162]-ubl-creditnote:CreditNote/cac:AllowanceCharge MUST contain exactly one cac:TaxCategory.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:AllowanceCharge/cac:TaxCategory">
-    <assert id="PEPPOL-EN16931-R163" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R163]-ubl-creditnote:CreditNote/cac:AllowanceCharge/cac:TaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R165" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R165]-ubl-creditnote:CreditNote/cac:AllowanceCharge/cac:TaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme">
@@ -1582,7 +1573,6 @@ correct format.
     <assert id="PEPPOL-EN16931-R169" test="count(cbc:Value) = 1" flag="fatal">[PEPPOL-EN16931-R169]-ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:Item/cac:AdditionalItemProperty MUST contain exactly one cbc:Value.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory">
-    <assert id="PEPPOL-EN16931-R171" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R171]-ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R173" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R173]-ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme">
@@ -1596,9 +1586,6 @@ correct format.
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address">
     <assert id="PEPPOL-EN16931-R181" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R181]-ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address MUST contain exactly one cac:Country.</assert>
-  </rule>
-  <rule context="ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R180" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R180]-ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country">
     <assert id="PEPPOL-EN16931-R182" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R182]-ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
@@ -1643,9 +1630,6 @@ correct format.
   <rule context="ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R199" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R199]-ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R198" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R198]-ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R200" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R200]-ubl-creditnote:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1653,14 +1637,12 @@ correct format.
     <assert id="PEPPOL-EN16931-R204" test="count(cbc:TaxableAmount) = 1" flag="fatal">[PEPPOL-EN16931-R204]-ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal MUST contain exactly one cbc:TaxableAmount.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory">
-    <assert id="PEPPOL-EN16931-R201" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R201]-ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R203" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R203]-ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme">
     <assert id="PEPPOL-EN16931-R202" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R202]-ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice">
-    <assert id="PEPPOL-EN16931-R209" test="count(cac:AccountingCustomerParty) = 1" flag="fatal">[PEPPOL-EN16931-R209]-ubl-invoice:Invoice MUST contain exactly one cac:AccountingCustomerParty.</assert>
     <assert id="PEPPOL-EN16931-R273" test="count(cbc:CustomizationID) = 1" flag="fatal">[PEPPOL-EN16931-R273]-ubl-invoice:Invoice MUST contain exactly one cbc:CustomizationID.</assert>
     <assert id="PEPPOL-EN16931-R274" test="count(cbc:DocumentCurrencyCode) = 1" flag="fatal">[PEPPOL-EN16931-R274]-ubl-invoice:Invoice MUST contain exactly one cbc:DocumentCurrencyCode.</assert>
     <assert id="PEPPOL-EN16931-R275" test="count(cbc:InvoiceTypeCode) = 1" flag="fatal">[PEPPOL-EN16931-R275]-ubl-invoice:Invoice MUST contain exactly one cbc:InvoiceTypeCode.</assert>
@@ -1686,9 +1668,6 @@ correct format.
   <rule context="ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R217" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R217]-ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R216" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R216]-ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R218" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R218]-ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1712,9 +1691,6 @@ correct format.
   <rule context="ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R227" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R227]-ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R226" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R226]-ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R228" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R228]-ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1725,7 +1701,6 @@ correct format.
     <assert id="PEPPOL-EN16931-R231" test="count(cac:TaxCategory) = 1" flag="fatal">[PEPPOL-EN16931-R231]-ubl-invoice:Invoice/cac:AllowanceCharge MUST contain exactly one cac:TaxCategory.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:AllowanceCharge/cac:TaxCategory">
-    <assert id="PEPPOL-EN16931-R232" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R232]-ubl-invoice:Invoice/cac:AllowanceCharge/cac:TaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R234" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R234]-ubl-invoice:Invoice/cac:AllowanceCharge/cac:TaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme">
@@ -1737,9 +1712,6 @@ correct format.
   <rule context="ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address">
     <assert id="PEPPOL-EN16931-R237" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R237]-ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R236" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R236]-ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country">
     <assert id="PEPPOL-EN16931-R238" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R238]-ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1749,7 +1721,6 @@ correct format.
   <rule context="ubl-invoice:Invoice/cac:InvoiceLine">
     <assert id="PEPPOL-EN16931-R249" test="count(cac:Price) = 1" flag="fatal">[PEPPOL-EN16931-R249]-ubl-invoice:Invoice/cac:InvoiceLine MUST contain exactly one cac:Price.</assert>
     <assert id="PEPPOL-EN16931-R250" test="count(cbc:InvoicedQuantity) = 1" flag="fatal">[PEPPOL-EN16931-R250]-ubl-invoice:Invoice/cac:InvoiceLine MUST contain exactly one cbc:InvoicedQuantity.</assert>
-    <assert id="PEPPOL-EN16931-R251" test="count(cbc:LineExtensionAmount) = 1" flag="fatal">[PEPPOL-EN16931-R251]-ubl-invoice:Invoice/cac:InvoiceLine MUST contain exactly one cbc:LineExtensionAmount.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:InvoiceLine/cac:DocumentReference">
     <assert id="PEPPOL-EN16931-R240" test="count(cbc:DocumentTypeCode) = 1" flag="fatal">[PEPPOL-EN16931-R240]-ubl-invoice:Invoice/cac:InvoiceLine/cac:DocumentReference MUST contain exactly one cbc:DocumentTypeCode.</assert>
@@ -1762,7 +1733,6 @@ correct format.
     <assert id="PEPPOL-EN16931-R241" test="count(cbc:Value) = 1" flag="fatal">[PEPPOL-EN16931-R241]-ubl-invoice:Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty MUST contain exactly one cbc:Value.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory">
-    <assert id="PEPPOL-EN16931-R243" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R243]-ubl-invoice:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R245" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R245]-ubl-invoice:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme">
@@ -1811,9 +1781,6 @@ correct format.
   <rule context="ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress">
     <assert id="PEPPOL-EN16931-R267" test="count(cac:Country) = 1" flag="fatal">[PEPPOL-EN16931-R267]-ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress MUST contain exactly one cac:Country.</assert>
   </rule>
-  <rule context="ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine">
-    <assert id="PEPPOL-EN16931-R266" test="count(cbc:Line) = 1" flag="fatal">[PEPPOL-EN16931-R266]-ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine MUST contain exactly one cbc:Line.</assert>
-  </rule>
   <rule context="ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country">
     <assert id="PEPPOL-EN16931-R268" test="count(cbc:IdentificationCode) = 1" flag="fatal">[PEPPOL-EN16931-R268]-ubl-invoice:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country MUST contain exactly one cbc:IdentificationCode.</assert>
   </rule>
@@ -1821,7 +1788,6 @@ correct format.
     <assert id="PEPPOL-EN16931-R272" test="count(cbc:TaxableAmount) = 1" flag="fatal">[PEPPOL-EN16931-R272]-ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal MUST contain exactly one cbc:TaxableAmount.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory">
-    <assert id="PEPPOL-EN16931-R269" test="count(cac:TaxScheme) = 1" flag="fatal">[PEPPOL-EN16931-R269]-ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory MUST contain exactly one cac:TaxScheme.</assert>
     <assert id="PEPPOL-EN16931-R271" test="count(cbc:ID) = 1" flag="fatal">[PEPPOL-EN16931-R271]-ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory MUST contain exactly one cbc:ID.</assert>
   </rule>
   <rule context="ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme">

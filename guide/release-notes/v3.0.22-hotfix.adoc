@@ -1,9 +1,10 @@
-= Version 3.0.21-hotfix
+= Version 3.0.22-hotfix
 [horizontal]
 Release date:: 2026-10-28
 
 == Changes to code lists and validation artefacts
 
+* The documented country restriction for invoice type code 384 now says Germany and Slovakia only. Codes 326 and 389 stay Germany only.
 * Updated rule PEPPOL-EN16931-P0112 in the UBL schematron, link:https://openpeppol.atlassian.net/browse/RFC-607[RFC-607].
 ** Invoice type code 384 (Corrected invoice) is allowed when both buyer and seller are German organizations or both are Slovak organizations.
 ** Invoice type codes 326 (Partial invoice) and 389 (Self-billed invoice) are only allowed when both buyer and seller are German organizations.

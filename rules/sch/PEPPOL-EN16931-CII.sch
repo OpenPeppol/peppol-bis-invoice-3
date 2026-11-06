@@ -4,7 +4,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
 and gives no warranties expressed or implied for any purpose.
 
-Last update: 2026 November release 3.0.22.
+Last update: 2026 November release 3.1.0.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso"
   queryBinding="xslt2">
@@ -77,8 +77,7 @@ Last update: 2026 November release 3.0.22.
   </function>
   <function name="u:checkCodiceIPA" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
     <param name="arg" as="xs:string?" />
-    <variable name="allowed-characters">
-      ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
+    <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
     <sequence
       select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()" />
   </function>
@@ -441,19 +440,19 @@ Last update: 2026 November release 3.0.22.
     </rule>
     <!-- Validation of ICD -->
     <rule
-      context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088']">
+      context="ram:URIID[@schemeID = '0088'] | ram:ID[@schemeID = '0088'] | ram:GlobalID[@schemeID = '0088'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R040"
         test="matches(normalize-space(), '^[0-9]{13}$') and u:gln(normalize-space())" flag="fatal">[PEPPOL-COMMON-R040]-GLN13
         MUST have a valid format according to GS1 rules.</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0192'] | ram:ID[@schemeID = '0192'] | ram:GlobalID[@schemeID = '0192']">
+      context="ram:URIID[@schemeID = '0192'] | ram:ID[@schemeID = '0192'] | ram:GlobalID[@schemeID = '0192'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R041"
         test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())" flag="fatal">[PEPPOL-COMMON-R041]-Norwegian
         organization number MUST be stated in the correct format.</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0184'] | ram:ID[@schemeID = '0184'] | ram:GlobalID[@schemeID = '0184']">
+      context="ram:URIID[@schemeID = '0184'] | ram:ID[@schemeID = '0184'] | ram:GlobalID[@schemeID = '0184'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R042"
         test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
                or
@@ -462,33 +461,38 @@ Last update: 2026 November release 3.0.22.
         correct format.</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0096'] | ram:ID[@schemeID = '0096'] | ram:GlobalID[@schemeID = '0096']">
+      context="ram:URIID[@schemeID = '0096'] | ram:ID[@schemeID = '0096'] | ram:GlobalID[@schemeID = '0096'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R052"
         test="(string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)"
         flag="fatal">[PEPPOL-COMMON-R052]-Danish chamber of commerce number (P) MUST be stated in
         the correct format.</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0198'] | ram:ID[@schemeID = '0198'] | ram:GlobalID[@schemeID = '0198']">
+      context="ram:URIID[@schemeID = '0198'] | ram:ID[@schemeID = '0198'] | ram:GlobalID[@schemeID = '0198'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R053"
         test="(string-length(string()) = 10) and (substring(string(), 1, 2) = 'DK') and (string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)"
         flag="fatal">[PEPPOL-COMMON-R053]-Danish ERSTORG number (SE) MUST be stated in the correct
         format.</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208']">
+      context="ram:URIID[@schemeID = '0208'] | ram:ID[@schemeID = '0208'] | ram:GlobalID[@schemeID = '0208'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R043"
         test="matches(normalize-space(), '^[01][0-9]{9}$') and u:mod97-0208(normalize-space())"
         flag="fatal">[PEPPOL-COMMON-R043]-Belgian enterprise number MUST be stated in the correct
         format.</assert>
     </rule>
+    <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(upper-case(normalize-space(ram:ID)), 'BE')]">
+      <assert id="PEPPOL-COMMON-R062"
+        flag="warning"
+        test="matches(upper-case(normalize-space(ram:ID)), '^BE[01][0-9]{9}$') and u:mod97-0208(substring(upper-case(normalize-space(ram:ID)), 3))">[PEPPOL-COMMON-R062]-Belgian VAT number MUST be stated in the correct format.</assert>
+    </rule>
     <rule
-      context="ram:URIID[@schemeID = '0201'] | ram:ID[@schemeID = '0201'] | ram:GlobalID[@schemeID = '0201']">
+      context="ram:URIID[@schemeID = '0201'] | ram:ID[@schemeID = '0201'] | ram:GlobalID[@schemeID = '0201'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R044" test="u:checkCodiceIPA(normalize-space())" flag="warning">[PEPPOL-COMMON-R044]-IPA
         Code (Codice Univoco Unità Organizzativa) SHOULD be stated in the correct format</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0210'] | ram:ID[@schemeID = '0210'] | ram:GlobalID[@schemeID = '0210']">
+      context="ram:URIID[@schemeID = '0210'] | ram:ID[@schemeID = '0210'] | ram:GlobalID[@schemeID = '0210'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R045" test="u:checkCF(normalize-space())" flag="warning">[PEPPOL-COMMON-R045]-Tax
         Code (Codice Fiscale) SHOULD be stated in the correct format</assert>
     </rule>
@@ -497,7 +501,7 @@ Last update: 2026 November release 3.0.22.
         Code (Codice Fiscale) SHOULD be stated in the correct format</assert>
     </rule>
     <rule
-      context="ram:URIID[@schemeID = '0211'] | ram:ID[@schemeID = '0211'] | ram:GlobalID[@schemeID = '0211']">
+      context="ram:URIID[@schemeID = '0211'] | ram:ID[@schemeID = '0211'] | ram:GlobalID[@schemeID = '0211'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R047" test="u:checkPIVAseIT(normalize-space())" flag="warning">[PEPPOL-COMMON-R047]-Italian
         VAT Code (Partita Iva) SHOULD be stated in the correct format</assert>
     </rule>
@@ -506,25 +510,25 @@ Last update: 2026 November release 3.0.22.
     flag="warning">[PEPPOL-COMMON-R048]-Italian VAT Code (Partita Iva) must be stated in the correct
     format</assert>
     </rule> -->
-    <rule context="ram:URIID[@schemeID = '0007'] | ram:ID[@schemeID = '0007'] | ram:GlobalID[@schemeID = '0007']">
+    <rule context="ram:URIID[@schemeID = '0007'] | ram:ID[@schemeID = '0007'] | ram:GlobalID[@schemeID = '0007'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">[PEPPOL-COMMON-R049]-Swedish organization number MUST be stated in the correct format.</assert>
     </rule>
-	<rule context="ram:URIID[@schemeID = '0151'] | ram:ID[@schemeID = '0151'] | ram:GlobalID[@schemeID = '0151']">
+	<rule context="ram:URIID[@schemeID = '0151'] | ram:ID[@schemeID = '0151'] | ram:GlobalID[@schemeID = '0151'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R050" test="u:abn(normalize-space())" flag="fatal">[PEPPOL-COMMON-R050]-Australian Business Number (ABN) MUST be stated in the correct format.</assert>
     </rule>
-	<rule context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']">
+	<rule context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R054" test="matches(normalize-space(), '^[0-9]{8}$')" flag="fatal">[PEPPOL-COMMON-R054]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
     </rule>
-	<rule context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']">
+	<rule context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R055" test="matches(normalize-space(), '^[0-9]{20}$')" flag="fatal">[PEPPOL-COMMON-R055]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
     </rule>
-	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
+	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R056-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
     </rule>
     <rule context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
       <assert id="PEPPOL-COMMON-R056-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="fatal">[PEPPOL-COMMON-R056-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
     </rule>
-	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
+	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R057" test="matches(normalize-space(), '^[0-9]{12}$')" flag="fatal">[PEPPOL-COMMON-R057]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
     </rule>
     <!-- Luxembourg VAT number validation -->
@@ -536,7 +540,7 @@ Last update: 2026 November release 3.0.22.
       </assert>
     </rule>
     <!-- Luxembourg Register of Legal Persons number (Matricule) validation -->
-    <rule context="ram:URIID[@schemeID = '0240'] | ram:ID[@schemeID = '0240'] | ram:GlobalID[@schemeID = '0240']">
+    <rule context="ram:URIID[@schemeID = '0240'] | ram:ID[@schemeID = '0240'] | ram:GlobalID[@schemeID = '0240'][not(parent::ram:ShipToTradeParty or parent::ram:SpecifiedTradeProduct)]">
       <assert id="PEPPOL-COMMON-R059"
               flag="warning"
               test="u:check-lux-0240(normalize-space(.))">[PEPPOL-COMMON-R059]-Luxembourg Register of Legal Persons number (Matricule) MUST be stated in the correct format.</assert>
@@ -746,6 +750,11 @@ Last update: 2026 November release 3.0.22.
         flag="fatal">[SE-R-005]-For Swedish suppliers, when using Seller tax registration
         identifier, 'Godkänd för F-skatt' must be stated</assert>
     </rule>
+    <!--
+      QA2-02, not applied. UBL SE-R-006 checks VAT category S only. This CII rule checks every Swedish domestic VAT category, so a zero rate or an exemption is rejected in CII and accepted in UBL.
+      The Swedish RFC PEPPOL-25729 (RFC-596, POACC-989) only limits the rule to domestic transactions. It does not say that CII should follow the UBL category S filter.
+      Apply this when the Swedish Peppol Authority submits an RFC: add "and ram:CategoryCode = 'S'" to both predicates in the context below, before each closing bracket.
+    -->
     <rule
       context="//ram:ApplicableTradeTax[/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']/ram:SpecifiedTaxRegistration[substring(ram:ID[@schemeID = 'VA'], 1, 2) = 'SE'] and /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID = 'SE'] | //ram:CategoryTradeTax[/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty[ram:PostalTradeAddress/ram:CountryID = 'SE']/ram:SpecifiedTaxRegistration[substring(ram:ID[@schemeID = 'VA'], 1, 2) = 'SE'] and /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID = 'SE']">
       <assert id="SE-R-006"

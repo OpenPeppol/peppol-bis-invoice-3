@@ -112,8 +112,6 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-165</Reference>
                         <Value type="EXAMPLE">C54</Value>
-                        <Reference type="RULE">PEPPOL-EN16931-R180</Reference>
-                        <Reference type="RULE">PEPPOL-EN16931-R236</Reference>
                     </Element>
                 </Element>
                 
