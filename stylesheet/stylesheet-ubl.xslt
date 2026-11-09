@@ -11670,6 +11670,9 @@
 			<f id="Account">
 				<t id="en">Account</t>
 			</f>
+			<f id="AccountName">
+				<t id="en">Account name</t>
+			</f>
 			<f id="MandateReference">
 				<t id="en">Mandate reference</t>
 			</f>
@@ -11678,6 +11681,9 @@
 			</f>
 			<f id="CardAccount">
 				<t id="en">Card account</t>
+			</f>
+			<f id="CardHolderName">
+				<t id="en">Card holder name</t>
 			</f>
 		</g>
 		<g id="tax">
@@ -12486,42 +12492,78 @@
 		</div>
 	</xsl:template>
 	<xsl:template match="cac:PaymentMeans" mode="payment">
-		<div class="row">
-			<div class="col-sm-2">
+		<dl>
+			<dt>
+				<xsl:copy-of select="u:label('payment', 'PaymentMeansCode')" />
+			</dt>
+			<dd>
 				<xsl:value-of select="cbc:PaymentMeansCode" />
-			</div>
-			<div class="col-sm-10">
-				<dl class="row">
-					<dt class="col-sm-4">
-						<xsl:copy-of select="u:label('payment', 'PaymentID')" />
-					</dt>
-					<dd class="col-sm-8">
-						<xsl:value-of select="cbc:PaymentID" />
-					</dd>
-					<dt class="col-sm-4">
-						<xsl:copy-of select="u:label('payment', 'Account')" />
-					</dt>
-					<dd class="col-sm-8">
-						<xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID" /> (<xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID" />)</dd>
-					<xsl:if test="cac:PaymentMandate/cbc:ID">
-						<dt class="col-sm-4">
-							<xsl:copy-of select="u:label('payment', 'MandateReference')" />
-						</dt>
-						<dd class="col-sm-8">
-							<xsl:value-of select="cac:PaymentMandate/cbc:ID" />
-						</dd>
-					</xsl:if>
-					<xsl:if test="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID">
-						<dt class="col-sm-4">
-							<xsl:copy-of select="u:label('payment', 'DebitedAccount')" />
-						</dt>
-						<dd class="col-sm-8">
-							<xsl:value-of select="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID" />
-						</dd>
-					</xsl:if>
-				</dl>
-			</div>
-		</div>
+				<small> - <xsl:copy-of select="u:codelist('uncl4461', normalize-space(cbc:PaymentMeansCode))" />
+				</small>
+				<xsl:if test="normalize-space(cbc:PaymentMeansCode/@name) != '' and normalize-space(cbc:PaymentMeansCode/@name) != normalize-space(string(u:codelist('uncl4461', normalize-space(cbc:PaymentMeansCode))))">
+					<br />
+					<xsl:value-of select="cbc:PaymentMeansCode/@name" />
+				</xsl:if>
+			</dd>
+			<xsl:if test="cbc:PaymentID">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'PaymentID')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cbc:PaymentID" />
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:PayeeFinancialAccount/cbc:ID">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'Account')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID" />
+					<xsl:if test="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID"> (<xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID" />)</xsl:if>
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:PayeeFinancialAccount/cbc:Name">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'AccountName')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:PayeeFinancialAccount/cbc:Name" />
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:PaymentMandate/cbc:ID">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'MandateReference')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:PaymentMandate/cbc:ID" />
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'DebitedAccount')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID" />
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:CardAccount/cbc:PrimaryAccountNumberID">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'CardAccount')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:CardAccount/cbc:PrimaryAccountNumberID" />
+					<xsl:if test="cac:CardAccount/cbc:NetworkID"> (<xsl:value-of select="cac:CardAccount/cbc:NetworkID" />)</xsl:if>
+				</dd>
+			</xsl:if>
+			<xsl:if test="cac:CardAccount/cbc:HolderName">
+				<dt>
+					<xsl:copy-of select="u:label('payment', 'CardHolderName')" />
+				</dt>
+				<dd>
+					<xsl:value-of select="cac:CardAccount/cbc:HolderName" />
+				</dd>
+			</xsl:if>
+		</dl>
 	</xsl:template>
 	<xsl:template match="cac:PaymentTerms" mode="payment">
 		<xsl:apply-templates select="cbc:Note" mode="common" />
