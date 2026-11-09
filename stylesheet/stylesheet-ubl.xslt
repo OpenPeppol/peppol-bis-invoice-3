@@ -11856,7 +11856,10 @@
 		<xsl:value-of select="text()" />
 	</xsl:template>
 	<xsl:template match="cbc:*[ends-with(local-name(), 'Amount')]" mode="common">
-		<xsl:value-of select="format-number(text(), '###,##0.00')" /> <small>
+		<!-- unit price amounts (BT-146 to BT-148, inside cac:Price) are not limited to 2 decimals: show as many as the document has -->
+		<xsl:variable name="unit-price" select="exists(ancestor::cac:Price) and (text() castable as xs:decimal)" />
+		<xsl:variable name="decimals" select="if ($unit-price) then max((2, string-length(substring-after(normalize-space(text()), '.')))) else 2" />
+		<xsl:value-of select="format-number(if ($unit-price) then xs:decimal(text()) else text(), concat('###,##0.', string-join(for $i in 1 to $decimals return '0', '')))" /> <small>
 			<xsl:value-of select="@currencyID" />
 		</small>
 	</xsl:template>
