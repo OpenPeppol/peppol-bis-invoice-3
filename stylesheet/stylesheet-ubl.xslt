@@ -11500,6 +11500,9 @@
 			<f id="DeliveryID">
 				<t id="en">Location</t>
 			</f>
+			<f id="DeliveryPartyName">
+				<t id="en">Party Name</t>
+			</f>
 		</g>
 		<g id="document">
 			<f id="CreditNote">
@@ -11562,6 +11565,9 @@
 			<f id="DocumentReference">
 				<t id="en">Document Reference</t>
 			</f>
+			<f id="GrossPrice">
+				<t id="en">Gross price</t>
+			</f>
 			<f id="InvoicePeriod">
 				<t id="en">Invoice Period</t>
 			</f>
@@ -11570,6 +11576,9 @@
 			</f>
 			<f id="OrderLineReference">
 				<t id="en">Order Line</t>
+			</f>
+			<f id="PriceDiscount">
+				<t id="en">Price discount</t>
 			</f>
 			<f id="UnitPrice">
 				<t id="en">Price á</t>
@@ -11623,6 +11632,9 @@
 			</f>
 			<f id="ReceiptDocumentReference">
 				<t id="en">Receipt Reference</t>
+			</f>
+			<f id="SalesOrderID">
+				<t id="en">Sales Order Reference</t>
 			</f>
 			<f id="TaxCurrencyCode">
 				<t id="en">Tax Currency</t>
@@ -11906,10 +11918,11 @@
 			<xsl:value-of select="cac:TaxScheme/cbc:ID" />:</small>
 		<xsl:value-of select="cbc:ID" />
 		<small> - <xsl:copy-of select="u:codelist('uncl5305', cbc:ID/text())" /> (<xsl:value-of select="cbc:Percent" />%)</small>
-		<xsl:if test="cbc:TaxExemptionReason">
+		<xsl:if test="cbc:TaxExemptionReason or cbc:TaxExemptionReasonCode">
 			<br />
 			<small>
 				<xsl:value-of select="cbc:TaxExemptionReason" />
+				<xsl:if test="cbc:TaxExemptionReasonCode"> (<xsl:value-of select="cbc:TaxExemptionReasonCode" />)</xsl:if>
 			</small>
 		</xsl:if>
 	</xsl:template>
@@ -11941,11 +11954,20 @@
 	<xsl:template match="cac:Delivery" mode="delivery">
 		<div style="margin-bottom: 10pt;">
 			<dl>
+				<xsl:apply-templates select="cac:DeliveryParty/cac:PartyName/cbc:Name" mode="delivery" />
 				<xsl:apply-templates select="cbc:ActualDeliveryDate" mode="delivery" />
 				<xsl:apply-templates select="cac:DeliveryLocation/cbc:ID" mode="delivery" />
 				<xsl:apply-templates select="cac:DeliveryLocation/cac:Address" mode="delivery" />
 			</dl>
 		</div>
+	</xsl:template>
+	<xsl:template match="cac:DeliveryParty/cac:PartyName/cbc:Name" mode="delivery">
+		<dt>
+			<xsl:copy-of select="u:label('delivery', 'DeliveryPartyName')" />
+		</dt>
+		<dd>
+			<xsl:value-of select="text()" />
+		</dd>
 	</xsl:template>
 	<xsl:template match="cbc:ActualDeliveryDate" mode="delivery">
 		<dt>
@@ -12070,6 +12092,13 @@
 				<xsl:value-of select="cbc:AllowanceChargeReason" />
 				<xsl:if test="cbc:AllowanceChargeReasonCode"> <small>(<xsl:value-of select="cbc:AllowanceChargeReasonCode" />)</small>
 				</xsl:if>
+				<xsl:if test="cbc:BaseAmount or cbc:MultiplierFactorNumeric"> <small>
+						<xsl:apply-templates select="cbc:BaseAmount" mode="common" />
+						<xsl:if test="cbc:BaseAmount and cbc:MultiplierFactorNumeric"> × </xsl:if>
+						<xsl:if test="cbc:MultiplierFactorNumeric">
+							<xsl:value-of select="cbc:MultiplierFactorNumeric" />%</xsl:if>
+					</small>
+				</xsl:if>
 			</div>
 		</div>
 		<div class="linetotal">
@@ -12090,6 +12119,13 @@
 			<div class="col-sm-11 col-sm-offset-1">
 				<xsl:value-of select="cbc:AllowanceChargeReason" />
 				<xsl:if test="cbc:AllowanceChargeReasonCode"> <small>(<xsl:value-of select="cbc:AllowanceChargeReasonCode" />)</small>
+				</xsl:if>
+				<xsl:if test="cbc:BaseAmount or cbc:MultiplierFactorNumeric"> <small>
+						<xsl:apply-templates select="cbc:BaseAmount" mode="common" />
+						<xsl:if test="cbc:BaseAmount and cbc:MultiplierFactorNumeric"> × </xsl:if>
+						<xsl:if test="cbc:MultiplierFactorNumeric">
+							<xsl:value-of select="cbc:MultiplierFactorNumeric" />%</xsl:if>
+					</small>
 				</xsl:if>
 			</div>
 		</div>
@@ -12193,12 +12229,36 @@
 				</div>
 			</div>
 		</div>
+		<xsl:apply-templates select="cac:AllowanceCharge/cbc:BaseAmount" mode="line-price" />
+		<xsl:apply-templates select="cac:AllowanceCharge/cbc:Amount" mode="line-price" />
+	</xsl:template>
+	<xsl:template match="cac:Price/cac:AllowanceCharge/cbc:*" mode="line-price">
+		<div class="linesupport">
+			<div class="row">
+				<div class="col-sm-9">
+					<xsl:copy-of select="u:label('line', if (local-name() = 'BaseAmount') then 'GrossPrice' else 'PriceDiscount')" />
+				</div>
+				<div class="col-sm-3 text-right">
+					<xsl:if test="local-name() = 'Amount'">-</xsl:if>
+					<xsl:apply-templates select="current()" mode="common" />
+				</div>
+			</div>
+		</div>
 	</xsl:template>
 	<xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator='true']" mode="line-ac">
 		<div class="linesupport">
 			<div class="row">
 				<div class="col-sm-9">
 					<xsl:copy-of select="u:label('line', 'ChargeIncluded')" />: <xsl:value-of select="cbc:AllowanceChargeReason" />
+					<xsl:if test="cbc:AllowanceChargeReasonCode"> <small>(<xsl:value-of select="cbc:AllowanceChargeReasonCode" />)</small>
+					</xsl:if>
+					<xsl:if test="cbc:BaseAmount or cbc:MultiplierFactorNumeric"> <small>
+							<xsl:apply-templates select="cbc:BaseAmount" mode="common" />
+							<xsl:if test="cbc:BaseAmount and cbc:MultiplierFactorNumeric"> × </xsl:if>
+							<xsl:if test="cbc:MultiplierFactorNumeric">
+								<xsl:value-of select="cbc:MultiplierFactorNumeric" />%</xsl:if>
+						</small>
+					</xsl:if>
 				</div>
 				<div class="col-sm-3 text-right">
 					<xsl:apply-templates select="cbc:Amount" mode="common" />
@@ -12211,6 +12271,15 @@
 			<div class="row">
 				<div class="col-sm-9">
 					<xsl:copy-of select="u:label('line', 'AllowanceIncluded')" />: <xsl:value-of select="cbc:AllowanceChargeReason" />
+					<xsl:if test="cbc:AllowanceChargeReasonCode"> <small>(<xsl:value-of select="cbc:AllowanceChargeReasonCode" />)</small>
+					</xsl:if>
+					<xsl:if test="cbc:BaseAmount or cbc:MultiplierFactorNumeric"> <small>
+							<xsl:apply-templates select="cbc:BaseAmount" mode="common" />
+							<xsl:if test="cbc:BaseAmount and cbc:MultiplierFactorNumeric"> × </xsl:if>
+							<xsl:if test="cbc:MultiplierFactorNumeric">
+								<xsl:value-of select="cbc:MultiplierFactorNumeric" />%</xsl:if>
+						</small>
+					</xsl:if>
 				</div>
 				<div class="col-sm-3 text-right">-<xsl:apply-templates select="cbc:Amount" mode="common" />
 				</div>
@@ -12303,6 +12372,14 @@
 				<span> (<xsl:value-of select="cbc:IssueDate" />)</span>
 			</xsl:if>
 		</dd>
+		<xsl:if test="cbc:SalesOrderID">
+			<dt>
+				<xsl:copy-of select="u:label('metadata', 'SalesOrderID')" />
+			</dt>
+			<dd>
+				<xsl:value-of select="cbc:SalesOrderID" />
+			</dd>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="cbc:*" mode="metadata-detail">
 		<dt>
