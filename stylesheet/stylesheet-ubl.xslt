@@ -16,11 +16,14 @@
 	</xsl:template>
 	<xsl:template name="doc-footer">
 		<div id="footer">
-			<div>Document: <xsl:value-of select="namespace-uri()" />::<xsl:value-of select="local-name()" />
+			<div>
+				<xsl:copy-of select="u:label('footer', 'Document')" />: <xsl:value-of select="namespace-uri()" />::<xsl:value-of select="local-name()" />
 			</div>
-			<div>Customization: <xsl:value-of select="cbc:CustomizationID" />
+			<div>
+				<xsl:copy-of select="u:label('footer', 'CustomizationID')" />: <xsl:value-of select="cbc:CustomizationID" />
 			</div>
-			<div>Profile: <xsl:value-of select="cbc:ProfileID" />
+			<div>
+				<xsl:copy-of select="u:label('footer', 'ProfileID')" />: <xsl:value-of select="cbc:ProfileID" />
 			</div>
 		</div>
 	</xsl:template>
@@ -87,7 +90,9 @@
 					</div>
 					<hr />
 					<div id="details">
-						<h3>Details</h3>
+						<h3>
+							<xsl:copy-of select="u:label('line', 'Details')" />
+						</h3>
 						<xsl:apply-templates select="cac:AllowanceCharge[cbc:ChargeIndicator='true']" mode="line" />
 						<xsl:apply-templates select="cac:LegalMonetaryTotal/cbc:ChargeTotalAmount" mode="line" />
 						<xsl:apply-templates select="cac:AllowanceCharge[cbc:ChargeIndicator='false']" mode="line" />
@@ -163,7 +168,9 @@
 					</div>
 					<hr />
 					<div id="details">
-						<h3>Details</h3>
+						<h3>
+							<xsl:copy-of select="u:label('line', 'Details')" />
+						</h3>
 						<xsl:apply-templates select="cac:AllowanceCharge[cbc:ChargeIndicator='true']" mode="line" />
 						<xsl:apply-templates select="cac:LegalMonetaryTotal/cbc:ChargeTotalAmount" mode="line" />
 						<xsl:apply-templates select="cac:AllowanceCharge[cbc:ChargeIndicator='false']" mode="line" />
@@ -11476,6 +11483,9 @@
 			<f id="Embedded">
 				<t id="en">Embedded</t>
 			</f>
+			<f id="NoAttachments">
+				<t id="en">No attachments provided.</t>
+			</f>
 		</g>
 		<g id="delivery">
 			<f id="Address">
@@ -11497,6 +11507,17 @@
 			</f>
 			<f id="Invoice">
 				<t id="en">Invoice</t>
+			</f>
+		</g>
+		<g id="footer">
+			<f id="CustomizationID">
+				<t id="en">Customization</t>
+			</f>
+			<f id="Document">
+				<t id="en">Document</t>
+			</f>
+			<f id="ProfileID">
+				<t id="en">Profile</t>
 			</f>
 		</g>
 		<g id="item">
@@ -11535,6 +11556,9 @@
 			<f id="ChargeTotalAmount">
 				<t id="en">Charge Total</t>
 			</f>
+			<f id="Details">
+				<t id="en">Details</t>
+			</f>
 			<f id="DocumentReference">
 				<t id="en">Document Reference</t>
 			</f>
@@ -11546,6 +11570,9 @@
 			</f>
 			<f id="OrderLineReference">
 				<t id="en">Order Line</t>
+			</f>
+			<f id="UnitPrice">
+				<t id="en">Price á</t>
 			</f>
 		</g>
 		<g id="metadata">
@@ -11614,6 +11641,9 @@
 			<f id="EndpointID">
 				<t id="en">Technical Address</t>
 			</f>
+			<f id="LegalCompanyID">
+				<t id="en">Legal Company Identifier</t>
+			</f>
 			<f id="PartyIdentification">
 				<t id="en">Party Identification</t>
 			</f>
@@ -11622,6 +11652,9 @@
 			</f>
 			<f id="Supplier">
 				<t id="en">Supplier</t>
+			</f>
+			<f id="Telephone">
+				<t id="en">tlf</t>
 			</f>
 		</g>
 		<g id="payment">
@@ -11811,7 +11844,9 @@
 				</ul>
 			</xsl:when>
 			<xsl:otherwise>
-				<em>No attachments provided.</em>
+				<em>
+					<xsl:copy-of select="u:label('attachments', 'NoAttachments')" />
+				</em>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -12148,7 +12183,10 @@
 	<xsl:template match="cac:Price" mode="line">
 		<div class="linesupport">
 			<div class="row">
-				<div class="col-sm-9">Price á <xsl:apply-templates select="cbc:BaseQuantity" mode="common" />
+				<div class="col-sm-9">
+					<xsl:copy-of select="u:label('line', 'UnitPrice')" />
+					<xsl:text> </xsl:text>
+					<xsl:apply-templates select="cbc:BaseQuantity" mode="common" />
 				</div>
 				<div class="col-sm-3 text-right">
 					<xsl:apply-templates select="cbc:PriceAmount" mode="common" />
@@ -12403,7 +12441,9 @@
 		</div>
 	</xsl:template>
 	<xsl:template match="cac:PartyLegalEntity/cbc:CompanyID" mode="party">
-		<dt>Legal Company Identifier</dt>
+		<dt>
+			<xsl:copy-of select="u:label('party', 'LegalCompanyID')" />
+		</dt>
 		<dd>
 			<xsl:value-of select="text()" />
 		</dd>
@@ -12433,8 +12473,11 @@
 			<div>
 				<xsl:value-of select="cbc:Name" />
 			</div>
-			<div>tlf: <xsl:value-of select="cbc:Telephone" />
-			</div>
+			<xsl:if test="cbc:Telephone">
+				<div>
+					<xsl:copy-of select="u:label('party', 'Telephone')" />: <xsl:value-of select="cbc:Telephone" />
+				</div>
+			</xsl:if>
 			<div>
 				<a href="mailto:{cbc:ElectronicMail}">
 					<xsl:value-of select="cbc:ElectronicMail" />
@@ -12449,11 +12492,15 @@
 			</div>
 			<div class="col-sm-10">
 				<dl class="row">
-					<dt class="col-sm-4">PaymentID</dt>
+					<dt class="col-sm-4">
+						<xsl:copy-of select="u:label('payment', 'PaymentID')" />
+					</dt>
 					<dd class="col-sm-8">
 						<xsl:value-of select="cbc:PaymentID" />
 					</dd>
-					<dt class="col-sm-4">Account</dt>
+					<dt class="col-sm-4">
+						<xsl:copy-of select="u:label('payment', 'Account')" />
+					</dt>
 					<dd class="col-sm-8">
 						<xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID" /> (<xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID" />)</dd>
 					<xsl:if test="cac:PaymentMandate/cbc:ID">
